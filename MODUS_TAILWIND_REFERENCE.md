@@ -99,6 +99,46 @@ This document serves as a persistent reference for the Trimble Modus design syst
 --text-lg--line-height: var(--tm-text-lg--line-height);    /* Combined variable */
 --text-xl--line-height: var(--tm-text-xl--line-height);    /* Combined variable */
 --text-2xl--line-height: var(--tm-text-2xl--line-height);  /* Combined variable */
+```
+
+## Interactive States
+
+### Button States
+```css
+/* Light Mode Button States */
+/* Primary (Blue) */
+.btn-primary {
+  background: var(--tm-color-blue);
+}
+.btn-primary:hover {
+  background: var(--tm-color-blue-hover);     /* Blue Light */
+}
+.btn-primary:active {
+  background: var(--tm-color-blue-active);    /* Blue Dark */
+}
+
+/* Dark Mode Button States */
+.dark .btn-primary {
+  background: var(--tm-color-blue-dark);
+}
+.dark .btn-primary:hover {
+  background: var(--tm-color-blue-dark-hover);/* Base Blue */
+}
+.dark .btn-primary:active {
+  background: var(--tm-color-blue-dark-active);/* Blue Light */
+}
+```
+
+### Button Variants
+- **Filled Buttons**: Use solid background colors
+- **Outlined Buttons**: Use transparent background with colored borders
+- **Text Buttons**: Use transparent background with colored text
+
+### Opacity Values
+For interactive states:
+- Hover backgrounds (outlined/text): 15% opacity
+- Active backgrounds (outlined/text): 20% opacity
+- Focus rings: 30% opacity
 --text-3xl--line-height: var(--tm-text-3xl--line-height);  /* Combined variable */
 --text-4xl--line-height: var(--tm-text-4xl--line-height);  /* Combined variable */
 --text-5xl--line-height: var(--tm-text-5xl--line-height);  /* Combined variable */

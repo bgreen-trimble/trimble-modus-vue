@@ -79,6 +79,31 @@ When working with CSS variables in this project:
 | `--tm-color-primary-light` | #217cbb | #dcedf9 | Blue Light (Light) / Blue Pale (Dark) |
 | `--tm-color-primary-pale` | #dcedf9 | - | Blue Pale |
 
+### Interactive State Variables
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-color-blue-hover` | var(--tm-color-blue-light) | Blue hover state |
+| `--tm-color-blue-active` | var(--tm-color-blue-dark) | Blue active state |
+| `--tm-color-blue-dark-hover` | var(--tm-color-blue) | Dark mode blue hover |
+| `--tm-color-blue-dark-active` | var(--tm-color-blue-light) | Dark mode blue active |
+| `--tm-color-gray-hover` | var(--tm-color-gray-6) | Gray hover state |
+| `--tm-color-gray-active` | var(--tm-color-gray-8) | Gray active state |
+| `--tm-color-gray-dark-hover` | var(--tm-color-gray-5) | Dark mode gray hover |
+| `--tm-color-gray-dark-active` | var(--tm-color-gray-3) | Dark mode gray active |
+| `--tm-color-green-hover` | var(--tm-color-green-light) | Green hover state |
+| `--tm-color-green-active` | var(--tm-color-green-dark) | Green active state |
+| `--tm-color-green-dark-hover` | var(--tm-color-green) | Dark mode green hover |
+| `--tm-color-green-dark-active` | var(--tm-color-green-light) | Dark mode green active |
+| `--tm-color-yellow-hover` | var(--tm-color-yellow-light) | Yellow hover state |
+| `--tm-color-yellow-active` | var(--tm-color-yellow-dark) | Yellow active state |
+| `--tm-color-yellow-dark-hover` | var(--tm-color-yellow) | Dark mode yellow hover |
+| `--tm-color-yellow-dark-active` | var(--tm-color-yellow-light) | Dark mode yellow active |
+| `--tm-color-red-hover` | var(--tm-color-red-light) | Red hover state |
+| `--tm-color-red-active` | var(--tm-color-red-dark) | Red active state |
+| `--tm-color-red-dark-hover` | var(--tm-color-red) | Dark mode red hover |
+| `--tm-color-red-dark-active` | var(--tm-color-red-light) | Dark mode red active |
+
 ### Additional Primary Colors
 
 | Trimble Modus Variable | Value | Description |
