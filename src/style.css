@@ -330,8 +330,6 @@
   --text-wrap-normal: normal;
   --text-wrap-nowrap: nowrap;
   --text-wrap-break: break-word;
-
-  // ...existing code...
 }
 
 /* Dark Mode Theme Variables */
