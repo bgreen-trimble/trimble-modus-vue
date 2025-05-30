@@ -6,129 +6,77 @@
 @theme {
   /* Trimble Modus (tm) Color Variables */
   /* Blue Progression */
-  --tm-color-blue-dark: #0e416c;
-  /* Blue Dark */
-  --tm-color-blue: #0063a3;
-  /* Trimble Blue */
-  --tm-color-blue-light: #217cbb;
-  /* Blue Light */
-  --tm-color-blue-pale: #dcedf9;
-  /* Blue Pale */
+  --tm-color-blue-dark: #0e416c;         /* Blue Dark */
+  --tm-color-blue: #0063a3;              /* Trimble Blue */
+  --tm-color-blue-light: #217cbb;        /* Blue Light */
+  --tm-color-blue-pale: #dcedf9;         /* Blue Pale */
 
   /* Primary Palette */
-  --tm-color-primary: #0063a3;
-  /* Trimble Blue */
-  --tm-color-primary-dark: #004f83;
-  /* Trimble Blue Dark */
-  --tm-color-primary-light: #217cbb;
-  /* Blue Light */
-  --tm-color-primary-pale: #dcedf9;
-  /* Blue Pale */
+  --tm-color-primary: #0063a3;           /* Trimble Blue */
+  --tm-color-primary-dark: #004f83;      /* Trimble Blue Dark */
+  --tm-color-primary-light: #217cbb;     /* Blue Light */
+  --tm-color-primary-pale: #dcedf9;      /* Blue Pale */
 
   /* Additional Primary Colors */
-  --tm-color-yellow: #fbad26;
-  /* Trimble Yellow */
-  --tm-color-yellow-dark: #e49325;
-  /* Yellow Dark - Warning */
-  --tm-color-yellow-light: #fec157;
-  /* Yellow Light */
-  --tm-color-yellow-pale: #fff5e4;
-  /* Yellow Pale */
+  --tm-color-yellow: #fbad26;            /* Trimble Yellow */
+  --tm-color-yellow-dark: #e49325;       /* Yellow Dark - Warning */
+  --tm-color-yellow-light: #fec157;      /* Yellow Light */
+  --tm-color-yellow-pale: #fff5e4;       /* Yellow Pale */
 
   /* Green Progression */
-  --tm-color-green-dark: #006638;
-  /* Green Dark - Success */
-  --tm-color-green: #1e8a44;
-  /* Green */
-  --tm-color-green-light: #4ea646;
-  /* Green Light */
-  --tm-color-green-pale: #e0eccf;
-  /* Green Pale */
+  --tm-color-green-dark: #006638;        /* Green Dark - Success */
+  --tm-color-green: #1e8a44;             /* Green */
+  --tm-color-green-light: #4ea646;       /* Green Light */
+  --tm-color-green-pale: #e0eccf;        /* Green Pale */
 
   /* Red Progression */
-  --tm-color-red-dark: #ab1f26;
-  /* Red Dark */
-  --tm-color-red: #da212c;
-  /* Red - Danger/Error */
-  --tm-color-red-light: #e86363;
-  /* Red Light */
-  --tm-color-red-pale: #fbd4d7;
-  /* Red Pale */
+  --tm-color-red-dark: #ab1f26;          /* Red Dark */
+  --tm-color-red: #da212c;               /* Red - Danger/Error */
+  --tm-color-red-light: #e86363;         /* Red Light */
+  --tm-color-red-pale: #fbd4d7;          /* Red Pale */
 
   /* Neutral Progression */
-  --tm-color-gray-dark: #252a2e;
-  /* Trimble Gray */
-  --tm-color-gray-10: #171c1e;
-  /* Gray 10 */
-  --tm-color-gray-9: #353a40;
-  /* Gray 9 */
-  --tm-color-gray-8: #464b52;
-  /* Gray 8 */
-  --tm-color-gray-7: #585c65;
-  /* Gray 7 */
-  --tm-color-gray-6: #6a6e79;
-  /* Gray 6 - Secondary Text & Icons */
-  --tm-color-gray-5: #7d808d;
-  /* Gray 5 */
-  --tm-color-gray-4: #90939f;
-  /* Gray 4 */
-  --tm-color-gray-3: #a3a6b1;
-  /* Gray 3 */
-  --tm-color-gray-2: #b7b9c3;
-  /* Gray 2 */
-  --tm-color-gray-1: #cbcdd6;
-  /* Gray 1 */
-  --tm-color-gray-0: #e0e1e9;
-  /* Gray 0 */
-  --tm-color-gray-light: #f1f1f6;
-  /* Gray Light - Screen & Panels */
-  --tm-color-white: #ffffff;
-  /* White */
+  --tm-color-gray-dark: #252a2e;         /* Trimble Gray */
+  --tm-color-gray-10: #171c1e;           /* Gray 10 */
+  --tm-color-gray-9: #353a40;            /* Gray 9 */
+  --tm-color-gray-8: #464b52;            /* Gray 8 */
+  --tm-color-gray-7: #585c65;            /* Gray 7 */
+  --tm-color-gray-6: #6a6e79;            /* Gray 6 - Secondary Text & Icons */
+  --tm-color-gray-5: #7d808d;            /* Gray 5 */
+  --tm-color-gray-4: #90939f;            /* Gray 4 */
+  --tm-color-gray-3: #a3a6b1;            /* Gray 3 */
+  --tm-color-gray-2: #b7b9c3;            /* Gray 2 */
+  --tm-color-gray-1: #cbcdd6;            /* Gray 1 */
+  --tm-color-gray-0: #e0e1e9;            /* Gray 0 */
+  --tm-color-gray-light: #f1f1f6;        /* Gray Light - Screen & Panels */
+  --tm-color-white: #ffffff;             /* White */
 
   /* Semantic Colors */
-  --tm-color-success: #006638;
-  /* Green Dark - Success */
-  --tm-color-success-light: #4ea646;
-  /* Green Light */
-  --tm-color-success-pale: #e0eccf;
-  /* Green Pale */
+  --tm-color-success: #006638;           /* Green Dark - Success */
+  --tm-color-success-light: #4ea646;     /* Green Light */
+  --tm-color-success-pale: #e0eccf;      /* Green Pale */
 
-  --tm-color-danger: #da212c;
-  /* Red - Danger/Error */
-  --tm-color-danger-dark: #ab1f26;
-  /* Red Dark */
-  --tm-color-danger-light: #e86363;
-  /* Red Light */
-  --tm-color-danger-pale: #fbd4d7;
-  /* Red Pale */
+  --tm-color-danger: #da212c;            /* Red - Danger/Error */
+  --tm-color-danger-dark: #ab1f26;       /* Red Dark */
+  --tm-color-danger-light: #e86363;      /* Red Light */
+  --tm-color-danger-pale: #fbd4d7;       /* Red Pale */
 
-  --tm-color-warning: #e49325;
-  /* Yellow Dark - Warning */
-  --tm-color-warning-light: #fec157;
-  /* Yellow Light */
-  --tm-color-warning-pale: #fff5e4;
-  /* Yellow Pale */
+  --tm-color-warning: #e49325;           /* Yellow Dark - Warning */
+  --tm-color-warning-light: #fec157;     /* Yellow Light */
+  --tm-color-warning-pale: #fff5e4;      /* Yellow Pale */
 
-  --tm-color-info: #019aeb;
-  /* Highlight Blue - Information */
+  --tm-color-info: #019aeb;              /* Highlight Blue - Information */
 
   /* Special Case Colors */
-  --tm-color-highlight-blue: #019aeb;
-  /* Highlight Blue - Used in Dark Mode */
+  --tm-color-highlight-blue: #019aeb;    /* Highlight Blue - Used in Dark Mode */
 
   /* Content Colors - Light Mode */
-  --tm-color-text-primary: #252a2e;
-  /* Trimble Gray - Primary Text */
-  --tm-color-text-secondary: #6a6e79;
-  /* Gray 6 - Secondary Text */
-  --tm-color-text-disabled: #a3a6b1;
-  /* Gray 3 - Disabled Text */
-  --tm-color-surface: #ffffff;
-  /* White - Surface */
-  --tm-color-background: #f1f1f6;
-  /* Gray Light - Background */
-  --tm-color-border: #cbcdd6;
-  /* Gray 1 - Border */
+  --tm-color-text-primary: #252a2e;      /* Trimble Gray - Primary Text */
+  --tm-color-text-secondary: #6a6e79;    /* Gray 6 - Secondary Text */
+  --tm-color-text-disabled: #a3a6b1;     /* Gray 3 - Disabled Text */
+  --tm-color-surface: #ffffff;           /* White - Surface */
+  --tm-color-background: #f1f1f6;        /* Gray Light - Background */
+  --tm-color-border: #cbcdd6;            /* Gray 1 - Border */
 
   /* Trimble Modus (tm) Typography */
   --tm-font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
@@ -139,44 +87,26 @@
   --tm-font-weight-bold: 700;
 
   /* Trimble Modus (tm) Font Sizes - Web Applications */
-  --tm-text-base: 0.875rem;
-  /* 14px - Body */
-  --tm-text-xs: 0.75rem;
-  /* 12px - Small Body */
-  --tm-text-2xs: 0.625rem;
-  /* 10px - Mini */
-  --tm-text-lg: 1rem;
-  /* 16px - Heading 4 */
-  --tm-text-xl: 1.125rem;
-  /* 18px - Heading 3 */
-  --tm-text-2xl: 1.25rem;
-  /* 20px - Heading 2 */
-  --tm-text-3xl: 1.5rem;
-  /* 24px - Heading 1 */
-  --tm-text-4xl: 2.5rem;
-  /* 40px - Display 2 */
-  --tm-text-5xl: 4.5rem;
-  /* 72px - Display 1 */
+  --tm-text-base: 0.875rem;              /* 14px - Body */
+  --tm-text-xs: 0.75rem;                 /* 12px - Small Body */
+  --tm-text-2xs: 0.625rem;               /* 10px - Mini */
+  --tm-text-lg: 1rem;                    /* 16px - Heading 4 */
+  --tm-text-xl: 1.125rem;                /* 18px - Heading 3 */
+  --tm-text-2xl: 1.25rem;                /* 20px - Heading 2 */
+  --tm-text-3xl: 1.5rem;                 /* 24px - Heading 1 */
+  --tm-text-4xl: 2.5rem;                 /* 40px - Display 2 */
+  --tm-text-5xl: 4.5rem;                 /* 72px - Display 1 */
 
   /* Trimble Modus (tm) Line Heights - Web Applications */
-  --tm-text-base--line-height: calc(21 / 14);
-  /* 21px / 14px - Body */
-  --tm-text-xs--line-height: calc(18 / 12);
-  /* 18px / 12px - Small Body */
-  --tm-text-2xs--line-height: calc(15 / 10);
-  /* 15px / 10px - Mini */
-  --tm-text-lg--line-height: calc(24 / 16);
-  /* 24px / 16px - Heading 4 */
-  --tm-text-xl--line-height: calc(27 / 18);
-  /* 27px / 18px - Heading 3 */
-  --tm-text-2xl--line-height: calc(30 / 20);
-  /* 30px / 20px - Heading 2 */
-  --tm-text-3xl--line-height: calc(36 / 24);
-  /* 36px / 24px - Heading 1 */
-  --tm-text-4xl--line-height: calc(54 / 40);
-  /* 54px / 40px - Display 2 */
-  --tm-text-5xl--line-height: calc(108 / 72);
-  /* 108px / 72px - Display 1 */
+  --tm-text-base--line-height: calc(21 / 14);    /* 21px / 14px - Body */
+  --tm-text-xs--line-height: calc(18 / 12);      /* 18px / 12px - Small Body */
+  --tm-text-2xs--line-height: calc(15 / 10);     /* 15px / 10px - Mini */
+  --tm-text-lg--line-height: calc(24 / 16);      /* 24px / 16px - Heading 4 */
+  --tm-text-xl--line-height: calc(27 / 18);      /* 27px / 18px - Heading 3 */
+  --tm-text-2xl--line-height: calc(30 / 20);     /* 30px / 20px - Heading 2 */
+  --tm-text-3xl--line-height: calc(36 / 24);     /* 36px / 24px - Heading 1 */
+  --tm-text-4xl--line-height: calc(54 / 40);     /* 54px / 40px - Display 2 */
+  --tm-text-5xl--line-height: calc(108 / 72);    /* 108px / 72px - Display 1 */
 
   /* Trimble Modus (tm) Letter Spacing */
   --tm-tracking-tight: 0.15em;
@@ -186,55 +116,32 @@
 
   /* Trimble Modus (tm) Spacing Scale */
   --tm-space-0: 0;
-  --tm-space-1: 0.25rem;
-  /* 4px */
-  --tm-space-2: 0.5rem;
-  /* 8px */
-  --tm-space-3: 0.75rem;
-  /* 12px */
-  --tm-space-4: 1rem;
-  /* 16px */
-  --tm-space-5: 1.25rem;
-  /* 20px */
-  --tm-space-6: 1.5rem;
-  /* 24px */
-  --tm-space-8: 2rem;
-  /* 32px */
-  --tm-space-10: 2.5rem;
-  /* 40px */
-  --tm-space-12: 3rem;
-  /* 48px */
-  --tm-space-16: 4rem;
-  /* 64px */
-  --tm-space-20: 5rem;
-  /* 80px */
-  --tm-space-24: 6rem;
-  /* 96px */
-  --tm-space-32: 8rem;
-  /* 128px */
-  --tm-space-40: 10rem;
-  /* 160px */
-  --tm-space-48: 12rem;
-  /* 192px */
+  --tm-space-1: 0.25rem;                 /* 4px */
+  --tm-space-2: 0.5rem;                  /* 8px */
+  --tm-space-3: 0.75rem;                 /* 12px */
+  --tm-space-4: 1rem;                    /* 16px */
+  --tm-space-5: 1.25rem;                 /* 20px */
+  --tm-space-6: 1.5rem;                  /* 24px */
+  --tm-space-8: 2rem;                    /* 32px */
+  --tm-space-10: 2.5rem;                 /* 40px */
+  --tm-space-12: 3rem;                   /* 48px */
+  --tm-space-16: 4rem;                   /* 64px */
+  --tm-space-20: 5rem;                   /* 80px */
+  --tm-space-24: 6rem;                   /* 96px */
+  --tm-space-32: 8rem;                   /* 128px */
+  --tm-space-40: 10rem;                  /* 160px */
+  --tm-space-48: 12rem;                  /* 192px */
 
   /* Trimble Modus (tm) Border Radius */
   --tm-radius-none: 0;
-  --tm-radius-sm: 0.125rem;
-  /* 2px */
-  --tm-radius: 0.25rem;
-  /* 4px */
-  --tm-radius-md: 0.375rem;
-  /* 6px */
-  --tm-radius-lg: 0.5rem;
-  /* 8px */
-  --tm-radius-xl: 0.75rem;
-  /* 12px */
-  --tm-radius-2xl: 1rem;
-  /* 16px */
-  --tm-radius-3xl: 1.5rem;
-  /* 24px */
-  --tm-radius-full: 9999px;
-  /* Fully rounded */
+  --tm-radius-sm: 0.125rem;              /* 2px */
+  --tm-radius: 0.25rem;                  /* 4px */
+  --tm-radius-md: 0.375rem;              /* 6px */
+  --tm-radius-lg: 0.5rem;                /* 8px */
+  --tm-radius-xl: 0.75rem;               /* 12px */
+  --tm-radius-2xl: 1rem;                 /* 16px */
+  --tm-radius-3xl: 1.5rem;               /* 24px */
+  --tm-radius-full: 9999px;              /* Fully rounded */
 
   /* Trimble Modus (tm) Shadows */
   --tm-shadow-none: none;
@@ -257,16 +164,16 @@
   --tm-transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Tailwind CSS mappings - Light Mode */
-  --color-primary: var(--tm-color-primary);
-  --color-primary-dark: var(--tm-color-primary-dark);
-  --color-primary-light: var(--tm-color-primary-light);
-  --color-primary-pale: var(--tm-color-primary-pale);
+  --color-primary: var(--tm-color-primary);         /* Primary color mapping */
+  --color-primary-dark: var(--tm-color-primary-dark);    /* Dark primary variant */
+  --color-primary-light: var(--tm-color-primary-light);  /* Light primary variant */
+  --color-primary-pale: var(--tm-color-primary-pale);    /* Pale primary variant */
 
-  --color-secondary: var(--tm-color-text-secondary);
-  --color-success: var(--tm-color-success);
-  --color-info: var(--tm-color-info);
-  --color-warning: var(--tm-color-warning);
-  --color-danger: var(--tm-color-danger);
+  --color-secondary: var(--tm-color-text-secondary);     /* Secondary text color */
+  --color-success: var(--tm-color-success);             /* Success state color */
+  --color-info: var(--tm-color-info);                   /* Info state color */
+  --color-warning: var(--tm-color-warning);             /* Warning state color */
+  --color-danger: var(--tm-color-danger);               /* Danger state color */
 
   /* Color Progression Mappings */
   --color-blue: var(--tm-color-blue);
@@ -313,137 +220,161 @@
   --color-background: var(--tm-color-background);
   --color-border: var(--tm-color-border);
 
-  --font-sans: var(--tm-font-sans);
+  /* Font Family Mappings */
+  --font-sans: var(--tm-font-sans);                  /* Open Sans font stack */
+  --font-display: var(--tm-font-sans);               /* Display font */
+  --font-body: var(--tm-font-sans);                  /* Body font */
 
-  --font-weight-normal: var(--tm-font-weight-normal);
-  --font-weight-semibold: var(--tm-font-weight-semibold);
-  --font-weight-bold: var(--tm-font-weight-bold);
+  /* Font Weight Mappings */
+  --font-weight-thin: var(--tm-font-weight-normal);      /* 400 */
+  --font-weight-normal: var(--tm-font-weight-normal);    /* 400 */
+  --font-weight-medium: var(--tm-font-weight-semibold);  /* 600 */
+  --font-weight-semibold: var(--tm-font-weight-semibold);/* 600 */
+  --font-weight-bold: var(--tm-font-weight-bold);        /* 700 */
 
-  --text-base: var(--tm-text-base);
-  --text-xs: var(--tm-text-xs);
+  /* Text Size Mappings */
+  --text-base: var(--tm-text-base);            /* 14px - Body */
+  --text-xs: var(--tm-text-xs);                /* 12px - Small Body */
+  --text-2xs: var(--tm-text-2xs);              /* 10px - Mini */
+  --text-lg: var(--tm-text-lg);                /* 16px - H4 */
+  --text-xl: var(--tm-text-xl);                /* 18px - H3 */
+  --text-2xl: var(--tm-text-2xl);              /* 20px - H2 */
+  --text-3xl: var(--tm-text-3xl);              /* 24px - H1 */
+  --text-4xl: var(--tm-text-4xl);              /* 40px - Display 2 */
+  --text-5xl: var(--tm-text-5xl);              /* 72px - Display 1 */
+
+  /* Line Height (Leading) Mappings */
+  --leading-none: 1;                /* line-height: 1 */
+  --leading-tight: 1.25;           /* line-height: 1.25 */
+  --leading-snug: 1.375;           /* line-height: 1.375 */
+  --leading-normal: 1.5;           /* line-height: 1.5 */
+  --leading-relaxed: 1.625;        /* line-height: 1.625 */
+  --leading-loose: 2;              /* line-height: 2 */
+
+  /* Text Size and Line Height Combinations */
   --text-2xs: var(--tm-text-2xs);
+  --leading-2xs: var(--tm-text-2xs--line-height);     /* 15px/10px - Mini */
+  --text-2xs--line-height: var(--tm-text-2xs--line-height);  /* Combined variable */
+  
+  --text-xs: var(--tm-text-xs);
+  --leading-xs: var(--tm-text-xs--line-height);       /* 18px/12px - Small Body */
+  --text-xs--line-height: var(--tm-text-xs--line-height);    /* Combined variable */
+  
+  --text-base: var(--tm-text-base);
+  --leading-base: var(--tm-text-base--line-height);   /* 21px/14px - Body */
+  --text-base--line-height: var(--tm-text-base--line-height);  /* Combined variable */
+  
   --text-lg: var(--tm-text-lg);
+  --leading-lg: var(--tm-text-lg--line-height);       /* 24px/16px - H4 */
+  --text-lg--line-height: var(--tm-text-lg--line-height);    /* Combined variable */
+  
   --text-xl: var(--tm-text-xl);
+  --leading-xl: var(--tm-text-xl--line-height);       /* 27px/18px - H3 */
+  --text-xl--line-height: var(--tm-text-xl--line-height);    /* Combined variable */
+  
   --text-2xl: var(--tm-text-2xl);
+  --leading-2xl: var(--tm-text-2xl--line-height);     /* 30px/20px - H2 */
+  --text-2xl--line-height: var(--tm-text-2xl--line-height);  /* Combined variable */
+  
   --text-3xl: var(--tm-text-3xl);
+  --leading-3xl: var(--tm-text-3xl--line-height);     /* 36px/24px - H1 */
+  --text-3xl--line-height: var(--tm-text-3xl--line-height);  /* Combined variable */
+  
   --text-4xl: var(--tm-text-4xl);
+  --leading-4xl: var(--tm-text-4xl--line-height);     /* 54px/40px - Display 2 */
+  --text-4xl--line-height: var(--tm-text-4xl--line-height);  /* Combined variable */
+  
   --text-5xl: var(--tm-text-5xl);
+  --leading-5xl: var(--tm-text-5xl--line-height);     /* 108px/72px - Display 1 */
+  --text-5xl--line-height: var(--tm-text-5xl--line-height);  /* Combined variable */
 
-  --text-base--line-height: var(--tm-text-base--line-height);
-  --text-xs--line-height: var(--tm-text-xs--line-height);
-  --text-2xs--line-height: var(--tm-text-2xs--line-height);
-  --text-lg--line-height: var(--tm-text-lg--line-height);
-  --text-xl--line-height: var(--tm-text-xl--line-height);
-  --text-2xl--line-height: var(--tm-text-2xl--line-height);
-  --text-3xl--line-height: var(--tm-text-3xl--line-height);
-  --text-4xl--line-height: var(--tm-text-4xl--line-height);
-  --text-5xl--line-height: var(--tm-text-5xl--line-height);
+  /* Letter Spacing Mappings */
+  --letter-spacing-tight: var(--tm-tracking-tight);         /* 0.15em */
+  --letter-spacing-normal: var(--tm-tracking-normal);       /* 0.15em */
+  --letter-spacing-wide: var(--tm-tracking-wide);          /* 0.25em */
+  --letter-spacing-wider: var(--tm-tracking-wider);        /* 0.5em */
 
-  --tracking-tight: var(--tm-tracking-tight);
-  --tracking-normal: var(--tm-tracking-normal);
-  --tracking-wide: var(--tm-tracking-wide);
-  --tracking-wider: var(--tm-tracking-wider);
+  /* Text Color Mappings */
+  --text-primary: var(--tm-color-text-primary);          /* Primary text color */
+  --text-secondary: var(--tm-color-text-secondary);      /* Secondary text color */
+  --text-disabled: var(--tm-color-text-disabled);        /* Disabled text color */
+  --text-body: var(--tm-color-text-primary);            /* Body text color */
+  --text-heading: var(--tm-color-text-primary);         /* Heading text color */
+  --text-link: var(--tm-color-primary);                 /* Link text color */
+  --text-link-hover: var(--tm-color-primary-dark);      /* Link hover color */
+  --text-success: var(--tm-color-success);              /* Success text color */
+  --text-danger: var(--tm-color-danger);                /* Error/danger text color */
+  --text-warning: var(--tm-color-warning);              /* Warning text color */
+  --text-info: var(--tm-color-info);                    /* Info text color */
 
-  --space-0: var(--tm-space-0);
-  --space-1: var(--tm-space-1);
-  --space-2: var(--tm-space-2);
-  --space-3: var(--tm-space-3);
-  --space-4: var(--tm-space-4);
-  --space-5: var(--tm-space-5);
-  --space-6: var(--tm-space-6);
-  --space-8: var(--tm-space-8);
-  --space-10: var(--tm-space-10);
-  --space-12: var(--tm-space-12);
-  --space-16: var(--tm-space-16);
-  --space-20: var(--tm-space-20);
-  --space-24: var(--tm-space-24);
-  --space-32: var(--tm-space-32);
-  --space-40: var(--tm-space-40);
-  --space-48: var(--tm-space-48);
+  /* Text Decoration Classes */
+  --text-decoration-underline: underline;
+  --text-decoration-line-through: line-through;
+  --text-decoration-no-underline: none;
 
-  --radius-none: var(--tm-radius-none);
-  --radius-sm: var(--tm-radius-sm);
-  --radius: var(--tm-radius);
-  --radius-md: var(--tm-radius-md);
-  --radius-lg: var(--tm-radius-lg);
-  --radius-xl: var(--tm-radius-xl);
-  --radius-2xl: var(--tm-radius-2xl);
-  --radius-3xl: var(--tm-radius-3xl);
-  --radius-full: var(--tm-radius-full);
+  /* Text Transform Classes */
+  --text-transform-normal: none;
+  --text-transform-uppercase: uppercase;
+  --text-transform-lowercase: lowercase;
+  --text-transform-capitalize: capitalize;
 
-  --shadow-none: var(--tm-shadow-none);
-  --shadow-sm: var(--tm-shadow-sm);
-  --shadow: var(--tm-shadow);
-  --shadow-md: var(--tm-shadow-md);
-  --shadow-lg: var(--tm-shadow-lg);
-  --shadow-xl: var(--tm-shadow-xl);
-  --shadow-2xl: var(--tm-shadow-2xl);
-  --shadow-inner: var(--tm-shadow-inner);
-  --shadow-outline: var(--tm-shadow-outline);
-  --shadow-focus: var(--tm-shadow-focus);
+  /* Text Alignment Classes */
+  --text-align-left: left;
+  --text-align-center: center;
+  --text-align-right: right;
+  --text-align-justify: justify;
 
-  --transition-fast: var(--tm-transition-fast);
-  --transition-normal: var(--tm-transition-normal);
-  --transition-slow: var(--tm-transition-slow);
-  --transition-timing-default: var(--tm-transition-timing-default);
+  /* Text Overflow Properties */
+  --text-overflow-ellipsis: ellipsis;
+  --text-overflow-clip: clip;
+  --text-wrap-normal: normal;
+  --text-wrap-nowrap: nowrap;
+  --text-wrap-break: break-word;
+
+  // ...existing code...
 }
 
 /* Dark Mode Theme Variables */
 @theme dark {
   /* Trimble Modus (tm) Color Variables - Dark Mode */
-  --tm-color-primary: #019aeb;
-  /* Highlight Blue - Replaces Trimble Blue in Dark Mode */
-  --tm-color-primary-dark: #217cbb;
-  /* Blue Light */
-  --tm-color-primary-light: #dcedf9;
-  /* Blue Pale */
+  --tm-color-primary: #019aeb;          /* Highlight Blue - Replaces Trimble Blue in Dark Mode */
+  --tm-color-primary-dark: #217cbb;     /* Blue Light */
+  --tm-color-primary-light: #dcedf9;    /* Blue Pale */
 
   /* Semantic Colors - Dark Mode */
-  --tm-color-success: #4ea646;
-  /* Green Light */
-  --tm-color-danger: #e86363;
-  /* Red Light */
-  --tm-color-warning: #fec157;
-  /* Yellow Light */
-  --tm-color-info: #019aeb;
-  /* Highlight Blue */
+  --tm-color-success: #4ea646;         /* Green Light */
+  --tm-color-danger: #e86363;          /* Red Light */
+  --tm-color-warning: #fec157;         /* Yellow Light */
+  --tm-color-info: #019aeb;            /* Highlight Blue */
 
   /* Content Colors - Dark Mode */
-  --tm-color-text-primary: #f1f1f6;
-  /* Gray Light - Light text on dark background */
-  --tm-color-text-secondary: #b7b9c3;
-  /* Gray 2 - Secondary Text */
-  --tm-color-text-disabled: #7d808d;
-  /* Gray 5 - Disabled Text */
-  --tm-color-surface: #353a40;
-  /* Gray 9 - Surface */
-  --tm-color-background: #252a2e;
-  /* Trimble Gray - Background */
-  --tm-color-border: #585c65;
-  /* Gray 7 - Border */
+  --tm-color-text-primary: #f1f1f6;    /* Gray Light - Light text on dark background */
+  --tm-color-text-secondary: #b7b9c3;   /* Gray 2 - Secondary Text */
+  --tm-color-text-disabled: #7d808d;    /* Gray 5 - Disabled Text */
+  --tm-color-surface: #353a40;          /* Gray 9 - Surface */
+  --tm-color-background: #252a2e;       /* Trimble Gray - Background */
+  --tm-color-border: #585c65;           /* Gray 7 - Border */
 
   /* Trimble Modus (tm) Shadows for Dark Mode */
-  --tm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --tm-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --tm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --tm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-  --tm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-  --tm-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  --tm-shadow-outline: 0 0 0 3px rgba(2, 136, 209, 0.5);
-  /* Based on dark mode primary color */
-  --tm-shadow-focus: 0 0 0 2px rgba(2, 136, 209, 0.25);
-  /* Based on dark mode primary color */
+  --tm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);                /* Small shadow */
+  --tm-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);          /* Default shadow */
+  --tm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3); /* Medium shadow */
+  --tm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3); /* Large shadow */
+  --tm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3); /* Extra large shadow */
+  --tm-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);         /* 2x Extra large shadow */
+  --tm-shadow-outline: 0 0 0 3px rgba(2, 136, 209, 0.5);         /* Based on dark mode primary color */
+  --tm-shadow-focus: 0 0 0 2px rgba(2, 136, 209, 0.25);          /* Based on dark mode primary color */
 
   /* Tailwind CSS mappings - Dark Mode */
-  --color-primary: var(--tm-color-primary);
-  --color-primary-dark: var(--tm-color-primary-dark);
-  --color-primary-light: var(--tm-color-primary-light);
+  --color-primary: var(--tm-color-primary);          /* Primary color for dark mode */
+  --color-primary-dark: var(--tm-color-primary-dark); /* Dark variant in dark mode */
+  --color-primary-light: var(--tm-color-primary-light); /* Light variant in dark mode */
 
-  --color-secondary: var(--tm-color-text-secondary);
-  --color-success: var(--tm-color-success);
-  --color-info: var(--tm-color-info);
-  --color-warning: var(--tm-color-warning);
-  --color-danger: var(--tm-color-danger);
+  --color-secondary: var(--tm-color-text-secondary);  /* Secondary text in dark mode */
+  --color-success: var(--tm-color-success);          /* Success state in dark mode */
+  --color-info: var(--tm-color-info);                /* Info state in dark mode */
+  --color-warning: var(--tm-color-warning);          /* Warning state in dark mode */
+  --color-danger: var(--tm-color-danger);            /* Danger state in dark mode */
 
   --color-light: var(--tm-color-gray-light);
   --color-dark: var(--tm-color-gray-dark);
@@ -456,17 +387,17 @@
   --color-background: var(--tm-color-background);
   --color-border: var(--tm-color-border);
 
-  --shadow-sm: var(--tm-shadow-sm);
-  --shadow: var(--tm-shadow);
-  --shadow-md: var(--tm-shadow-md);
-  --shadow-lg: var(--tm-shadow-lg);
+  --shadow-sm: var(--tm-shadow-sm);          /* Small shadow mapping */
+  --shadow: var(--tm-shadow);                /* Default shadow mapping */
+  --shadow-md: var(--tm-shadow-md);          /* Medium shadow mapping */
+  --shadow-lg: var(--tm-shadow-lg);          /* Large shadow mapping */
   --shadow-xl: var(--tm-shadow-xl);
   --shadow-2xl: var(--tm-shadow-2xl);
   --shadow-outline: var(--tm-shadow-outline);
   --shadow-focus: var(--tm-shadow-focus);
 }
 
-/* Dark Mode Colors */
+/* CSS Variables */
 :root {
   /* Light mode default variables */
   --color-bg: var(--tm-color-white);
@@ -475,6 +406,88 @@
   --color-nav-text: var(--tm-color-text-primary);
   --color-background: var(--tm-color-white); /* Explicitly set background for light mode */
   --color-surface: var(--tm-color-white);
+
+  /* Line Height (Leading) Mappings */
+  --leading-none: 1;                /* line-height: 1 */
+  --leading-tight: 1.25;           /* line-height: 1.25 */
+  --leading-snug: 1.375;           /* line-height: 1.375 */
+  --leading-normal: 1.5;           /* line-height: 1.5 */
+  --leading-relaxed: 1.625;        /* line-height: 1.625 */
+  --leading-loose: 2;              /* line-height: 2 */
+
+  /* Text Size and Line Height Combinations */
+  --text-2xs: var(--tm-text-2xs);
+  --leading-2xs: var(--tm-text-2xs--line-height);     /* 15px/10px - Mini */
+  --text-2xs--line-height: var(--tm-text-2xs--line-height);  /* Combined variable */
+  
+  --text-xs: var(--tm-text-xs);
+  --leading-xs: var(--tm-text-xs--line-height);       /* 18px/12px - Small Body */
+  --text-xs--line-height: var(--tm-text-xs--line-height);    /* Combined variable */
+  
+  --text-base: var(--tm-text-base);
+  --leading-base: var(--tm-text-base--line-height);   /* 21px/14px - Body */
+  --text-base--line-height: var(--tm-text-base--line-height);  /* Combined variable */
+  
+  --text-lg: var(--tm-text-lg);
+  --leading-lg: var(--tm-text-lg--line-height);       /* 24px/16px - H4 */
+  --text-lg--line-height: var(--tm-text-lg--line-height);    /* Combined variable */
+  
+  --text-xl: var(--tm-text-xl);
+  --leading-xl: var(--tm-text-xl--line-height);       /* 27px/18px - H3 */
+  --text-xl--line-height: var(--tm-text-xl--line-height);    /* Combined variable */
+  
+  --text-2xl: var(--tm-text-2xl);
+  --leading-2xl: var(--tm-text-2xl--line-height);     /* 30px/20px - H2 */
+  --text-2xl--line-height: var(--tm-text-2xl--line-height);  /* Combined variable */
+  
+  --text-3xl: var(--tm-text-3xl);
+  --leading-3xl: var(--tm-text-3xl--line-height);     /* 36px/24px - H1 */
+  --text-3xl--line-height: var(--tm-text-3xl--line-height);  /* Combined variable */
+  
+  --text-4xl: var(--tm-text-4xl);
+  --leading-4xl: var(--tm-text-4xl--line-height);     /* 54px/40px - Display 2 */
+  --text-4xl--line-height: var(--tm-text-4xl--line-height);  /* Combined variable */
+  
+  --text-5xl: var(--tm-text-5xl);
+  --leading-5xl: var(--tm-text-5xl--line-height);     /* 108px/72px - Display 1 */
+  --text-5xl--line-height: var(--tm-text-5xl--line-height);  /* Combined variable */
+
+  /* Text Color Variables */
+  --text-primary: var(--tm-color-text-primary);          /* Primary text color */
+  --text-secondary: var(--tm-color-text-secondary);      /* Secondary text color */
+  --text-disabled: var(--tm-color-text-disabled);        /* Disabled text color */
+  --text-body: var(--tm-color-text-primary);            /* Body text color */
+  --text-heading: var(--tm-color-text-primary);         /* Heading text color */
+  --text-link: var(--tm-color-primary);                 /* Link text color */
+  --text-link-hover: var(--tm-color-primary-dark);      /* Link hover color */
+  --text-success: var(--tm-color-success);              /* Success text color */
+  --text-danger: var(--tm-color-danger);                /* Error/danger text color */
+  --text-warning: var(--tm-color-warning);              /* Warning text color */
+  --text-info: var(--tm-color-info);                    /* Info text color */
+
+  /* Text Decoration Variables */
+  --text-decoration-underline: underline;
+  --text-decoration-line-through: line-through;
+  --text-decoration-no-underline: none;
+
+  /* Text Transform Variables */
+  --text-transform-normal: none;
+  --text-transform-uppercase: uppercase;
+  --text-transform-lowercase: lowercase;
+  --text-transform-capitalize: capitalize;
+
+  /* Text Alignment Variables */
+  --text-align-left: left;
+  --text-align-center: center;
+  --text-align-right: right;
+  --text-align-justify: justify;
+
+  /* Text Overflow Variables */
+  --text-overflow-ellipsis: ellipsis;
+  --text-overflow-clip: clip;
+  --text-wrap-normal: normal;
+  --text-wrap-nowrap: nowrap;
+  --text-wrap-break: break-word;
   
   color-scheme: light;
 }
@@ -487,6 +500,15 @@
   --color-nav-text: var(--tm-color-white);
   --color-background: var(--tm-color-gray-10); /* Explicitly set background for dark mode */
   --color-surface: var(--tm-color-gray-9);
+
+  /* Dark Mode Text Color Overrides */
+  --text-primary: var(--tm-color-text-primary);          /* Light text in dark mode */
+  --text-secondary: var(--tm-color-text-secondary);      /* Secondary text in dark mode */
+  --text-disabled: var(--tm-color-text-disabled);        /* Disabled text in dark mode */
+  --text-body: var(--tm-color-text-primary);            /* Body text in dark mode */
+  --text-heading: var(--tm-color-text-primary);         /* Heading text in dark mode */
+  --text-link: var(--tm-color-primary);                 /* Link text in dark mode */
+  --text-link-hover: var(--tm-color-primary-light);     /* Link hover in dark mode */
   
   color-scheme: dark;
 }
@@ -515,15 +537,4 @@
 .dark .form-multiselect:focus {
     border-color: var(--color-primary);
     --tw-ring-color: var(--color-primary);
-}
-
-/* Dark mode code blocks */
-.dark .prose pre {
-    background-color: var(--tm-color-gray-10);
-    border-color: var(--tm-color-gray-8);
-}
-
-.dark .prose code {
-    color: var(--tm-color-text-primary);
-    background-color: var(--tm-color-gray-9);
 }
