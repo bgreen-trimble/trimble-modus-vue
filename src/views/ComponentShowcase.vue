@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Button from ./Button.vue';
-import Card from './Card.vue';
+import Button from '@/components/Button.vue';
+import Card from '@/components/Card.vue';
 
 const loading = ref(false);
 
