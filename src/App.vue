@@ -19,10 +19,6 @@ const darkModeModel = computed({
 // Mobile nav state
 const isNavOpen = ref(false)
 
-// Toggle navigation
-const toggleNav = () => {
-    isNavOpen.value = !isNavOpen.value
-}
 
 const toggleDarkMode = () => {
     console.log('Toggling dark mode')
@@ -32,8 +28,8 @@ const toggleDarkMode = () => {
 </script>
 
 <template>
-    <div class="min-h-screen bg-white dark:bg-gray-900">
-        <nav class="bg-gray-100 dark:bg-gray-800 p-4 fixed w-64 h-full">
+    <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-dark dark:text-white">
+        <nav class="bg-gray-light dark:bg-gray-800 text-gray-dark dark:text-white p-4 fixed w-64 h-full">
             <div class="mb-8 flex items-center justify-between">
                 <RouterLink to="/" class="text-xl font-bold text-blue-600 dark:text-blue-400">
                     Modus Vue
@@ -55,7 +51,7 @@ const toggleDarkMode = () => {
                 </RouterLink>
             </div>
         </nav>
-        <main class="ml-64 p-8">
+        <main class="ml-64 p-8 bg-white dark:bg-gray-900 text-gray-dark dark:text-white">
             <RouterView />
         </main>
     </div>

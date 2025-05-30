@@ -293,16 +293,16 @@
   --color-dark: var(--tm-color-gray-dark);
 
   /* Gray Scale */
-  --color-gray-10: var(--tm-color-gray-10);
-  --color-gray-9: var(--tm-color-gray-9);
-  --color-gray-8: var(--tm-color-gray-8);
-  --color-gray-7: var(--tm-color-gray-7);
-  --color-gray-6: var(--tm-color-gray-6);
-  --color-gray-5: var(--tm-color-gray-5);
-  --color-gray-4: var(--tm-color-gray-4);
-  --color-gray-3: var(--tm-color-gray-3);
-  --color-gray-2: var(--tm-color-gray-2);
-  --color-gray-1: var(--tm-color-gray-1);
+  --color-gray-1000: var(--tm-color-gray-10);
+  --color-gray-900: var(--tm-color-gray-9);
+  --color-gray-800: var(--tm-color-gray-8);
+  --color-gray-700: var(--tm-color-gray-7);
+  --color-gray-600: var(--tm-color-gray-6);
+  --color-gray-500: var(--tm-color-gray-5);
+  --color-gray-400: var(--tm-color-gray-4);
+  --color-gray-300: var(--tm-color-gray-3);
+  --color-gray-200: var(--tm-color-gray-2);
+  --color-gray-100: var(--tm-color-gray-1);
   --color-gray-0: var(--tm-color-gray-0);
 
   /* Content Colors */
@@ -386,9 +386,6 @@
   --transition-normal: var(--tm-transition-normal);
   --transition-slow: var(--tm-transition-slow);
   --transition-timing-default: var(--tm-transition-timing-default);
-
-  color-scheme: light;
-
 }
 
 /* Dark Mode Theme Variables */
@@ -476,16 +473,10 @@
   --color-text: var(--tm-color-text-primary);
   --color-nav-bg: var(--tm-color-gray-light);
   --color-nav-text: var(--tm-color-text-primary);
-}
-
-/* Ensure light mode works correctly */
-:root {
+  --color-background: var(--tm-color-white); /* Explicitly set background for light mode */
+  --color-surface: var(--tm-color-white);
+  
   color-scheme: light;
-}
-
-/* Dark mode styles - only apply when .dark class is present */
-.dark {
-  color-scheme: dark;
 }
 
 /* Dark mode overrides */
@@ -494,6 +485,10 @@
   --color-text: var(--tm-color-white);
   --color-nav-bg: var(--tm-color-gray-9);
   --color-nav-text: var(--tm-color-white);
+  --color-background: var(--tm-color-gray-10); /* Explicitly set background for dark mode */
+  --color-surface: var(--tm-color-gray-9);
+  
+  color-scheme: dark;
 }
 
 /* Tailwind 4 specific dark mode overrides */

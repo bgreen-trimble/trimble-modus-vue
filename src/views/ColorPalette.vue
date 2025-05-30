@@ -1,39 +1,39 @@
 <template>
-  <div class="p-4">
+  <div class="p-4 bg-white dark:bg-gray-900 text-gray-dark dark:text-white">
     <h2 class="text-2xl font-bold mb-4">Trimble Modus Color Palette</h2>
     
     <h3 class="text-xl font-bold mb-3">Primary Colors</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       <!-- Primary Colors -->
-      <div class="rounded-lg overflow-hidden shadow-md">
+      <div class="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800">
         <div class="h-24 bg-primary"></div>
         <div class="p-4">
           <h3 class="font-medium">Primary (Trimble Blue)</h3>
-          <p class="text-sm text-secondary">#0063a3</p>
+          <p class="text-sm text-secondary dark:text-gray-300">#0063a3</p>
         </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden shadow-md">
+      <div class="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800">
         <div class="h-24 bg-primary-dark"></div>
         <div class="p-4">
           <h3 class="font-medium">Primary Dark</h3>
-          <p class="text-sm text-secondary">#004f83</p>
+          <p class="text-sm text-secondary dark:text-gray-300">#004f83</p>
         </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden shadow-md">
+      <div class="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800">
         <div class="h-24 bg-primary-light"></div>
         <div class="p-4">
           <h3 class="font-medium">Primary Light</h3>
-          <p class="text-sm text-secondary">#217cbb</p>
+          <p class="text-sm text-secondary dark:text-gray-300">#217cbb</p>
         </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden shadow-md">
+      <div class="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800">
         <div class="h-24 bg-primary-pale"></div>
         <div class="p-4">
           <h3 class="font-medium">Primary Pale</h3>
-          <p class="text-sm text-secondary">#dcedf9</p>
+          <p class="text-sm text-secondary dark:text-gray-300">#dcedf9</p>
         </div>
       </div>
     </div>
@@ -41,11 +41,11 @@
     <h3 class="text-xl font-bold mb-3">Semantic Colors</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       <!-- Semantic Colors -->
-      <div class="rounded-lg overflow-hidden shadow-md">
+      <div class="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800">
         <div class="h-24 bg-success"></div>
         <div class="p-4">
           <h3 class="font-medium">Success</h3>
-          <p class="text-sm text-secondary">#006638</p>
+          <p class="text-sm text-secondary dark:text-gray-300">#006638</p>
         </div>
       </div>
       
