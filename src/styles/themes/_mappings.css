@@ -1,0 +1,202 @@
+/* Tailwind CSS mappings - Light Mode */
+@theme {
+  --color-primary: var(--tm-color-primary);         /* Primary color mapping */
+  --color-primary-dark: var(--tm-color-primary-dark);    /* Dark primary variant */
+  --color-primary-light: var(--tm-color-primary-light);  /* Light primary variant */
+  --color-primary-pale: var(--tm-color-primary-pale);    /* Pale primary variant */
+
+  --color-secondary: var(--tm-color-text-secondary);     /* Secondary text color */
+  --color-success: var(--tm-color-success);             /* Success state color */
+  --color-info: var(--tm-color-info);                   /* Info state color */
+  --color-warning: var(--tm-color-warning);             /* Warning state color */
+  --color-danger: var(--tm-color-danger);               /* Danger state color */
+
+  /* Color Progression Mappings */
+  --color-blue: var(--tm-color-blue);
+  --color-blue-dark: var(--tm-color-blue-dark);
+  --color-blue-light: var(--tm-color-blue-light);
+  --color-blue-pale: var(--tm-color-blue-pale);
+
+  --color-green: var(--tm-color-green);
+  --color-green-dark: var(--tm-color-green-dark);
+  --color-green-light: var(--tm-color-green-light);
+  --color-green-pale: var(--tm-color-green-pale);
+
+  --color-red: var(--tm-color-red);
+  --color-red-dark: var(--tm-color-red-dark);
+  --color-red-light: var(--tm-color-red-light);
+  --color-red-pale: var(--tm-color-red-pale);
+
+  --color-yellow: var(--tm-color-yellow);
+  --color-yellow-dark: var(--tm-color-yellow-dark);
+  --color-yellow-light: var(--tm-color-yellow-light);
+  --color-yellow-pale: var(--tm-color-yellow-pale);
+
+  --color-light: var(--tm-color-gray-light);
+  --color-dark: var(--tm-color-trimble-gray);
+
+  /* Gray Scale */
+  --color-gray-1000: var(--tm-color-gray-10);
+  --color-gray-900: var(--tm-color-gray-9);
+  --color-gray-800: var(--tm-color-gray-8);
+  --color-gray-700: var(--tm-color-gray-7);
+  --color-gray-600: var(--tm-color-gray-6);
+  --color-gray-500: var(--tm-color-gray-5);
+  --color-gray-400: var(--tm-color-gray-4);
+  --color-gray-300: var(--tm-color-gray-3);
+  --color-gray-200: var(--tm-color-gray-2);
+  --color-gray-100: var(--tm-color-gray-1);
+  --color-gray-0: var(--tm-color-gray-0);
+
+  /* Content Colors */
+  --color-text-primary: var(--tm-color-text);
+  --color-text-secondary: var(--tm-color-text-secondary);
+  --color-text-disabled: var(--tm-color-text-disabled);
+  --color-surface: var(--tm-color-surface);
+  --color-background: var(--tm-color-background);
+  --color-border: var(--tm-color-border);
+
+  /* Font Family Mappings */
+  --font-sans: var(--tm-font-sans);                  /* Open Sans font stack */
+  --font-display: var(--tm-font-sans);               /* Display font */
+  --font-body: var(--tm-font-sans);                  /* Body font */
+
+  /* Font Weight Mappings */
+  --font-weight-thin: var(--tm-font-weight-normal);      /* 400 */
+  --font-weight-normal: var(--tm-font-weight-normal);    /* 400 */
+  --font-weight-medium: var(--tm-font-weight-semibold);  /* 600 */
+  --font-weight-semibold: var(--tm-font-weight-semibold);/* 600 */
+  --font-weight-bold: var(--tm-font-weight-bold);        /* 700 */
+
+  /* Text Size Mappings */
+  --text-base: var(--tm-text-base);            /* 14px - Body */
+  --text-xs: var(--tm-text-xs);                /* 12px - Small Body */
+  --text-2xs: var(--tm-text-2xs);              /* 10px - Mini */
+  --text-lg: var(--tm-text-lg);                /* 16px - H4 */
+  --text-xl: var(--tm-text-xl);                /* 18px - H3 */
+  --text-2xl: var(--tm-text-2xl);              /* 20px - H2 */
+  --text-3xl: var(--tm-text-3xl);              /* 24px - H1 */
+  --text-4xl: var(--tm-text-4xl);              /* 40px - Display 2 */
+  --text-5xl: var(--tm-text-5xl);              /* 72px - Display 1 */
+
+  /* Text Size and Line Height Combinations */
+  --text-2xs: var(--tm-text-2xs);
+  --leading-2xs: var(--tm-text-2xs--line-height);     /* 15px/10px - Mini */
+  --text-2xs--line-height: var(--tm-text-2xs--line-height);  /* Combined variable */
+  
+  --text-xs: var(--tm-text-xs);
+  --leading-xs: var(--tm-text-xs--line-height);       /* 18px/12px - Small Body */
+  --text-xs--line-height: var(--tm-text-xs--line-height);    /* Combined variable */
+  
+  --text-base: var(--tm-text-base);
+  --leading-base: var(--tm-text-base--line-height);   /* 21px/14px - Body */
+  --text-base--line-height: var(--tm-text-base--line-height);  /* Combined variable */
+  
+  --text-lg: var(--tm-text-lg);
+  --leading-lg: var(--tm-text-lg--line-height);       /* 24px/16px - H4 */
+  --text-lg--line-height: var(--tm-text-lg--line-height);    /* Combined variable */
+  
+  --text-xl: var(--tm-text-xl);
+  --leading-xl: var(--tm-text-xl--line-height);       /* 27px/18px - H3 */
+  --text-xl--line-height: var(--tm-text-xl--line-height);    /* Combined variable */
+  
+  --text-2xl: var(--tm-text-2xl);
+  --leading-2xl: var(--tm-text-2xl--line-height);     /* 30px/20px - H2 */
+  --text-2xl--line-height: var(--tm-text-2xl--line-height);  /* Combined variable */
+  
+  --text-3xl: var(--tm-text-3xl);
+  --leading-3xl: var(--tm-text-3xl--line-height);     /* 36px/24px - H1 */
+  --text-3xl--line-height: var(--tm-text-3xl--line-height);  /* Combined variable */
+  
+  --text-4xl: var(--tm-text-4xl);
+  --leading-4xl: var(--tm-text-4xl--line-height);     /* 54px/40px - Display 2 */
+  --text-4xl--line-height: var(--tm-text-4xl--line-height);  /* Combined variable */
+  
+  --text-5xl: var(--tm-text-5xl);
+  --leading-5xl: var(--tm-text-5xl--line-height);     /* 108px/72px - Display 1 */
+  --text-5xl--line-height: var(--tm-text-5xl--line-height);  /* Combined variable */
+
+  /* Line Height (Leading) Mappings */
+  --leading-none: 1;                /* line-height: 1 */
+  --leading-tight: 1.25;           /* line-height: 1.25 */
+  --leading-snug: 1.375;           /* line-height: 1.375 */
+  --leading-normal: 1.5;           /* line-height: 1.5 */
+  --leading-relaxed: 1.625;        /* line-height: 1.625 */
+  --leading-loose: 2;              /* line-height: 2 */
+
+  /* Letter Spacing Mappings */
+  --letter-spacing-tight: var(--tm-tracking-tight);         /* 0.15em */
+  --letter-spacing-normal: var(--tm-tracking-normal);       /* 0.15em */
+  --letter-spacing-wide: var(--tm-tracking-wide);          /* 0.25em */
+  --letter-spacing-wider: var(--tm-tracking-wider);        /* 0.5em */
+
+  /* Text Color Mappings */
+  --text-primary: var(--tm-color-text);          /* Primary text color */
+  --text-secondary: var(--tm-color-text-secondary);      /* Secondary text color */
+  --text-disabled: var(--tm-color-text-disabled);        /* Disabled text color */
+  --text-body: var(--tm-color-text);            /* Body text color */
+  --text-heading: var(--tm-color-text);         /* Heading text color */
+  --text-link: var(--tm-color-primary);                 /* Link text color */
+  --text-link-hover: var(--tm-color-primary-dark);      /* Link hover color */
+  --text-success: var(--tm-color-success);              /* Success text color */
+  --text-danger: var(--tm-color-danger);                /* Error/danger text color */
+  --text-warning: var(--tm-color-warning);              /* Warning text color */
+  --text-info: var(--tm-color-info);                    /* Info text color */
+
+  /* Text Decoration Classes */
+  --text-decoration-underline: underline;
+  --text-decoration-line-through: line-through;
+  --text-decoration-no-underline: none;
+
+  /* Text Transform Classes */
+  --text-transform-normal: none;
+  --text-transform-uppercase: uppercase;
+  --text-transform-lowercase: lowercase;
+  --text-transform-capitalize: capitalize;
+
+  /* Text Alignment Classes */
+  --text-align-left: left;
+  --text-align-center: center;
+  --text-align-right: right;
+  --text-align-justify: justify;
+
+  /* Text Overflow Properties */
+  --text-overflow-ellipsis: ellipsis;
+  --text-overflow-clip: clip;
+  --text-wrap-normal: normal;
+  --text-wrap-nowrap: nowrap;
+  --text-wrap-break: break-word;
+}
+
+@theme dark {
+  /* Tailwind CSS mappings - Dark Mode */
+  --color-primary: var(--tm-color-primary);          /* Primary color for dark mode */
+  --color-primary-dark: var(--tm-color-primary-dark); /* Dark variant in dark mode */
+  --color-primary-light: var(--tm-color-primary-light); /* Light variant in dark mode */
+
+  --color-secondary: var(--tm-color-text-secondary);  /* Secondary text in dark mode */
+  --color-success: var(--tm-color-success);          /* Success state in dark mode */
+  --color-info: var(--tm-color-info);                /* Info state in dark mode */
+  --color-warning: var(--tm-color-warning);          /* Warning state in dark mode */
+  --color-danger: var(--tm-color-danger);            /* Danger state in dark mode */
+
+  --color-light: var(--tm-color-gray-light);
+  --color-dark: var(--tm-color-trimble-gray);
+
+  /* Content Colors */
+  --color-text-primary: var(--tm-color-text);
+  --color-text-secondary: var(--tm-color-text-secondary);
+  --color-text-disabled: var(--tm-color-text-disabled);
+  --color-surface: var(--tm-color-surface);
+  --color-background: var(--tm-color-background);
+  --color-border: var(--tm-color-border);
+
+  --shadow-sm: var(--tm-shadow-sm);          /* Small shadow mapping */
+  --shadow: var(--tm-shadow);                /* Default shadow mapping */
+  --shadow-md: var(--tm-shadow-md);          /* Medium shadow mapping */
+  --shadow-lg: var(--tm-shadow-lg);          /* Large shadow mapping */
+  --shadow-xl: var(--tm-shadow-xl);
+  --shadow-2xl: var(--tm-shadow-2xl);
+  --shadow-outline: var(--tm-shadow-outline);
+  --shadow-focus: var(--tm-shadow-focus);
+}

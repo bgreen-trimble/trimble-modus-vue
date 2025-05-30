@@ -89,8 +89,8 @@ When working with CSS variables in this project:
 | `--tm-color-blue-dark-active` | var(--tm-color-blue-light) | Dark mode blue active |
 | `--tm-color-gray-hover` | var(--tm-color-gray-6) | Gray hover state |
 | `--tm-color-gray-active` | var(--tm-color-gray-8) | Gray active state |
-| `--tm-color-gray-dark-hover` | var(--tm-color-gray-5) | Dark mode gray hover |
-| `--tm-color-gray-dark-active` | var(--tm-color-gray-3) | Dark mode gray active |
+| `--tm-color-trimble-gray-hover` | var(--tm-color-gray-5) | Dark mode gray hover |
+| `--tm-color-trimble-gray-active` | var(--tm-color-gray-3) | Dark mode gray active |
 | `--tm-color-green-hover` | var(--tm-color-green-light) | Green hover state |
 | `--tm-color-green-active` | var(--tm-color-green-dark) | Green active state |
 | `--tm-color-green-dark-hover` | var(--tm-color-green) | Dark mode green hover |
@@ -117,7 +117,7 @@ When working with CSS variables in this project:
 
 | Trimble Modus Variable | Value | Description |
 |------------------------|-------|-------------|
-| `--tm-color-gray-dark` | #252a2e | Trimble Gray |
+| `--tm-color-trimble-gray` | #252a2e | Trimble Gray |
 | `--tm-color-gray-10` | #171c1e | Gray 10 |
 | `--tm-color-gray-9` | #353a40 | Gray 9 |
 | `--tm-color-gray-8` | #464b52 | Gray 8 |
@@ -153,7 +153,7 @@ When working with CSS variables in this project:
 
 | Trimble Modus Variable | Value (Light Mode) | Value (Dark Mode) | Description |
 |------------------------|-------------------|-------------------|-------------|
-| `--tm-color-text-primary` | #252a2e | #f1f1f6 | Trimble Gray (Light) / Gray Light (Dark) |
+| `--tm-color-text` | #252a2e | #f1f1f6 | Trimble Gray (Light) / Gray Light (Dark) |
 | `--tm-color-text-secondary` | #6a6e79 | #b7b9c3 | Gray 6 (Light) / Gray 2 (Dark) |
 | `--tm-color-text-disabled` | #a3a6b1 | #7d808d | Gray 3 (Light) / Gray 5 (Dark) |
 | `--tm-color-surface` | #ffffff | #353a40 | White (Light) / Gray 9 (Dark) |

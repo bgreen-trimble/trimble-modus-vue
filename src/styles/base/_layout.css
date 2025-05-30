@@ -1,0 +1,51 @@
+/* Spacing, Border Radius, Shadows, Transitions */
+@theme {
+  /* Trimble Modus (tm) Spacing Scale */
+  --tm-space-0: 0;
+  --tm-space-1: 0.25rem;                 /* 4px */
+  --tm-space-2: 0.5rem;                  /* 8px */
+  --tm-space-3: 0.75rem;                 /* 12px */
+  --tm-space-4: 1rem;                    /* 16px */
+  --tm-space-5: 1.25rem;                 /* 20px */
+  --tm-space-6: 1.5rem;                  /* 24px */
+  --tm-space-8: 2rem;                    /* 32px */
+  --tm-space-10: 2.5rem;                 /* 40px */
+  --tm-space-12: 3rem;                   /* 48px */
+  --tm-space-16: 4rem;                   /* 64px */
+  --tm-space-20: 5rem;                   /* 80px */
+  --tm-space-24: 6rem;                   /* 96px */
+  --tm-space-32: 8rem;                   /* 128px */
+  --tm-space-40: 10rem;                  /* 160px */
+  --tm-space-48: 12rem;                  /* 192px */
+
+  /* Trimble Modus (tm) Border Radius */
+  --tm-radius-none: 0;
+  --tm-radius-sm: 0.125rem;              /* 2px */
+  --tm-radius: 0.25rem;                  /* 4px */
+  --tm-radius-md: 0.375rem;              /* 6px */
+  --tm-radius-lg: 0.5rem;                /* 8px */
+  --tm-radius-xl: 0.75rem;               /* 12px */
+  --tm-radius-2xl: 1rem;                 /* 16px */
+  --tm-radius-3xl: 1.5rem;               /* 24px */
+  --tm-radius-full: 9999px;              /* Fully rounded */
+
+  /* Trimble Modus (tm) Shadows */
+  --tm-shadow-none: none;
+  --tm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --tm-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --tm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --tm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --tm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --tm-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --tm-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --tm-shadow-outline: 0 0 0 3px rgba(0, 99, 163, 0.5);
+  /* Based on primary color */
+  --tm-shadow-focus: 0 0 0 2px rgba(0, 99, 163, 0.25);
+  /* Based on primary color */
+
+  /* Trimble Modus (tm) Transitions */
+  --tm-transition-fast: 150ms;
+  --tm-transition-normal: 300ms;
+  --tm-transition-slow: 500ms;
+  --tm-transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
+}

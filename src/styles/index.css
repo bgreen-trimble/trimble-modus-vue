@@ -1,0 +1,14 @@
+/* Main CSS entry point */
+
+/* Base styles */
+@import './base/_imports.css';
+@import './base/_colors.css';
+@import './base/_typography.css';
+@import './base/_layout.css';
+
+/* Theme mappings */
+@import './themes/_mappings.css';
+@import './themes/_root.css';
+
+/* Utils */
+@import './utils/_dark-mode.css';

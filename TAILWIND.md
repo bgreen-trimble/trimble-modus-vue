@@ -117,11 +117,11 @@ The following text-related utilities are implemented:
 
 ### Text Colors
 ```css
---text-primary: var(--tm-color-text-primary);          /* Primary text color */
+--text-primary: var(--tm-color-text);          /* Primary text color */
 --text-secondary: var(--tm-color-text-secondary);      /* Secondary text color */
 --text-disabled: var(--tm-color-text-disabled);        /* Disabled text color */
---text-body: var(--tm-color-text-primary);            /* Body text color */
---text-heading: var(--tm-color-text-primary);         /* Heading text color */
+--text-body: var(--tm-color-text);            /* Body text color */
+--text-heading: var(--tm-color-text);         /* Heading text color */
 --text-link: var(--tm-color-primary);                 /* Link text color */
 --text-link-hover: var(--tm-color-primary-dark);      /* Link hover color */
 --text-success: var(--tm-color-success);              /* Success text color */
@@ -175,7 +175,7 @@ Dark mode overrides are provided in the dark theme:
 @theme dark {
   --color-primary: var(--tm-color-primary);       /* Primary color for dark mode */
   --color-surface: var(--tm-color-surface);       /* Surface color for dark mode */
-  --text-primary: var(--tm-color-text-primary);   /* Primary text color for dark mode */
+  --text-primary: var(--tm-color-text);   /* Primary text color for dark mode */
 }
 ```
 

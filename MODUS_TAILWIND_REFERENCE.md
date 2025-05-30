@@ -176,12 +176,12 @@ For interactive states:
 
 ### Text Colors
 ```css
---tm-color-text-primary: #252a2e;      /* Primary Text (Light) / #f1f1f6 (Dark) */
+--tm-color-text: #252a2e;      /* Primary Text (Light) / #f1f1f6 (Dark) */
 --tm-color-text-secondary: #6a6e79;    /* Secondary Text (Light) / #b7b9c3 (Dark) */
 --tm-color-text-disabled: #a3a6b1;     /* Disabled Text (Light) / #7d808d (Dark) */
 
 /* Mapped to Tailwind */
---text-primary: var(--tm-color-text-primary);
+--text-primary: var(--tm-color-text);
 --text-secondary: var(--tm-color-text-secondary);
 --text-disabled: var(--tm-color-text-disabled);
 ```

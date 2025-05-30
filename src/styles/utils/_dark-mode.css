@@ -1,0 +1,25 @@
+/* Dark mode utility classes and overrides */
+.dark .divide-gray-200 { border-color: var(--tm-color-gray-7); }
+.dark .ring-gray-200 { --tw-ring-color: var(--tm-color-gray-7); }
+.dark .bg-white { background-color: var(--tm-color-surface); }
+.dark .bg-gray-50 { background-color: var(--tm-color-gray-9); }
+.dark .bg-gray-100 { background-color: var(--tm-color-gray-8); }
+.dark .from-white { --tw-gradient-from: var(--tm-color-surface); }
+.dark .to-transparent { --tw-gradient-to: transparent; }
+
+/* Dark mode form elements */
+.dark .form-input,
+.dark .form-textarea,
+.dark .form-select,
+.dark .form-multiselect {
+    background-color: var(--tm-color-gray-9);
+    border-color: var(--tm-color-gray-7);
+}
+
+.dark .form-input:focus,
+.dark .form-textarea:focus,
+.dark .form-select:focus,
+.dark .form-multiselect:focus {
+    border-color: var(--color-primary);
+    --tw-ring-color: var(--color-primary);
+}

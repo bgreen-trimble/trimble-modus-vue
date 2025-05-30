@@ -36,7 +36,7 @@
   --tm-color-red-pale: #fbd4d7;          /* Red Pale */
 
   /* Neutral Progression */
-  --tm-color-gray-dark: #252a2e;         /* Trimble Gray */
+  --tm-color-trimble-gray: #252a2e;         /* Trimble Gray */
   --tm-color-gray-10: #171c1e;           /* Gray 10 */
   --tm-color-gray-9: #353a40;            /* Gray 9 */
   --tm-color-gray-8: #464b52;            /* Gray 8 */
@@ -71,7 +71,7 @@
   --tm-color-highlight-blue: #019aeb;    /* Highlight Blue - Used in Dark Mode */
 
   /* Content Colors - Light Mode */
-  --tm-color-text-primary: #252a2e;      /* Trimble Gray - Primary Text */
+  --tm-color-text: #252a2e;      /* Trimble Gray - Primary Text */
   --tm-color-text-secondary: #6a6e79;    /* Gray 6 - Secondary Text */
   --tm-color-text-disabled: #a3a6b1;     /* Gray 3 - Disabled Text */
   --tm-color-surface: #ffffff;           /* White - Surface */
@@ -197,7 +197,7 @@
   --color-yellow-pale: var(--tm-color-yellow-pale);
 
   --color-light: var(--tm-color-gray-light);
-  --color-dark: var(--tm-color-gray-dark);
+  --color-dark: var(--tm-color-trimble-gray);
 
   /* Gray Scale */
   --color-gray-1000: var(--tm-color-gray-10);
@@ -213,7 +213,7 @@
   --color-gray-0: var(--tm-color-gray-0);
 
   /* Content Colors */
-  --color-text-primary: var(--tm-color-text-primary);
+  --color-text-primary: var(--tm-color-text);
   --color-text-secondary: var(--tm-color-text-secondary);
   --color-text-disabled: var(--tm-color-text-disabled);
   --color-surface: var(--tm-color-surface);
@@ -295,11 +295,11 @@
   --letter-spacing-wider: var(--tm-tracking-wider);        /* 0.5em */
 
   /* Text Color Mappings */
-  --text-primary: var(--tm-color-text-primary);          /* Primary text color */
+  --text-primary: var(--tm-color-text);          /* Primary text color */
   --text-secondary: var(--tm-color-text-secondary);      /* Secondary text color */
   --text-disabled: var(--tm-color-text-disabled);        /* Disabled text color */
-  --text-body: var(--tm-color-text-primary);            /* Body text color */
-  --text-heading: var(--tm-color-text-primary);         /* Heading text color */
+  --text-body: var(--tm-color-text);            /* Body text color */
+  --text-heading: var(--tm-color-text);         /* Heading text color */
   --text-link: var(--tm-color-primary);                 /* Link text color */
   --text-link-hover: var(--tm-color-primary-dark);      /* Link hover color */
   --text-success: var(--tm-color-success);              /* Success text color */
@@ -346,7 +346,7 @@
   --tm-color-info: #019aeb;            /* Highlight Blue */
 
   /* Content Colors - Dark Mode */
-  --tm-color-text-primary: #f1f1f6;    /* Gray Light - Light text on dark background */
+  --tm-color-text: #f1f1f6;    /* Gray Light - Light text on dark background */
   --tm-color-text-secondary: #b7b9c3;   /* Gray 2 - Secondary Text */
   --tm-color-text-disabled: #7d808d;    /* Gray 5 - Disabled Text */
   --tm-color-surface: #353a40;          /* Gray 9 - Surface */
@@ -375,10 +375,10 @@
   --color-danger: var(--tm-color-danger);            /* Danger state in dark mode */
 
   --color-light: var(--tm-color-gray-light);
-  --color-dark: var(--tm-color-gray-dark);
+  --color-dark: var(--tm-color-trimble-gray);
 
   /* Content Colors */
-  --color-text-primary: var(--tm-color-text-primary);
+  --color-text-primary: var(--tm-color-text);
   --color-text-secondary: var(--tm-color-text-secondary);
   --color-text-disabled: var(--tm-color-text-disabled);
   --color-surface: var(--tm-color-surface);
@@ -399,9 +399,9 @@
 :root {
   /* Light mode default variables */
   --color-bg: var(--tm-color-white);
-  --color-text: var(--tm-color-text-primary);
+  --color-text: var(--tm-color-text);
   --color-nav-bg: var(--tm-color-gray-light);
-  --color-nav-text: var(--tm-color-text-primary);
+  --color-nav-text: var(--tm-color-text);
   --color-background: var(--tm-color-white); /* Explicitly set background for light mode */
   --color-surface: var(--tm-color-white);
 
@@ -451,11 +451,11 @@
   --text-5xl--line-height: var(--tm-text-5xl--line-height);  /* Combined variable */
 
   /* Text Color Variables */
-  --text-primary: var(--tm-color-text-primary);          /* Primary text color */
+  --text-primary: var(--tm-color-text);          /* Primary text color */
   --text-secondary: var(--tm-color-text-secondary);      /* Secondary text color */
   --text-disabled: var(--tm-color-text-disabled);        /* Disabled text color */
-  --text-body: var(--tm-color-text-primary);            /* Body text color */
-  --text-heading: var(--tm-color-text-primary);         /* Heading text color */
+  --text-body: var(--tm-color-text);            /* Body text color */
+  --text-heading: var(--tm-color-text);         /* Heading text color */
   --text-link: var(--tm-color-primary);                 /* Link text color */
   --text-link-hover: var(--tm-color-primary-dark);      /* Link hover color */
   --text-success: var(--tm-color-success);              /* Success text color */
@@ -500,11 +500,11 @@
   --color-surface: var(--tm-color-gray-9);
 
   /* Dark Mode Text Color Overrides */
-  --text-primary: var(--tm-color-text-primary);          /* Light text in dark mode */
+  --text-primary: var(--tm-color-text);          /* Light text in dark mode */
   --text-secondary: var(--tm-color-text-secondary);      /* Secondary text in dark mode */
   --text-disabled: var(--tm-color-text-disabled);        /* Disabled text in dark mode */
-  --text-body: var(--tm-color-text-primary);            /* Body text in dark mode */
-  --text-heading: var(--tm-color-text-primary);         /* Heading text in dark mode */
+  --text-body: var(--tm-color-text);            /* Body text in dark mode */
+  --text-heading: var(--tm-color-text);         /* Heading text in dark mode */
   --text-link: var(--tm-color-primary);                 /* Link text in dark mode */
   --text-link-hover: var(--tm-color-primary-light);     /* Link hover in dark mode */
   

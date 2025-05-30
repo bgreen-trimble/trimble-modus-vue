@@ -1,0 +1,115 @@
+/* CSS Variables for both light and dark modes */
+:root {
+  /* Light mode default variables */
+  --color-bg: var(--tm-color-white);
+  --color-text: var(--tm-color-text);
+  --color-nav-bg: var(--tm-color-gray-light);
+  --color-nav-text: var(--tm-color-text);
+  --color-background: var(--tm-color-white); /* Explicitly set background for light mode */
+  --color-surface: var(--tm-color-white);
+
+  /* Line Height (Leading) Mappings */
+  --leading-none: 1;                /* line-height: 1 */
+  --leading-tight: 1.25;           /* line-height: 1.25 */
+  --leading-snug: 1.375;           /* line-height: 1.375 */
+  --leading-normal: 1.5;           /* line-height: 1.5 */
+  --leading-relaxed: 1.625;        /* line-height: 1.625 */
+  --leading-loose: 2;              /* line-height: 2 */
+
+  /* Text Size and Line Height Combinations */
+  --text-2xs: var(--tm-text-2xs);
+  --leading-2xs: var(--tm-text-2xs--line-height);     /* 15px/10px - Mini */
+  --text-2xs--line-height: var(--tm-text-2xs--line-height);  /* Combined variable */
+  
+  --text-xs: var(--tm-text-xs);
+  --leading-xs: var(--tm-text-xs--line-height);       /* 18px/12px - Small Body */
+  --text-xs--line-height: var(--tm-text-xs--line-height);    /* Combined variable */
+  
+  --text-base: var(--tm-text-base);
+  --leading-base: var(--tm-text-base--line-height);   /* 21px/14px - Body */
+  --text-base--line-height: var(--tm-text-base--line-height);  /* Combined variable */
+  
+  --text-lg: var(--tm-text-lg);
+  --leading-lg: var(--tm-text-lg--line-height);       /* 24px/16px - H4 */
+  --text-lg--line-height: var(--tm-text-lg--line-height);    /* Combined variable */
+  
+  --text-xl: var(--tm-text-xl);
+  --leading-xl: var(--tm-text-xl--line-height);       /* 27px/18px - H3 */
+  --text-xl--line-height: var(--tm-text-xl--line-height);    /* Combined variable */
+  
+  --text-2xl: var(--tm-text-2xl);
+  --leading-2xl: var(--tm-text-2xl--line-height);     /* 30px/20px - H2 */
+  --text-2xl--line-height: var(--tm-text-2xl--line-height);  /* Combined variable */
+  
+  --text-3xl: var(--tm-text-3xl);
+  --leading-3xl: var(--tm-text-3xl--line-height);     /* 36px/24px - H1 */
+  --text-3xl--line-height: var(--tm-text-3xl--line-height);  /* Combined variable */
+  
+  --text-4xl: var(--tm-text-4xl);
+  --leading-4xl: var(--tm-text-4xl--line-height);     /* 54px/40px - Display 2 */
+  --text-4xl--line-height: var(--tm-text-4xl--line-height);  /* Combined variable */
+  
+  --text-5xl: var(--tm-text-5xl);
+  --leading-5xl: var(--tm-text-5xl--line-height);     /* 108px/72px - Display 1 */
+  --text-5xl--line-height: var(--tm-text-5xl--line-height);  /* Combined variable */
+
+  /* Text Color Variables */
+  --text-primary: var(--tm-color-text);          /* Primary text color */
+  --text-secondary: var(--tm-color-text-secondary);      /* Secondary text color */
+  --text-disabled: var(--tm-color-text-disabled);        /* Disabled text color */
+  --text-body: var(--tm-color-text);            /* Body text color */
+  --text-heading: var(--tm-color-text);         /* Heading text color */
+  --text-link: var(--tm-color-primary);                 /* Link text color */
+  --text-link-hover: var(--tm-color-primary-dark);      /* Link hover color */
+  --text-success: var(--tm-color-success);              /* Success text color */
+  --text-danger: var(--tm-color-danger);                /* Error/danger text color */
+  --text-warning: var(--tm-color-warning);              /* Warning text color */
+  --text-info: var(--tm-color-info);                    /* Info text color */
+
+  /* Text Decoration Variables */
+  --text-decoration-underline: underline;
+  --text-decoration-line-through: line-through;
+  --text-decoration-no-underline: none;
+
+  /* Text Transform Variables */
+  --text-transform-normal: none;
+  --text-transform-uppercase: uppercase;
+  --text-transform-lowercase: lowercase;
+  --text-transform-capitalize: capitalize;
+
+  /* Text Alignment Variables */
+  --text-align-left: left;
+  --text-align-center: center;
+  --text-align-right: right;
+  --text-align-justify: justify;
+
+  /* Text Overflow Variables */
+  --text-overflow-ellipsis: ellipsis;
+  --text-overflow-clip: clip;
+  --text-wrap-normal: normal;
+  --text-wrap-nowrap: nowrap;
+  --text-wrap-break: break-word;
+  
+  color-scheme: light;
+}
+
+/* Dark mode overrides */
+:root.dark {
+  --color-bg: var(--tm-color-gray-10);
+  --color-text: var(--tm-color-white);
+  --color-nav-bg: var(--tm-color-gray-9);
+  --color-nav-text: var(--tm-color-white);
+  --color-background: var(--tm-color-gray-10); /* Explicitly set background for dark mode */
+  --color-surface: var(--tm-color-gray-9);
+
+  /* Dark Mode Text Color Overrides */
+  --text-primary: var(--tm-color-text);          /* Light text in dark mode */
+  --text-secondary: var(--tm-color-text-secondary);      /* Secondary text in dark mode */
+  --text-disabled: var(--tm-color-text-disabled);        /* Disabled text in dark mode */
+  --text-body: var(--tm-color-text);            /* Body text in dark mode */
+  --text-heading: var(--tm-color-text);         /* Heading text in dark mode */
+  --text-link: var(--tm-color-primary);                 /* Link text in dark mode */
+  --text-link-hover: var(--tm-color-primary-light);     /* Link hover in dark mode */
+  
+  color-scheme: dark;
+}

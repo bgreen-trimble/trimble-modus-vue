@@ -94,8 +94,8 @@ const buttonClasses = computed(() => {
   /* Gray variants */
   --tm-color-gray-hover: #838793;
   --tm-color-gray-active: #5e626b;
-  --tm-color-gray-dark-hover: #7d808d;
-  --tm-color-gray-dark-active: #6a6e79;
+  --tm-color-trimble-gray-hover: #7d808d;
+  --tm-color-trimble-gray-active: #6a6e79;
 
   /* Green variants */
   --tm-color-green-hover: #006638;
@@ -152,9 +152,9 @@ const buttonClasses = computed(() => {
 }
 
 .tm-btn-secondary-filled {
-  background-color: var(--tm-color-gray-dark) !important;
+  background-color: var(--tm-color-trimble-gray) !important;
   color: white !important;
-  border-color: var(--tm-color-gray-dark) !important;
+  border-color: var(--tm-color-trimble-gray) !important;
 }
 
 .tm-btn-secondary-filled:hover {
@@ -166,18 +166,18 @@ const buttonClasses = computed(() => {
 }
 
 :global(.dark) .tm-btn-secondary-filled {
-  background-color: var(--tm-color-gray-dark) !important;
-  border-color: var(--tm-color-gray-dark) !important;
+  background-color: var(--tm-color-trimble-gray) !important;
+  border-color: var(--tm-color-trimble-gray) !important;
   color: white !important;
 }
 
 :global(.dark) .tm-btn-secondary-filled:hover {
-  background-color: var(--tm-color-gray-dark-hover) !important;
+  background-color: var(--tm-color-trimble-gray-hover) !important;
   color: white !important;
 }
 
 :global(.dark) .tm-btn-secondary-filled:active {
-  background-color: var(--tm-color-gray-dark-active) !important;
+  background-color: var(--tm-color-trimble-gray-active) !important;
   color: white !important;
 }
 
@@ -293,8 +293,8 @@ const buttonClasses = computed(() => {
 
 .tm-btn-secondary-outlined {
   background-color: transparent !important;
-  color: var(--tm-color-gray-dark) !important;
-  border-color: var(--tm-color-gray-dark) !important;
+  color: var(--tm-color-trimble-gray) !important;
+  border-color: var(--tm-color-trimble-gray) !important;
 }
 
 .tm-btn-secondary-outlined:hover {
@@ -302,8 +302,8 @@ const buttonClasses = computed(() => {
 }
 
 :global(.dark) .tm-btn-secondary-outlined {
-  color: var(--tm-color-gray-dark) !important;
-  border-color: var(--tm-color-gray-dark) !important;
+  color: var(--tm-color-trimble-gray) !important;
+  border-color: var(--tm-color-trimble-gray) !important;
 }
 
 :global(.dark) .tm-btn-secondary-outlined:hover {
@@ -388,7 +388,7 @@ const buttonClasses = computed(() => {
 
 .tm-btn-secondary-text {
   background-color: transparent !important;
-  color: var(--tm-color-gray-dark) !important;
+  color: var(--tm-color-trimble-gray) !important;
   border-color: transparent !important;
 }
 
@@ -397,7 +397,7 @@ const buttonClasses = computed(() => {
 }
 
 :global(.dark) .tm-btn-secondary-text {
-  color: var(--tm-color-gray-dark) !important;
+  color: var(--tm-color-trimble-gray) !important;
 }
 
 :global(.dark) .tm-btn-secondary-text:hover {

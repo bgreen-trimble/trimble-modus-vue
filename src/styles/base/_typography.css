@@ -1,0 +1,225 @@
+/* filepath: /Users/bgreen/projects/trimble/trimble-modus-vue/src/styles/base/_typography.css */
+/* Typography variables */
+@theme {
+  /* Trimble Modus (tm) Typography */
+  --tm-font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Content Colors - Light Mode */
+  --tm-color-text-primary: var(--tm-color-trimble-gray); /* Trimble Gray - Primary Text */
+  --tm-color-text-secondary: var(--tm-color-gray-6);     /* Gray 6 - Secondary Text */
+  --tm-color-text-disabled: var(--tm-color-gray-3);      /* Gray 3 - Disabled Text */
+  --tm-color-text: var(--tm-color-text-primary);         /* Trimble Gray - Primary Text */
+
+  /* Font Weight */
+  --tm-font-weight-normal: 400;
+  --tm-font-weight-semibold: 600;
+  --tm-font-weight-bold: 700;
+
+  /* Font Size */
+  --tm-base-root-font-size: 16px;      /* 1rem */
+  --tm-base-body-font-size: 14px;      /* 0.875rem */
+  --tm-base-small-body-font-size: 12px;      /* 0.75rem */
+
+  --tm-heading-1-font-size: 24px;      /* 1.5rem */
+  --tm-heading-2-font-size: 20px;      /* 1.25rem */
+  --tm-heading-3-font-size: 18px;      /* 1.125rem */
+  --tm-heading-4-font-size: 16px;      /* 1rem */
+  --tm-heading-5-font-size: 14px;      /* 0.875rem */
+  --tm-heading-6-font-size: 12px;      /* 0.75rem */
+  --tm-lead-text-font-size: 20px;      /* 1.25rem */
+  --tm-body-font-size: 14px;           /* 0.875rem */
+  --tm-body-small-font-size: 12px;     /* 0.75rem */
+  --tm-mini-font-size: 10px;           /* 0.625rem */
+  --tm-display-1-font-size: 72px;      /* 4.5rem */
+  --tm-display-2-font-size: 40px;      /* 2.5rem */
+  --tm-display-3-font-size: 32px;      /* 2rem */
+
+  /* Letter Spacing */
+  --tm-heading-1-letter-spacing: 0.5px;
+  --tm-heading-2-letter-spacing: 0.15px;
+  --tm-heading-3-letter-spacing: 0.15px;
+  --tm-heading-4-letter-spacing: 0.15px;
+  --tm-heading-5-letter-spacing: 0.15px;
+  --tm-heading-6-letter-spacing: 0.15px;
+  --tm-lead-text-letter-spacing: 0.15px;
+  --tm-body-letter-spacing: 0.15px;
+  --tm-body-small-letter-spacing: 0.25px;
+  --tm-mimi-letter-spacing: 0.5px;
+  --tm-display-1-letter-spacing: 0.4px;
+  --tm-display-2-letter-spacing: 0.4px;
+  --tm-display-3-letter-spacing: 0.4px;
+
+  /* Line Height */
+  --tm-heading-1-line-height: 1.5;     /* 36px */
+  --tm-heading-2-line-height: 1.5;     /* 30px */
+  --tm-heading-3-line-height: 1.5;     /* 27px */
+  --tm-heading-4-line-height: 1.5;     /* 24px */
+  --tm-heading-5-line-height: 1.5;     /* 21px */
+  --tm-heading-6-line-height: 1.5;     /* 18px */
+  --tm-lead-text-line-height: 40px;
+  --tm-body-line-height: 21px;
+  --tm-body-small-line-height: 18px;
+  --tm-mini-line-height: 15px;
+  --tm-display-1-line-height: 108px;
+  --tm-display-2-line-height: 54px;
+  --tm-display-3-line-height: 47px;
+}
+
+@theme dark {
+}
+
+/* Text Color Utility Classes */
+.tm-text-primary {
+  color: var(--tm-color-text-primary);
+}
+
+.tm-text-secondary {
+  color: var(--tm-color-text-secondary);
+}
+
+.tm-text-disabled {
+  color: var(--tm-color-text-disabled);
+}
+
+.tm-text {
+  font-family: var(--tm-font-sans);
+  font-size: var(--tm-base-body-font-size);
+}
+
+.tm-text-small {
+  font-family: var(--tm-font-sans);
+  font-size: var(--tm-base-body-small-font-size);
+}
+
+/* Heading Typography Classes - Based on Modus Specification */
+.tm-heading-1 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-normal);
+  font-size: var(--tm-heading-1-font-size);        /* 24px */
+  line-height: var(--tm-heading-1-line-height);
+  letter-spacing: var(--tm-heading-1-letter-spacing);
+}
+
+.tm-heading-2 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-normal);
+  font-size: var(--tm-heading-2-font-size);
+  line-height: var(--tm-heading-2-line-height);
+  letter-spacing: var(--tm-heading-2-letter-spacing);
+}
+
+.tm-heading-3 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-semibold);
+  font-size: var(--tm-heading-3-font-size);
+  line-height: var(--tm-heading-3-line-height);
+  letter-spacing: var(--tm-heading-3-letter-spacing);
+}
+
+.tm-heading-4 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-semibold);
+  font-size: var(--tm-heading-4-font-size);
+  line-height: var(--tm-heading-4-line-height);
+  letter-spacing: var(--tm-heading-4-letter-spacing);
+}
+
+.tm-heading-5 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-bold);
+  font-size: var(--tm-heading-5-font-size);
+  line-height: var(--tm-heading-5-line-height);
+  letter-spacing: var(--tm-heading-5-letter-spacing);
+}
+
+.tm-heading-6 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-semibold);
+  font-size: var(--tm-heading-6-font-size);
+  line-height: var(--tm-heading-6-line-height);
+  letter-spacing: var(--tm-heading-6-letter-spacing);
+}
+
+/* Display Typography - For large headlines */
+.tm-display-1 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-bold);
+  font-size: var(--tm-display-1-font-size);
+  line-height: var(--tm-display-1-line-height);
+  letter-spacing: var(--tm-display-1-letter-spacing);
+}
+
+.tm-display-2 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-bold);
+  font-size: var(--tm-display-2-font-size);
+  line-height: var(--tm-display-2-line-height);
+  letter-spacing: var(--tm-display-2-letter-spacing);
+}
+
+.tm-display-3 {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-semibold);
+  font-size: var(--tm-display-3-font-size);
+  line-height: var(--tm-display-3-line-height);
+  letter-spacing: var(--tm-display-3-letter-spacing);
+}
+
+/* Body Text Typography */
+.tm-lead-text {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-normal);
+  font-size: var(--tm-lead-text-font-size);
+  line-height: var(--tm-lead-text-line-height);
+  letter-spacing: var(--tm-lead-text-letter-spacing);
+}
+
+.tm-body {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-normal);
+  font-size: var(--tm-body-font-size);
+  line-height: var(--tm-body-line-height);
+  letter-spacing: var(--tm-body-letter-spacing);
+}
+
+.tm-body-small {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-normal);
+  font-size: var(--tm-body-small-font-size);
+  line-height: var(--tm-body-small-line-height);
+  letter-spacing: var(--tm-body-small-letter-spacing);
+}
+
+.tm-mini {
+  font-family: var(--tm-font-sans);
+  font-weight: var(--tm-font-weight-normal);
+  font-size: var(--tm-mini-font-size);
+  line-height: var(--tm-mini-line-height);
+  letter-spacing: var(--tm-mimi-letter-spacing);
+}
+
+/* Interactive Text Color Classes */
+.tm-text-link {
+  color: var(--tm-color-primary);
+  text-decoration: none;
+}
+
+.tm-text-link:hover {
+  text-decoration: underline;
+}
+
+.tm-text-error {
+  color: var(--tm-color-danger);
+}
+
+.tm-text-success {
+  color: var(--tm-color-success);
+}
+
+.tm-text-warning {
+  color: var(--tm-color-warning);
+}
+
+.tm-text-info {
+  color: var(--tm-color-info);
+}
