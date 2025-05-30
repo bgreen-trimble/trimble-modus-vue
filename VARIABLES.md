@@ -13,11 +13,60 @@ The Trimble Modus design system uses two sets of variables:
 Example mapping:
 ```css
 /* Design system variable */
---tm-color-primary: #0063a3;
+--tm-color-primary: #0063a3; /* Trimble Blue */
 
 /* Tailwind variable */
---color-primary: var(--tm-color-primary);
+--color-primary: var(--tm-color-primary); /* Primary color mapping */
 ```
+
+## Tailwind 4 Implementation
+
+This project uses Tailwind CSS 4 with the following implementation details:
+
+- **No configuration file**: Tailwind 4 doesn't require a tailwind.config.js file
+- **Direct CSS customization**: All customizations are implemented in style.css
+- **@theme directive**: Used for light/dark mode theming
+- **CSS Variables**: Used to map Trimble Modus design tokens to Tailwind
+
+## CSS Formatting Guidelines
+
+When working with CSS variables in this project:
+
+1. Always place comments after the variable declaration, not before
+   ```css
+   /* Correct */
+   --tm-color-primary: #0063a3; /* Trimble Blue */
+
+   /* Incorrect */
+   /* Trimble Blue */
+   --tm-color-primary: #0063a3;
+   ```
+
+2. Include descriptive comments with color names or pixel values
+   ```css
+   --tm-text-base: 0.875rem; /* 14px - Body */
+   --tm-color-danger: #da212c; /* Red - Danger/Error */
+   ```
+
+3. Align comments when appropriate for better readability
+   ```css
+   --text-base: var(--tm-text-base);            /* 14px - Body */
+   --text-xs: var(--tm-text-xs);                /* 12px - Small Body */
+   --text-lg: var(--tm-text-lg);                /* 16px - H4 */
+   ```
+
+4. Use appropriate prefixes for different types of variables:
+   - Trimble Modus design tokens: `--tm-*`
+   - Font sizes: `--text-*`
+   - Line heights: `--leading-*`
+   - Combined text/line-height: `--text-*--line-height`
+   - Font families: `--font-*`
+   - Font weights: `--font-weight-*`
+   - Colors: `--color-*`
+
+5. Group variables by type (colors, typography, spacing, etc.)
+
+6. When customizing Tailwind, avoid creating a tailwind.config.js file. Instead, use the @theme directive and CSS variables.
 
 ## Color Variables
 
@@ -120,15 +169,49 @@ Example mapping:
 
 | Trimble Modus Variable | Value | Description |
 |------------------------|-------|-------------|
-| `--tm-text-base--line-height` | 1.5 | Line height for body text |
-| `--tm-text-xs--line-height` | 1.5 | Line height for small body |
-| `--tm-text-2xs--line-height` | 1.5 | Line height for mini text |
-| `--tm-text-lg--line-height` | 1.5 | Line height for heading 4 |
-| `--tm-text-xl--line-height` | 1.5 | Line height for heading 3 |
-| `--tm-text-2xl--line-height` | 1.5 | Line height for heading 2 |
-| `--tm-text-3xl--line-height` | 1.5 | Line height for heading 1 |
-| `--tm-text-4xl--line-height` | 1.35 | Line height for display 2 |
-| `--tm-text-5xl--line-height` | 1.5 | Line height for display 1 |
+| `--tm-text-base--line-height` | calc(21 / 14) | 21px / 14px - Body text line height (1.5) |
+| `--tm-text-xs--line-height` | calc(18 / 12) | 18px / 12px - Small body line height (1.5) |
+| `--tm-text-2xs--line-height` | calc(15 / 10) | 15px / 10px - Mini text line height (1.5) |
+| `--tm-text-lg--line-height` | calc(24 / 16) | 24px / 16px - Heading 4 line height (1.5) |
+| `--tm-text-xl--line-height` | calc(27 / 18) | 27px / 18px - Heading 3 line height (1.5) |
+| `--tm-text-2xl--line-height` | calc(30 / 20) | 30px / 20px - Heading 2 line height (1.5) |
+| `--tm-text-3xl--line-height` | calc(36 / 24) | 36px / 24px - Heading 1 line height (1.5) |
+| `--tm-text-4xl--line-height` | calc(54 / 40) | 54px / 40px - Display 2 line height (1.35) |
+| `--tm-text-5xl--line-height` | calc(108 / 72) | 108px / 72px - Display 1 line height (1.5) |
+
+### Tailwind Line Height Mappings
+
+| Tailwind Variable | Value | Description |
+|------------------|-------|-------------|
+| `--leading-none` | 1 | No line height (multiplier: 1) |
+| `--leading-tight` | 1.25 | Tight line height (multiplier: 1.25) |
+| `--leading-snug` | 1.375 | Snug line height (multiplier: 1.375) |
+| `--leading-normal` | 1.5 | Normal line height (multiplier: 1.5) |
+| `--leading-relaxed` | 1.625 | Relaxed line height (multiplier: 1.625) |
+| `--leading-loose` | 2 | Loose line height (multiplier: 2) |
+| `--leading-2xs` | var(--tm-text-2xs--line-height) | Line height for 2xs text |
+| `--leading-xs` | var(--tm-text-xs--line-height) | Line height for xs text |
+| `--leading-base` | var(--tm-text-base--line-height) | Line height for base text |
+| `--leading-lg` | var(--tm-text-lg--line-height) | Line height for lg text |
+| `--leading-xl` | var(--tm-text-xl--line-height) | Line height for xl text |
+| `--leading-2xl` | var(--tm-text-2xl--line-height) | Line height for 2xl text |
+| `--leading-3xl` | var(--tm-text-3xl--line-height) | Line height for 3xl text |
+| `--leading-4xl` | var(--tm-text-4xl--line-height) | Line height for 4xl text |
+| `--leading-5xl` | var(--tm-text-5xl--line-height) | Line height for 5xl text |
+
+### Combined Text & Line Height Variables
+
+| Combined Variable | Value | Description |
+|------------------|-------|-------------|
+| `--text-2xs--line-height` | var(--tm-text-2xs--line-height) | Combined variable for 2xs text |
+| `--text-xs--line-height` | var(--tm-text-xs--line-height) | Combined variable for xs text |
+| `--text-base--line-height` | var(--tm-text-base--line-height) | Combined variable for base text |
+| `--text-lg--line-height` | var(--tm-text-lg--line-height) | Combined variable for lg text |
+| `--text-xl--line-height` | var(--tm-text-xl--line-height) | Combined variable for xl text |
+| `--text-2xl--line-height` | var(--tm-text-2xl--line-height) | Combined variable for 2xl text |
+| `--text-3xl--line-height` | var(--tm-text-3xl--line-height) | Combined variable for 3xl text |
+| `--text-4xl--line-height` | var(--tm-text-4xl--line-height) | Combined variable for 4xl text |
+| `--text-5xl--line-height` | var(--tm-text-5xl--line-height) | Combined variable for 5xl text |
 
 ### Letter Spacing
 

@@ -1,0 +1,24 @@
+# Project Preferences
+
+## CSS Formatting
+- CSS comments should be placed after the CSS style or variable, not before
+  ```css
+  /* Correct */
+  --tm-color-primary: #0063a3; /* Trimble Blue */
+
+  /* Incorrect */
+  /* Trimble Blue */
+  --tm-color-primary: #0063a3;
+  ```
+
+## Tailwind Configuration
+- Do not use tailwind.config.js or tailwind.config.ts
+- Tailwind 4 does not require configuration files
+- All Tailwind customizations should be implemented directly in CSS files (e.g., style.css)
+- Use @theme directive and :root variables for theming and customizations
+
+## Code Organization
+- Vue components use <script setup> with TypeScript
+- Standard 4-space indentation in Vue files
+- Import order: Vue core, Vue ecosystem, third-party, local
+- File structure order in Vue composition files: <script setup> first, then <template>, and finally <style>

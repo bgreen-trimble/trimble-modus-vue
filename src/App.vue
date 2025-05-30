@@ -11,7 +11,7 @@ const routes = router.getRoutes()
 
 const { isDark, setDarkMode } = useDarkMode()
 
-const darkModeModel = computed({
+const darkMode = computed({
     get: () => isDark.value,
     set: (value: boolean) => setDarkMode(value)
 })
@@ -22,7 +22,7 @@ const isNavOpen = ref(false)
 
 const toggleDarkMode = () => {
     console.log('Toggling dark mode')
-    darkModeModel.value = !darkModeModel.value
+    darkMode.value = !darkMode.value
 }
 
 </script>
@@ -39,7 +39,7 @@ const toggleDarkMode = () => {
             <div class="space-y-2">
                 <div class="flex items-center space-x-2">
                 <button @click="toggleDarkMode" class="w-full px-4 py-2 text-left rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
-                    Toggle Dark Mode
+                    <span>Dark Mode </span><span class="font-bold">{{ isDark ? "On" : "Off"  }}</span>
                 </button>
                 </div>
 
