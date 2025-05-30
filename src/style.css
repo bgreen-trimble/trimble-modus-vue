@@ -1,1 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 @import "tailwindcss";
+@import "@trimble-oss/modus-icons/dist/modus-outlined/fonts/modus-icons.css";
+
+/* Custom theme using Tailwind CSS 4's @theme directive */
+@theme {
+  /* Trimble Modus (tm) Color Variables */
+  /* Blue Progression */
+  --tm-color-blue-dark: #0e416c;     /* Blue Dark */
+  --tm-color-blue: #0063a3;          /* Trimble Blue */
+  --tm-color-blue-light: #217cbb;    /* Blue Light */
+  --tm-color-blue-pale: #dcedf9;     /* Blue Pale */
+  
+  /* Primary Palette */
+  --tm-color-primary: #0063a3;        /* Trimble Blue */
+  --tm-color-primary-dark: #004f83;   /* Trimble Blue Dark */
+  --tm-color-primary-light: #217cbb;  /* Blue Light */
+  --tm-color-primary-pale: #dcedf9;   /* Blue Pale */
+  
+  /* Additional Primary Colors */
+  --tm-color-yellow: #fbad26;         /* Trimble Yellow */
+  --tm-color-yellow-dark: #e49325;    /* Yellow Dark - Warning */
+  --tm-color-yellow-light: #fec157;   /* Yellow Light */
+  --tm-color-yellow-pale: #fff5e4;    /* Yellow Pale */
+  
+  /* Green Progression */
+  --tm-color-green-dark: #006638;    /* Green Dark - Success */
+  --tm-color-green: #1e8a44;         /* Green */
+  --tm-color-green-light: #4ea646;   /* Green Light */
+  --tm-color-green-pale: #e0eccf;    /* Green Pale */
+  
+  /* Red Progression */
+  --tm-color-red-dark: #ab1f26;      /* Red Dark */
+  --tm-color-red: #da212c;           /* Red - Danger/Error */
+  --tm-color-red-light: #e86363;     /* Red Light */
+  --tm-color-red-pale: #fbd4d7;      /* Red Pale */
+  
+  /* Neutral Progression */
+  --tm-color-gray-dark: #252a2e;      /* Trimble Gray */
+  --tm-color-gray-10: #171c1e;        /* Gray 10 */
+  --tm-color-gray-9: #353a40;         /* Gray 9 */
+  --tm-color-gray-8: #464b52;         /* Gray 8 */
+  --tm-color-gray-7: #585c65;         /* Gray 7 */
+  --tm-color-gray-6: #6a6e79;         /* Gray 6 - Secondary Text & Icons */
+  --tm-color-gray-5: #7d808d;         /* Gray 5 */
+  --tm-color-gray-4: #90939f;         /* Gray 4 */
+  --tm-color-gray-3: #a3a6b1;         /* Gray 3 */
+  --tm-color-gray-2: #b7b9c3;         /* Gray 2 */
+  --tm-color-gray-1: #cbcdd6;         /* Gray 1 */
+  --tm-color-gray-0: #e0e1e9;         /* Gray 0 */
+  --tm-color-gray-light: #f1f1f6;     /* Gray Light - Screen & Panels */
+  --tm-color-white: #ffffff;          /* White */
+  
+  /* Semantic Colors */
+  --tm-color-success: #006638;        /* Green Dark - Success */
+  --tm-color-success-light: #4ea646;  /* Green Light */
+  --tm-color-success-pale: #e0eccf;   /* Green Pale */
+  
+  --tm-color-danger: #da212c;         /* Red - Danger/Error */
+  --tm-color-danger-dark: #ab1f26;    /* Red Dark */
+  --tm-color-danger-light: #e86363;   /* Red Light */
+  --tm-color-danger-pale: #fbd4d7;    /* Red Pale */
+  
+  --tm-color-warning: #e49325;        /* Yellow Dark - Warning */
+  --tm-color-warning-light: #fec157;  /* Yellow Light */
+  --tm-color-warning-pale: #fff5e4;   /* Yellow Pale */
+  
+  --tm-color-info: #019aeb;           /* Highlight Blue - Information */
+  
+  /* Special Case Colors */
+  --tm-color-highlight-blue: #019aeb; /* Highlight Blue - Used in Dark Mode */
+  
+  /* Content Colors - Light Mode */
+  --tm-color-text-primary: #252a2e;   /* Trimble Gray - Primary Text */
+  --tm-color-text-secondary: #6a6e79; /* Gray 6 - Secondary Text */
+  --tm-color-text-disabled: #a3a6b1;  /* Gray 3 - Disabled Text */
+  --tm-color-surface: #ffffff;        /* White - Surface */
+  --tm-color-background: #f1f1f6;     /* Gray Light - Background */
+  --tm-color-border: #cbcdd6;         /* Gray 1 - Border */
+  
+  /* Trimble Modus (tm) Typography */
+  --tm-font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  
+  /* Trimble Modus (tm) Font Weights */
+  --tm-font-weight-normal: 400;
+  --tm-font-weight-semibold: 600;
+  --tm-font-weight-bold: 700;
+  
+  /* Trimble Modus (tm) Font Sizes - Web Applications */
+  --tm-text-base: 0.875rem;      /* 14px - Body */
+  --tm-text-xs: 0.75rem;         /* 12px - Small Body */
+  --tm-text-2xs: 0.625rem;       /* 10px - Mini */
+  --tm-text-lg: 1rem;            /* 16px - Heading 4 */
+  --tm-text-xl: 1.125rem;        /* 18px - Heading 3 */
+  --tm-text-2xl: 1.25rem;        /* 20px - Heading 2 */
+  --tm-text-3xl: 1.5rem;         /* 24px - Heading 1 */
+  --tm-text-4xl: 2.5rem;         /* 40px - Display 2 */
+  --tm-text-5xl: 4.5rem;         /* 72px - Display 1 */
+  
+  /* Trimble Modus (tm) Line Heights - Web Applications */
+  --tm-text-base--line-height: calc(21 / 14);     /* 21px / 14px - Body */
+  --tm-text-xs--line-height: calc(18 / 12);       /* 18px / 12px - Small Body */
+  --tm-text-2xs--line-height: calc(15 / 10);      /* 15px / 10px - Mini */
+  --tm-text-lg--line-height: calc(24 / 16);       /* 24px / 16px - Heading 4 */
+  --tm-text-xl--line-height: calc(27 / 18);       /* 27px / 18px - Heading 3 */
+  --tm-text-2xl--line-height: calc(30 / 20);      /* 30px / 20px - Heading 2 */
+  --tm-text-3xl--line-height: calc(36 / 24);      /* 36px / 24px - Heading 1 */
+  --tm-text-4xl--line-height: calc(54 / 40);      /* 54px / 40px - Display 2 */
+  --tm-text-5xl--line-height: calc(108 / 72);     /* 108px / 72px - Display 1 */
+  
+  /* Trimble Modus (tm) Letter Spacing */
+  --tm-tracking-tight: 0.15em;
+  --tm-tracking-normal: 0.15em;
+  --tm-tracking-wide: 0.25em;
+  --tm-tracking-wider: 0.5em;
+  
+  /* Trimble Modus (tm) Spacing Scale */
+  --tm-space-0: 0;
+  --tm-space-1: 0.25rem;        /* 4px */
+  --tm-space-2: 0.5rem;         /* 8px */
+  --tm-space-3: 0.75rem;        /* 12px */
+  --tm-space-4: 1rem;           /* 16px */
+  --tm-space-5: 1.25rem;        /* 20px */
+  --tm-space-6: 1.5rem;         /* 24px */
+  --tm-space-8: 2rem;           /* 32px */
+  --tm-space-10: 2.5rem;        /* 40px */
+  --tm-space-12: 3rem;          /* 48px */
+  --tm-space-16: 4rem;          /* 64px */
+  --tm-space-20: 5rem;          /* 80px */
+  --tm-space-24: 6rem;          /* 96px */
+  --tm-space-32: 8rem;          /* 128px */
+  --tm-space-40: 10rem;         /* 160px */
+  --tm-space-48: 12rem;         /* 192px */
+  
+  /* Trimble Modus (tm) Border Radius */
+  --tm-radius-none: 0;
+  --tm-radius-sm: 0.125rem;     /* 2px */
+  --tm-radius: 0.25rem;         /* 4px */
+  --tm-radius-md: 0.375rem;     /* 6px */
+  --tm-radius-lg: 0.5rem;       /* 8px */
+  --tm-radius-xl: 0.75rem;      /* 12px */
+  --tm-radius-2xl: 1rem;        /* 16px */
+  --tm-radius-3xl: 1.5rem;      /* 24px */
+  --tm-radius-full: 9999px;     /* Fully rounded */
+  
+  /* Trimble Modus (tm) Shadows */
+  --tm-shadow-none: none;
+  --tm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --tm-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --tm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --tm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --tm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --tm-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --tm-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --tm-shadow-outline: 0 0 0 3px rgba(0, 99, 163, 0.5); /* Based on primary color */
+  --tm-shadow-focus: 0 0 0 2px rgba(0, 99, 163, 0.25); /* Based on primary color */
+
+  /* Trimble Modus (tm) Transitions */
+  --tm-transition-fast: 150ms;
+  --tm-transition-normal: 300ms;
+  --tm-transition-slow: 500ms;
+  --tm-transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Tailwind CSS mappings - Light Mode */
+  --color-primary: var(--tm-color-primary);
+  --color-primary-dark: var(--tm-color-primary-dark);
+  --color-primary-light: var(--tm-color-primary-light);
+  --color-primary-pale: var(--tm-color-primary-pale);
+  
+  --color-secondary: var(--tm-color-text-secondary);
+  --color-success: var(--tm-color-success);
+  --color-info: var(--tm-color-info);
+  --color-warning: var(--tm-color-warning);
+  --color-danger: var(--tm-color-danger);
+  
+  /* Color Progression Mappings */
+  --color-blue: var(--tm-color-blue);
+  --color-blue-dark: var(--tm-color-blue-dark);
+  --color-blue-light: var(--tm-color-blue-light);
+  --color-blue-pale: var(--tm-color-blue-pale);
+  
+  --color-green: var(--tm-color-green);
+  --color-green-dark: var(--tm-color-green-dark);
+  --color-green-light: var(--tm-color-green-light);
+  --color-green-pale: var(--tm-color-green-pale);
+  
+  --color-red: var(--tm-color-red);
+  --color-red-dark: var(--tm-color-red-dark);
+  --color-red-light: var(--tm-color-red-light);
+  --color-red-pale: var(--tm-color-red-pale);
+  
+  --color-yellow: var(--tm-color-yellow);
+  --color-yellow-dark: var(--tm-color-yellow-dark);
+  --color-yellow-light: var(--tm-color-yellow-light);
+  --color-yellow-pale: var(--tm-color-yellow-pale);
+  
+  --color-light: var(--tm-color-gray-light);
+  --color-dark: var(--tm-color-gray-dark);
+  
+  /* Gray Scale */
+  --color-gray-10: var(--tm-color-gray-10);
+  --color-gray-9: var(--tm-color-gray-9);
+  --color-gray-8: var(--tm-color-gray-8);
+  --color-gray-7: var(--tm-color-gray-7);
+  --color-gray-6: var(--tm-color-gray-6);
+  --color-gray-5: var(--tm-color-gray-5);
+  --color-gray-4: var(--tm-color-gray-4);
+  --color-gray-3: var(--tm-color-gray-3);
+  --color-gray-2: var(--tm-color-gray-2);
+  --color-gray-1: var(--tm-color-gray-1);
+  --color-gray-0: var(--tm-color-gray-0);
+  
+  /* Content Colors */
+  --color-text-primary: var(--tm-color-text-primary);
+  --color-text-secondary: var(--tm-color-text-secondary);
+  --color-text-disabled: var(--tm-color-text-disabled);
+  --color-surface: var(--tm-color-surface);
+  --color-background: var(--tm-color-background);
+  --color-border: var(--tm-color-border);
+  
+  --font-sans: var(--tm-font-sans);
+  
+  --font-weight-normal: var(--tm-font-weight-normal);
+  --font-weight-semibold: var(--tm-font-weight-semibold);
+  --font-weight-bold: var(--tm-font-weight-bold);
+  
+  --text-base: var(--tm-text-base);
+  --text-xs: var(--tm-text-xs);
+  --text-2xs: var(--tm-text-2xs);
+  --text-lg: var(--tm-text-lg);
+  --text-xl: var(--tm-text-xl);
+  --text-2xl: var(--tm-text-2xl);
+  --text-3xl: var(--tm-text-3xl);
+  --text-4xl: var(--tm-text-4xl);
+  --text-5xl: var(--tm-text-5xl);
+  
+  --text-base--line-height: var(--tm-text-base--line-height);
+  --text-xs--line-height: var(--tm-text-xs--line-height);
+  --text-2xs--line-height: var(--tm-text-2xs--line-height);
+  --text-lg--line-height: var(--tm-text-lg--line-height);
+  --text-xl--line-height: var(--tm-text-xl--line-height);
+  --text-2xl--line-height: var(--tm-text-2xl--line-height);
+  --text-3xl--line-height: var(--tm-text-3xl--line-height);
+  --text-4xl--line-height: var(--tm-text-4xl--line-height);
+  --text-5xl--line-height: var(--tm-text-5xl--line-height);
+  
+  --tracking-tight: var(--tm-tracking-tight);
+  --tracking-normal: var(--tm-tracking-normal);
+  --tracking-wide: var(--tm-tracking-wide);
+  --tracking-wider: var(--tm-tracking-wider);
+  
+  --space-0: var(--tm-space-0);
+  --space-1: var(--tm-space-1);
+  --space-2: var(--tm-space-2);
+  --space-3: var(--tm-space-3);
+  --space-4: var(--tm-space-4);
+  --space-5: var(--tm-space-5);
+  --space-6: var(--tm-space-6);
+  --space-8: var(--tm-space-8);
+  --space-10: var(--tm-space-10);
+  --space-12: var(--tm-space-12);
+  --space-16: var(--tm-space-16);
+  --space-20: var(--tm-space-20);
+  --space-24: var(--tm-space-24);
+  --space-32: var(--tm-space-32);
+  --space-40: var(--tm-space-40);
+  --space-48: var(--tm-space-48);
+  
+  --radius-none: var(--tm-radius-none);
+  --radius-sm: var(--tm-radius-sm);
+  --radius: var(--tm-radius);
+  --radius-md: var(--tm-radius-md);
+  --radius-lg: var(--tm-radius-lg);
+  --radius-xl: var(--tm-radius-xl);
+  --radius-2xl: var(--tm-radius-2xl);
+  --radius-3xl: var(--tm-radius-3xl);
+  --radius-full: var(--tm-radius-full);
+  
+  --shadow-none: var(--tm-shadow-none);
+  --shadow-sm: var(--tm-shadow-sm);
+  --shadow: var(--tm-shadow);
+  --shadow-md: var(--tm-shadow-md);
+  --shadow-lg: var(--tm-shadow-lg);
+  --shadow-xl: var(--tm-shadow-xl);
+  --shadow-2xl: var(--tm-shadow-2xl);
+  --shadow-inner: var(--tm-shadow-inner);
+  --shadow-outline: var(--tm-shadow-outline);
+  --shadow-focus: var(--tm-shadow-focus);
+  
+  --transition-fast: var(--tm-transition-fast);
+  --transition-normal: var(--tm-transition-normal);
+  --transition-slow: var(--tm-transition-slow);
+  --transition-timing-default: var(--tm-transition-timing-default);
+}
+
+/* Dark Mode Theme Variables */
+@theme dark {
+  /* Trimble Modus (tm) Color Variables - Dark Mode */
+  --tm-color-primary: #019aeb;        /* Highlight Blue - Replaces Trimble Blue in Dark Mode */
+  --tm-color-primary-dark: #217cbb;   /* Blue Light */
+  --tm-color-primary-light: #dcedf9;  /* Blue Pale */
+  
+  /* Semantic Colors - Dark Mode */
+  --tm-color-success: #4ea646;        /* Green Light */
+  --tm-color-danger: #e86363;         /* Red Light */
+  --tm-color-warning: #fec157;        /* Yellow Light */
+  --tm-color-info: #019aeb;           /* Highlight Blue */
+  
+  /* Content Colors - Dark Mode */
+  --tm-color-text-primary: #f1f1f6;   /* Gray Light - Light text on dark background */
+  --tm-color-text-secondary: #b7b9c3; /* Gray 2 - Secondary Text */
+  --tm-color-text-disabled: #7d808d;  /* Gray 5 - Disabled Text */
+  --tm-color-surface: #353a40;        /* Gray 9 - Surface */
+  --tm-color-background: #252a2e;     /* Trimble Gray - Background */
+  --tm-color-border: #585c65;         /* Gray 7 - Border */
+  
+  /* Trimble Modus (tm) Shadows for Dark Mode */
+  --tm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --tm-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --tm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --tm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --tm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  --tm-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --tm-shadow-outline: 0 0 0 3px rgba(2, 136, 209, 0.5); /* Based on dark mode primary color */
+  --tm-shadow-focus: 0 0 0 2px rgba(2, 136, 209, 0.25); /* Based on dark mode primary color */
+  
+  /* Tailwind CSS mappings - Dark Mode */
+  --color-primary: var(--tm-color-primary);
+  --color-primary-dark: var(--tm-color-primary-dark);
+  --color-primary-light: var(--tm-color-primary-light);
+  
+  --color-secondary: var(--tm-color-text-secondary);
+  --color-success: var(--tm-color-success);
+  --color-info: var(--tm-color-info);
+  --color-warning: var(--tm-color-warning);
+  --color-danger: var(--tm-color-danger);
+  
+  --color-light: var(--tm-color-gray-light);
+  --color-dark: var(--tm-color-gray-dark);
+  
+  /* Content Colors */
+  --color-text-primary: var(--tm-color-text-primary);
+  --color-text-secondary: var(--tm-color-text-secondary);
+  --color-text-disabled: var(--tm-color-text-disabled);
+  --color-surface: var(--tm-color-surface);
+  --color-background: var(--tm-color-background);
+  --color-border: var(--tm-color-border);
+  
+  --shadow-sm: var(--tm-shadow-sm);
+  --shadow: var(--tm-shadow);
+  --shadow-md: var(--tm-shadow-md);
+  --shadow-lg: var(--tm-shadow-lg);
+  --shadow-xl: var(--tm-shadow-xl);
+  --shadow-2xl: var(--tm-shadow-2xl);
+  --shadow-outline: var(--tm-shadow-outline);
+  --shadow-focus: var(--tm-shadow-focus);
+}
+
+/* Dark Mode Colors */
+:root {
+  /* Light mode default variables */
+  --color-bg: var(--tm-color-white);
+  --color-text: var(--tm-color-text-primary);
+  --color-nav-bg: var(--tm-color-gray-light);
+  --color-nav-text: var(--tm-color-text-primary);
+}
+
+/* Dark mode overrides */
+:root.dark {
+  --color-bg: var(--tm-color-gray-10);
+  --color-text: var(--tm-color-white);
+  --color-nav-bg: var(--tm-color-gray-9);
+  --color-nav-text: var(--tm-color-white);
+}

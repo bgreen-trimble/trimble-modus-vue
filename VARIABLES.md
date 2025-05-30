@@ -1,0 +1,241 @@
+# Trimble Modus Design System - CSS Variables Documentation
+
+This document provides information about the CSS variables used in the Trimble Modus Vue implementation.
+
+## Variable Naming Convention
+
+The Trimble Modus design system uses two sets of variables:
+
+1. **Design System Variables (`--tm-` prefix)**: These are the foundational variables that define the Trimble Modus design system. They contain the raw values for colors, typography, spacing, etc.
+
+2. **Tailwind Variables (no prefix)**: These are mapped from the design system variables and are meant to be used directly in components and Tailwind utilities.
+
+Example mapping:
+```css
+/* Design system variable */
+--tm-color-primary: #0063a3;
+
+/* Tailwind variable */
+--color-primary: var(--tm-color-primary);
+```
+
+## Color Variables
+
+### Primary Colors
+
+| Trimble Modus Variable | Value (Light Mode) | Value (Dark Mode) | Description |
+|------------------------|-------------------|-------------------|-------------|
+| `--tm-color-primary` | #0063a3 | #019aeb | Trimble Blue (Light) / Highlight Blue (Dark) |
+| `--tm-color-primary-dark` | #004f83 | #217cbb | Trimble Blue Dark (Light) / Blue Light (Dark) |
+| `--tm-color-primary-light` | #217cbb | #dcedf9 | Blue Light (Light) / Blue Pale (Dark) |
+| `--tm-color-primary-pale` | #dcedf9 | - | Blue Pale |
+
+### Additional Primary Colors
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-color-yellow` | #fbad26 | Trimble Yellow |
+| `--tm-color-yellow-dark` | #e49325 | Yellow Dark - Warning |
+| `--tm-color-yellow-light` | #fec157 | Yellow Light |
+| `--tm-color-yellow-pale` | #fff5e4 | Yellow Pale |
+
+### Neutral Progression
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-color-gray-dark` | #252a2e | Trimble Gray |
+| `--tm-color-gray-10` | #171c1e | Gray 10 |
+| `--tm-color-gray-9` | #353a40 | Gray 9 |
+| `--tm-color-gray-8` | #464b52 | Gray 8 |
+| `--tm-color-gray-7` | #585c65 | Gray 7 |
+| `--tm-color-gray-6` | #6a6e79 | Gray 6 - Secondary Text & Icons |
+| `--tm-color-gray-5` | #7d808d | Gray 5 |
+| `--tm-color-gray-4` | #90939f | Gray 4 |
+| `--tm-color-gray-3` | #a3a6b1 | Gray 3 |
+| `--tm-color-gray-2` | #b7b9c3 | Gray 2 |
+| `--tm-color-gray-1` | #cbcdd6 | Gray 1 |
+| `--tm-color-gray-0` | #e0e1e9 | Gray 0 |
+| `--tm-color-gray-light` | #f1f1f6 | Gray Light - Screen & Panels |
+| `--tm-color-white` | #ffffff | White |
+
+### Semantic Colors
+
+| Trimble Modus Variable | Value (Light Mode) | Value (Dark Mode) | Description |
+|------------------------|-------------------|-------------------|-------------|
+| `--tm-color-success` | #006638 | #4ea646 | Green Dark (Light) / Green Light (Dark) |
+| `--tm-color-success-light` | #4ea646 | - | Green Light |
+| `--tm-color-success-pale` | #e0eccf | - | Green Pale |
+| `--tm-color-danger` | #da212c | #e86363 | Red - Danger/Error (Light) / Red Light (Dark) |
+| `--tm-color-danger-dark` | #ab1f26 | - | Red Dark |
+| `--tm-color-danger-light` | #e86363 | - | Red Light |
+| `--tm-color-danger-pale` | #fbd4d7 | - | Red Pale |
+| `--tm-color-warning` | #e49325 | #fec157 | Yellow Dark - Warning (Light) / Yellow Light (Dark) |
+| `--tm-color-warning-light` | #fec157 | - | Yellow Light |
+| `--tm-color-warning-pale` | #fff5e4 | - | Yellow Pale |
+| `--tm-color-info` | #019aeb | #019aeb | Highlight Blue - Information |
+| `--tm-color-highlight-blue` | #019aeb | - | Highlight Blue - Special Case |
+
+### Content Colors
+
+| Trimble Modus Variable | Value (Light Mode) | Value (Dark Mode) | Description |
+|------------------------|-------------------|-------------------|-------------|
+| `--tm-color-text-primary` | #252a2e | #f1f1f6 | Trimble Gray (Light) / Gray Light (Dark) |
+| `--tm-color-text-secondary` | #6a6e79 | #b7b9c3 | Gray 6 (Light) / Gray 2 (Dark) |
+| `--tm-color-text-disabled` | #a3a6b1 | #7d808d | Gray 3 (Light) / Gray 5 (Dark) |
+| `--tm-color-surface` | #ffffff | #353a40 | White (Light) / Gray 9 (Dark) |
+| `--tm-color-background` | #f1f1f6 | #252a2e | Gray Light (Light) / Trimble Gray (Dark) |
+| `--tm-color-border` | #cbcdd6 | #585c65 | Gray 1 (Light) / Gray 7 (Dark) |
+
+## Typography Variables
+
+### Font Family
+
+| Trimble Modus Variable | Value |
+|------------------------|-------|
+| `--tm-font-sans` | 'Open Sans', ui-sans-serif, system-ui, sans-serif |
+
+### Font Weights
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-font-weight-normal` | 400 | Regular text |
+| `--tm-font-weight-semibold` | 600 | Semi-bold text |
+| `--tm-font-weight-bold` | 700 | Bold text |
+
+### Font Sizes
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-text-base` | 0.875rem | 14px - Body text |
+| `--tm-text-xs` | 0.75rem | 12px - Small body |
+| `--tm-text-2xs` | 0.625rem | 10px - Mini text |
+| `--tm-text-lg` | 1rem | 16px - Heading 4 |
+| `--tm-text-xl` | 1.125rem | 18px - Heading 3 |
+| `--tm-text-2xl` | 1.25rem | 20px - Heading 2 |
+| `--tm-text-3xl` | 1.5rem | 24px - Heading 1 |
+| `--tm-text-4xl` | 2.5rem | 40px - Display 2 |
+| `--tm-text-5xl` | 4.5rem | 72px - Display 1 |
+
+### Line Heights
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-text-base--line-height` | 1.5 | Line height for body text |
+| `--tm-text-xs--line-height` | 1.5 | Line height for small body |
+| `--tm-text-2xs--line-height` | 1.5 | Line height for mini text |
+| `--tm-text-lg--line-height` | 1.5 | Line height for heading 4 |
+| `--tm-text-xl--line-height` | 1.5 | Line height for heading 3 |
+| `--tm-text-2xl--line-height` | 1.5 | Line height for heading 2 |
+| `--tm-text-3xl--line-height` | 1.5 | Line height for heading 1 |
+| `--tm-text-4xl--line-height` | 1.35 | Line height for display 2 |
+| `--tm-text-5xl--line-height` | 1.5 | Line height for display 1 |
+
+### Letter Spacing
+
+| Trimble Modus Variable | Value |
+|------------------------|-------|
+| `--tm-tracking-tight` | 0.15em |
+| `--tm-tracking-normal` | 0.15em |
+| `--tm-tracking-wide` | 0.25em |
+| `--tm-tracking-wider` | 0.5em |
+
+## Spacing Variables
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-space-0` | 0 | No spacing |
+| `--tm-space-1` | 0.25rem | 4px spacing |
+| `--tm-space-2` | 0.5rem | 8px spacing |
+| `--tm-space-3` | 0.75rem | 12px spacing |
+| `--tm-space-4` | 1rem | 16px spacing |
+| `--tm-space-5` | 1.25rem | 20px spacing |
+| `--tm-space-6` | 1.5rem | 24px spacing |
+| `--tm-space-8` | 2rem | 32px spacing |
+| `--tm-space-10` | 2.5rem | 40px spacing |
+| `--tm-space-12` | 3rem | 48px spacing |
+| `--tm-space-16` | 4rem | 64px spacing |
+| `--tm-space-20` | 5rem | 80px spacing |
+| `--tm-space-24` | 6rem | 96px spacing |
+| `--tm-space-32` | 8rem | 128px spacing |
+| `--tm-space-40` | 10rem | 160px spacing |
+| `--tm-space-48` | 12rem | 192px spacing |
+
+## Border Radius Variables
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-radius-none` | 0 | No rounding |
+| `--tm-radius-sm` | 0.125rem | 2px radius |
+| `--tm-radius` | 0.25rem | 4px radius (default) |
+| `--tm-radius-md` | 0.375rem | 6px radius |
+| `--tm-radius-lg` | 0.5rem | 8px radius |
+| `--tm-radius-xl` | 0.75rem | 12px radius |
+| `--tm-radius-2xl` | 1rem | 16px radius |
+| `--tm-radius-3xl` | 1.5rem | 24px radius |
+| `--tm-radius-full` | 9999px | Fully rounded (circular) |
+
+## Shadow Variables
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-shadow-none` | none | No shadow |
+| `--tm-shadow-sm` | [see CSS] | Small shadow |
+| `--tm-shadow` | [see CSS] | Default shadow |
+| `--tm-shadow-md` | [see CSS] | Medium shadow |
+| `--tm-shadow-lg` | [see CSS] | Large shadow |
+| `--tm-shadow-xl` | [see CSS] | Extra large shadow |
+| `--tm-shadow-2xl` | [see CSS] | 2x extra large shadow |
+| `--tm-shadow-inner` | [see CSS] | Inner shadow |
+| `--tm-shadow-outline` | [see CSS] | Outline shadow |
+| `--tm-shadow-focus` | [see CSS] | Focus state shadow |
+
+## Transition Variables
+
+| Trimble Modus Variable | Value | Description |
+|------------------------|-------|-------------|
+| `--tm-transition-fast` | 150ms | Fast transition |
+| `--tm-transition-normal` | 300ms | Normal transition |
+| `--tm-transition-slow` | 500ms | Slow transition |
+| `--tm-transition-timing-default` | cubic-bezier(0.4, 0, 0.2, 1) | Default timing function |
+
+## Variable Mapping
+
+All Trimble Modus (`tm-` prefixed) variables are mapped to standard Tailwind CSS variables for seamless integration with Tailwind utilities. For example:
+
+```css
+@theme {
+  /* Define Trimble Modus variable */
+  --tm-color-primary: #0063a3;
+  
+  /* Map to Tailwind variable */
+  --color-primary: var(--tm-color-primary);
+}
+```
+
+This approach allows you to use either the Trimble Modus variables directly (for custom styles) or the Tailwind utilities (in class names).
+
+## Dark Mode Support
+
+Dark mode variables are defined using the `@theme dark` directive. The mapping from `tm-` variables to standard Tailwind variables happens in both light and dark themes.
+
+## Usage in Components
+
+When using these variables in components, prefer the Tailwind variables (without the `tm-` prefix) to ensure compatibility with the Tailwind utility classes. For example:
+
+```css
+.my-custom-element {
+  color: var(--color-primary);
+  font-size: var(--text-base);
+  padding: var(--space-4);
+}
+```
+
+For class-based styling, continue using Tailwind utilities which automatically use these mapped variables:
+
+```html
+<div class="text-primary text-base p-4">
+  This uses the Tailwind utilities
+</div>
+```
+
+When documenting variable names or displaying them in the UI (for example in design system documentation), use the `tm-` prefixed names to show the Trimble Modus variable names.
