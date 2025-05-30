@@ -1,3 +1,4 @@
 mkdir trimble-modus-vue
 cd trimble-modus-vue
 npm create vite@latest . -- --template vue-ts
+npm install tailwindcss @tailwindcss/vite
