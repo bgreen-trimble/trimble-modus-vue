@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import { useDarkMode } from '@/composables/useDarkMode'
 
@@ -15,6 +15,9 @@ const darkModeModel = computed({
     get: () => isDark.value,
     set: (value: boolean) => setDarkMode(value)
 })
+
+// Mobile nav state
+const isNavOpen = ref(false)
 
 // Toggle navigation
 const toggleNav = () => {
