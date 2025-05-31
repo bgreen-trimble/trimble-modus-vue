@@ -1,242 +1,68 @@
 @theme {
-    /* Blue variants */
-    --color-tm-button-blue-hover: #0082d6;
-    --color-tm-button-blue-active: #00548a;
-    --color-tm-button-blue-dark-hover: #0082d6;
-    --color-tm-button-blue-dark-active: #00548a;
+    /* Primary */
+    --color-tm-button-primary-background-color: #0063a3;
+    --color-tm-button-primary-border-color: #0063a3;
+    --color-tm-button-primary: white;
 
-    /* Gray variants */
-    --color-tm-button-gray-hover: #838793;
-    --color-tm-button-gray-active: #5e626b;
-    --color-tm-button-gray-dark-hover: #7d808d;
-    --color-tm-button-gray-dark-active: #6a6e79;
+    --color-tm-button-primary-hover-background-color: #0082d6;
+    --color-tm-button-primary-hover-border-color: #0082d6;
+    --color-tm-button-primary-hover: white;
 
-    /* Green variants */
-    --color-tm-button-green-hover: #006638;
-    --color-tm-button-green-active: #004d2a;
-    --color-tm-button-green-dark-hover: #1e8a44;
-    --color-tm-button-green-dark-active: #006638;
+    --color-tm-button-primary-active-background-color: #00548a;
+    --color-tm-button-primary-active-border-color: #00548a;
+    --color-tm-button-primary-active: white;
 
-    /* Yellow variants */
-    --color-tm-button-yellow-hover: #fec157;
-    --color-tm-button-yellow-active: #e49325;
-    --color-tm-button-yellow-dark-hover: #fbad26;
-    --color-tm-button-yellow-dark-active: #e49325;
+    --color-tm-button-primary-disabled-background-color: #0063a3;
+    --color-tm-button-primary-disabled-border-color: #0063a3;
+    --color-tm-button-primary-disabled: white;
 
-    /* Red variants */
-    --color-tm-button-red-hover: #e44a53;
-    --color-tm-button-red-active: #c41e28;
-    --color-tm-button-red-dark-hover: #da212c;
-    --color-tm-button-red-dark-active: #ab1f26;
-
-    /* Filled Button Variants */
-    --color-tm-button-prinary-filled: var(--color-tm-blue);
-    --color-tm-button-primary-filled-hover: var(--color-tm-button-blue-hover);
-    --color-tm-button-primary-filled-focus: var(--color-tm-button-primary-filled-hover);
-    --color-tm-button-primary-filled-active: var(--color-tm-button-blue-active);
-    --text-tm-button-primary-filled: white;
-
-    --color-tm-button-secondary-filled: var(--color-tm-gray-6);
-    --color-tm-button-secondary-filled-hover: var(--color-tm-button-gray-hover);
-    --color-tm-button-secondary-filled-focus: var(--color-tm-button-secondary-filled-hover);
-    --color-tm-button-secondary-filled-active: var(--color-tm-button-gray-active);
-    --text-tm-button-secondary-filled: white;
-
-    --color-tm-button-success-filled: var(--color-tm-green);
-    --color-tm-button-success-filled-hover: var(--color-tm-button-green-hover);
-    --color-tm-button-success-filled-focus: var(--color-tm-button-success-filled-hover);
-    --color-tm-button-success-filled-active: var(--color-tm-button-green-active);
-    --text-tm-button-success-filled: white;
-
-    --color-tm-button-warning-filled: var(--color-tm-yellow);
-    --color-tm-button-warning-filled-hover: var(--color-tm-button-yellow-hover);
-    --color-tm-button-warning-filled-focus: var(--color-tm-button-warning-filled-hover);
-    --color-tm-button-warning-filled-active: var(--color-tm-button-yellow-active);
-    --text-tm-button-warning-filled: white;
-
-    --color-tm-button-danger-filled: var(--color-tm-red);
-    --color-tm-button-danger-filled-hover: var(--color-tm-button-red-hover);
-    --color-tm-button-danger-filled-focus: var(--color-tm-button-danger-filled-hover);
-    --color-tm-button-danger-filled-active: var(--color-tm-button-red-active);
-    --text-tm-button-danger-filled: white;
-
-    /* Outlined Button Variants */
-    --color-tm-button-prinary-outlined: var(--color-tm-blue);
-    --color-tm-button-primary-outlined-hover: var(--color-tm-blue-pale);
-    --color-tm-button-primary-outlined-focus: var(--color-tm-button-primary-filled-hover);
-    --color-tm-button-primary-outlined-active: var(--color-tm-button-blue-active);
-    --text-tm-button-primary-outlined: var(--color-tm-blue);
-
-
+    --color-tm-button-primary-focus-visible-box-shadow: 0 0 0 3px rgba(1, 154, 235, 0.5); /* Highlight Blue */
 }
 
 .dark {
-    /* Filled Button Variants */
-    --color-tm-button-prinary-filled: var(--color-tm-blue-highlight);
-    --color-tm-button-primary-filled-hover: var(--color-tm-button-blue-dark-hover);
-    --color-tm-button-primary-filled-active: var(--color-tm-button-blue-dark-active);
-    --text-tm-button-primary-filled: var(--color-tm-gray-10);
-
-    --color-tm-button-secondary-filled: var(--color-tm-trimble-gray);
-    --color-tm-button-secondary-filled-hover: var(--color-tm-button-gray-dark-hover);
-    --color-tm-button-secondary-filled-active: var(--color-tm-button-gray-dark-active);
-    --text-tm-button-secondary-filled: white;
-
-    --color-tm-button-success-filled: var(--color-tm-green);
-    --color-tm-button-success-filled-hover: var(--color-tm-button-green-dark-hover);
-    --color-tm-button-success-filled-active: var(--color-tm-button-green-dark-active);
-    --text-tm-button-success-filled: white;
-
-    --color-tm-button-warning-filled: var(--color-tm-yellow);
-    --color-tm-button-warning-filled-hover: var(--color-tm-button-yellow-dark-hover);
-    --color-tm-button-warning-filled-active: var(--color-tm-button-yellow-dark-active);
-    --text-tm-button-warning-filled: white;
-
-    --color-tm-button-danger-filled: var(--color-tm-red);
-    --color-tm-button-danger-filled-hover: var(--color-tm-button-red-dark-hover);
-    --color-tm-button-danger-filled-active: var(--color-tm-button-red-dark-active);
-    --text-tm-button-danger-filled: white;
+    /* Primary */
+    --color-tm-button-primary-background-color: #019aeb;
+    --color-tm-button-primary-border-color: #019aeb;
+    --color-tm-button-primary: #171c1e;
+    --color-tm-button-primary-hover: #171c1e;
+    --color-tm-button-primary-active: #171c1e;
+    --color-tm-button-primary-focus-visible-box-shadow: 0 0 0 0.25rem rgba(38,122,177, .5);
 }
 
 @layer utilities {
+
     /* Filled Button Variants */
     /* Primary Filled */
     .button-tm-primary-filled {
-        background-color: var(--color-tm-button-prinary-filled);
-        border-color: var(--color-tm-button-prinary-filled);
-        color: var(--text-tm-button-primary-filled);
+        background-color: var(--color-tm-button-primary-background-color);
+        border-color: var(--color-tm-button-primary-border-color);
+        color: var(--color-tm-button-primary);
     }
 
     .button-tm-primary-filled:hover {
-        background-color: var(--color-tm-button-primary-filled-hover);
-        border-color: var(--color-tm-button-primary-filled-hover);
+        background-color: var(--color-tm-button-primary-hover-background-color);
+        border-color: var(--color-tm-button-primary-hover-border-color);
+        color: var(--color-tm-button-primary-hover);
     }
 
-    .button-tm-primary-filled:focus {
-        background-color: var(--color-tm-button-primary-filled-focus);
-        border-color: var(--color-tm-button-primary-filled-focus);
-        box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-tm-button-primary-filled-focus) 50%, transparent);
+    .button-tm-primary-filled:focus-visible {
+        background-color: var(--color-tm-button-primary-hover-background-color);
+        border-color: var(--color-tm-button-primary-hover-border-color);
+        color: var(--color-tm-button-primary-hover);
+        outline: none;
+        box-shadow: var(--color-tm-button-primary-focus-visible-box-shadow)
     }
 
     .button-tm-primary-filled:active {
-        background-color: var(--color-tm-button-primary-filled-active);
-        border-color: var(--color-tm-button-primary-filled-active);
+        background-color: var(--color-tm-button-primary-active-background-color);
+        border-color: var(--color-tm-button-primary-active-border-color);
+        color: var(--color-tm-button-primary-active);
     }
 
-    /* Secondary Filled */
-    .button-tm-secondary-filled {
-        background-color: var(--color-tm-button-secondary-filled);
-        border-color: var(--color-tm-button-secondary-filled);
-        color: var(--text-tm-button-secondary-filled);
+    .button-tm-primary-filled:disabled {
+        background-color: var(--color-tm-button-primary-disabled-background-color);
+        border-color: var(--color-tm-button-primary-disabled-border-color);
+        color: var(--color-tm-button-primary-disabled);
     }
-
-    .button-tm-secondary-filled:hover {
-        background-color: var(--color-tm-button-secondary-filled-hover);
-        border-color: var(--color-tm-button-secondary-filled-hover);
-    }
-
-    .button-tm-secondary-filled:focus {
-        background-color: var(--color-tm-button-secondary-filled-focus);
-        border-color: var(--color-tm-button-secondary-filled-focus);
-        box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-tm-button-secondary-filled-focus) 50%, transparent);
-    }
-
-    .button-tm-secondary-filled:active {
-        background-color: var(--color-tm-button-secondary-filled-active);
-        border-color: var(--color-tm-button-secondary-filled-active);
-    }
-
-    /* Success Filled */
-    .button-tm-success-filled {
-        background-color: var(--color-tm-button-success-filled);
-        border-color: var(--color-tm-button-success-filled);
-        color: var(--text-tm-button-success-filled);
-    }
-
-    .button-tm-success-filled:hover {
-        background-color: var(--color-tm-button-success-filled-hover);
-        border-color: var(--color-tm-button-success-filled-hover);
-    }
-
-    .button-tm-success-filled:focus {
-        background-color: var(--color-tm-button-success-filled-focus);
-        border-color: var(--color-tm-button-success-filled-focus);
-        box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-tm-button-success-filled-focus) 50%, transparent);
-    }
-
-    .button-tm-success-filled:active {
-        background-color: var(--color-tm-button-success-filled-active);
-        border-color: var(--color-tm-button-success-filled-active);
-    }
-
-    /* Warning Filled */
-    .button-tm-warning-filled {
-        background-color: var(--color-tm-button-warning-filled);
-        border-color: var(--color-tm-button-warning-filled);
-        color: var(--text-tm-button-warning-filled);
-    }
-
-    .button-tm-warning-filled:hover {
-        background-color: var(--color-tm-button-warning-filled-hover);
-        border-color: var(--color-tm-button-warning-filled-hover);
-    }
-
-    .button-tm-warning-filled:focus {
-        background-color: var(--color-tm-button-warning-filled-focus);
-        border-color: var(--color-tm-button-warning-filled-focus);
-        box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-tm-button-warning-filled-focus) 50%, transparent);
-    }
-
-    .button-tm-warning-filled:active {
-        background-color: var(--color-tm-button-warning-filled-active);
-        border-color: var(--color-tm-button-warning-filled-active);
-    }
-    /* Danger Filled */
-    .button-tm-danger-filled {
-        background-color: var(--color-tm-button-danger-filled);
-        border-color: var(--color-tm-button-danger-filled);
-        color: var(--text-tm-button-danger-filled);
-    }
-
-    .button-tm-danger-filled:hover {
-        background-color: var(--color-tm-button-danger-filled-hover);
-        border-color: var(--color-tm-button-danger-filled-hover);
-    }
-
-    .button-tm-danger-filled:focus {
-        background-color: var(--color-tm-button-danger-filled-focus);
-        border-color: var(--color-tm-button-danger-filled-focus);
-        box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-tm-button-danger-filled-focus) 50%, transparent);
-    }
-
-    .button-tm-danger-filled:active {
-        background-color: var(--color-tm-button-danger-filled-active);
-        border-color: var(--color-tm-button-danger-filled-active);
-    }
-    /* Outlined Button Variants */
-    /* Primary Outlined */
-    .button-tm-primary-outlined {
-        background-color: transparent;
-        border-color: var(--color-tm-button-prinary-outlined);
-        color: var(--text-tm-button-primary-outlined);
-    }
-
-    .button-tm-primary-outlined:hover {
-        background-color: var(--color-tm-button-primary-outlined-hover);
-        border-color: var(--color-tm-button-prinary-outlined);
-    }
-
-    .button-tm-primary-outlined:focus {
-        background-color: var(--color-tm-button-primary-outlined-hover);
-        border-color: var(--color-tm-button-prinary-outlined);
-        box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-tm-button-primary-outlined-focus) 50%, transparent);
-    }
-
-    .button-tm-primary-outlined:active {
-        background-color: var(--color-tm-button-primary-outlined-active);
-        border-color: var(--color-tm-button-primary-outlined-active);
-        color: var(--color-tm-button-primary-outlined-active);
-    }
-
 
 }
