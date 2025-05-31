@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -34,9 +33,8 @@ const buttonClasses = computed(() => {
     'duration-200',
     'cursor-pointer',
     'border',
-    'focus:outline-none',
-    'focus:ring-2',
-    'focus:ring-offset-2'
+    'focus:outline-none'
+    // Removed focus:ring-2 and focus:ring-offset-2 to allow button.css focus-visible styles to work
   ]
 
   // Size classes
@@ -48,6 +46,7 @@ const buttonClasses = computed(() => {
 
   // Generate class name for variant and severity
   const variantClass = `button-tm-${props.severity}-${props.variant}`
+  console.log('Generated variantClass:', variantClass);
 
   // Disabled state
   const disabledClasses = props.disabled ? [
