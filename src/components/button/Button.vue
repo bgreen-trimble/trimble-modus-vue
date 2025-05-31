@@ -39,9 +39,9 @@ const buttonClasses = computed(() => {
 
   // Size classes
   const sizeClasses = {
-    small: ['text-xs', 'px-3', 'py-1.5', 'min-h-[32px]'],
-    medium: ['text-sm', 'px-4', 'py-2', 'min-h-[40px]'],
-    large: ['text-base', 'px-6', 'py-3', 'min-h-[48px]']
+    small: ['text-xs', 'px-2', 'py-2', 'min-h-[24px]'],
+    medium: ['text-sm', 'px-4', 'py-1.5', 'min-h-[32px]'],
+    large: ['text-base', 'px-4', 'py-2', 'min-h-[48px]']
   }
 
   // Generate class name for variant and severity
