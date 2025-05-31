@@ -18,7 +18,7 @@ const toggleNotification = () => {
   <main class="space-y-8">
     <div class="flex justify-between items-start">
       <div>
-        <h1 class="tm-h1 tm-font-bold mb-2">Card Component Showcase</h1>
+        <h1 class="tm-h1 mb-2">Card Component Showcase</h1>
         <p class="tm-text-body">
           Demonstrating the Trimble Modus Card component with various variants, sizes, and styles.
         </p>

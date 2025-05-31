@@ -34,7 +34,7 @@ const largeDisabled = ref(false)
   <main class="space-y-8">
     <div class="flex justify-between items-start">
       <div>
-        <h1 class="text-3xl font-bold mb-2">Switch Component Showcase</h1>
+        <h1 class="tm-h1 mb-2">Switch Component Showcase</h1>
         <p class="text-gray-600 dark:text-gray-400">
           Demonstrating the Trimble Modus Switch component with various states, sizes, and dark mode support.
         </p>
@@ -44,10 +44,10 @@ const largeDisabled = ref(false)
     <div class="space-y-6">
       <!-- Basic Switches -->
       <div class="space-y-4">
-        <h2 class="text-xl font-semibold">Basic Switches</h2>
+        <h2 class="tm-h2">Basic Switches</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg flex flex-col items-center text-center">
-            <h3 class="text-body font-semibold mb-3">Default Switch</h3>
+            <h3 class="tm-h3 mb-3">Default Switch</h3>
             <div class="mb-3">
               <Switch
                 v-model="basicSwitch"

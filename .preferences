@@ -17,6 +17,7 @@
 - All Tailwind customizations should be implemented directly in CSS files (e.g., style.css)
 - Use @theme directive and not :root variables for theming and customizations
 - ignore @theme css error or warnings
+- don't use tailwind typography classes, only use tm typography classes
 
 ## Code Organization
 - Vue components use <script setup> with TypeScript

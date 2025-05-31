@@ -1,11 +1,11 @@
 <template>
   <div class="p-6">
-    <h2 class="text-3xl font-bold mb-8">Trimble Modus Typography</h2>
+    <h2 class="tm-h1 mb-8">Trimble Modus Typography</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Headings -->
       <div class="bg-light p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold mb-4">Headings</h3>
+        <h3 class="tm-h3 mb-4">Headings</h3>
 
         <div class="space-y-6">
           <div>

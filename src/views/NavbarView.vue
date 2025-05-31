@@ -30,7 +30,7 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
   <div class="space-y-12">
     <div class="flex justify-between items-start">
       <div>
-        <h1 class="text-3xl font-bold mb-2">Navbar Component Showcase</h1>
+        <h1 class="tm-h1 mb-2">Navbar Component Showcase</h1>
         <p class="text-gray-600 dark:text-gray-400">
           Demonstrating the Trimble Modus Navbar component with various styles, sizes, and variants.
         </p>
@@ -39,11 +39,11 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
 
     <!-- Primary Navbar Examples -->
     <div class="space-y-8">
-      <h2 class="text-xl font-semibold">Primary Navbar (Blue)</h2>
+      <h2 class="tm-h2">Primary Navbar (Blue)</h2>
       <div class="space-y-12">
         <!-- Small Primary Navbar -->
         <div class="space-y-2">
-          <h3 class="text-lg font-medium">Small Size</h3>
+          <h3 class="tm-h3">Small Size</h3>
           <div class="border border-gray-200 dark:border-gray-700  overflow-hidden">
             <Navbar variant="primary" size="small">
               <template #left>

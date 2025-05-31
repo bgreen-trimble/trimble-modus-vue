@@ -6,7 +6,7 @@ import { Button } from '@/components'
   <main class="space-y-8">
     <div class="flex justify-between items-start">
       <div>
-        <h1 class="tm-h1 tm-font-bold mb-2">Button Component Showcase</h1>
+        <h1 class="tm-h1 mb-2">Button Component Showcase</h1>
         <p class="">
           Demonstrating the Trimble Modus Button component with various styles, severities, and dark mode support.
         </p>
@@ -100,7 +100,7 @@ import { Button } from '@/components'
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="space-y-2">
-            <h3>Filled Buttons</h3>
+            <h3 class="tm-h3">Filled Buttons</h3>
             <div class="flex flex-col gap-2">
               <Button label="Primary" />
               <Button label="Secondary" severity="secondary" />
@@ -110,7 +110,7 @@ import { Button } from '@/components'
             </div>
           </div>
           <div class="space-y-2">
-            <h3>Outlined Buttons</h3>
+            <h3 class="tm-h3">Outlined Buttons</h3>
             <div class="flex flex-col gap-2">
               <Button label="Primary" variant="outlined" />
               <Button label="Secondary" variant="outlined" severity="secondary" />
@@ -120,7 +120,7 @@ import { Button } from '@/components'
             </div>
           </div>
           <div class="space-y-2">
-            <h3>Text Buttons</h3>
+            <h3 class="tm-h3">Text Buttons</h3>
             <div class="flex flex-col gap-2">
               <Button label="Primary" variant="text" />
               <Button label="Secondary" variant="text" severity="secondary" />
@@ -137,7 +137,7 @@ import { Button } from '@/components'
         <h2 class="tm-h2">Disabled States (All Variants)</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="space-y-2">
-            <h3>Filled Disabled</h3>
+            <h3 class="tm-h3">Filled Disabled</h3>
             <div class="flex flex-col gap-2">
               <Button label="Primary" disabled />
               <Button label="Secondary" severity="secondary" disabled />
@@ -145,7 +145,7 @@ import { Button } from '@/components'
             </div>
           </div>
           <div class="space-y-2">
-            <h3>Outlined Disabled</h3>
+            <h3 class="tm-h3">Outlined Disabled</h3>
             <div class="flex flex-col gap-2">
               <Button label="Primary" variant="outlined" disabled />
               <Button label="Secondary" variant="outlined" severity="secondary" disabled />
@@ -153,7 +153,7 @@ import { Button } from '@/components'
             </div>
           </div>
           <div class="space-y-2">
-            <h3>Text Disabled</h3>
+            <h3 class="tm-h3">Text Disabled</h3>
             <div class="flex flex-col gap-2">
               <Button label="Primary" variant="text" disabled />
               <Button label="Secondary" variant="text" severity="secondary" disabled />
