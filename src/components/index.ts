@@ -6,3 +6,6 @@ export type { CardProps } from './card/Card.vue'
 
 export { default as Switch } from './switch/Switch.vue'
 export type { SwitchProps } from './switch/Switch.vue'
+
+export { default as Navbar } from './navbar/Navbar.vue'
+export type { NavbarProps } from './navbar/Navbar.vue'
