@@ -3,7 +3,7 @@
   Uses external navbar.css for styling with PrimeVue's @theme approach
 -->
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 export interface NavbarProps {
   variant?: 'primary' | 'secondary' | 'tertiary'
@@ -21,6 +21,13 @@ const props = withDefaults(defineProps<NavbarProps>(), {
   rounded: false
 })
 
+// Add mobile menu functionality
+const menuOpen = ref(false)
+
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value
+}
+
 const navbarClasses = computed(() => {
   return [
     'tm-navbar',
@@ -33,17 +40,34 @@ const navbarClasses = computed(() => {
     }
   ]
 })
+
+const containerClasses = computed(() => {
+  return [
+    'tm-navbar-container',
+    { 'menu-open': menuOpen.value }
+  ]
+})
 </script>
 
 <template>
   <nav :class="navbarClasses">
-    <div class="tm-navbar-container">
+    <div :class="containerClasses">
       <div class="tm-navbar-left">
         <slot name="left"></slot>
       </div>
+      
+      <button 
+        class="tm-navbar-menu-button" 
+        @click="toggleMenu"
+        aria-label="Toggle menu"
+      >
+        <span class="modus-icons">{{ menuOpen ? 'close' : 'menu' }}</span>
+      </button>
+
       <div class="tm-navbar-middle">
         <slot name="middle"></slot>
       </div>
+      
       <div class="tm-navbar-right">
         <slot name="right"></slot>
       </div>

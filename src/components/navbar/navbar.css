@@ -1,18 +1,30 @@
 @theme {
-    /* Navbar Default Colors - Light Mode */
+    /* Navbar Colors - Light Mode (According to Modus Design System) */
+    /* Primary (Blue) */
     --color-tm-navbar-primary-background: #0063a3; /* Trimble Blue */
     --color-tm-navbar-primary-text: white;
-    --color-tm-navbar-primary-text-hover: rgba(255, 255, 255, 0.85);
-
+    --color-tm-navbar-primary-text-hover: white;
+    --color-tm-navbar-primary-item-hover-background: rgba(255, 255, 255, 0.15);
+    --color-tm-navbar-primary-item-active-background: rgba(255, 255, 255, 0.25);
+    --color-tm-navbar-primary-border-bottom: transparent;
+    
+    /* Secondary (Gray) */
     --color-tm-navbar-secondary-background: #252a2e; /* Trimble Gray */
     --color-tm-navbar-secondary-text: white;
-    --color-tm-navbar-secondary-text-hover: rgba(255, 255, 255, 0.85);
+    --color-tm-navbar-secondary-text-hover: white;
+    --color-tm-navbar-secondary-item-hover-background: rgba(255, 255, 255, 0.15);
+    --color-tm-navbar-secondary-item-active-background: rgba(255, 255, 255, 0.25);
+    --color-tm-navbar-secondary-border-bottom: transparent;
 
+    /* Tertiary (White/Light) */
     --color-tm-navbar-tertiary-background: white;
-    --color-tm-navbar-tertiary-text: #252a2e;
-    --color-tm-navbar-tertiary-text-hover: #0063a3;
-    --color-tm-navbar-tertiary-border-color: #e5e7eb; /* Gray 200 */
+    --color-tm-navbar-tertiary-text: #252a2e; /* Trimble Gray */
+    --color-tm-navbar-tertiary-text-hover: #0063a3; /* Trimble Blue */
+    --color-tm-navbar-tertiary-item-hover-background: rgba(0, 99, 163, 0.1);
+    --color-tm-navbar-tertiary-item-active-background: rgba(0, 99, 163, 0.15);
+    --color-tm-navbar-tertiary-border-bottom: #e5e7eb; /* Gray 200 */
 
+    /* Focus state for accessibility */
     --color-tm-navbar-focus-outline-color: #019aeb; /* Highlight Blue */
     --color-tm-navbar-focus-outline-width: 2px;
     --color-tm-navbar-focus-outline-offset: 2px;
@@ -25,25 +37,35 @@
 }
 
 .dark {
-    /* Navbar Default Colors - Dark Mode */
+    /* Navbar Colors - Dark Mode (According to Modus Design System) */
+    /* Primary (Blue) - Reversed for Dark Mode */
     --color-tm-navbar-primary-background: #019aeb; /* Highlight Blue */
     --color-tm-navbar-primary-text: #171c1e; /* Gray 10 */
-    --color-tm-navbar-primary-text-hover: rgba(23, 28, 30, 0.85);
-
-    --color-tm-navbar-secondary-background: #171c1e; /* Gray 10 */
+    --color-tm-navbar-primary-text-hover: #171c1e; /* Gray 10 */
+    --color-tm-navbar-primary-item-hover-background: rgba(0, 0, 0, 0.1);
+    --color-tm-navbar-primary-item-active-background: rgba(0, 0, 0, 0.15);
+    
+    /* Secondary (Gray) - Darkened for Dark Mode */
+    --color-tm-navbar-secondary-background: #171c1e; /* Gray 10 - Darker */
     --color-tm-navbar-secondary-text: #f3f4f6; /* Gray 100 */
-    --color-tm-navbar-secondary-text-hover: rgba(243, 244, 246, 0.85);
-
+    --color-tm-navbar-secondary-text-hover: #f3f4f6; /* Gray 100 */
+    --color-tm-navbar-secondary-item-hover-background: rgba(255, 255, 255, 0.1);
+    --color-tm-navbar-secondary-item-active-background: rgba(255, 255, 255, 0.15);
+    
+    /* Tertiary (Dark) - Dark background for Dark Mode */
     --color-tm-navbar-tertiary-background: #252a2e; /* Trimble Gray */
     --color-tm-navbar-tertiary-text: #f3f4f6; /* Gray 100 */
     --color-tm-navbar-tertiary-text-hover: #019aeb; /* Highlight Blue */
-    --color-tm-navbar-tertiary-border-color: #4b5563; /* Gray 600 */
+    --color-tm-navbar-tertiary-item-hover-background: rgba(1, 154, 235, 0.2);
+    --color-tm-navbar-tertiary-item-active-background: rgba(1, 154, 235, 0.3);
+    --color-tm-navbar-tertiary-border-bottom: #4b5563; /* Gray 600 */
 
+    /* Focus state remains same color in dark mode */
     --color-tm-navbar-focus-outline-color: #019aeb; /* Highlight Blue */
 }
 
 @layer utilities {
-    /* Base Navbar */
+    /* Base Navbar - Following Modus Design System */
     .tm-navbar {
         width: 100%;
         display: flex;
@@ -60,24 +82,26 @@
         justify-content: space-between;
     }
 
-    /* Variant styles */
+    /* Variant styles - Following Modus Design System */
     .tm-navbar-primary {
         background-color: var(--color-tm-navbar-primary-background);
         color: var(--color-tm-navbar-primary-text);
+        border-bottom: 1px solid var(--color-tm-navbar-primary-border-bottom);
     }
 
     .tm-navbar-secondary {
         background-color: var(--color-tm-navbar-secondary-background);
         color: var(--color-tm-navbar-secondary-text);
+        border-bottom: 1px solid var(--color-tm-navbar-secondary-border-bottom);
     }
 
     .tm-navbar-tertiary {
         background-color: var(--color-tm-navbar-tertiary-background);
         color: var(--color-tm-navbar-tertiary-text);
-        border-bottom: 1px solid var(--color-tm-navbar-tertiary-border-color);
+        border-bottom: 1px solid var(--color-tm-navbar-tertiary-border-bottom);
     }
 
-    /* Size variations */
+    /* Size variations - According to Modus Design System */
     .tm-navbar-small {
         height: 48px;
         padding: 0 1rem;
@@ -113,13 +137,13 @@
         overflow: hidden;
     }
 
-    /* Navbar slots */
+    /* Navbar slots - Layout according to Modus Design System */
     .tm-navbar-left,
     .tm-navbar-right,
     .tm-navbar-middle {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.5rem; /* Modus uses tighter spacing between nav items */
     }
 
     .tm-navbar-middle {
@@ -131,7 +155,7 @@
         justify-content: flex-end;
     }
 
-    /* Links within navbar */
+    /* Links within navbar - Following Modus Design System specs */
     .tm-navbar a {
         text-decoration: none;
         color: inherit;
@@ -139,19 +163,56 @@
         align-items: center;
         height: 100%;
         padding: 0 1rem;
-        transition: color 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        font-weight: 500; /* Modus uses medium weight for nav items */
     }
 
+    /* Primary navbar links */
     .tm-navbar-primary a:hover {
         color: var(--color-tm-navbar-primary-text-hover);
+        background-color: var(--color-tm-navbar-primary-item-hover-background);
     }
 
+    .tm-navbar-primary a:active,
+    .tm-navbar-primary a.active {
+        color: var(--color-tm-navbar-primary-text);
+        background-color: var(--color-tm-navbar-primary-item-active-background);
+    }
+
+    /* Secondary navbar links */
     .tm-navbar-secondary a:hover {
         color: var(--color-tm-navbar-secondary-text-hover);
+        background-color: var(--color-tm-navbar-secondary-item-hover-background);
     }
 
+    .tm-navbar-secondary a:active,
+    .tm-navbar-secondary a.active {
+        color: var(--color-tm-navbar-secondary-text);
+        background-color: var(--color-tm-navbar-secondary-item-active-background);
+    }
+
+    /* Tertiary navbar links */
     .tm-navbar-tertiary a:hover {
         color: var(--color-tm-navbar-tertiary-text-hover);
+        background-color: var(--color-tm-navbar-tertiary-item-hover-background);
+    }
+
+    .tm-navbar-tertiary a:active,
+    .tm-navbar-tertiary a.active {
+        color: var(--color-tm-navbar-tertiary-text-hover);
+        background-color: var(--color-tm-navbar-tertiary-item-active-background);
+    }
+
+    /* Active link indicator (underline) - Modus style */
+    .tm-navbar a.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: currentColor;
     }
 
     /* Focus state for accessibility */
@@ -160,15 +221,32 @@
         outline-offset: var(--color-tm-navbar-focus-outline-offset);
     }
 
-    /* Logo container (common pattern in navbars) */
+    /* Logo container - Modus Design System */
     .tm-navbar-logo {
         display: flex;
         align-items: center;
         font-weight: 600;
         font-size: 1.25rem;
+        padding: 0 1rem 0 0;
+        height: 100%;
     }
 
-    /* Responsive menu button (for mobile) */
+    .tm-navbar-logo img {
+        max-height: 24px; /* Modus standard logo height */
+        margin-right: 0.5rem;
+    }
+
+    /* For large size, increase logo size */
+    .tm-navbar-large .tm-navbar-logo img {
+        max-height: 32px;
+    }
+
+    /* For small size, decrease logo size */
+    .tm-navbar-small .tm-navbar-logo img {
+        max-height: 20px;
+    }
+
+    /* Responsive menu button (for mobile) - Modus style */
     .tm-navbar-menu-button {
         display: none;
         background: none;
@@ -176,9 +254,10 @@
         color: inherit;
         cursor: pointer;
         padding: 0.5rem;
+        margin-left: 0.5rem;
     }
 
-    /* Responsive behavior */
+    /* Responsive behavior - Following Modus Design System */
     @media (max-width: 768px) {
         .tm-navbar-container {
             justify-content: space-between;
@@ -186,6 +265,8 @@
 
         .tm-navbar-menu-button {
             display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .tm-navbar-middle {
@@ -196,7 +277,7 @@
             display: none;
         }
 
-        /* When menu is open */
+        /* When menu is open - Mobile dropdown menu */
         .tm-navbar-container.menu-open .tm-navbar-middle,
         .tm-navbar-container.menu-open .tm-navbar-right {
             display: flex;
@@ -206,10 +287,26 @@
             right: 0;
             flex-direction: column;
             background-color: inherit;
-            padding: 1rem;
-            gap: 0.5rem;
-            border-bottom: 1px solid var(--color-tm-navbar-tertiary-border-color);
+            padding: 0;
+            gap: 0;
+            border-bottom: 1px solid var(--color-tm-navbar-tertiary-border-bottom);
             box-shadow: var(--color-tm-navbar-shadow);
+            z-index: 1000;
+        }
+
+        /* Mobile menu links - Full width links */
+        .tm-navbar-container.menu-open a {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile active indicator - Side bar instead of bottom */
+        .tm-navbar-container.menu-open a.active::after {
+            height: 100%;
+            width: 4px;
+            top: 0;
+            bottom: auto;
         }
     }
 }
