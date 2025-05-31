@@ -46,7 +46,7 @@ const toggleDarkMode = () => {
                 <RouterLink v-for="route in routes" :key="route.path" :to="route.path"
                     class="block px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 "
                     :class="{ 'bg-gray-200 dark:bg-gray-700': $route.path === route.path }">
-                    {{route.path.substring(1).split('-').map(word => word.charAt(0).toUpperCase() +
+                    {{route.path.substring(1).split('-').filter(word => word.toUpperCase() !== "VIEW").map(word => word.charAt(0).toUpperCase() +
                         word.slice(1)).join(' ')}}
                 </RouterLink>
             </div>

@@ -1,0 +1,189 @@
+@theme {
+    /* Switch Colors - Light Mode */
+    --color-tm-switch-background: #90939f; /* Trimble Gray Light */
+    --color-tm-switch-checked-background: #217cbb; /* Trimble Blue */
+    --color-tm-switch-hover-background: #217cbb; /* Trimble Blue on hover */
+    --color-tm-switch-checked-hover-background: #0063a3; /* Darker blue on hover when checked */
+    --color-tm-switch-thumb-color: white;
+    --color-tm-switch-label-color: #464b52; /* Trimble Gray Dark */
+    --color-tm-switch-focus-outline-color: #019aeb; /* Trimble Blue Focus */
+    --color-tm-switch-focus-outline-width: 2px;
+    --color-tm-switch-focus-outline-offset: 2px;
+    --color-tm-switch-disabled-opacity: 0.3;
+}
+
+.dark {
+    /* Switch Colors - Dark Mode */
+    --color-tm-switch-background: #6a6e79; /* Darker gray for dark mode */
+    --color-tm-switch-checked-background: #019aeb; /* Trimble Blue Light for dark mode */
+    --color-tm-switch-hover-background: #019aeb;
+    --color-tm-switch-checked-hover-background: #0082d6;
+    --color-tm-switch-label-color: #e5e7eb; /* Light gray for dark mode */
+    --color-tm-switch-focus-outline-color: #019aeb;
+}
+
+@layer utilities {
+    /* Modus Switch Component - Based on official Trimble Modus Web Components */
+    /* Source: https://github.com/trimble-oss/modus-web-components */
+
+    .tm-switch-container {
+        align-items: center;
+        display: inline-flex;
+        flex-direction: row;
+        font-family: inherit;
+        font-size: 0.875rem; /* 14px */
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .tm-switch-container-small {
+        font-size: 0.75rem; /* 12px */
+    }
+
+    .tm-switch-container-small .tm-switch {
+        height: 0.75rem; /* 12px */
+        width: 1.625rem; /* 26px */
+    }
+
+    .tm-switch-container-small .tm-switch-slider {
+        border-radius: 0.5rem; /* 8px */
+        height: 0.75rem; /* 12px */
+        width: 1.625rem; /* 26px */
+    }
+
+    .tm-switch-container-small .tm-switch-slider::before {
+        height: 0.5rem; /* 8px - properly sized small thumb */
+        width: 0.5rem; /* 8px */
+        top: 0.125rem; /* 2px - center vertically (12px - 8px) / 2 */
+        left: 0.125rem; /* 2px - initial position with proper padding */
+    }
+
+    .tm-switch-container-small .tm-switch-checked .tm-switch-slider::before {
+        transform: translateX(1rem); /* 16px - proper small checked position (26px - 8px - 2px) */
+    }
+
+    /* Large size styles - extrapolated from Trimble Modus pattern */
+    .tm-switch-container-large {
+        font-size: 1rem; /* 16px */
+    }
+
+    .tm-switch-container-large .tm-switch {
+        height: 1.25rem; /* 20px */
+        width: 2.875rem; /* 46px */
+    }
+
+    .tm-switch-container-large .tm-switch-slider {
+        border-radius: 0.625rem; /* 10px */
+        height: 1.25rem; /* 20px */
+        width: 2.875rem; /* 46px */
+    }
+
+    .tm-switch-container-large .tm-switch-slider::before {
+        height: 1rem; /* 16px - properly sized large thumb */
+        width: 1rem; /* 16px */
+        top: 0.125rem; /* 2px - center vertically (20px - 16px) / 2 */
+        left: 0.125rem; /* 2px - initial position with proper padding */
+    }
+
+    .tm-switch-container-large .tm-switch-checked .tm-switch-slider::before {
+        transform: translateX(1.75rem); /* 28px - proper large checked position (46px - 16px - 2px) */
+    }
+
+    .tm-switch-container input {
+        display: none;
+    }
+
+    .tm-switch {
+        background-color: var(--color-tm-switch-background);
+        border-radius: 1rem; /* 16px */
+        height: 1rem; /* 16px */
+        position: relative;
+        width: 2.25rem; /* 36px */
+        transition: all 0.15s ease-in-out;
+        cursor: pointer;
+    }
+
+    .tm-switch-slider {
+        background-color: transparent; /* Remove background - switch handles this */
+        border-radius: 1rem; /* 16px */
+        cursor: pointer;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        transition: all 0.15s ease-in-out;
+    }
+
+    .tm-switch-slider::before {
+        background-color: var(--color-tm-switch-thumb-color);
+        border-radius: 50%;
+        content: '';
+        height: 0.75rem; /* 12px - properly sized thumb */
+        width: 0.75rem; /* 12px */
+        position: absolute;
+        top: 0.125rem; /* 2px - center vertically (16px - 12px) / 2 */
+        left: 0.125rem; /* 2px - initial position with proper padding */
+        transition: transform 0.15s ease-in-out;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .tm-switch-checked {
+        background-color: var(--color-tm-switch-checked-background);
+    }
+
+    .tm-switch-checked .tm-switch-slider::before {
+        transform: translateX(1.125rem); /* 18px - proper checked position (36px - 12px - 4px) */
+    }
+
+    /* Hover states */
+    .tm-switch-container:hover:not(.tm-switch-container-disabled) .tm-switch {
+        background-color: var(--color-tm-switch-hover-background);
+    }
+
+    .tm-switch-container:hover:not(.tm-switch-container-disabled) .tm-switch-checked {
+        background-color: var(--color-tm-switch-checked-hover-background);
+    }
+
+    /* Focus states */
+    .tm-switch-container:focus:not(.tm-switch-container-disabled) .tm-switch {
+        outline: var(--color-tm-switch-focus-outline-width) solid var(--color-tm-switch-focus-outline-color);
+        outline-offset: var(--color-tm-switch-focus-outline-offset);
+    }
+
+    /* Active states */
+    .tm-switch-container:active:not(.tm-switch-container-disabled) .tm-switch {
+        background-color: var(--color-tm-switch-hover-background);
+    }
+
+    /* Label styles */
+    .tm-switch-label {
+        color: var(--color-tm-switch-label-color);
+        margin-bottom: 0.01rem;
+        margin-left: 0.5rem; /* 8px */
+        cursor: pointer;
+        font-weight: 400;
+    }
+
+    /* Disabled states */
+    .tm-switch-container-disabled {
+        opacity: var(--color-tm-switch-disabled-opacity);
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .tm-switch-container-disabled .tm-switch-label {
+        cursor: default;
+    }
+
+    /* High contrast mode support */
+    @media (forced-colors: active) and (prefers-color-scheme: light) {
+        .tm-switch-slider::before {
+            border: 1px solid ButtonText;
+            margin-top: -1px;
+        }
+    }
+}
