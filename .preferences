@@ -15,7 +15,8 @@
 - Do not use tailwind.config.js or tailwind.config.ts
 - Tailwind 4 does not require configuration files
 - All Tailwind customizations should be implemented directly in CSS files (e.g., style.css)
-- Use @theme directive and :root variables for theming and customizations
+- Use @theme directive and not :root variables for theming and customizations
+- ignore @theme css error or warnings
 
 ## Code Organization
 - Vue components use <script setup> with TypeScript

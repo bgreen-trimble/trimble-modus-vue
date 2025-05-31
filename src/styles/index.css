@@ -8,4 +8,5 @@
 
 /* Component styles */
 @import '../components/button/button.css';
+@import '../components/card/card.css';
 
