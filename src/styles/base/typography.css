@@ -43,7 +43,7 @@
   --letter-spacing-tm-lead-text: 0.15px;
   --letter-spacing-tm-body: 0.15px;
   --letter-spacing-tm-body-small: 0.25px;
-  --letter-spacing-tm-mimi: 0.5px;          /* Note: typo in 'mimi', should be 'mini' */
+  --letter-spacing-tm-mini: 0.5px;         
   --letter-spacing-tm-display-1: 0.4px;
   --letter-spacing-tm-display-2: 0.4px;
   --letter-spacing-tm-display-3: 0.4px;
@@ -64,33 +64,30 @@
   --line-height-tm-display-3: 47px;
 }
 
-@theme dark {
-}
-
 @layer utilities {
     .tm-text-body {
         font-family: var(--font-tm-sans);
         color: var(--text-tm-color-primary);
-        font-size: var(--font-size-tm-base-body);  /* Fixed variable reference */
+        font-size: var(--font-size-tm-base-body); 
     }
 
     .tm-text-small {
         font-family: var(--font-tm-sans);
-        font-size: var(--font-size-tm-base-small-body);  /* Fixed variable reference */
+        font-size: var(--font-size-tm-base-small-body); 
     }
 
     /* Heading Typography Classes - Based on Modus Specification */
     .tm-h1 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-normal);  /* Fixed variable reference */
-        font-size: var(--font-size-tm-h1);          /* 24px */
+        font-weight: var(--font-weight-tm-normal); 
+        font-size: var(--font-size-tm-h1);          
         line-height: var(--line-height-tm-h1);
         letter-spacing: var(--letter-spacing-tm-h1);
     }
 
     .tm-h2 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-normal);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-normal); 
         font-size: var(--font-size-tm-h2);
         line-height: var(--line-height-tm-h2);
         letter-spacing: var(--letter-spacing-tm-h2);
@@ -98,7 +95,7 @@
 
     .tm-h3 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-semibold);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-semibold); 
         font-size: var(--font-size-tm-h3);
         line-height: var(--line-height-tm-h3);
         letter-spacing: var(--letter-spacing-tm-h3);
@@ -106,7 +103,7 @@
 
     .tm-h4 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-semibold);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-semibold); 
         font-size: var(--font-size-tm-h4);
         line-height: var(--line-height-tm-h4);
         letter-spacing: var(--letter-spacing-tm-h4);
@@ -114,7 +111,7 @@
 
     .tm-h5 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-bold);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-bold); 
         font-size: var(--font-size-tm-h5);
         line-height: var(--line-height-tm-h5);
         letter-spacing: var(--letter-spacing-tm-h5);
@@ -122,7 +119,7 @@
 
     .tm-h6 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-semibold);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-semibold); 
         font-size: var(--font-size-tm-h6);
         line-height: var(--line-height-tm-h6);
         letter-spacing: var(--letter-spacing-tm-h6);
@@ -131,7 +128,7 @@
     /* Display Typography - For large headlines */
     .tm-display-1 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-bold);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-bold); 
         font-size: var(--font-size-tm-display-1);
         line-height: var(--line-height-tm-display-1);
         letter-spacing: var(--letter-spacing-tm-display-1);
@@ -139,7 +136,7 @@
 
     .tm-display-2 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-bold);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-bold); 
         font-size: var(--font-size-tm-display-2);
         line-height: var(--line-height-tm-display-2);
         letter-spacing: var(--letter-spacing-tm-display-2);
@@ -147,7 +144,7 @@
 
     .tm-display-3 {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-semibold);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-semibold); 
         font-size: var(--font-size-tm-display-3);
         line-height: var(--line-height-tm-display-3);
         letter-spacing: var(--letter-spacing-tm-display-3);
@@ -156,15 +153,15 @@
     /* Body Text Typography */
     .tm-lead-text {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-normal);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-normal); 
         font-size: var(--font-size-tm-lead-text);
-        line-height: var(--line-height-tm-lead-text);  /* Fixed variable reference */
+        line-height: var(--line-height-tm-lead-text); 
         letter-spacing: var(--letter-spacing-tm-lead-text);
     }
 
     .tm-body {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-normal);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-normal); 
         font-size: var(--font-size-tm-body);
         line-height: var(--line-height-tm-body);
         letter-spacing: var(--letter-spacing-tm-body);
@@ -172,7 +169,7 @@
 
     .tm-body-small {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-normal);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-normal); 
         font-size: var(--font-size-tm-body-small);
         line-height: var(--line-height-tm-body-small);
         letter-spacing: var(--letter-spacing-tm-body-small);
@@ -180,10 +177,10 @@
 
     .tm-mini {
         font-family: var(--font-tm-sans);
-        font-weight: var(--font-weight-tm-normal);  /* Fixed variable reference */
+        font-weight: var(--font-weight-tm-normal); 
         font-size: var(--font-size-tm-mini);
         line-height: var(--line-height-tm-mini);
-        letter-spacing: var(--letter-spacing-tm-mimi);  /* Note: typo in variable */
+        letter-spacing: var(--letter-spacing-tm-mini);  
     }
 
     /* Interactive Text Color Classes */

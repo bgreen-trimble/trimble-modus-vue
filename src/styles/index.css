@@ -1,15 +1,11 @@
 /* Main CSS entry point */
 
 /* Base styles */
-@import './base/_imports.css';
-@import './base/_colors.css';
-@import './base/_typography.css';
-/* 
-@import './base/_layout.css'; */
+@import './base/imports.css';
+@import './base/color.css';
+@import './base/typography.css';
+@import './base/shadow.css';
 
-/* Theme mappings */
-/* @import './themes/_mappings.css';
-@import './themes/_root.css'; */
+/* Component styles */
+@import '../components/button/button.css';
 
-/* Utils */
-/* @import './utils/_dark-mode.css'; */

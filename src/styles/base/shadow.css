@@ -1,0 +1,28 @@
+/* Spacing, Border Radius, Shadows, Transitions */
+@theme {
+  /* Trimble Modus (tm) Shadows */
+ --shadow-tm-level-1: 0 0 2px rgba(37,42,46,.3); /* dropdowns, tooltips, default cards */
+ --shadow-tm-level-2: 0 0 4px rgba(37,42,46,.3); /* sticky elements, cards active */
+ --shadow-tm-level-3: 0 0 8px rgba(37,42,46,.3); /* dialogs, modals, cards hover */
+}
+
+.dark {
+  /* Trimble Modus (tm) Shadows - Dark Mode */
+  --shadow-tm-level-1: 0 0 2px var(--color-tm-gray-light);
+  --shadow-tm-level-2: 0 0 4px var(--color-tm-gray-light); 
+  --shadow-tm-level-3: 0 0 8px var(--color-tm-gray-light); 
+}
+
+@layer utilities {
+  .tm-shadow-level-1 {
+    box-shadow: var(--shadow-tm-level-1);
+  }
+
+  .tm-shadow-level-2 {
+    box-shadow: var(--shadow-tm-level-2);
+  }
+
+  .tm-shadow-level-3 {
+    box-shadow: var(--shadow-tm-level-3);
+  }
+}

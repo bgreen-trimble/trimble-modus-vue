@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Button from '@/components/Button.vue';
+import Button from '@/components/buttion/Button.vue';
 import Card from '@/components/Card.vue';
 
 const loading = ref(false);
@@ -164,7 +164,7 @@ const startLoading = () => {
             <img src="https://via.placeholder.com/300x200" alt="Placeholder" class="w-full h-32 object-cover mb-2">
             <h4 class="text-lg font-semibold mb-2">Card Title</h4>
             <p class="text-sm mb-4">This card adjusts its layout based on screen size.</p>
-            <Button variant="primary" fullWidth>Full Width Button</Button>
+            <Button variant="filled" fullWidth>Full Width Button</Button>
           </Card>
         </div>
         

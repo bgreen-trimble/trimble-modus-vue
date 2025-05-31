@@ -81,19 +81,3 @@
   --color-tm-border: var(--color-tm-gray-1);            /* Gray 1 - Border */
 }
 
-@theme dark {
-  /* Trimble Modus (tm) Color Variables - Dark Mode */
-
-  --color-tm-gray-10: #171c1e;              /* Gray 10 */
-
-  /* Primary Palette - Dark Mode */
-  --color-tm-primary: var(--color-tm-blue-highlight);   /* Highlight Blue - Replaces Trimble Blue in Dark Mode */
-  --color-tm-primary-dark: var(--color-tm-blue-light);  /* Blue Light */
-  --color-tm-primary-light: var(--color-tm-blue-pale);  /* Blue Pale */
-
-  /* Semantic Colors - Dark Mode */
-  --color-tm-success: var(--color-tm-green-light);      /* Green Light */
-  --color-tm-danger: var(--color-tm-red-light);         /* Red Light */
-  --color-tm-warning: var(--color-tm-yellow-light);     /* Yellow Light */
-  --color-tm-info: var(--color-tm-blue-highlight);      /* Blue Highlight */
-}
