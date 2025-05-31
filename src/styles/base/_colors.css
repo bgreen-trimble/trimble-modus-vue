@@ -1,4 +1,5 @@
 /* Color variables - Light Mode */
+
 @theme {
   /* Trimble Modus (tm) Color Variables */
   /** 
@@ -6,368 +7,93 @@
    * Blue and neutral progression colors are used as primary UI colors in Trimble products. Additional colors (such as the Trimble yellow, red, and green) are used sparingly and purposefully, usually as accent colors only.
    */
   /* Primary Palette */
-  --tm-color-trimble-dark-blue: #004f83;      /* Trimble Blue Dark */
-    --tm-color-trimble-blue: #0063a3;           /* Trimble Blue */
-    --tm-color-trimble-yellow: #fbad26;     /* Trimble Yellow */
-    --tm-color-trimble-gray: #252a2e; /* Trimble Gray */
+  --color-tm-trimble-dark-blue: #004f83;      /* Trimble Blue Dark */
+  --color-tm-trimble-blue: #0063a3;           /* Trimble Blue */
+  --color-tm-trimble-yellow: #fbad26;     /* Trimble Yellow */
+  --color-tm-trimble-gray: #252a2e; /* Trimble Gray */
 
   /* Blue Progression */
-  --tm-color-blue-dark: #0e416c;         /* Blue Dark */
-  --tm-color-blue: var(--tm-color-trimble-blue);              /* Trimble Blue */
-  --tm-color-blue-light: #217cbb;        /* Blue Light */
-  --tm-color-blue-pale: #dcedf9;         /* Blue Pale */
+  --color-tm-blue-dark: #0e416c;            /* Blue Dark */
+  --color-tm-blue: var(--color-tm-trimble-blue); /* Trimble Blue */
+  --color-tm-blue-light: #217cbb;           /* Blue Light */
+  --color-tm-blue-pale: #dcedf9;            /* Blue Pale */
 
-  --tm-color-primary: #0063a3;           /* Trimble Blue */
-  --tm-color-primary-dark: #004f83;      /* Trimble Blue Dark */
-  --tm-color-primary-light: #217cbb;     /* Blue Light */
-  --tm-color-primary-pale: #dcedf9;      /* Blue Pale */
+  --color-tm-primary: #0063a3;              /* Trimble Blue */
+  --color-tm-primary-dark: #004f83;         /* Trimble Blue Dark */
+  --color-tm-primary-light: #217cbb;        /* Blue Light */
+  --color-tm-primary-pale: #dcedf9;         /* Blue Pale */
 
   /* Neutral Progression */
-  --tm-color-gray-10: #171c1e;           /* Gray 10 */
-  --tm-color-gray-9: #353a40;            /* Gray 9 */
-  --tm-color-gray-8: #464b52;            /* Gray 8 */
-  --tm-color-gray-7: #585c65;            /* Gray 7 */
-  --tm-color-gray-6: #6a6e79;            /* Gray 6 - Secondary Text & Icons */
-  --tm-color-gray-5: #7d808d;            /* Gray 5 */
-  --tm-color-gray-4: #90939f;            /* Gray 4 */
-  --tm-color-gray-3: #a3a6b1;            /* Gray 3 */
-  --tm-color-gray-2: #b7b9c3;            /* Gray 2 */
-  --tm-color-gray-1: #cbcdd6;            /* Gray 1 */
-  --tm-color-gray-0: #e0e1e9;            /* Gray 0 */
-  --tm-color-gray-light: #f1f1f6;        /* Gray Light - Screen & Panels */
-  --tm-color-white: #ffffff;             /* White */
+  --color-tm-gray-10: #171c1e;              /* Gray 10 */
+  --color-tm-gray-9: #353a40;               /* Gray 9 */
+  --color-tm-gray-8: #464b52;               /* Gray 8 */
+  --color-tm-gray-7: #585c65;               /* Gray 7 */
+  --color-tm-gray-6: #6a6e79;               /* Gray 6 - Secondary Text & Icons */
+  --color-tm-gray-5: #7d808d;               /* Gray 5 */
+  --color-tm-gray-4: #90939f;               /* Gray 4 */
+  --color-tm-gray-3: #a3a6b1;               /* Gray 3 */
+  --color-tm-gray-2: #b7b9c3;               /* Gray 2 */
+  --color-tm-gray-1: #cbcdd6;               /* Gray 1 */
+  --color-tm-gray-0: #e0e1e9;               /* Gray 0 */
+  --color-tm-gray-light: #f1f1f6;           /* Gray Light - Screen & Panels */
+  --color-tm-white: #ffffff;                /* White */
 
   /* Yellow Progression */
-  --tm-color-yellow-dark: #e49325;       /* Yellow Dark - Warning */
-  --tm-color-yellow: #fbad26;            /* Trimble Yellow */
-  --tm-color-yellow-light: #fec157;      /* Yellow Light */
-  --tm-color-yellow-pale: #fff5e4;       /* Yellow Pale */
+  --color-tm-yellow-dark: #e49325;          /* Yellow Dark - Warning */
+  --color-tm-yellow: #fbad26;               /* Trimble Yellow */
+  --color-tm-yellow-light: #fec157;         /* Yellow Light */
+  --color-tm-yellow-pale: #fff5e4;          /* Yellow Pale */
 
   /* Red Progression */
-  --tm-color-red-dark: #ab1f26;          /* Red Dark */
-  --tm-color-red: #da212c;               /* Red - Danger/Error */
-  --tm-color-red-light: #e86363;         /* Red Light */
-  --tm-color-red-pale: #fbd4d7;          /* Red Pale */
+  --color-tm-red-dark: #ab1f26;             /* Red Dark */
+  --color-tm-red: #da212c;                  /* Red - Danger/Error */
+  --color-tm-red-light: #e86363;            /* Red Light */
+  --color-tm-red-pale: #fbd4d7;             /* Red Pale */
 
   /* Green Progression */
-  --tm-color-green-dark: #006638;        /* Green Dark - Success */
-  --tm-color-green: #1e8a44;             /* Green */
-  --tm-color-green-light: #4ea646;       /* Green Light */
-  --tm-color-green-pale: #e0eccf;        /* Green Pale */
+  --color-tm-green-dark: #006638;           /* Green Dark - Success */
+  --color-tm-green: #1e8a44;                /* Green */
+  --color-tm-green-light: #4ea646;          /* Green Light */
+  --color-tm-green-pale: #e0eccf;           /* Green Pale */
 
   /* Special Case Colors */
-  --tm-color-highlight-blue: #019aeb;    /* Highlight Blue - Used in Dark Mode */
+  --color-tm-blue-highlight: #019aeb;       /* Highlight Blue - Used in Dark Mode */
 
   /* Semantic Colors */
-  --tm-color-success: #006638;           /* Green Dark - Success */
-  --tm-color-success-light: #4ea646;     /* Green Light */
-  --tm-color-success-pale: #e0eccf;      /* Green Pale */
+  --color-tm-success: var(--color-tm-green-dark);       /* Green Dark - Success */
+  --color-tm-success-light: var(--color-tm-green-light); /* Green Light */
+  --color-tm-success-pale: var(--color-tm-green-pale);  /* Green Pale */
 
-  --tm-color-danger: #da212c;            /* Red - Danger/Error */
-  --tm-color-danger-dark: #ab1f26;       /* Red Dark */
-  --tm-color-danger-light: #e86363;      /* Red Light */
-  --tm-color-danger-pale: #fbd4d7;       /* Red Pale */
+  --color-tm-danger: var(--color-tm-red);               /* Red - Danger/Error */
+  --color-tm-danger-dark: var(--color-tm-red-dark);     /* Red Dark */
+  --color-tm-danger-light: var(--color-tm-red-light);   /* Red Light */
+  --color-tm-danger-pale: var(--color-tm-red-pale);     /* Red Pale */
 
-  --tm-color-warning: #e49325;           /* Yellow Dark - Warning */
-  --tm-color-warning-light: #fec157;     /* Yellow Light */
-  --tm-color-warning-pale: #fff5e4;      /* Yellow Pale */
+  --color-tm-warning: var(--color-tm-yellow-dark);      /* Yellow Dark - Warning */
+  --color-tm-warning-light: var(--color-tm-yellow-light); /* Yellow Light */
+  --color-tm-warning-pale: var(--color-tm-yellow-pale); /* Yellow Pale */
 
-  --tm-color-info: #019aeb;              /* Highlight Blue - Information */
+  --color-tm-info: var(--color-tm-blue-highlight);      /* Highlight Blue - Information */
 
 
   /* Content Colors - Light Mode */
-  --tm-color-background: #f1f1f6;        /* Gray Light - Background */
-  --tm-color-border: #cbcdd6;            /* Gray 1 - Border */
+  --color-tm-background: var(--color-tm-gray-light);    /* Gray Light - Background */
+  --color-tm-border: var(--color-tm-gray-1);            /* Gray 1 - Border */
 }
 
 @theme dark {
   /* Trimble Modus (tm) Color Variables - Dark Mode */
+
+  --color-tm-gray-10: #171c1e;              /* Gray 10 */
+
   /* Primary Palette - Dark Mode */
-  --tm-color-primary: #019aeb;          /* Highlight Blue - Replaces Trimble Blue in Dark Mode */
-  --tm-color-primary-dark: #217cbb;     /* Blue Light */
-  --tm-color-primary-light: #dcedf9;    /* Blue Pale */
+  --color-tm-primary: var(--color-tm-blue-highlight);   /* Highlight Blue - Replaces Trimble Blue in Dark Mode */
+  --color-tm-primary-dark: var(--color-tm-blue-light);  /* Blue Light */
+  --color-tm-primary-light: var(--color-tm-blue-pale);  /* Blue Pale */
 
   /* Semantic Colors - Dark Mode */
-  --tm-color-success: #4ea646;         /* Green Light */
-  --tm-color-danger: #e86363;          /* Red Light */
-  --tm-color-warning: #fec157;         /* Yellow Light */
-  --tm-color-info: #019aeb;            /* Highlight Blue */
+  --color-tm-success: var(--color-tm-green-light);      /* Green Light */
+  --color-tm-danger: var(--color-tm-red-light);         /* Red Light */
+  --color-tm-warning: var(--color-tm-yellow-light);     /* Yellow Light */
+  --color-tm-info: var(--color-tm-blue-highlight);      /* Blue Highlight */
 }
-
-/* Background Color Utility Classes */
-.tm-bg-white {
-  background-color: var(--tm-color-white);
-}
-
-/* Primary Palette Background Classes */
-.tm-bg-trimble-blue {
-  background-color: var(--tm-color-trimble-blue);
-}
-
-.tm-bg-trimble-dark-blue {
-  background-color: var(--tm-color-trimble-dark-blue);
-}
-
-.tm-bg-trimble-yellow {
-  background-color: var(--tm-color-trimble-yellow);
-}
-
-.tm-bg-trimble-gray {
-  background-color: var(--tm-color-trimble-gray);
-}
-
-/* Blue Progression Background Classes */
-.tm-bg-blue-dark {
-  background-color: var(--tm-color-blue-dark);
-}
-
-.tm-bg-blue {
-  background-color: var(--tm-color-blue);
-}
-
-.tm-bg-blue-light {
-  background-color: var(--tm-color-blue-light);
-}
-
-.tm-bg-blue-pale {
-  background-color: var(--tm-color-blue-pale);
-}
-
-/* Neutral Progression Background Classes */
-.tm-bg-gray-10 {
-  background-color: var(--tm-color-gray-10);
-}
-
-.tm-bg-gray-9 {
-  background-color: var(--tm-color-gray-9);
-}
-
-.tm-bg-gray-8 {
-  background-color: var(--tm-color-gray-8);
-}
-
-.tm-bg-gray-7 {
-  background-color: var(--tm-color-gray-7);
-}
-
-.tm-bg-gray-6 {
-  background-color: var(--tm-color-gray-6);
-}
-
-.tm-bg-gray-5 {
-  background-color: var(--tm-color-gray-5);
-}
-
-.tm-bg-gray-4 {
-  background-color: var(--tm-color-gray-4);
-}
-
-.tm-bg-gray-3 {
-  background-color: var(--tm-color-gray-3);
-}
-
-.tm-bg-gray-2 {
-  background-color: var(--tm-color-gray-2);
-}
-
-.tm-bg-gray-1 {
-  background-color: var(--tm-color-gray-1);
-}
-
-.tm-bg-gray-0 {
-  background-color: var(--tm-color-gray-0);
-}
-
-.tm-bg-gray-light {
-  background-color: var(--tm-color-gray-light);
-}
-
-/* Yellow Progression Background Classes */
-.tm-bg-yellow-dark {
-  background-color: var(--tm-color-yellow-dark);
-}
-
-.tm-bg-yellow {
-  background-color: var(--tm-color-yellow);
-}
-
-.tm-bg-yellow-light {
-  background-color: var(--tm-color-yellow-light);
-}
-
-.tm-bg-yellow-pale {
-  background-color: var(--tm-color-yellow-pale);
-}
-
-/* Red Progression Background Classes */
-.tm-bg-red-dark {
-  background-color: var(--tm-color-red-dark);
-}
-
-.tm-bg-red {
-  background-color: var(--tm-color-red);
-}
-
-.tm-bg-red-light {
-  background-color: var(--tm-color-red-light);
-}
-
-.tm-bg-red-pale {
-  background-color: var(--tm-color-red-pale);
-}
-
-/* Green Progression Background Classes */
-.tm-bg-green-dark {
-  background-color: var(--tm-color-green-dark);
-}
-
-.tm-bg-green {
-  background-color: var(--tm-color-green);
-}
-
-.tm-bg-green-light {
-  background-color: var(--tm-color-green-light);
-}
-
-.tm-bg-green-pale {
-  background-color: var(--tm-color-green-pale);
-}
-
-/* Primary Palette Text Classes */
-.tm-text-trimble-blue {
-  color: var(--tm-color-trimble-blue);
-}
-
-.tm-text-trimble-dark-blue {
-  color: var(--tm-color-trimble-dark-blue);
-}
-
-.tm-text-trimble-yellow {
-  color: var(--tm-color-trimble-yellow);
-}
-
-.tm-text-trimble-gray {
-  color: var(--tm-color-trimble-gray);
-}
-
-/* Blue Progression Text Classes */
-.tm-text-blue-dark {
-  color: var(--tm-color-blue-dark);
-}
-
-.tm-text-blue {
-  color: var(--tm-color-blue);
-}
-
-.tm-text-blue-light {
-  color: var(--tm-color-blue-light);
-}
-
-.tm-text-blue-pale {
-  color: var(--tm-color-blue-pale);
-}
-
-/* Neutral Progression Text Classes */
-.tm-text-gray-10 {
-  color: var(--tm-color-gray-10);
-}
-
-.tm-text-gray-9 {
-  color: var(--tm-color-gray-9);
-}
-
-.tm-text-gray-8 {
-  color: var(--tm-color-gray-8);
-}
-
-.tm-text-gray-7 {
-  color: var(--tm-color-gray-7);
-}
-
-.tm-text-gray-6 {
-  color: var(--tm-color-gray-6);
-}
-
-.tm-text-gray-5 {
-  color: var(--tm-color-gray-5);
-}
-
-.tm-text-gray-4 {
-  color: var(--tm-color-gray-4);
-}
-
-.tm-text-gray-3 {
-  color: var(--tm-color-gray-3);
-}
-
-.tm-text-gray-2 {
-  color: var(--tm-color-gray-2);
-}
-
-.tm-text-gray-1 {
-  color: var(--tm-color-gray-1);
-}
-
-.tm-text-gray-0 {
-  color: var(--tm-color-gray-0);
-}
-
-.tm-text-gray-light {
-  color: var(--tm-color-gray-light);
-}
-
-.tm-text-white {
-  color: var(--tm-color-white);
-}
-
-/* Yellow Progression Text Classes */
-.tm-text-yellow-dark {
-  color: var(--tm-color-yellow-dark);
-}
-
-.tm-text-yellow {
-  color: var(--tm-color-yellow);
-}
-
-.tm-text-yellow-light {
-  color: var(--tm-color-yellow-light);
-}
-
-.tm-text-yellow-pale {
-  color: var(--tm-color-yellow-pale);
-}
-
-/* Red Progression Text Classes */
-.tm-text-red-dark {
-  color: var(--tm-color-red-dark);
-}
-
-.tm-text-red {
-  color: var(--tm-color-red);
-}
-
-.tm-text-red-light {
-  color: var(--tm-color-red-light);
-}
-
-.tm-text-red-pale {
-  color: var(--tm-color-red-pale);
-}
-
-/* Green Progression Text Classes */
-.tm-text-green-dark {
-  color: var(--tm-color-green-dark);
-}
-
-.tm-text-green {
-  color: var(--tm-color-green);
-}
-
-.tm-text-green-light {
-  color: var(--tm-color-green-light);
-}
-
-.tm-text-green-pale {
-  color: var(--tm-color-green-pale);
-}
-
