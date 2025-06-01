@@ -84,17 +84,17 @@
     /* Size variations - According to Modus Design System */
     .tm-navbar-small {
         height: 48px;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
 
     .tm-navbar-medium {
         height: 64px;
-        padding: 0 1.5rem;
+        padding: 0 1.0rem;
     }
 
     .tm-navbar-large {
         height: 80px;
-        padding: 0 2rem;
+        padding: 0 1.5rem;
     }
 
     /* Fixed position */

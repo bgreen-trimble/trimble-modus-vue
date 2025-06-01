@@ -11,7 +11,7 @@ const routes = router.getRoutes()
     .filter(route => route.path !== '/') // Exclude root path
     .sort((a, b) => a.path.localeCompare(b.path))
 
-const foundationsMenu = computed((): MenuItem[] => 
+const foundationsMenu = computed((): MenuItem[] =>
     routes
         .filter((route) => route.meta?.category === 'foundations')
         .map((route) => ({
@@ -20,7 +20,7 @@ const foundationsMenu = computed((): MenuItem[] =>
         }))
 )
 
-const componentsMenu = computed((): MenuItem[] => 
+const componentsMenu = computed((): MenuItem[] =>
     routes
         .filter((route) => route.meta?.category === 'components')
         .map((route) => ({
@@ -36,16 +36,21 @@ const darkMode = computed({
     set: (value: boolean) => setDarkMode(value)
 })
 
-const isNavOpen = ref(false)
+const isNavOpen = ref(true)
 const settingsMenuRef = ref()
+
+// Function to toggle sidebar visibility
+const toggleSidebar = () => {
+    isNavOpen.value = !isNavOpen.value
+}
 
 // Create settings menu items
 const settingsMenuItems = computed((): MenuItem[] => [
-  {
-    label: isDark.value ? 'Light Mode' : 'Dark Mode',
-    icon: isDark.value ? 'sun' : 'moon',
-    command: () => toggleDarkMode()
-  }
+    {
+        label: isDark.value ? 'Light Mode' : 'Dark Mode',
+        icon: isDark.value ? 'sun' : 'moon',
+        command: () => toggleDarkMode()
+    }
 ])
 
 const toggleDarkMode = () => {
@@ -60,85 +65,52 @@ const getMenuName = (path: string) => path.substring(1).split('-')
 </script>
 
 <template>
-    <div class="min-h-screen flex bg-tm-white text-tm-trimble-gray dark:bg-tm-gray-10 dark:text-tm-gray-light">
-        <!-- Sidebar -->
-        <aside class="w-64 h-screen flex-shrink-0 border-r border-tm-gray-2 dark:border-tm-gray-10">
-            <!-- Logo area -->
+    <div class="min-h-screen flex flex-col bg-tm-white text-tm-trimble-gray dark:bg-tm-gray-10 dark:text-tm-gray-light">
+        <!-- Top Navbar -->
+        <header>
             <Navbar variant="light">
                 <template #left>
-                    <Button variant="text" severity="secondary">
-                        <template #icon>
-                            <span class="modus-icons">menu</span>
-                        </template>
+                    <Button variant="text" severity="secondary" icon="menu" @click="toggleSidebar">
+                    </Button>
+                    <Button variant="text" severity="secondary" icon="trimble_logo" @click="router.push('/')">
+                        <span class="text-2xl">Modus Vue</span>
                     </Button>
                 </template>
                 <template #right>
-                    <Button variant="text" severity="secondary">
-                        <template #icon>
-                            <span class="modus-icons">notifications</span>
-                        </template>
+                    <Button variant="text" severity="secondary" icon="settings" @click="settingsMenuRef.toggle($event)">
                     </Button>
+                    <Menu ref="settingsMenuRef" :model="settingsMenuItems" popup />
                 </template>
             </Navbar>
+        </header>
 
-            <!-- Navigation area -->
-            <nav class="p-4 space-y-6">
-                <!-- Navigation groups -->
-                <div class="space-y-6">
-                    <!-- Foundations section -->
-                    <div>
-                        <h3 class="tm-h3 uppercase mb-2">Foundations</h3>
-                        <Menu :model="foundationsMenu" class="tm-nav-menu" />
+        <!-- Main layout - Sidebar and Content -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar with improved transition -->
+            <aside
+                class="border-r border-tm-gray-2 dark:border-tm-gray-10 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="isNavOpen ? 'w-48 opacity-100' : 'w-0 opacity-0'">
+                <!-- Navigation area with no opacity transition to prevent flicker -->
+                <nav class="p-4 space-y-6 w-48">
+                    <!-- Navigation groups -->
+                    <div class="space-y-6">
+                        <!-- Foundations section -->
+                        <div>
+                            <h3 class="tm-h3 uppercase mb-2">Foundations</h3>
+                            <Menu :model="foundationsMenu" class="tm-nav-menu" />
+                        </div>
+
+                        <!-- Components section -->
+                        <div>
+                            <h3 class="tm-h3 uppercase mb-2">Components</h3>
+                            <Menu :model="componentsMenu" class="tm-nav-menu" />
+                        </div>
                     </div>
+                </nav>
+            </aside>
 
-                    <!-- Components section -->
-                    <div>
-                        <h3 class="tm-h3 uppercase mb-2">Components</h3>
-                        <Menu :model="componentsMenu" class="tm-nav-menu" />
-                    </div>
-                </div>
-            </nav>
-        </aside>
-
-        <!-- Main content -->
-        <div class="flex-1 flex flex-col h-screen">
-            <!-- Title bar -->
-            <header>
-                <Navbar variant="light">
-                    <template #left>
-                        <Button variant="text" severity="secondary">
-                            <template #icon>
-                                <span class="modus-icons">menu</span>
-                            </template>
-                        </Button>
-                        <Button variant="text" severity="secondary">
-                            <template #icon>
-                                <span class="modus-icons">trimble_logo</span>
-                            </template>
-                        </Button>
-                            <span class="text-2xl">Modus Vue</span>
-                    </template>
-                    <template #right>
-                        <Button 
-                            variant="text" 
-                            severity="secondary"
-                            @click="settingsMenuRef.toggle($event)"
-                        >
-                            <template #icon>
-                                <span class="modus-icons">settings</span>
-                            </template>
-                        </Button>
-                        <Menu 
-                            ref="settingsMenuRef" 
-                            :model="settingsMenuItems" 
-                            popup
-                        />
-                    </template>
-                </Navbar>
-            </header>
-
-            <!-- Main content area -->
-            <main class="flex-1 p-6 overflow-auto">
+            <!-- Main content area with transition -->
+            <main class="flex-1 p-6 overflow-auto transition-all duration-300 ease-in-out">
                 <RouterView />
             </main>
         </div>
@@ -159,18 +131,50 @@ const getMenuName = (path: string) => path.substring(1).split('-')
 }
 
 .tm-nav-menu :deep(.tm-menu-link:hover) {
-    background-color: rgb(243, 244, 246); /* bg-gray-100 */
+    background-color: rgb(243, 244, 246);
+    /* bg-gray-100 */
 }
 
 .dark .tm-nav-menu :deep(.tm-menu-link:hover) {
-    background-color: rgb(55, 65, 81); /* dark:bg-gray-700 */
+    background-color: rgb(55, 65, 81);
+    /* dark:bg-gray-700 */
 }
 
 .tm-nav-menu :deep(.router-link-active) {
-    background-color: rgb(243, 244, 246); /* bg-gray-100 */
+    background-color: rgb(243, 244, 246);
+    /* bg-gray-100 */
 }
 
 .dark .tm-nav-menu :deep(.router-link-active) {
-    background-color: rgb(55, 65, 81); /* dark:bg-gray-700 */
+    background-color: rgb(55, 65, 81);
+    /* dark:bg-gray-700 */
+}
+
+/* Ensure the app takes full viewport height */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar transitions */
+aside {
+    transform-origin: left;
+    will-change: width, opacity;
+}
+
+aside.w-0 {
+    transform: translateX(-10px);
+}
+
+aside.w-48 {
+    transform: translateX(0);
 }
 </style>
