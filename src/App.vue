@@ -37,6 +37,16 @@ const darkMode = computed({
 })
 
 const isNavOpen = ref(false)
+const settingsMenuRef = ref()
+
+// Create settings menu items
+const settingsMenuItems = computed((): MenuItem[] => [
+  {
+    label: isDark.value ? 'Light Mode' : 'Dark Mode',
+    icon: isDark.value ? 'sun' : 'moon',
+    command: () => toggleDarkMode()
+  }
+])
 
 const toggleDarkMode = () => {
     console.log('Toggling dark mode')
@@ -52,7 +62,7 @@ const getMenuName = (path: string) => path.substring(1).split('-')
 <template>
     <div class="min-h-screen flex bg-tm-white text-tm-trimble-gray dark:bg-tm-gray-10 dark:text-tm-gray-light">
         <!-- Sidebar -->
-        <aside class="w-64 h-screen flex-shrink-0 border-r border-gray-200 dark:border-gray-700">
+        <aside class="w-64 h-screen flex-shrink-0 border-r">
             <!-- Logo area -->
             <Navbar variant="light">
                 <template #left>
@@ -87,15 +97,6 @@ const getMenuName = (path: string) => path.substring(1).split('-')
                         <Menu :model="componentsMenu" class="tm-nav-menu" />
                     </div>
                 </div>
-
-                <!-- Dark mode toggle -->
-                <div class="absolute bottom-0 left-0 w-full bg-inherit">
-                    <button @click="toggleDarkMode"
-                        class="w-full px-4 py-2 text-left rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                        <span>Dark Mode </span>
-                        <span class="font-tm-bold">{{ isDark ? "On" : "Off" }}</span>
-                    </button>
-                </div>
             </nav>
         </aside>
 
@@ -118,11 +119,20 @@ const getMenuName = (path: string) => path.substring(1).split('-')
                             <span class="text-2xl">Modus Vue</span>
                     </template>
                     <template #right>
-                        <Button variant="text" severity="secondary">
+                        <Button 
+                            variant="text" 
+                            severity="secondary"
+                            @click="settingsMenuRef.toggle($event)"
+                        >
                             <template #icon>
                                 <span class="modus-icons">settings</span>
                             </template>
                         </Button>
+                        <Menu 
+                            ref="settingsMenuRef" 
+                            :model="settingsMenuItems" 
+                            popup
+                        />
                     </template>
                 </Navbar>
             </header>
