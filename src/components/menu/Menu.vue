@@ -20,6 +20,9 @@ const props = withDefaults(defineProps<MenuProps>(), {
   appendTo: 'body'
 })
 
+// Add UUID for menu ID
+const menuId = `tm-menu-${Math.random().toString(36).slice(2, 11)}`
+
 // Compute the actual target for Teleport
 const teleportTarget = computed(() => {
   // If appendTo is a ref object with a value property
@@ -150,6 +153,105 @@ const onWindowScroll = () => {
   }
 }
 
+// Keyboard navigation
+const focusableItems = ref<HTMLElement[]>([])
+const currentFocusIndex = ref(-1)
+
+const onKeyDown = (event: KeyboardEvent) => {
+  switch (event.key) {
+    case 'ArrowUp':
+      event.preventDefault()
+      focusPreviousItem()
+      break
+    case 'ArrowDown':
+      event.preventDefault()
+      focusNextItem()
+      break
+    case 'ArrowRight':
+      event.preventDefault()
+      // Open submenu if it exists
+      const currentItem = focusableItems.value[currentFocusIndex.value]
+      const submenu = currentItem?.querySelector('[role="menu"]') as HTMLElement | null
+      if (submenu) {
+        submenu.focus()
+      }
+      break
+    case 'ArrowLeft':
+      event.preventDefault()
+      // Close current menu if it's a submenu
+      if (props.popup) {
+        hide()
+        referenceRef.value?.focus()
+      }
+      break
+    case 'Home':
+      event.preventDefault()
+      focusFirstItem()
+      break
+    case 'End':
+      event.preventDefault()
+      focusLastItem()
+      break
+    case 'Escape':
+      event.preventDefault()
+      if (props.popup) {
+        hide()
+        referenceRef.value?.focus()
+      }
+      break
+  }
+}
+
+// Update focusableItems to handle submenus better
+const updateFocusableItems = () => {
+  if (!menuRef.value) return
+  focusableItems.value = Array.from(
+    menuRef.value.querySelectorAll('[role="menuitem"]:not([aria-disabled="true"]):not([aria-hidden="true"])')
+  ) as HTMLElement[]
+}
+
+const focusItem = (index: number) => {
+  if (index >= 0 && index < focusableItems.value.length) {
+    currentFocusIndex.value = index
+    focusableItems.value[index].focus()
+  }
+}
+
+const focusFirstItem = () => {
+  updateFocusableItems()
+  focusItem(0)
+}
+
+const focusLastItem = () => {
+  updateFocusableItems()
+  focusItem(focusableItems.value.length - 1)
+}
+
+const focusNextItem = () => {
+  updateFocusableItems()
+  const nextIndex = currentFocusIndex.value + 1
+  focusItem(nextIndex >= focusableItems.value.length ? 0 : nextIndex)
+}
+
+const focusPreviousItem = () => {
+  updateFocusableItems()
+  const prevIndex = currentFocusIndex.value - 1
+  focusItem(prevIndex < 0 ? focusableItems.value.length - 1 : prevIndex)
+}
+
+watch(visible, (newValue) => {
+  if (newValue) {
+    nextTick(() => {
+      updateFocusableItems()
+      if (focusableItems.value.length > 0) {
+        focusItem(0)
+      }
+    })
+  } else {
+    currentFocusIndex.value = -1
+  }
+})
+
 onMounted(() => {
   if (props.popup) {
     document.addEventListener('click', onDocumentClick)
@@ -168,7 +270,11 @@ onBeforeUnmount(() => {
 defineExpose({
   toggle,
   show,
-  hide
+  hide,
+  focusFirstItem,
+  focusLastItem,
+  focusNextItem,
+  focusPreviousItem
 })
 </script>
 
@@ -177,18 +283,25 @@ defineExpose({
     <Teleport :to="teleportTarget">
       <div 
         ref="menuRef" 
+        :id="menuId"
         :class="['tm-menu', { 'tm-menu-popup': popup }, props.class]" 
         :style="[floatingStyles, props.style]"
         v-show="visible"
         @focus="emit('focus')"
         @blur="emit('blur')"
-        tabindex="0"
+        @keydown="onKeyDown"
+        tabindex="-1"
+        role="menu"
+        aria-orientation="vertical"
+        aria-label="Menu"
       >
-        <ul class="tm-menu-list" role="menu">
+        <ul class="tm-menu-list" role="presentation">
           <MenuItemComponent 
             v-for="(item, i) in model" 
             :key="item.key || i" 
             :item="item"
+            :index="i"
+            :menuId="menuId"
             @click="onItemClick"
           />
         </ul>
@@ -198,20 +311,50 @@ defineExpose({
   <template v-else>
     <div 
       ref="menuRef" 
+      :id="menuId"
       :class="['tm-menu', props.class]" 
       :style="props.style"
       @focus="emit('focus')"
       @blur="emit('blur')"
-      tabindex="0"
+      @keydown="onKeyDown"
+      tabindex="-1"
+      role="menu"
+      aria-orientation="vertical"
+      aria-label="Menu"
     >
-      <ul class="tm-menu-list" role="menu">
+      <ul class="tm-menu-list" role="presentation">
         <MenuItemComponent 
           v-for="(item, i) in model" 
           :key="item.key || i" 
           :item="item"
+          :index="i"
+          :menuId="menuId"
           @click="onItemClick"
         />
       </ul>
     </div>
   </template>
 </template>
+
+<style scoped>
+.tm-menu {
+  max-height: 75vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+/* Focus indicator for keyboard navigation */
+.tm-menu-list :deep([role="menuitem"]:focus-visible) {
+  outline: 2px solid var(--color-tm-blue-500);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+/* High contrast focus styles */
+@media (forced-colors: active) {
+  .tm-menu-list :deep([role="menuitem"]:focus-visible) {
+    outline: 2px solid CanvasText;
+  }
+}
+</style>

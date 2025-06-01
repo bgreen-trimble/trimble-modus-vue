@@ -9,6 +9,11 @@
     @keydown.space.prevent="toggle"
     @keydown.enter.prevent="toggle"
     tabindex="0"
+    role="switch"
+    :aria-checked="modelValue"
+    :aria-labelledby="ariaLabelledby || (label ? inputId + '-label' : undefined)"
+    :aria-label="ariaLabel || (label ? undefined : 'Switch')"
+    :aria-disabled="disabled"
   >
     <input
       :id="inputId"
@@ -16,7 +21,8 @@
       type="checkbox"
       :checked="modelValue"
       :disabled="disabled"
-      :aria-label="label"
+      :name="name"
+      :aria-hidden="true"
       @change="toggle"
     />
     <div class="tm-switch" :class="{ 'tm-switch-checked': modelValue }">
@@ -24,6 +30,7 @@
     </div>
     <label
       v-if="label"
+      :id="inputId + '-label'"
       :for="inputId"
       class="tm-switch-label"
     >
@@ -41,6 +48,9 @@ export interface SwitchProps {
   disabled?: boolean
   size?: 'small' | 'medium' | 'large'
   id?: string
+  ariaLabel?: string
+  ariaLabelledby?: string
+  name?: string
 }
 
 const props = withDefaults(defineProps<SwitchProps>(), {

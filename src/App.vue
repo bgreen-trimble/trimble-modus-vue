@@ -70,17 +70,32 @@ const getMenuName = (path: string) => path.substring(1).split('-')
         <header>
             <Navbar variant="light">
                 <template #left>
-                    <Button variant="text" severity="secondary" icon="menu" @click="toggleSidebar">
+                    <Button 
+                        variant="text" 
+                        severity="secondary" 
+                        icon="menu" 
+                        @click="toggleSidebar"
+                        aria-label="Toggle navigation menu"
+                        :aria-expanded="isNavOpen"
+                        aria-controls="main-nav">
                     </Button>
                     <button type="button"
-                        class="flex items-center gap-2 text-tm-trimble-gray border-0 bg-transparent cursor-pointer dark:text-tm-gray-light"
-                        @click.prevent="router.push('/')">
-                        <i class="modus-icons">trimble_logo</i>
+                        class="flex items-center gap-2 text-tm-trimble-gray border-0 bg-transparent cursor-pointer dark:text-tm-gray-light focus:outline-none focus:ring-2 focus:ring-tm-blue-300"
+                        @click.prevent="router.push('/')"
+                        aria-label="Go to home page">
+                        <i class="modus-icons" aria-hidden="true">trimble_logo</i>
                         <span class="text-2xl">Trimble Modus Vue</span>
                     </button>
                 </template>
                 <template #right>
-                    <Button variant="text" severity="secondary" icon="settings" @click="settingsMenuRef.toggle($event)">
+                    <Button 
+                        variant="text" 
+                        severity="secondary" 
+                        icon="settings" 
+                        @click="settingsMenuRef.toggle($event)"
+                        aria-label="Toggle settings menu"
+                        :aria-expanded="!!settingsMenuRef?.visible"
+                        aria-haspopup="true">
                     </Button>
                     <Menu ref="settingsMenuRef" :model="settingsMenuItems" popup />
                 </template>
@@ -92,28 +107,42 @@ const getMenuName = (path: string) => path.substring(1).split('-')
             <!-- Sidebar with improved transition -->
             <aside
                 class="border-r border-tm-gray-2 dark:border-tm-gray-10 overflow-hidden transition-all duration-300 ease-in-out"
-                :class="isNavOpen ? 'w-48 opacity-100' : 'w-0 opacity-0'">
+                :class="isNavOpen ? 'w-48 opacity-100' : 'w-0 opacity-0'"
+                role="complementary"
+                aria-label="Main navigation">
                 <!-- Navigation area with no opacity transition to prevent flicker -->
-                <nav class="p-4 space-y-6 w-48">
+                <nav id="main-nav" class="p-4 space-y-6 w-48" aria-label="Main menu">
                     <!-- Navigation groups -->
                     <div class="space-y-6">
                         <!-- Foundations section -->
                         <div>
-                            <h3 class="tm-h3 uppercase mb-2">Foundations</h3>
-                            <Menu :model="foundationsMenu" class="tm-nav-menu" />
+                            <h3 id="foundations-heading" class="tm-h3 uppercase mb-2">Foundations</h3>
+                            <Menu 
+                                :model="foundationsMenu" 
+                                class="tm-nav-menu" 
+                                aria-labelledby="foundations-heading" 
+                                role="menu" />
                         </div>
 
                         <!-- Components section -->
                         <div>
-                            <h3 class="tm-h3 uppercase mb-2">Components</h3>
-                            <Menu :model="componentsMenu" class="tm-nav-menu" />
+                            <h3 id="components-heading" class="tm-h3 uppercase mb-2">Components</h3>
+                            <Menu 
+                                :model="componentsMenu" 
+                                class="tm-nav-menu" 
+                                aria-labelledby="components-heading" 
+                                role="menu" />
                         </div>
                     </div>
                 </nav>
             </aside>
 
             <!-- Main content area with transition -->
-            <main class="flex-1 p-6 overflow-auto transition-all duration-300 ease-in-out">
+            <main 
+                class="flex-1 p-6 overflow-auto transition-all duration-300 ease-in-out focus:outline-none"
+                tabindex="-1"
+                role="main"
+                aria-label="Main content">
                 <RouterView />
             </main>
         </div>

@@ -6,6 +6,8 @@ export interface CardProps {
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
   shadow?: 'none' | 'level-1' | 'level-2' | 'level-3'
+  ariaLabel?: string
+  ariaLabelledby?: string
 }
 
 const props = withDefaults(defineProps<CardProps>(), {
@@ -27,10 +29,13 @@ const cardClasses = computed(() => {
 </script>
 
 <template>
-  <div :class="cardClasses">
+  <div :class="cardClasses" 
+       :aria-label="ariaLabel" 
+       :aria-labelledby="ariaLabelledby || (title && !$slots.header ? 'card-title' : undefined)"
+       role="region">
     <div v-if="$slots.header || title" class="tm-card-header">
       <slot name="header">
-        <h3 v-if="title" class="tm-card-title">{{ title }}</h3>
+        <h3 v-if="title" id="card-title" class="tm-card-title">{{ title }}</h3>
       </slot>
     </div>
     <div class="tm-card-body">

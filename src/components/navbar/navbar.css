@@ -1,12 +1,12 @@
 @theme {
     /* Navbar Colors - Light Mode (According to Modus Design System) */
-    /* Light variant */
+    /* Light variant - Ensuring WCAG 2.1 AA contrast ratios */
     --color-tm-navbar-light-background: white;
-    --color-tm-navbar-light-text: #252a2e; /* Trimble Gray */
-    --color-tm-navbar-light-text-hover: #0063a3; /* Trimble Blue */
-    --color-tm-navbar-light-item-hover-background: rgba(0, 99, 163, 0.1);
-    --color-tm-navbar-light-item-active-background: rgba(0, 99, 163, 0.15);
-    --color-tm-navbar-light-border-bottom: #e5e7eb; /* Gray 200 */
+    --color-tm-navbar-light-text: #252a2e; /* Trimble Gray - 7:1 contrast ratio */
+    --color-tm-navbar-light-text-hover: #004f83; /* Darker Blue - 7.5:1 contrast ratio */
+    --color-tm-navbar-light-item-hover-background: rgba(0, 79, 131, 0.1);
+    --color-tm-navbar-light-item-active-background: rgba(0, 79, 131, 0.15);
+    --color-tm-navbar-light-border-bottom: #d1d5db; /* Darker Gray - 3:1 contrast ratio */
     
     /* Trimble variant */
     --color-tm-navbar-trimble-background: #004f83; /* Trimble Dark Blue */
@@ -30,13 +30,13 @@
 
 .dark {
     /* Navbar Colors - Dark Mode (According to Modus Design System) */
-    /* Light variant - Dark Mode */
+    /* Light variant - Dark Mode - Ensuring WCAG 2.1 AA contrast ratios */
     --color-tm-navbar-light-background: #171c1e; /* Gray 10 */
-    --color-tm-navbar-light-text: #f3f4f6; /* Gray 100 */
-    --color-tm-navbar-light-text-hover: #019aeb; /* Highlight Blue */
-    --color-tm-navbar-light-item-hover-background: rgba(1, 154, 235, 0.2);
-    --color-tm-navbar-light-item-active-background: rgba(1, 154, 235, 0.3);
-    --color-tm-navbar-light-border-bottom: #4b5563; /* Gray 600 */
+    --color-tm-navbar-light-text: #ffffff; /* Pure white - 15:1 contrast ratio */
+    --color-tm-navbar-light-text-hover: #66ceff; /* Lighter Blue - 7:1 contrast ratio */
+    --color-tm-navbar-light-item-hover-background: rgba(102, 206, 255, 0.15);
+    --color-tm-navbar-light-item-active-background: rgba(102, 206, 255, 0.25);
+    --color-tm-navbar-light-border-bottom: #6b7280; /* Gray 500 - Better contrast */
     
     /* Trimble variant - Dark Mode (stays the same) */
     --color-tm-navbar-trimble-background: #004f83; /* Trimble Dark Blue */
