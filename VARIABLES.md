@@ -28,6 +28,50 @@ This project uses Tailwind CSS 4 with the following implementation details:
 - **@theme directive**: Used for light/dark mode theming
 - **CSS Variables**: Used to map Trimble Modus design tokens to Tailwind
 
+## Utility Class Combinations
+
+The Trimble Modus design system provides powerful utility classes that can be combined for various effects:
+
+### Typography Combinations
+
+1. **Display Text**
+```html
+<h1 class="font-tm-bold text-5xl leading-5xl text-primary">Display 1</h1>
+<h2 class="font-tm-bold text-4xl leading-4xl text-primary-dark">Display 2</h2>
+```
+
+2. **Body Text Variations**
+```html
+<p class="text-base leading-normal font-tm-normal text-gray-8">Regular body text</p>
+<p class="text-base leading-normal font-tm-semibold text-gray-9">Emphasized body text</p>
+<p class="text-base leading-normal font-tm-bold text-primary">Bold body text</p>
+```
+
+3. **Small Text**
+```html
+<p class="text-xs leading-relaxed font-tm-normal text-gray-7">Small text with relaxed leading</p>
+<p class="text-2xs leading-tight font-tm-normal text-gray-6">Mini text with tight leading</p>
+```
+
+### Interactive Text Combinations
+
+1. **Link Text**
+```html
+<a class="text-primary hover:text-primary-hover active:text-primary-active">Link text</a>
+```
+
+2. **Button Text**
+```html
+<button class="text-base leading-normal font-tm-semibold text-white bg-primary hover:bg-primary-hover">
+  Button text
+</button>
+```
+
+3. **Form Label Text**
+```html
+<label class="text-sm leading-snug font-tm-medium text-gray-8">Form label</label>
+```
+
 ## CSS Formatting Guidelines
 
 When working with CSS variables in this project:

@@ -1,5 +1,8 @@
 # Project Preferences
 
+## Markdown
+- refernece all the markdown MD files
+
 ## CSS Formatting
 - CSS comments should be placed after the CSS style or variable, not before
   ```css

@@ -71,6 +71,50 @@ We've mapped the Trimble Modus typography system to Tailwind CSS variables:
 --text-5xl: var(--tm-text-5xl);              /* 72px - Display 1 */
 ```
 
+### Typography Best Practices
+
+#### 1. Consistent Font Family Usage
+Always use the mapped Tailwind variables for font families:
+```html
+<p class="font-sans">Open Sans text</p>
+<h1 class="font-display">Display text</h1>
+<div class="font-body">Body text</div>
+```
+
+#### 2. Font Weight Implementation
+Use the `font-tm-*` classes for consistent font weights:
+```html
+<p class="font-tm-normal">Regular 400 weight</p>
+<p class="font-tm-semibold">Semibold 600 weight</p>
+<p class="font-tm-bold">Bold 700 weight</p>
+```
+
+#### 3. Size and Line Height Combinations
+Match font sizes with their appropriate line heights:
+```html
+<!-- Display text -->
+<h1 class="text-5xl leading-5xl">Display 1 - 72px/108px</h1>
+<h2 class="text-4xl leading-4xl">Display 2 - 40px/54px</h2>
+
+<!-- Heading text -->
+<h1 class="text-3xl leading-3xl">Heading 1 - 24px/36px</h1>
+<h2 class="text-2xl leading-2xl">Heading 2 - 20px/30px</h2>
+<h3 class="text-xl leading-xl">Heading 3 - 18px/27px</h3>
+<h4 class="text-lg leading-lg">Heading 4 - 16px/24px</h4>
+
+<!-- Body text -->
+<p class="text-base leading-base">Body - 14px/21px</p>
+<p class="text-xs leading-xs">Small Body - 12px/18px</p>
+<p class="text-2xs leading-2xs">Mini - 10px/15px</p>
+```
+
+#### 4. Dark Mode Typography
+Text colors automatically adjust in dark mode:
+```html
+<p class="text-gray-9 dark:text-gray-1">Adaptive text color</p>
+<h1 class="text-primary dark:text-primary-dark">Adaptive heading</h1>
+```
+
 ### Line Heights
 
 We implement line heights in three ways:
