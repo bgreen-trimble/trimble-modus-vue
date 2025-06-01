@@ -74,12 +74,15 @@ const position = (event: Event) => {
   const menu = menuRef.value
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+  const viewportWidth = window.innerWidth
+  const viewportHeight = window.innerHeight
 
   // Check if we're appending to the button or an element 
   const appendingToButton = 
     (props.appendTo && typeof props.appendTo === 'object' && ('value' in props.appendTo || props.appendTo instanceof HTMLElement)) ||
     (typeof teleportTarget.value === 'object' && teleportTarget.value instanceof HTMLElement)
 
+  // First, set initial position
   if (appendingToButton) {
     // When teleported to a button/element, position relative to it
     menu.style.position = 'absolute'
@@ -97,32 +100,59 @@ const position = (event: Event) => {
     menu.style.top = `${rect.bottom + scrollTop + 5}px`
   }
 
-  // Ensure menu is visible within viewport
+  // Ensure menu is visible within viewport - use a short timeout to let the menu render first
   setTimeout(() => {
     const menuRect = menu.getBoundingClientRect()
-    const viewportWidth = window.innerWidth
-    const viewportHeight = window.innerHeight
+    
+    // Check if menu is fully visible in the viewport
+    const isOutsideRight = menuRect.right > viewportWidth
+    const isOutsideBottom = menuRect.bottom > viewportHeight
+    const isOutsideLeft = menuRect.left < 0
+    const isOutsideTop = menuRect.top < 0
 
-    // Adjust horizontal position if menu goes outside viewport
-    if (menuRect.right > viewportWidth) {
+    // Handle horizontal overflow
+    if (isOutsideRight) {
       if (appendingToButton) {
         // If appended to button, align to right edge
         menu.style.left = 'auto'
         menu.style.right = '0px'
       } else {
+        // Adjust to fit within right edge of viewport
         menu.style.left = `${viewportWidth - menuRect.width - 5}px`
       }
+    } else if (isOutsideLeft) {
+      // Adjust to fit within left edge of viewport
+      menu.style.left = '5px'
     }
 
-    // Adjust vertical position if menu goes outside viewport
-    if (menuRect.bottom > viewportHeight) {
+    // Handle vertical overflow
+    if (isOutsideBottom) {
       if (appendingToButton) {
-        // If appended to button, show above
-        menu.style.top = 'auto'
-        menu.style.bottom = `${target.offsetHeight + 5}px`
+        // If appended to button, show above button if there's enough space
+        if (rect.top > menuRect.height) {
+          menu.style.top = 'auto'
+          menu.style.bottom = `${target.offsetHeight + 5}px`
+        } else {
+          // If not enough space above, position at top of viewport with small margin
+          menu.style.top = '5px'
+          menu.style.maxHeight = `${viewportHeight - 10}px`
+          menu.style.overflowY = 'auto'
+        }
       } else {
-        menu.style.top = `${rect.top - menuRect.height - 5}px`
+        // Check if there's enough space above the trigger element
+        if (rect.top > menuRect.height) {
+          // Position above the trigger element
+          menu.style.top = `${rect.top - menuRect.height - 5}px`
+        } else {
+          // If not enough space above, position at top of viewport with small margin
+          menu.style.top = '5px'
+          menu.style.maxHeight = `${viewportHeight - 10}px`
+          menu.style.overflowY = 'auto'
+        }
       }
+    } else if (isOutsideTop) {
+      // Adjust to fit within top edge of viewport
+      menu.style.top = '5px'
     }
   }, 0)
 }
