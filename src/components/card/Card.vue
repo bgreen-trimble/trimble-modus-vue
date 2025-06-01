@@ -18,7 +18,7 @@ const cardClasses = computed(() => {
   return [
     'tm-card',
     `tm-card-${props.size}`,
-    props.shadow !== 'level-1' ? `tm-card-shadow-${props.shadow}` : '',
+    props.shadow !== 'none' ? `tm-shadow-${props.shadow}` : '',
     {
       'tm-card-full-width': props.fullWidth
     }

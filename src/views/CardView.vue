@@ -20,48 +20,10 @@ const toggleNotification = () => {
       <div>
         <h1 class="tm-h1 mb-2">Card Component Showcase</h1>
         <p class="tm-text-body">
-          Demonstrating the Trimble Modus Card component with various variants, sizes, and styles.
+          Demonstrating the Trimble Modus Card component with various sizes, and styles.
         </p>
       </div>
     </div>
-
-    <!-- Card Variants -->
-    <section class="space-y-4">
-      <h2 class="tm-h2">Card Variants</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Default Card -->
-        <Card title="Default Card">
-          <p class="mb-4">
-            This is the default card style with a border and medium size.
-          </p>
-          <Button>Action</Button>
-        </Card>
-
-        <!-- Elevated Card -->
-        <Card title="Elevated Card" variant="elevated">
-          <p class="mb-4">
-            Elevated cards use shadows instead of borders for a floating effect.
-          </p>
-          <Button severity="secondary">Action</Button>
-        </Card>
-
-        <!-- Outlined Card -->
-        <Card title="Outlined Card" variant="outlined">
-          <p class="mb-4">
-            Outlined cards have a border but a transparent background.
-          </p>
-          <Button variant="outlined">Action</Button>
-        </Card>
-
-        <!-- Primary Card -->
-        <Card title="Primary Card" variant="primary">
-          <p class="mb-4">
-            Primary cards use the brand's primary color as background.
-          </p>
-          <Button variant="outlined" severity="primary" class="bg-white/10 border-white text-white">Action</Button>
-        </Card>
-      </div>
-    </section>
 
     <!-- Card Sizes -->
     <section class="space-y-4">
@@ -92,37 +54,31 @@ const toggleNotification = () => {
       <h2 class="tm-h2">Shadow Options</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <!-- No Shadow -->
-        <Card title="No Shadow" shadow="none" variant="outlined">
+        <Card title="No Shadow" shadow="none">
           <p>This card has no shadow applied, using only a border.</p>
         </Card>
 
         <!-- Small Shadow -->
-        <Card title="Small Shadow" shadow="sm">
+        <Card title="Small Shadow" shadow="level-1">
           <p>This card has a subtle, small shadow effect.</p>
         </Card>
 
         <!-- Medium Shadow (Default) -->
-        <Card title="Medium Shadow" shadow="md">
+        <Card title="Medium Shadow" shadow="level-2">
           <p>This is the default medium shadow effect.</p>
         </Card>
 
         <!-- Large Shadow -->
-        <Card title="Large Shadow" shadow="lg">
+        <Card title="Large Shadow" shadow="level-3">
           <p>This card has a pronounced, large shadow effect.</p>
         </Card>
       </div>
     </section>
 
-    <!-- Interactive Cards -->
+    <!-- Full Width Cards -->
     <section class="space-y-4">
-      <h2 class="tm-h2">Interactive Cards</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Interactive Card -->
-        <Card title="Interactive Card" interactive @click="toggleNotification">
-          <p class="mb-2">This card is interactive with hover and click effects.</p>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Click me to trigger an action!</p>
-        </Card>
-
+      <h2 class="tm-h2">Full Width Cards</h2>
+      <div class="grid grid-cols-1">
         <!-- Full Width Card -->
         <Card title="Full Width Card" fullWidth interactive>
           <p class="mb-4">This card spans the full width of its container instead of using the default max-width.</p>

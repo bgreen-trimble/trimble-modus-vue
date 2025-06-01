@@ -3,8 +3,8 @@
 /* Base styles */
 @import './base/imports.css';
 @import './base/color.css';
-@import './base/typography.css';
 @import './base/shadow.css';
+@import './base/typography.css';
 
 /* Component styles */
 @import '../components/button/button.css';
