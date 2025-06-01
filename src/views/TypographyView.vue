@@ -110,7 +110,7 @@
                         <p>Font Size: 14px</p>
                         <p>Line Height: 21px (1.5)</p>
                         <p>Letter Spacing: 0.15px</p>
-                        <p>Font Weight: Semibold (600)</p>
+                        <p>Font Weight: Bold (700)</p>
                     </div>
                 </div>
 
