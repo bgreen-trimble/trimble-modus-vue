@@ -6,7 +6,7 @@
 import { computed, ref } from 'vue'
 
 export interface NavbarProps {
-  variant?: 'primary' | 'secondary' | 'tertiary'
+  variant?: 'light' | 'trimble'
   size?: 'small' | 'medium' | 'large'
   fixed?: boolean
   elevated?: boolean
@@ -14,7 +14,7 @@ export interface NavbarProps {
 }
 
 const props = withDefaults(defineProps<NavbarProps>(), {
-  variant: 'primary',
+  variant: 'light',
   size: 'medium',
   fixed: false,
   elevated: false,

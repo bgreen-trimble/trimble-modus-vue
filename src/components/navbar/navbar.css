@@ -1,28 +1,20 @@
 @theme {
     /* Navbar Colors - Light Mode (According to Modus Design System) */
-    /* Primary (Blue) */
-    --color-tm-navbar-primary-background: #0063a3; /* Trimble Blue */
-    --color-tm-navbar-primary-text: white;
-    --color-tm-navbar-primary-text-hover: white;
-    --color-tm-navbar-primary-item-hover-background: rgba(255, 255, 255, 0.15);
-    --color-tm-navbar-primary-item-active-background: rgba(255, 255, 255, 0.25);
-    --color-tm-navbar-primary-border-bottom: transparent;
+    /* Light variant */
+    --color-tm-navbar-light-background: white;
+    --color-tm-navbar-light-text: #252a2e; /* Trimble Gray */
+    --color-tm-navbar-light-text-hover: #0063a3; /* Trimble Blue */
+    --color-tm-navbar-light-item-hover-background: rgba(0, 99, 163, 0.1);
+    --color-tm-navbar-light-item-active-background: rgba(0, 99, 163, 0.15);
+    --color-tm-navbar-light-border-bottom: #e5e7eb; /* Gray 200 */
     
-    /* Secondary (Gray) */
-    --color-tm-navbar-secondary-background: #252a2e; /* Trimble Gray */
-    --color-tm-navbar-secondary-text: white;
-    --color-tm-navbar-secondary-text-hover: white;
-    --color-tm-navbar-secondary-item-hover-background: rgba(255, 255, 255, 0.15);
-    --color-tm-navbar-secondary-item-active-background: rgba(255, 255, 255, 0.25);
-    --color-tm-navbar-secondary-border-bottom: transparent;
-
-    /* Tertiary (White/Light) */
-    --color-tm-navbar-tertiary-background: white;
-    --color-tm-navbar-tertiary-text: #252a2e; /* Trimble Gray */
-    --color-tm-navbar-tertiary-text-hover: #0063a3; /* Trimble Blue */
-    --color-tm-navbar-tertiary-item-hover-background: rgba(0, 99, 163, 0.1);
-    --color-tm-navbar-tertiary-item-active-background: rgba(0, 99, 163, 0.15);
-    --color-tm-navbar-tertiary-border-bottom: #e5e7eb; /* Gray 200 */
+    /* Trimble variant */
+    --color-tm-navbar-trimble-background: #004f83; /* Trimble Dark Blue */
+    --color-tm-navbar-trimble-text: white;
+    --color-tm-navbar-trimble-text-hover: white;
+    --color-tm-navbar-trimble-item-hover-background: rgba(255, 255, 255, 0.15);
+    --color-tm-navbar-trimble-item-active-background: rgba(255, 255, 255, 0.25);
+    --color-tm-navbar-trimble-border-bottom: transparent;
 
     /* Focus state for accessibility */
     --color-tm-navbar-focus-outline-color: #019aeb; /* Highlight Blue */
@@ -38,27 +30,21 @@
 
 .dark {
     /* Navbar Colors - Dark Mode (According to Modus Design System) */
-    /* Primary (Blue) - Reversed for Dark Mode */
-    --color-tm-navbar-primary-background: #019aeb; /* Highlight Blue */
-    --color-tm-navbar-primary-text: #171c1e; /* Gray 10 */
-    --color-tm-navbar-primary-text-hover: #171c1e; /* Gray 10 */
-    --color-tm-navbar-primary-item-hover-background: rgba(0, 0, 0, 0.1);
-    --color-tm-navbar-primary-item-active-background: rgba(0, 0, 0, 0.15);
+    /* Light variant - Dark Mode */
+    --color-tm-navbar-light-background: #171c1e; /* Gray 10 */
+    --color-tm-navbar-light-text: #f3f4f6; /* Gray 100 */
+    --color-tm-navbar-light-text-hover: #019aeb; /* Highlight Blue */
+    --color-tm-navbar-light-item-hover-background: rgba(1, 154, 235, 0.2);
+    --color-tm-navbar-light-item-active-background: rgba(1, 154, 235, 0.3);
+    --color-tm-navbar-light-border-bottom: #4b5563; /* Gray 600 */
     
-    /* Secondary (Gray) - Darkened for Dark Mode */
-    --color-tm-navbar-secondary-background: #171c1e; /* Gray 10 - Darker */
-    --color-tm-navbar-secondary-text: #f3f4f6; /* Gray 100 */
-    --color-tm-navbar-secondary-text-hover: #f3f4f6; /* Gray 100 */
-    --color-tm-navbar-secondary-item-hover-background: rgba(255, 255, 255, 0.1);
-    --color-tm-navbar-secondary-item-active-background: rgba(255, 255, 255, 0.15);
-    
-    /* Tertiary (Dark) - Dark background for Dark Mode */
-    --color-tm-navbar-tertiary-background: #252a2e; /* Trimble Gray */
-    --color-tm-navbar-tertiary-text: #f3f4f6; /* Gray 100 */
-    --color-tm-navbar-tertiary-text-hover: #019aeb; /* Highlight Blue */
-    --color-tm-navbar-tertiary-item-hover-background: rgba(1, 154, 235, 0.2);
-    --color-tm-navbar-tertiary-item-active-background: rgba(1, 154, 235, 0.3);
-    --color-tm-navbar-tertiary-border-bottom: #4b5563; /* Gray 600 */
+    /* Trimble variant - Dark Mode (stays the same) */
+    --color-tm-navbar-trimble-background: #004f83; /* Trimble Dark Blue */
+    --color-tm-navbar-trimble-text: #f3f4f6; /* Gray 100 */
+    --color-tm-navbar-trimble-text-hover: #f3f4f6; /* Gray 100 */
+    --color-tm-navbar-trimble-item-hover-background: rgba(255, 255, 255, 0.1);
+    --color-tm-navbar-trimble-item-active-background: rgba(255, 255, 255, 0.15);
+    --color-tm-navbar-trimble-border-bottom: #4b5563; /* Gray 600 */
 
     /* Focus state remains same color in dark mode */
     --color-tm-navbar-focus-outline-color: #019aeb; /* Highlight Blue */
@@ -83,22 +69,16 @@
     }
 
     /* Variant styles - Following Modus Design System */
-    .tm-navbar-primary {
-        background-color: var(--color-tm-navbar-primary-background);
-        color: var(--color-tm-navbar-primary-text);
-        border-bottom: 1px solid var(--color-tm-navbar-primary-border-bottom);
+    .tm-navbar-light {
+        background-color: var(--color-tm-navbar-light-background);
+        color: var(--color-tm-navbar-light-text);
+        border-bottom: 1px solid var(--color-tm-navbar-light-border-bottom);
     }
 
-    .tm-navbar-secondary {
-        background-color: var(--color-tm-navbar-secondary-background);
-        color: var(--color-tm-navbar-secondary-text);
-        border-bottom: 1px solid var(--color-tm-navbar-secondary-border-bottom);
-    }
-
-    .tm-navbar-tertiary {
-        background-color: var(--color-tm-navbar-tertiary-background);
-        color: var(--color-tm-navbar-tertiary-text);
-        border-bottom: 1px solid var(--color-tm-navbar-tertiary-border-bottom);
+    .tm-navbar-trimble {
+        background-color: var(--color-tm-navbar-trimble-background);
+        color: var(--color-tm-navbar-trimble-text);
+        border-bottom: 1px solid var(--color-tm-navbar-trimble-border-bottom);
     }
 
     /* Size variations - According to Modus Design System */
