@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import type { MenuItem } from './menuitem'
 import MenuItemComponent from './MenuItem.vue'
 import './menu.css'
+import { Teleport } from 'vue'
 
 
 interface MenuProps {
   model: MenuItem[]
   popup?: boolean
-  appendTo?: string | HTMLElement
+  appendTo?: string | HTMLElement | any  // Added 'any' to support Vue refs
   class?: string
   style?: any
 }
@@ -16,6 +17,16 @@ interface MenuProps {
 const props = withDefaults(defineProps<MenuProps>(), {
   popup: false,
   appendTo: 'body'
+})
+
+// Compute the actual target for Teleport
+const teleportTarget = computed(() => {
+  // If appendTo is a ref object with a value property
+  if (props.appendTo && typeof props.appendTo === 'object' && 'value' in props.appendTo) {
+    return props.appendTo.value || 'body'
+  }
+  // Otherwise return the appendTo value directly
+  return props.appendTo
 })
 
 const emit = defineEmits<{
@@ -61,10 +72,59 @@ const position = (event: Event) => {
   const target = event.currentTarget as HTMLElement
   const rect = target.getBoundingClientRect()
   const menu = menuRef.value
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
 
-  menu.style.position = 'fixed'
-  menu.style.left = `${rect.left}px`
-  menu.style.top = `${rect.bottom + 5}px`
+  // Check if we're appending to the button or an element 
+  const appendingToButton = 
+    (props.appendTo && typeof props.appendTo === 'object' && ('value' in props.appendTo || props.appendTo instanceof HTMLElement)) ||
+    (typeof teleportTarget.value === 'object' && teleportTarget.value instanceof HTMLElement)
+
+  if (appendingToButton) {
+    // When teleported to a button/element, position relative to it
+    menu.style.position = 'absolute'
+    menu.style.left = '0px'  // Position at the left edge of the button
+    menu.style.top = `${target.offsetHeight + 5}px`  // Position below the button
+  } else if (teleportTarget.value === 'body') {
+    // When teleported to body, use fixed positioning with viewport coordinates
+    menu.style.position = 'fixed'
+    menu.style.left = `${rect.left}px`
+    menu.style.top = `${rect.bottom + 5}px`
+  } else {
+    // When teleported elsewhere, use absolute positioning relative to that container
+    menu.style.position = 'absolute'
+    menu.style.left = `${rect.left + scrollLeft}px`
+    menu.style.top = `${rect.bottom + scrollTop + 5}px`
+  }
+
+  // Ensure menu is visible within viewport
+  setTimeout(() => {
+    const menuRect = menu.getBoundingClientRect()
+    const viewportWidth = window.innerWidth
+    const viewportHeight = window.innerHeight
+
+    // Adjust horizontal position if menu goes outside viewport
+    if (menuRect.right > viewportWidth) {
+      if (appendingToButton) {
+        // If appended to button, align to right edge
+        menu.style.left = 'auto'
+        menu.style.right = '0px'
+      } else {
+        menu.style.left = `${viewportWidth - menuRect.width - 5}px`
+      }
+    }
+
+    // Adjust vertical position if menu goes outside viewport
+    if (menuRect.bottom > viewportHeight) {
+      if (appendingToButton) {
+        // If appended to button, show above
+        menu.style.top = 'auto'
+        menu.style.bottom = `${target.offsetHeight + 5}px`
+      } else {
+        menu.style.top = `${rect.top - menuRect.height - 5}px`
+      }
+    }
+  }, 0)
 }
 
 const onItemClick = (event: Event, item: MenuItem) => {
@@ -98,25 +158,55 @@ onBeforeUnmount(() => {
     document.removeEventListener('click', onDocumentClick)
   }
 })
+
+// Expose methods for external use via ref
+defineExpose({
+  toggle,
+  show,
+  hide
+})
 </script>
 
 <template>
-  <div 
-    ref="menuRef" 
-    :class="['tm-menu', { 'tm-menu-popup': popup }, props.class]" 
-    :style="props.style"
-    v-show="!popup || visible"
-    @focus="emit('focus')"
-    @blur="emit('blur')"
-    tabindex="0"
-  >
-    <ul class="tm-menu-list" role="menu">
-      <MenuItemComponent 
-        v-for="(item, i) in model" 
-        :key="item.key || i" 
-        :item="item"
-        @click="onItemClick"
-      />
-    </ul>
-  </div>
+  <template v-if="popup">
+    <Teleport :to="teleportTarget">
+      <div 
+        ref="menuRef" 
+        :class="['tm-menu', { 'tm-menu-popup': popup }, props.class]" 
+        :style="props.style"
+        v-show="visible"
+        @focus="emit('focus')"
+        @blur="emit('blur')"
+        tabindex="0"
+      >
+        <ul class="tm-menu-list" role="menu">
+          <MenuItemComponent 
+            v-for="(item, i) in model" 
+            :key="item.key || i" 
+            :item="item"
+            @click="onItemClick"
+          />
+        </ul>
+      </div>
+    </Teleport>
+  </template>
+  <template v-else>
+    <div 
+      ref="menuRef" 
+      :class="['tm-menu', props.class]" 
+      :style="props.style"
+      @focus="emit('focus')"
+      @blur="emit('blur')"
+      tabindex="0"
+    >
+      <ul class="tm-menu-list" role="menu">
+        <MenuItemComponent 
+          v-for="(item, i) in model" 
+          :key="item.key || i" 
+          :item="item"
+          @click="onItemClick"
+        />
+      </ul>
+    </div>
+  </template>
 </template>
