@@ -6,21 +6,17 @@ import { Menu, Button } from '@/components'
 const items = [
   {
     label: 'Home',
-    icon: 'home',
   },
   {
     label: 'Edit',
-    icon: 'pencil',
   },
   { separator: true as true },
   {
     label: 'Settings',
-    icon: 'settings',
     url: '#settings'
   },
   {
     label: 'Disabled Option',
-    icon: 'block',
     disabled: true
   }
 ]
@@ -69,7 +65,7 @@ const menuRef = ref()
 <template>
   <div class="space-y-8">
     <div>
-      <h1 class="tm-h1 mb-4">Menu Component</h1>
+      <h1 class="tm-h1 mb-4">Menu Component Showcase</h1>
       <p class="tm-body mb-8">
         The Menu component provides a flexible way to display a list of commands or navigation options.
         It supports icons, separators, disabled items, and can be used as a popup menu.
@@ -107,18 +103,21 @@ const menuRef = ref()
     <!-- User Menu Example -->
     <section class="space-y-4">
       <h2 class="tm-h2">User Menu Example</h2>
-      <div class="w-64">
-        <Menu :model="userItems" />
-      </div>
       <p class="tm-body text-gray-600 dark:text-gray-400">
         Example of a user menu with profile actions and sign out option.
       </p>
+      <div class="w-64">
+        <Menu :model="userItems" />
+      </div>
     </section>
 
     <!-- Icon Examples -->
     <section class="space-y-4">
       <h2 class="tm-h2">Menu with Icons</h2>
-      <div class="flex gap-8">
+       <p class="tm-body text-gray-600 dark:text-gray-400">
+        Examples of menus using Modus icons in different contexts. Icons help users quickly identify menu items and enhance the visual hierarchy.
+      </p>
+     <div class="flex gap-8">
         <!-- File Operations Menu -->
         <div class="w-64">
           <h3 class="tm-h3 mb-2">File Operations</h3>
@@ -218,9 +217,6 @@ const menuRef = ref()
           ]" />
         </div>
       </div>
-      <p class="tm-body text-gray-600 dark:text-gray-400">
-        Examples of menus using Modus icons in different contexts. Icons help users quickly identify menu items and enhance the visual hierarchy.
-      </p>
     </section>
 
   </div>
