@@ -48,12 +48,17 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
                   App
                 </div>
               </template>
-              <template #middle>
-                <a href="#" :class="{ 'active': activeLight === 'home' }" @click="setActive('light', 'home')">Home</a>
-                <a href="#" :class="{ 'active': activeLight === 'products' }" @click="setActive('light', 'products')">Products</a>
-                <a href="#" :class="{ 'active': activeLight === 'services' }" @click="setActive('light', 'services')">Services</a>
-              </template>
               <template #right>
+                <Button variant="text" severity="primary" size="small">
+                  <template #icon>
+                    <span class="modus-icons">notifications</span>
+                  </template>
+                </Button>
+                <Button variant="text" severity="primary" size="small">
+                  <template #icon>
+                    <span class="modus-icons">search</span>
+                  </template>
+                </Button>
                 <Button size="small" variant="outlined" severity="primary">Sign In</Button>
               </template>
             </Navbar>
@@ -71,12 +76,17 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
                   Portal
                 </div>
               </template>
-              <template #middle>
-                <a href="#" :class="{ 'active': activeLight === 'overview' }" @click="setActive('light', 'overview')">Overview</a>
-                <a href="#" :class="{ 'active': activeLight === 'features' }" @click="setActive('light', 'features')">Features</a>
-                <a href="#" :class="{ 'active': activeLight === 'docs' }" @click="setActive('light', 'docs')">Documentation</a>
-              </template>
               <template #right>
+                <Button variant="text" severity="primary">
+                  <template #icon>
+                    <span class="modus-icons">notifications</span>
+                  </template>
+                </Button>
+                <Button variant="text" severity="primary">
+                  <template #icon>
+                    <span class="modus-icons">settings</span>
+                  </template>
+                </Button>
                 <Button variant="text" severity="primary">Help</Button>
                 <Button variant="filled" severity="primary">Get Started</Button>
               </template>
@@ -101,12 +111,17 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
                   Dashboard
                 </div>
               </template>
-              <template #middle>
-                <a href="#" :class="{ 'active': activeTrimble === 'dashboard' }" @click="setActive('trimble', 'dashboard')">Dashboard</a>
-                <a href="#" :class="{ 'active': activeTrimble === 'projects' }" @click="setActive('trimble', 'projects')">Projects</a>
-                <a href="#" :class="{ 'active': activeTrimble === 'reports' }" @click="setActive('trimble', 'reports')">Reports</a>
-              </template>
               <template #right>
+                <Button variant="text" severity="secondary">
+                  <template #icon>
+                    <span class="modus-icons">search</span>
+                  </template>
+                </Button>
+                <Button variant="text" severity="secondary">
+                  <template #icon>
+                    <span class="modus-icons">help</span>
+                  </template>
+                </Button>
                 <Button variant="outlined" severity="secondary">Log In</Button>
                 <Button variant="text" severity="secondary">
                   <template #icon>
@@ -129,14 +144,18 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
                   Enterprise
                 </div>
               </template>
-              <template #middle>
-                <a href="#" :class="{ 'active': activeTrimble === 'solutions' }" @click="setActive('trimble', 'solutions')">Solutions</a>
-                <a href="#" :class="{ 'active': activeTrimble === 'industries' }" @click="setActive('trimble', 'industries')">Industries</a>
-                <a href="#" :class="{ 'active': activeTrimble === 'partners' }" @click="setActive('trimble', 'partners')">Partners</a>
-                <a href="#" :class="{ 'active': activeTrimble === 'resources' }" @click="setActive('trimble', 'resources')">Resources</a>
-              </template>
               <template #right>
-                <Button variant="filled" severity="secondary">Contact Sales</Button>
+                <Button variant="text" severity="secondary" size="large">
+                  <template #icon>
+                    <span class="modus-icons">search</span>
+                  </template>
+                </Button>
+                <Button variant="text" severity="secondary" size="large">
+                  <template #icon>
+                    <span class="modus-icons">language</span>
+                  </template>
+                </Button>
+                <Button variant="filled" severity="secondary" size="large">Contact Sales</Button>
               </template>
             </Navbar>
           </div>
