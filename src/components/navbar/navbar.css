@@ -123,7 +123,6 @@
     .tm-navbar-middle {
         display: flex;
         align-items: center;
-        gap: 0.5rem; /* Modus uses tighter spacing between nav items */
     }
 
     .tm-navbar-middle {

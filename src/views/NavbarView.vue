@@ -40,7 +40,7 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
         <!-- Small Light Navbar -->
         <div class="space-y-2">
           <h3 class="tm-h3">Small Size</h3>
-          <div class="border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div class="overflow-hidden">
             <Navbar variant="light" size="small">
               <template #left>
                 <div class="tm-navbar-logo">
@@ -49,17 +49,19 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
                 </div>
               </template>
               <template #right>
-                <Button variant="text" severity="primary" size="small">
-                  <template #icon>
-                    <span class="modus-icons">notifications</span>
-                  </template>
-                </Button>
-                <Button variant="text" severity="primary" size="small">
-                  <template #icon>
-                    <span class="modus-icons">search</span>
-                  </template>
-                </Button>
-                <Button size="small" variant="outlined" severity="primary">Sign In</Button>
+                <div class="tm-navbar-icons hover:text-tm-trimble-blue">
+                  <Button variant="text" severity="secondary" size="small">
+                    <template #icon>
+                      <span class="modus-icons">notifications</span>
+                    </template>
+                  </Button>
+                  <Button variant="text" severity="secondary" size="small">
+                    <template #icon>
+                      <span class="modus-icons">search</span>
+                    </template>
+                  </Button>
+                </div>
+                <Button size="small" variant="outlined" severity="secondary">Sign In</Button>
               </template>
             </Navbar>
           </div>
@@ -68,7 +70,7 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
         <!-- Medium Light Navbar -->
         <div class="space-y-2">
           <h3 class="tm-h3">Medium Size (Default)</h3>
-          <div class="border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div class="overflow-hidden">
             <Navbar variant="light">
               <template #left>
                 <div class="tm-navbar-logo">
@@ -77,18 +79,18 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
                 </div>
               </template>
               <template #right>
-                <Button variant="text" severity="primary">
+                <Button variant="text" severity="secondary">
                   <template #icon>
                     <span class="modus-icons">notifications</span>
                   </template>
                 </Button>
-                <Button variant="text" severity="primary">
+                <Button variant="text" severity="secondary">
                   <template #icon>
                     <span class="modus-icons">settings</span>
                   </template>
                 </Button>
-                <Button variant="text" severity="primary">Help</Button>
-                <Button variant="filled" severity="primary">Get Started</Button>
+                <Button variant="text" severity="secondary">Help</Button>
+                <Button variant="filled" severity="secondary">Get Started</Button>
               </template>
             </Navbar>
           </div>
@@ -103,7 +105,7 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
         <!-- Medium Trimble Navbar -->
         <div class="space-y-2">
           <h3 class="tm-h3">Default Size</h3>
-          <div class="border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div class="overflow-hidden">
             <Navbar variant="trimble">
               <template #left>
                 <div class="tm-navbar-logo">
@@ -112,22 +114,19 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
                 </div>
               </template>
               <template #right>
-                <Button variant="text" severity="secondary">
-                  <template #icon>
-                    <span class="modus-icons">search</span>
-                  </template>
-                </Button>
-                <Button variant="text" severity="secondary">
-                  <template #icon>
-                    <span class="modus-icons">help</span>
-                  </template>
-                </Button>
-                <Button variant="outlined" severity="secondary">Log In</Button>
-                <Button variant="text" severity="secondary">
-                  <template #icon>
-                    <span class="modus-icons">person</span>
-                  </template>
-                </Button>
+                <div class="tm-navbar-icons text-tm-white">
+                  <Button variant="text" severity="secondary" size="small">
+                    <template #icon>
+                      <span class="modus-icons text-tm-white">notifications</span>
+                    </template>
+                  </Button>
+                  <Button variant="text" severity="secondary" size="small" class="modus-icons text-tm-white">
+                    <template #icon>
+                      <span class="modus-icons text-tm-white">search</span>
+                    </template>
+                  </Button>
+                </div>
+                <Button variant="outlined" severity="secondary" class="">Log In</Button>
               </template>
             </Navbar>
           </div>
@@ -135,8 +134,8 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
 
         <!-- Large Trimble Navbar -->
         <div class="space-y-2">
-          <h3 class="tm-h3">Large Size with Elevation</h3>
-          <div class="border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <h3 class="tm-h3">Large Size</h3>
+          <div class="overflow-hidden">
             <Navbar variant="trimble" size="large" elevated>
               <template #left>
                 <div class="tm-navbar-logo">
@@ -145,17 +144,19 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
                 </div>
               </template>
               <template #right>
-                <Button variant="text" severity="secondary" size="large">
-                  <template #icon>
-                    <span class="modus-icons">search</span>
-                  </template>
-                </Button>
-                <Button variant="text" severity="secondary" size="large">
-                  <template #icon>
-                    <span class="modus-icons">language</span>
-                  </template>
-                </Button>
-                <Button variant="filled" severity="secondary" size="large">Contact Sales</Button>
+                <div class="tm-navbar-icons">
+                  <Button variant="text" severity="secondary" size="large">
+                    <template #icon>
+                      <span class="modus-icons text-tm-white">search</span>
+                    </template>
+                  </Button>
+                  <Button variant="text" severity="secondary" size="large">
+                    <template #icon>
+                      <span class="modus-icons text-tm-white ">language</span>
+                    </template>
+                  </Button>
+                </div>
+                <Button variant="filled" severity="secondary" class="text-tm-white hover:bg-white/15" size="large">Contact Sales</Button>
               </template>
             </Navbar>
           </div>
