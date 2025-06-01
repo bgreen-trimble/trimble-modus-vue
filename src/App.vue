@@ -137,6 +137,11 @@ const getMenuName = (path: string) => path.substring(1).split('-')
 
 <style>
 /* Add styles for navigation menu */
+.tm-nav-menu {
+    /* Remove shadow from sidebar navigation menus */
+    --shadow-tm-menu: none;
+}
+
 .tm-nav-menu :deep(.tm-menu-link) {
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
