@@ -78,13 +78,13 @@ const menuRef = ref()
       <div class="w-64">
         <Menu :model="items" />
       </div>
-      <p class="tm-body text-gray-600 dark:text-gray-400">
+      <p class="tm-body">
         Basic menu with icons, separator, URL link, and disabled item.
       </p>
     </section>
 
     <!-- Popup Menu -->
-    <section class="space-y-4">
+    <!-- <section class="space-y-4">
       <h2 class="tm-h2">Popup Menu</h2>
       <div>
         <Button @click="menuRef.toggle($event)" severity="primary">
@@ -95,15 +95,15 @@ const menuRef = ref()
         </Button>
         <Menu ref="menuRef" :model="commandItems" popup />
       </div>
-      <p class="tm-body text-gray-600 dark:text-gray-400">
+      <p class="tm-body">
         Click the button to show a popup menu with custom commands.
       </p>
-    </section>
+    </section> -->
 
     <!-- User Menu Example -->
     <section class="space-y-4">
       <h2 class="tm-h2">User Menu Example</h2>
-      <p class="tm-body text-gray-600 dark:text-gray-400">
+      <p class="tm-body">
         Example of a user menu with profile actions and sign out option.
       </p>
       <div class="w-64">
@@ -114,7 +114,7 @@ const menuRef = ref()
     <!-- Icon Examples -->
     <section class="space-y-4">
       <h2 class="tm-h2">Menu with Icons</h2>
-       <p class="tm-body text-gray-600 dark:text-gray-400">
+       <p class="tm-body">
         Examples of menus using Modus icons in different contexts. Icons help users quickly identify menu items and enhance the visual hierarchy.
       </p>
      <div class="flex gap-8">
