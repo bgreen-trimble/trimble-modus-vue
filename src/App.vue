@@ -62,7 +62,7 @@ const getMenuName = (path: string) => path.substring(1).split('-')
 <template>
     <div class="min-h-screen flex bg-tm-white text-tm-trimble-gray dark:bg-tm-gray-10 dark:text-tm-gray-light">
         <!-- Sidebar -->
-        <aside class="w-64 h-screen flex-shrink-0 border-r">
+        <aside class="w-64 h-screen flex-shrink-0 border-r border-tm-gray-2 dark:border-tm-gray-10">
             <!-- Logo area -->
             <Navbar variant="light">
                 <template #left>
