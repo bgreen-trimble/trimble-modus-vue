@@ -46,7 +46,6 @@ const buttonClasses = computed(() => {
 
   // Generate class name for variant and severity
   const variantClass = `button-tm-${props.severity}-${props.variant}`
-  console.log('Generated variantClass:', variantClass);
 
   // Disabled state
   const disabledClasses = props.disabled ? [

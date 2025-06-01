@@ -9,3 +9,5 @@ export type { SwitchProps } from './switch/Switch.vue'
 
 export { default as Navbar } from './navbar/Navbar.vue'
 export type { NavbarProps } from './navbar/Navbar.vue'
+
+export { default as Menu } from './menu/Menu.vue'

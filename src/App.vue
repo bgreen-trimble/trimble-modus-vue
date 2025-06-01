@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import { useDarkMode } from '@/composables/useDarkMode'
+import { Navbar, Button } from '@/components'
 
 // Get all route names for navigation
 const router = useRouter()
@@ -16,7 +17,6 @@ const darkMode = computed({
     set: (value: boolean) => setDarkMode(value)
 })
 
-// Mobile nav state
 const isNavOpen = ref(false)
 
 
@@ -25,35 +25,102 @@ const toggleDarkMode = () => {
     darkMode.value = !darkMode.value
 }
 
+const getMenuName = (path: string) => path.substring(1).split('-').filter(word => word.toUpperCase() !== "VIEW").map(word =>
+    word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 </script>
 
 <template>
-    <div class="min-h-screen min-w-screen bg-tm-white text-tm-trimble-gray dark:bg-tm-gray-10 dark:text-tm-gray-light">
-        <nav class="p-4 fixed w-64 h-full">
-            <div class="mb-8 flex items-center justify-between">
-                <h2 class="text-tm-trimble-blue  dark:text-tm-gray-light">
-                    Modus Vue
-                </h2>
-            </div>
-            <div class="space-y-2">
-                <div class="flex items-center space-x-2">
+    <div class="min-h-screen flex bg-tm-white text-tm-trimble-gray dark:bg-tm-gray-10 dark:text-tm-gray-light">
+        <!-- Sidebar -->
+        <aside class="w-64 h-screen flex-shrink-0 border-r border-gray-200 dark:border-gray-700">
+            <!-- Logo area -->
+            <Navbar variant="light">
+                <template #left>
+                    <Button variant="text" severity="secondary">
+                        <template #icon>
+                            <span class="modus-icons">menu</span>
+                        </template>
+                    </Button>
+                </template>
+                <template #right>
+                    <Button variant="text" severity="secondary">
+                        <template #icon>
+                            <span class="modus-icons">notifications</span>
+                        </template>
+                    </Button>
+                </template>
+            </Navbar>
+
+            <!-- Navigation area -->
+            <nav class="p-4 space-y-6">
+                <!-- Navigation groups -->
+                <div class="space-y-2">
+                    <!-- Foundations section -->
+                    <div class="mb-4">
+                        <h3 class="px-4 tm-h3 uppercase mb-2">Foundations</h3>
+                        <RouterLink v-for="route in routes.filter(r => r.meta?.category === 'foundations')"
+                            :key="route.path" :to="route.path"
+                            class="block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                            :class="{ 'bg-gray-100 dark:bg-gray-700': $route.path === route.path }">
+                            {{ getMenuName(route.path) }}
+                        </RouterLink>
+                    </div>
+
+                    <!-- Components section -->
+                    <div>
+                        <h3 class="px-4 tm-h3 uppercase mb-2">Components</h3>
+                        <RouterLink v-for="route in routes.filter(r => r.meta?.category === 'components')"
+                            :key="route.path" :to="route.path"
+                            class="block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                            :class="{ 'bg-gray-100 dark:bg-gray-700': $route.path === route.path }">
+                            {{ getMenuName(route.path) }}
+                        </RouterLink>
+                    </div>
+                </div>
+                <!-- Dark mode toggle -->
+                <div class="absolute bottom-0 left-0  bg-inherit">
                     <button @click="toggleDarkMode"
-                        class="w-full px-4 py-2 text-left rounded-lg">
+                        class="w-full px-4 py-2 text-left rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                         <span>Dark Mode </span><span class="font-tm-bold">{{ isDark ? "On" : "Off" }}</span>
                     </button>
                 </div>
 
-                <RouterLink v-for="route in routes" :key="route.path" :to="route.path"
-                    class="block px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 "
-                    :class="{ 'bg-gray-200 dark:bg-gray-700': $route.path === route.path }">
-                    {{route.path.substring(1).split('-').filter(word => word.toUpperCase() !== "VIEW").map(word => word.charAt(0).toUpperCase() +
-                        word.slice(1)).join(' ')}}
-                </RouterLink>
-            </div>
-        </nav>
-        <main class="ml-64 p-8 ">
-            <RouterView />
-        </main>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col h-screen">
+            <!-- Title bar -->
+            <header>
+                <Navbar variant="light">
+                    <template #left>
+                        <Button variant="text" severity="secondary">
+                            <template #icon>
+                                <span class="modus-icons">menu</span>
+                            </template>
+                        </Button>
+                        <Button variant="text" severity="secondary">
+                            <template #icon>
+                                <span class="modus-icons">trimble_logo</span>
+                            </template>
+                        </Button>
+                            <span class="text-2xl">Modus Vue</span>
+                    </template>
+                    <template #right>
+                        <Button variant="text" severity="secondary">
+                            <template #icon>
+                                <span class="modus-icons">settings</span>
+                            </template>
+                        </Button>
+                    </template>
+                </Navbar>
+            </header>
+
+            <!-- Main content area -->
+            <main class="flex-1 p-6 overflow-auto">
+                <RouterView />
+            </main>
+        </div>
     </div>
 </template>
 
