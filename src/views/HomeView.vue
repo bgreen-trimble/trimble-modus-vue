@@ -3,7 +3,7 @@
     <div class="mb-10">
       <h1 class="tm-h1 mb-4">Trimble Modus Vue Components</h1>
       <p class="tm-body mb-6">
-        Welcome to the Trimble Modus Vue component library, a modern implementation of the Trimble Modus Design System for Vue.js applications.
+        Welcome to the Trimble Modus Vue component library, an implementation of the Trimble Modus Design System for Vue.js applications.
         This library provides a comprehensive set of UI components that follow Trimble's design guidelines, ensuring consistency and
         usability across all Trimble products.
       </p>
@@ -127,39 +127,33 @@ const navigateTo = (path: string) => {
 const componentList = [
   {
     name: 'Button',
-    path: '/components/button',
-    icon: 'touch_app',
+    path: '/button-view',
+    icon: 'component',
     description: 'Interactive elements for user actions'
   },
   {
     name: 'Card',
-    path: '/components/card',
+    path: '/card-view',
     icon: 'dashboard',
     description: 'Container for related content and actions'
   },
   {
     name: 'Menu',
-    path: '/components/menu',
+    path: '/menu-view',
     icon: 'menu',
     description: 'Navigation and action menus with popup support'
   },
   {
     name: 'Navbar',
-    path: '/components/navbar',
+    path: '/navbar-view',
     icon: 'web',
     description: 'Application header navigation component'
   },
   {
     name: 'Switch',
-    path: '/components/switch',
+    path: '/switch-view',
     icon: 'toggle_on',
     description: 'Toggle control for binary options'
-  },
-  {
-    name: 'More...',
-    path: '/components',
-    icon: 'more_horiz',
-    description: 'Explore all available components'
   }
 ];
 </script>

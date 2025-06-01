@@ -72,9 +72,12 @@ const getMenuName = (path: string) => path.substring(1).split('-')
                 <template #left>
                     <Button variant="text" severity="secondary" icon="menu" @click="toggleSidebar">
                     </Button>
-                    <Button variant="text" severity="secondary" icon="trimble_logo" @click="router.push('/')">
-                        <span class="text-2xl">Modus Vue</span>
-                    </Button>
+                    <button type="button"
+                        class="flex items-center gap-2 text-tm-trimble-gray border-0 bg-transparent cursor-pointer dark:text-tm-gray-light"
+                        @click.prevent="router.push('/')">
+                        <i class="modus-icons">trimble_logo</i>
+                        <span class="text-2xl">Trimble Modus Vue</span>
+                    </button>
                 </template>
                 <template #right>
                     <Button variant="text" severity="secondary" icon="settings" @click="settingsMenuRef.toggle($event)">
@@ -118,12 +121,10 @@ const getMenuName = (path: string) => path.substring(1).split('-')
 </template>
 
 <style>
-/* Add styles for navigation menu */
 .tm-nav-menu {
     /* Remove shadow from sidebar navigation menus */
     --shadow-tm-menu: none;
 }
-
 .tm-nav-menu :deep(.tm-menu-link) {
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
