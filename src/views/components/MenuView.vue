@@ -223,32 +223,5 @@ const menuRef = ref()
       </p>
     </section>
 
-    <!-- Menu API -->
-    <section class="space-y-4">
-      <h2 class="tm-h2">Menu API</h2>
-      <div class="space-y-2">
-        <h3 class="tm-h3">Props</h3>
-        <ul class="list-disc list-inside space-y-2">
-          <li><code>model</code>: Array of menu items</li>
-          <li><code>popup</code>: Boolean to enable popup mode</li>
-        </ul>
-
-        <h3 class="tm-h3">Events</h3>
-        <ul class="list-disc list-inside space-y-2">
-          <li><code>show</code>: Emitted when popup menu is shown</li>
-          <li><code>hide</code>: Emitted when popup menu is hidden</li>
-        </ul>
-
-        <h3 class="tm-h3">MenuItem Properties</h3>
-        <ul class="list-disc list-inside space-y-2">
-          <li><code>label</code>: Text to display</li>
-          <li><code>icon</code>: Modus icon name</li>
-          <li><code>command</code>: Function to execute on click</li>
-          <li><code>url</code>: URL for navigation</li>
-          <li><code>disabled</code>: Disable the item</li>
-          <li><code>separator</code>: Show a separator line</li>
-        </ul>
-      </div>
-    </section>
   </div>
 </template>
