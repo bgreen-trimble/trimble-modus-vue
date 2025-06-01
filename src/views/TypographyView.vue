@@ -161,7 +161,7 @@
 
                 <div>
                     <h2 class="tm-h2">Small Body Text</h2>
-                    <span class="tm-text-small">
+                    <span class="tm-all">
                         The quick brown fox jumps over the lazy dog
                     </span>
                     <div>
@@ -182,6 +182,96 @@
                         <p>Line Height: 15px</p>
                         <p>Letter Spacing: 0.5px</p>
                         <p>Font Weight: Normal (400)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tailwind Class Usage -->
+        <section>
+            <h1 class="tm-h1 mb-6">Using Typography as Tailwind Classes</h1>
+            <div class="space-y-12">
+                <div>
+                    <h2 class="tm-h2">Display Example</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-tm-gray-6 mb-1">With span element:</p>
+                            <span class="block tm-display-3">Display text as a span</span>
+                        </div>
+                        <div>
+                            <p class="text-tm-gray-6 mb-1">With p element:</p>
+                            <p class="tm-display-3">Display text as a paragraph</p>
+                        </div>
+                        <div class="text-tm-gray-6 mt-2">
+                            <p>Usage:</p>
+                            <pre class="mt-1 p-2 bg-tm-gray-0 rounded"><code>&lt;span class="tm-display-3"&gt;Display text&lt;/span&gt;
+&lt;p class="tm-display-3"&gt;Display text&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="tm-h2">Heading Example</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-tm-gray-6 mb-1">With span element:</p>
+                            <span class="block tm-h2">Heading text as a span</span>
+                        </div>
+                        <div>
+                            <p class="text-tm-gray-6 mb-1">With p element:</p>
+                            <p class="tm-h2">Heading text as a paragraph</p>
+                        </div>
+                        <div class="text-tm-gray-6 mt-2">
+                            <p>Usage:</p>
+                            <pre class="mt-1 p-2 bg-tm-gray-0 rounded"><code>&lt;span class="tm-h2"&gt;Heading text&lt;/span&gt;
+&lt;p class="tm-h2"&gt;Heading text&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="tm-h2">Body Text Example</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-tm-gray-6 mb-1">With span element:</p>
+                            <span class="block tm-text-body">Body text as a span</span>
+                        </div>
+                        <div>
+                            <p class=" text-tm-gray-6 mb-1">With p element:</p>
+                            <p class="tm-text-body">Body text as a paragraph</p>
+                        </div>
+                        <div class=" text-tm-gray-6 mt-2">
+                            <p>Usage:</p>
+                            <pre class="mt-1 p-2 bg-tm-gray-0 rounded"><code>&lt;span class="tm-text-body"&gt;Body text&lt;/span&gt;
+&lt;p class="tm-text-body"&gt;Body text&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="tm-h2">With Additional Classes</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <p class=" text-tm-gray-6 mb-1">Font weight example:</p>
+                            <p class="tm-text-body font-tm-bold">Bold body text using font-tm-bold</p>
+                            <p class="tm-text-body font-tm-semibold">Semibold body text using font-tm-semibold</p>
+                        </div>
+                        <div class=" text-tm-gray-6 mt-2">
+                            <p>Usage:</p>
+                            <pre class="mt-1 p-2 bg-tm-gray-0 rounded"><code>&lt;p class="tm-text-body font-tm-bold"&gt;Bold body text&lt;/p&gt;
+&lt;p class="tm-text-body font-tm-semibold"&gt;Semibold body text&lt;/p&gt;</code></pre>
+                        </div>
+
+                        <div>
+                            <p class=" text-tm-gray-6 mb-1">Combining with other utility classes:</p>
+                            <p class="tm-text-body mb-4 text-tm-blue">Blue body text with margin</p>
+                            <p class="tm-h3 italic text-tm-green">Italic green heading</p>
+                        </div>
+                        <div class=" text-tm-gray-6 mt-2">
+                            <p>Usage:</p>
+                            <pre class="mt-1 p-2 bg-tm-gray-0 rounded"><code>&lt;p class="tm-text-body mb-4 text-tm-blue"&gt;Blue body text with margin&lt;/p&gt;
+&lt;p class="tm-h3 italic text-tm-green"&gt;Italic green heading&lt;/p&gt;</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
