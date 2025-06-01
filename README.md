@@ -20,23 +20,54 @@ This project implements the Trimble Modus design system using Vue.js 3 and Tailw
 
 ## Component Usage
 
-All Vue components should use the standard Tailwind CSS variables, not the `--tm-` prefixed variables. For example:
+Components use Trimble Modus design tokens through CSS variables and utility classes. Here are some examples:
 
 ```css
-/* Correct usage in component styles */
-.my-element {
-  color: var(--color-primary);
-  font-size: var(--text-base);
+@theme {
+  /* Menu Colors - Light Mode */
+  --color-tm-menu-text: var(--color-tm-trimble-gray);        /* Trimble Gray */
+  --color-tm-menu-icon: var(--color-tm-gray-6);             /* Gray 6 - Secondary Text & Icons */
+  --color-tm-menu-hover-bg: var(--color-tm-gray-0);         /* Gray 0 */
+  --color-tm-menu-hover-text: var(--color-tm-primary);       /* Trimble Blue */
+  --color-tm-menu-disabled-opacity: 0.6;
+  --color-tm-menu-separator-border: var(--color-tm-gray-1);  /* Gray 1 */
+
+  /* Menu Transitions */
+  --tm-menu-transition-duration: var(--tm-transition-normal);
+  --tm-menu-transition-timing: var(--tm-transition-timing-default);
 }
 
-/* Incorrect usage */
-.my-element {
-  color: var(--tm-color-primary);
-  font-size: var(--tm-text-base);
+.dark {
+  /* Menu Colors - Dark Mode */
+  --color-tm-menu-text: var(--color-tm-gray-light);         /* Gray Light */
+  --color-tm-menu-icon: var(--color-tm-gray-4);            /* Gray 4 */
+  --color-tm-menu-hover-bg: var(--color-tm-gray-7);        /* Gray 7 */
+  --color-tm-menu-hover-text: var(--color-tm-blue-highlight); /* Highlight Blue */
 }
 ```
 
-The `--tm-` prefixed variables are the foundation of the design system, but components should interact with them through the Tailwind variable mappings.
+```html
+<!-- Component usage with MenuItem interface -->
+<Menu :model="[
+  {
+    label: 'Home',
+    icon: 'home',
+    command: () => console.log('Home clicked')
+  },
+  {
+    label: 'Settings',
+    icon: 'settings',
+    url: '#settings'
+  },
+  { separator: true },
+  {
+    label: 'Sign Out',
+    icon: 'sign_out',
+    disabled: true
+  }
+]" />
+```
+
 
 ## Design System Implementation
 

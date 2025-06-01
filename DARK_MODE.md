@@ -77,6 +77,27 @@ To test dark mode:
 2. Use the DarkModeToggle component
 3. Manually toggle using the color-scheme CSS property
 
+### Menu Component in Dark Mode
+
+The menu component adapts to dark mode using these variables:
+
+```css
+.dark {
+  /* Menu Colors - Dark Mode */
+  --color-tm-menu-text: var(--color-tm-gray-light);         /* Gray Light */
+  --color-tm-menu-icon: var(--color-tm-gray-4);            /* Gray 4 */
+  --color-tm-menu-hover-bg: var(--color-tm-gray-7);        /* Gray 7 */
+  --color-tm-menu-hover-text: var(--color-tm-blue-highlight); /* Highlight Blue */
+  --color-tm-menu-disabled-text: var(--color-tm-gray-5);    /* Gray 5 */
+  --color-tm-menu-separator-border: var(--color-tm-gray-7); /* Gray 7 */
+}
+```
+
+The menu component automatically adjusts its:
+- Text and icon colors for better contrast
+- Hover background color to maintain visual hierarchy
+- Interactive state colors for optimal visibility
+
 ### Best Practices
 
 1. Always test components in both light and dark modes

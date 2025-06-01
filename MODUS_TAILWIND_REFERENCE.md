@@ -193,27 +193,29 @@ For interactive states:
 1. **Always use mapped variables**, not direct Trimble Modus variables:
 
 ```css
-/* Correct */
-.element {
-  color: var(--color-primary);
-  font-size: var(--text-base);
+/* Correct - Use mapped variables without tm- prefix */
+.tm-menu-link {
+  color: var(--color-menu-text);
+  transition-duration: var(--menu-transition-duration);
 }
 
-/* Incorrect */
-.element {
-  color: var(--tm-color-primary);
-  font-size: var(--tm-text-base);
+/* Incorrect - Don't use tm- prefixed variables directly */
+.tm-menu-link {
+  color: var(--tm-color-menu-text);
+  transition-duration: var(--tm-menu-transition-duration);
 }
 ```
 
 2. **Prefer Tailwind utility classes** for consistent styling:
 
 ```html
-<!-- Preferred -->
-<div class="text-base leading-base text-primary">Content</div>
+<!-- Preferred - Use Vue components and utility classes -->
+<Menu :model="menuItems" class="w-64 mt-4" />
 
-<!-- Alternative when needed -->
-<div style="font-size: var(--text-base); line-height: var(--text-base--line-height); color: var(--text-primary);">Content</div>
+<!-- Alternative when needed - Direct style usage -->
+<div class="tm-menu" style="min-width: var(--menu-min-width); color: var(--color-menu-text);">
+  <!-- menu content -->
+</div>
 ```
 
 ### Dark Mode Implementation

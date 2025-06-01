@@ -72,6 +72,71 @@ The Trimble Modus design system provides powerful utility classes that can be co
 <label class="text-sm leading-snug font-tm-medium text-gray-8">Form label</label>
 ```
 
+### Menu Component Variables
+
+The menu component uses the following CSS variables:
+
+```css
+@theme {
+  /* Menu Colors - Light Mode */
+  --color-tm-menu-text: var(--color-tm-trimble-gray);        /* Trimble Gray */
+  --color-tm-menu-icon: var(--color-tm-gray-6);             /* Gray 6 - Secondary Text & Icons */
+  --color-tm-menu-hover-bg: var(--color-tm-gray-0);         /* Gray 0 */
+  --color-tm-menu-hover-text: var(--color-tm-primary);       /* Trimble Blue */
+  --color-tm-menu-disabled-opacity: 0.6;
+  --color-tm-menu-separator-border: var(--color-tm-gray-1);  /* Gray 1 */
+
+  /* Menu Transitions */
+  --tm-menu-transition-duration: var(--tm-transition-normal);
+  --tm-menu-transition-timing: var(--tm-transition-timing-default);
+}
+
+.dark {
+  /* Menu Colors - Dark Mode */
+  --color-tm-menu-text: var(--color-tm-gray-light);         /* Gray Light */
+  --color-tm-menu-icon: var(--color-tm-gray-4);            /* Gray 4 */
+  --color-tm-menu-hover-bg: var(--color-tm-gray-7);        /* Gray 7 */
+  --color-tm-menu-hover-text: var(--color-tm-blue-highlight); /* Highlight Blue */
+  --color-tm-menu-disabled-text: var(--color-tm-gray-5);    /* Gray 5 */
+  --color-tm-menu-separator-border: var(--color-tm-gray-7); /* Gray 7 */
+}
+```
+
+### Menu Component Combinations
+
+1. **Basic Menu**
+```html
+<Menu :model="[
+  {
+    label: 'Home',
+    icon: 'home',
+    command: () => console.log('Home clicked')
+  },
+  {
+    label: 'Settings',
+    icon: 'settings',
+    url: '#settings'
+  },
+  { separator: true },
+  {
+    label: 'Sign Out',
+    icon: 'sign_out',
+    disabled: true
+  }
+]" />
+```
+
+2. **Popup Menu**
+```html
+<Menu ref="menuRef" :model="commandItems" popup />
+<Button @click="menuRef.toggle($event)">
+  <template #icon>
+    <span class="modus-icons">more_vertical</span>
+  </template>
+  Show Menu
+</Button>
+```
+
 ## CSS Formatting Guidelines
 
 When working with CSS variables in this project:
@@ -197,7 +262,7 @@ When working with CSS variables in this project:
 
 | Trimble Modus Variable | Value (Light Mode) | Value (Dark Mode) | Description |
 |------------------------|-------------------|-------------------|-------------|
-| `--tm-color-text` | #252a2e | #f1f1f6 | Trimble Gray (Light) / Gray Light (Dark) |
+| `--tm-color-text` | #252a2a | #f1f1f6 | Trimble Gray (Light) / Gray Light (Dark) |
 | `--tm-color-text-secondary` | #6a6e79 | #b7b9c3 | Gray 6 (Light) / Gray 2 (Dark) |
 | `--tm-color-text-disabled` | #a3a6b1 | #7d808d | Gray 3 (Light) / Gray 5 (Dark) |
 | `--tm-color-surface` | #ffffff | #353a40 | White (Light) / Gray 9 (Dark) |
