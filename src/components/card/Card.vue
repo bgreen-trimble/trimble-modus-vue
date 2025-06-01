@@ -3,30 +3,24 @@ import { computed } from 'vue'
 
 export interface CardProps {
   title?: string
-  variant?: 'default' | 'elevated' | 'outlined' | 'primary'
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
-  shadow?: 'none' | 'sm' | 'md' | 'lg'
-  interactive?: boolean
+  shadow?: 'none' | 'level-1' | 'level-2' | 'level-3'
 }
 
 const props = withDefaults(defineProps<CardProps>(), {
-  variant: 'default',
   size: 'medium',
   fullWidth: false,
-  shadow: 'md',
-  interactive: false
+  shadow: 'level-1'
 })
 
 const cardClasses = computed(() => {
   return [
     'tm-card',
-    `tm-card-${props.variant}`,
     `tm-card-${props.size}`,
-    props.shadow !== 'md' ? `tm-card-shadow-${props.shadow}` : '',
+    props.shadow !== 'level-1' ? `tm-card-shadow-${props.shadow}` : '',
     {
-      'tm-card-full-width': props.fullWidth,
-      'tm-card-interactive': props.interactive
+      'tm-card-full-width': props.fullWidth
     }
   ]
 })
