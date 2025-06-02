@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
 import { Menu, Button } from '@/components'
 
 // Basic menu items
@@ -36,35 +36,139 @@ const commandItems = [
 ]
 
 // Menu for user actions
-const userItems = [{
+const userItems = [
+  {
     label: "User",
     items: [
+      {
+        label: 'Profile',
+        icon: 'person',
+        url: '#profile'
+      },
+      {
+        label: 'Preferences',
+        icon: 'settings',
+        url: '#preferences'
+      },
+      { separator: true as true },
+      {
+        label: 'Sign Out',
+        icon: 'sign_out',
+        command: () => console.log('Sign out clicked')
+      }
+    ]
+  }
+]
+
+// File operations menu items
+const fileItems = [
   {
-    label: 'Profile',
+    label: 'New File',
+    icon: 'add',
+    command: () => console.log('New file')
+  },
+  {
+    label: 'Open File',
+    icon: 'folder_open',
+    command: () => console.log('Open file')
+  },
+  { separator: true },
+  {
+    label: 'Save',
+    icon: 'save_as',
+    command: () => console.log('Save')
+  },
+  {
+    label: 'Download',
+    icon: 'download',
+    command: () => console.log('Download')
+  },
+  {
+    label: 'Print',
+    icon: 'printer',
+    disabled: true
+  }
+]
+
+// Communication menu items
+const communicationItems = [
+  {
+    label: 'Send Message',
+    icon: 'chat',
+    command: () => console.log('Send message')
+  },
+  {
+    label: 'Video Call',
+    icon: 'video',
+    command: () => console.log('Video call')
+  },
+  {
+    label: 'Share Screen',
+    icon: 'screen_sharing',
+    command: () => console.log('Share screen')
+  },
+  { separator: true },
+  {
+    label: 'Notifications',
+    icon: 'notifications',
+    url: '#notifications'
+  },
+  {
+    label: 'Do Not Disturb',
+    icon: 'notifications_off',
+    command: () => console.log('DND')
+  }
+]
+
+// Settings menu items
+const settingsItems = [
+  {
+    label: 'Account',
     icon: 'person',
-    url: '#profile'
+    url: '#account'
+  },
+  {
+    label: 'Security',
+    icon: 'security',
+    url: '#security'
   },
   {
     label: 'Preferences',
     icon: 'settings',
     url: '#preferences'
   },
-  { separator: true as true },
+  { separator: true },
   {
-    label: 'Sign Out',
-    icon: 'sign_out',
-    command: () => console.log('Sign out clicked')
+    label: 'Help',
+    icon: 'help',
+    url: '#help'
+  },
+  {
+    label: 'About',
+    icon: 'info',
+    command: () => console.log('About')
   }
 ]
-}]
 
-// Reference for popup menu
-const menuRef = ref()
-const moreMenuRef = ref()
-const contextMenuRef = ref()
-const buttonRef = ref()
+// Popup menu references and handlers
+const buttonRef = ref<HTMLElement | null>(null)
+const menuRef = ref<any>(null)
+const moreMenuRef = ref<any>(null)
 
-// Action menu items
+// Handler for menu toggle
+const openMenu = (event: Event) => {
+  if (menuRef.value?.toggle) {
+    menuRef.value.toggle(event)
+  }
+}
+
+const openMoreMenu = (event: Event) => {
+  if (moreMenuRef.value?.toggle) {
+    moreMenuRef.value.toggle(event)
+  }
+}
+
+// Action menu items for popup
 const actionItems = [
   {
     label: 'View Details',
@@ -115,10 +219,21 @@ const contextMenuItems = [
 ]
 
 // Context menu handler
+const contextMenuRef = ref<any>(null)
+
 const onContextMenu = (event: MouseEvent) => {
   event.preventDefault()
-  contextMenuRef.value.toggle(event)
+  if (contextMenuRef.value?.toggle) {
+    contextMenuRef.value.toggle(event)
+  }
 }
+
+// Cleanup function
+onBeforeUnmount(() => {
+  if (menuRef.value?.hide) menuRef.value.hide()
+  if (moreMenuRef.value?.hide) moreMenuRef.value.hide()
+  if (contextMenuRef.value?.hide) contextMenuRef.value.hide()
+})
 </script>
 
 <template>
@@ -127,7 +242,7 @@ const onContextMenu = (event: MouseEvent) => {
       <h1 class="tm-h1 mb-4">Menu Component Showcase</h1>
       <p class="tm-body mb-8">
         The Menu component provides a flexible way to display a list of commands or navigation options.
-        It supports icons, separators, disabled items, and can be used as a popup menu.
+        It supports icons, separators, disabled items, and nested menu structures.
       </p>
     </div>
 
@@ -152,15 +267,6 @@ const onContextMenu = (event: MouseEvent) => {
         <Menu :model="userItems" />
       </div>
     </section>
-    <section class="space-y-4">
-      <h2 class="tm-h2">User Menu Example</h2>
-      <p class="tm-body">
-        Example of a user menu with profile actions and sign out option.
-      </p>
-      <div class="w-64">
-        <Menu :model="userItems" />
-      </div>
-    </section>
 
     <!-- Icon Examples -->
     <section class="space-y-4">
@@ -168,104 +274,23 @@ const onContextMenu = (event: MouseEvent) => {
        <p class="tm-body">
         Examples of menus using Modus icons in different contexts. Icons help users quickly identify menu items and enhance the visual hierarchy.
       </p>
-     <div class="flex gap-8">
+      <div class="flex gap-8">
         <!-- File Operations Menu -->
         <div class="w-64">
           <h3 class="tm-h3 mb-2">File Operations</h3>
-          <Menu :model="[
-            {
-              label: 'New File',
-              icon: 'add',
-              command: () => console.log('New file')
-            },
-            {
-              label: 'Open File',
-              icon: 'folder_open',
-              command: () => console.log('Open file')
-            },
-            { separator: true },
-            {
-              label: 'Save',
-              icon: 'save_as',
-              command: () => console.log('Save')
-            },
-            {
-              label: 'Download',
-              icon: 'download',
-              command: () => console.log('Download')
-            },
-            {
-              label: 'Print',
-              icon: 'printer',
-              disabled: true
-            }
-          ]" />
+          <Menu :model="fileItems" />
         </div>
 
         <!-- Communication Menu -->
         <div class="w-64">
           <h3 class="tm-h3 mb-2">Communication</h3>
-          <Menu :model="[
-            {
-              label: 'Send Message',
-              icon: 'chat',
-              command: () => console.log('Send message')
-            },
-            {
-              label: 'Video Call',
-              icon: 'video',
-              command: () => console.log('Video call')
-            },
-            {
-              label: 'Share Screen',
-              icon: 'screen_sharing',
-              command: () => console.log('Share screen')
-            },
-            { separator: true },
-            {
-              label: 'Notifications',
-              icon: 'notifications',
-              url: '#notifications'
-            },
-            {
-              label: 'Do Not Disturb',
-              icon: 'notifications_off',
-              command: () => console.log('DND')
-            }
-          ]" />
+          <Menu :model="communicationItems" />
         </div>
 
         <!-- Settings Menu -->
         <div class="w-64">
           <h3 class="tm-h3 mb-2">Settings</h3>
-          <Menu :model="[
-            {
-              label: 'Account',
-              icon: 'person',
-              url: '#account'
-            },
-            {
-              label: 'Security',
-              icon: 'security',
-              url: '#security'
-            },
-            {
-              label: 'Preferences',
-              icon: 'settings',
-              url: '#preferences'
-            },
-            { separator: true },
-            {
-              label: 'Help',
-              icon: 'help',
-              url: '#help'
-            },
-            {
-              label: 'About',
-              icon: 'info',
-              command: () => console.log('About')
-            }
-          ]" />
+          <Menu :model="settingsItems" />
         </div>
       </div>
     </section>
@@ -274,22 +299,22 @@ const onContextMenu = (event: MouseEvent) => {
     <section class="space-y-4">
       <h2 class="tm-h2">Popup Menu Examples</h2>
       <p class="tm-body mb-4">
-        Popup menus appear when triggered by a user action such as clicking a button or right-clicking on an element.
-        They provide contextual actions or commands related to the element that triggered them.
+        Popup menus appear when triggered by a user action such as clicking a button.
+        They provide contextual actions related to the element that triggered them.
       </p>
 
       <div class="space-y-8">
         <!-- Basic Popup Menu -->
-        <div class="space-y-4 p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
-          <h3 class="tm-h3">Basic Popup Menu</h3>
-          <p class="tm-body">
-            A simple popup menu triggered by a button click.
+        <div class="space-y-4 p-6 border border-tm-gray-2 dark:border-tm-gray-8 rounded-lg">
+          <h3 class="tm-h3">Button Triggered Menu</h3>
+          <p class="tm-body mb-4">
+            A popup menu that appears when clicking a button.
           </p>
-          <div class="flex items-center gap-8">
+          <div class="flex items-start gap-8">
             <div>
               <Button 
                 ref="buttonRef"
-                @click="menuRef.toggle($event)" 
+                @click="openMenu" 
                 severity="primary"
               >
                 <template #icon>
@@ -297,27 +322,31 @@ const onContextMenu = (event: MouseEvent) => {
                 </template>
                 Open Menu
               </Button>
-              <Menu ref="menuRef" :model="commandItems" popup :appendTo="buttonRef" />
+              <Menu 
+                ref="menuRef" 
+                :model="commandItems" 
+                popup 
+              />
             </div>
-            <div class="flex-1 text-sm">
-              <p><strong>Implementation:</strong></p>
-              <p class="mt-2"><code>&lt;Button ref="buttonRef" @click="menuRef.toggle($event)"&gt;Open Menu&lt;/Button&gt;</code></p>
-              <p class="mt-2"><code>&lt;Menu ref="menuRef" :model="items" popup :appendTo="buttonRef" /&gt;</code></p>
+            <div class="flex-1">
+              <p class="mb-2 tm-body-sm">
+                Popup menus are useful for contextual actions or options that don't need to be always visible.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- Action Menu (More Options) -->
-        <div class="space-y-4 p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
-          <h3 class="tm-h3">Action Menu</h3>
-          <p class="tm-body">
-            A "more options" menu commonly used for item actions.
+        <!-- More Options Popup Menu -->
+        <div class="space-y-4 p-6 border border-tm-gray-2 dark:border-tm-gray-8 rounded-lg">
+          <h3 class="tm-h3">"More" Options Menu</h3>
+          <p class="tm-body mb-4">
+            A common pattern for showing additional actions for an item.
           </p>
-          <div class="flex items-center gap-8">
+          <div class="flex items-start gap-8">
             <div>
               <Button 
                 ref="moreMenuRef"
-                @click="moreMenuRef.toggle($event)" 
+                @click="openMoreMenu" 
                 variant="text"
                 severity="secondary"
               >
@@ -325,46 +354,40 @@ const onContextMenu = (event: MouseEvent) => {
                   <span class="modus-icons">more_vertical</span>
                 </template>
               </Button>
-              <Menu ref="moreMenuRef" :model="actionItems" popup />
+              <Menu 
+                ref="moreMenuRef" 
+                :model="actionItems" 
+                popup 
+              />
             </div>
-            <div class="flex-1 text-sm">
-              <p><strong>Implementation:</strong></p>
-              <p class="mt-2"><code>&lt;Button ref="moreMenuRef" @click="moreMenuRef.toggle($event)" variant="text"&gt;
-  &lt;template #icon&gt;
-    &lt;span class="modus-icons"&gt;more_vertical&lt;/span&gt;
-  &lt;/template&gt;
-&lt;/Button&gt;</code></p>
-              <p class="mt-2"><code>&lt;Menu ref="moreMenuRef" :model="actionItems" popup /&gt;</code></p>
+            <div class="flex-1">
+              <p class="mb-2 tm-body-sm">
+                This pattern is commonly used in card interfaces, tables, or list items to provide additional actions without cluttering the UI.
+              </p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Context Menu -->
-        <div class="space-y-4 p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
-          <h3 class="tm-h3">Context Menu</h3>
-          <p class="tm-body">
-            A menu triggered by right-clicking on an element.
-          </p>
-          <div class="flex items-center gap-8">
-            <div 
-              class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg text-center h-24 flex items-center justify-center cursor-context-menu min-w-[200px]"
-              @contextmenu="onContextMenu"
-            >
-              Right-click here
-              <Menu ref="contextMenuRef" :model="contextMenuItems" popup />
-            </div>
-            <div class="flex-1 text-sm">
-              <p><strong>Implementation:</strong></p>
-              <p class="mt-2"><code>&lt;div @contextmenu="onContextMenu"&gt;
-  Right-click here
-  &lt;Menu ref="contextMenuRef" :model="contextMenuItems" popup /&gt;
-&lt;/div&gt;</code></p>
-              <p class="mt-2"><code>const onContextMenu = (event: MouseEvent) => {
-  event.preventDefault()
-  contextMenuRef.value.toggle(event)
-}</code></p>
-            </div>
-          </div>
+    <!-- Context Menu Example -->
+    <section class="space-y-4">
+      <h2 class="tm-h2">Context Menu Example</h2>
+      <p class="tm-body mb-4">
+        Context menus provide actions related to the current context, such as editing or managing items.
+        They are typically triggered by a right-click or long press.
+      </p>
+      <div class="w-64">
+        <div 
+          class="p-4 border border-tm-gray-2 dark:border-tm-gray-8 rounded-lg"
+          @contextmenu="onContextMenu"
+        >
+          <p class="tm-body mb-2">Right-click inside this box to see the context menu.</p>
+          <Menu 
+            ref="contextMenuRef" 
+            :model="contextMenuItems" 
+            popup 
+          />
         </div>
       </div>
     </section>

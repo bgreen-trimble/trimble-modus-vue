@@ -10,6 +10,7 @@ This project implements the Trimble Modus design system using Vue.js 3 and Tailw
 - **Responsive Design**: Mobile-first approach with responsive components
 - **Reusable Components**: Button, Card, and other common UI components
 - **Component Showcases**: Interactive demonstrations of all design elements
+- **GitHub Pages Deployment**: Support for client-side routing on GitHub Pages (see [GITHUB_PAGES.md](GITHUB_PAGES.md))
 
 ## Technology Stack
 

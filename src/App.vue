@@ -76,31 +76,19 @@ const getMenuName = (path: string) => path.substring(1).split('-')
         <header>
             <Navbar variant="light">
                 <template #left>
-                    <Button 
-                        variant="text" 
-                        severity="secondary" 
-                        icon="menu" 
-                        @click="toggleSidebar"
-                        aria-label="Toggle navigation menu"
-                        :aria-expanded="isNavOpen"
-                        aria-controls="main-nav">
+                    <Button variant="text" severity="secondary" icon="menu" @click="toggleSidebar"
+                        aria-label="Toggle navigation menu" :aria-expanded="isNavOpen" aria-controls="main-nav">
                     </Button>
                     <button type="button"
-                        class="flex items-center gap-2 text-tm-trimble-gray border-0 bg-transparent cursor-pointer dark:text-tm-gray-light focus:outline-none"
-                        @click.prevent="router.push('/')"
-                        aria-label="Go to home page">
+                        class="flex items-center gap-2 text-tm-trimble-gray border-0 bg-transparent cursor-pointer dark:text-tm-gray-light focus:outline-none "
+                        @click.prevent="router.push('/')" aria-label="Go to home page">
                         <i class="modus-icons" aria-hidden="true">trimble_logo</i>
                         <span class="text-2xl">Trimble Modus Vue</span>
                     </button>
                 </template>
                 <template #right>
-                    <Button 
-                        variant="text" 
-                        severity="secondary" 
-                        icon="settings" 
-                        @click="settingsMenuRef.toggle($event)"
-                        aria-label="Toggle settings menu"
-                        :aria-expanded="!!settingsMenuRef?.visible"
+                    <Button variant="text" severity="secondary" icon="settings" @click="settingsMenuRef.toggle($event)"
+                        aria-label="Toggle settings menu" :aria-expanded="!!settingsMenuRef?.visible"
                         aria-haspopup="true">
                     </Button>
                     <Menu ref="settingsMenuRef" :model="settingsMenuItems" popup />
@@ -113,8 +101,7 @@ const getMenuName = (path: string) => path.substring(1).split('-')
             <!-- Sidebar with improved transition -->
             <aside
                 class="border-r border-tm-gray-2 dark:border-tm-gray-10 overflow-hidden transition-all duration-300 ease-in-out"
-                :class="isNavOpen ? 'w-48 opacity-100' : 'w-0 opacity-0'"
-                role="complementary"
+                :class="isNavOpen ? 'w-48 opacity-100' : 'w-0 opacity-0'" role="complementary"
                 aria-label="Main navigation">
                 <!-- Navigation area with no opacity transition to prevent flicker -->
                 <nav id="main-nav" class="p-4 space-y-6 w-48" aria-label="Main menu">
@@ -123,20 +110,14 @@ const getMenuName = (path: string) => path.substring(1).split('-')
                         <!-- Foundations section -->
                         <div>
                             <h3 id="foundations-heading" class="tm-h3 uppercase mb-2">Foundations</h3>
-                            <Menu 
-                                :model="foundationsMenu" 
-                                class="tm-nav-menu" 
-                                aria-labelledby="foundations-heading" 
+                            <Menu :model="foundationsMenu" class="tm-nav-menu" aria-labelledby="foundations-heading"
                                 role="menu" />
                         </div>
 
                         <!-- Components section -->
                         <div>
                             <h3 id="components-heading" class="tm-h3 uppercase mb-2">Components</h3>
-                            <Menu 
-                                :model="componentsMenu" 
-                                class="tm-nav-menu" 
-                                aria-labelledby="components-heading" 
+                            <Menu :model="componentsMenu" class="tm-nav-menu" aria-labelledby="components-heading"
                                 role="menu" />
                         </div>
                     </div>
@@ -144,11 +125,8 @@ const getMenuName = (path: string) => path.substring(1).split('-')
             </aside>
 
             <!-- Main content area with transition -->
-            <main 
-                class="flex-1 p-6 overflow-auto transition-all duration-300 ease-in-out focus:outline-none"
-                tabindex="-1"
-                role="main"
-                aria-label="Main content">
+            <main class="flex-1 p-6 overflow-auto transition-all duration-300 ease-in-out focus:outline-none"
+                tabindex="-1" role="main" aria-label="Main content">
                 <RouterView />
             </main>
         </div>
@@ -160,6 +138,7 @@ const getMenuName = (path: string) => path.substring(1).split('-')
     /* Remove shadow from sidebar navigation menus */
     --shadow-tm-menu: none;
 }
+
 .tm-nav-menu :deep(.tm-menu-link) {
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
