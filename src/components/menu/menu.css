@@ -8,7 +8,7 @@
   --color-tm-menu-hover-text: var(--color-tm-primary);       /* Trimble Blue */
   --color-tm-menu-disabled-opacity: 0.6;
   --color-tm-menu-separator-border: var(--color-tm-gray-1);  /* Gray 1 */
-  --color-tm-menu-background: var(--color-tm-white, #ffffff);        /* Menu Background */
+  --color-tm-menu-background: var(--color-tm-white);        /* Menu Background */
   --shadow-tm-menu: var(--shadow-tm-level-1);                /* Menu Shadow */
 
   /* Menu Transitions */
@@ -24,13 +24,12 @@
   --color-tm-menu-hover-text: var(--color-tm-blue-highlight); /* Highlight Blue */
   --color-tm-menu-disabled-text: var(--color-tm-gray-5);    /* Gray 5 */
   --color-tm-menu-separator-border: var(--color-tm-gray-7); /* Gray 7 */
-  --color-tm-menu-background: var(--color-tm-gray-8, #464b52);     /* Menu Background - Dark */
+  --color-tm-menu-background: var(--color-tm-gray-8);     /* Menu Background - Dark */
   --shadow-tm-menu: var(--shadow-tm-level-2);              /* Menu Shadow - Dark */
 }
 
 @layer utilities {
   .tm-menu {
-    min-width: 12rem;
     outline: none;
     background-color: var(--color-tm-menu-background);
     border-radius: 0.375rem;
