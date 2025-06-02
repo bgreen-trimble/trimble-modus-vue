@@ -22,4 +22,5 @@ export default defineConfig({
     __APP_VERSION__: JSON.stringify(appVersion),
     __BUILD_DATE__: JSON.stringify(buildDate),
   },
+  base: "/trimble-modus-vue/"
 })
