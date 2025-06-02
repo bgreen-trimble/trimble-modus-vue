@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "github-pages": "vite build --mode github-pages"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.1.6",
