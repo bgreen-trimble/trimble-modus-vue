@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/trimble-modus-vue/trimble.svg" />
+    <link rel="icon" type="image/svg+xml" href="./trimble.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trimble Modus Vue</title>
     <!-- GitHub Pages SPA redirect script -->
@@ -20,5 +20,53 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <!-- Only include this during development for testing redirects -->
+    <script>
+      // Load the redirect test script if needed
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.log('Development environment detected - loading redirect test script');
+        // Try both possible paths - first without the repo name, then with it
+        const scriptPaths = [
+          '/simple-redirect-test.js',         // Dev server path
+          './simple-redirect-test.js',        // Relative path
+          '/public/simple-redirect-test.js',  // Alternative dev path
+        ];
+        
+        // Try each path in sequence until one works
+        function tryNextPath(index) {
+          if (index >= scriptPaths.length) {
+            console.error('Could not load redirect test script from any path');
+            return;
+          }
+          
+          const scriptPath = scriptPaths[index];
+          console.log(`Attempting to load test script from: ${scriptPath}`);
+          
+          fetch(scriptPath)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Failed to load test script: ${response.status}`);
+              }
+              return response.text();
+            })
+            .then(script => {
+              // Create a script element and append it to the document
+              const scriptEl = document.createElement('script');
+              scriptEl.textContent = script;
+              document.body.appendChild(scriptEl);
+              console.log('Redirect test script loaded successfully from:', scriptPath);
+              console.log('Run testGitHubPagesRedirect() to test the redirect.');
+            })
+            .catch(error => {
+              console.warn(`Error loading from ${scriptPath}:`, error);
+              // Try the next path
+              tryNextPath(index + 1);
+            });
+        }
+        
+        // Start with the first path
+        tryNextPath(0);
+      }
+    </script>
   </body>
 </html>

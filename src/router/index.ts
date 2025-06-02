@@ -49,7 +49,13 @@ routes.push({
   path: '/:pathMatch(.*)*',
   name: 'not-found',
   redirect: to => {
-    console.log('Catch-all route caught:', to.path);
+    console.log('Catch-all route caught path:', to.path);
+    // If the path has our base in it, try to extract the actual route
+    if (to.path.includes('/trimble-modus-vue/')) {
+      const actualPath = to.path.replace('/trimble-modus-vue', '');
+      console.log('Extracted actual path:', actualPath);
+      return { path: actualPath || '/' };
+    }
     return { path: '/' };
   }
 })

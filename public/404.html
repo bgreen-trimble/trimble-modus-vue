@@ -18,37 +18,49 @@
       // Get the repository name from the path
       const repoName = l.pathname.split('/')[1];
       
+      if (!repoName) {
+        console.error('404.html: Repository name not found in path');
+        // Redirect to root as fallback
+        l.replace(l.origin);
+        return;
+      }
+      
       // Extract the path segments after the repository name
       // This will be used by the router
-      const pathAfterRepo = l.pathname
-        .split('/')
-        .slice(pathSegmentsToKeep + 1)
-        .join('/');
+      const pathSegments = l.pathname.split('/').slice(pathSegmentsToKeep + 1);
+      const pathAfterRepo = pathSegments.join('/');
       
-      // Construct the path to save (includes repo name for proper navigation)
-      const fullPath = '/' + repoName + 
-                       (pathAfterRepo ? '/' + pathAfterRepo : '') + 
-                       l.search + 
-                       l.hash;
+      // Construct the full path including repo name for proper navigation
+      const fullPath = '/' + repoName + (pathAfterRepo ? '/' + pathAfterRepo : '');
       
       // Log what we're doing (for debugging)
-      console.log('404.html redirect: Saving path', fullPath);
+      console.log('404.html: Path details', {
+        originalPath: l.pathname,
+        repoName: repoName,
+        pathAfterRepo: pathAfterRepo,
+        fullPath: fullPath,
+        search: l.search,
+        hash: l.hash
+      });
       
-      // Save to localStorage for the main app to use
-      localStorage.setItem('redirectPath', fullPath);
+      // Save ONLY the path after the repo name for the router to use
+      // This is the key change - we only want the route path, not the full path with repo name
+      localStorage.setItem('redirectPath', '/' + pathAfterRepo + l.search + l.hash);
       
-      // Redirect to the root of the site (with repo name)
-      const redirectUrl = 
-        l.protocol + '//' + 
-        l.hostname + 
-        (l.port ? ':' + l.port : '') + 
-        '/' + repoName + '/';
+      // Redirect to the repository root
+      const redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/' + repoName + '/';
       
-      console.log('404.html redirect: Redirecting to', redirectUrl);
+      console.log('404.html: Redirecting to', redirectUrl);
       
       // Perform the redirect
       l.replace(redirectUrl);
     })();
+  </script>
+</head>
+<body>
+  <p>Redirecting to home page...</p>
+</body>
+</html>
   </script>
 </head>
 <body>

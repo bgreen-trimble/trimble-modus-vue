@@ -3,9 +3,11 @@
 
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-// The path to the dist directory
-const distPath = path.resolve('./dist');
+// Get the directory path
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const distPath = path.resolve(__dirname, '../dist');
 const indexPath = path.join(distPath, 'index.html');
 
 console.log('Fixing paths in index.html for GitHub Pages...');
@@ -13,12 +15,6 @@ console.log('Fixing paths in index.html for GitHub Pages...');
 try {
   // Read the index.html file
   let indexContent = fs.readFileSync(indexPath, 'utf8');
-  
-  // First check if paths are already correct
-  if (indexContent.includes('src="/trimble-modus-vue/assets/')) {
-    console.log('Paths already include base - skipping fixes');
-    process.exit(0);
-  }
   
   // Fix the script paths to include the base path
   indexContent = indexContent.replace(
@@ -32,6 +28,17 @@ try {
     'href="/trimble-modus-vue/assets/'
   );
   
+  // Also fix relative paths if needed
+  indexContent = indexContent.replace(
+    /src="assets\//g, 
+    'src="./assets/'
+  );
+  
+  indexContent = indexContent.replace(
+    /href="assets\//g, 
+    'href="./assets/'
+  );
+  
   // Add the redirect detection script to <head>
   const headEndPos = indexContent.indexOf('</head>');
   if (headEndPos !== -1) {
@@ -43,6 +50,10 @@ try {
       const redirectPath = localStorage.getItem('redirectPath');
       if (redirectPath) {
         console.log('Found redirect path:', redirectPath);
+        
+        // Log this for debugging
+        console.log('Current URL:', window.location.href);
+        console.log('Will navigate to:', redirectPath);
       }
     })();
   </script>
@@ -50,6 +61,24 @@ try {
     
     // Insert the script right before </head>
     indexContent = indexContent.slice(0, headEndPos) + redirectScript + indexContent.slice(headEndPos);
+  }
+  
+  // Add the redirect test script to the body (development only)
+  const bodyEndPos = indexContent.indexOf('</body>');
+  if (bodyEndPos !== -1) {
+    const testScript = `
+  <!-- GitHub Pages routing test script -->
+  <script>
+    console.log('Redirect test scripts available at:');
+    console.log('- /trimble-modus-vue/redirect-test.js');
+    console.log('- /trimble-modus-vue/simple-redirect-test.js');
+    console.log('Run this in console to load them:');
+    console.log('fetch("/trimble-modus-vue/simple-redirect-test.js").then(r=>r.text()).then(t=>eval(t))');
+  </script>
+`;
+    
+    // Insert the script right before </body>
+    indexContent = indexContent.slice(0, bodyEndPos) + testScript + indexContent.slice(bodyEndPos);
   }
   
   // Write the fixed content back to the file
