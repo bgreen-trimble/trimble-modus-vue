@@ -1,6 +1,5 @@
 <!-- 
   Switch component following Trimble Modus design system
-  Uses external switch.css for styling with PrimeVue's @theme approach
 -->
 <template>
   <div

@@ -1,6 +1,5 @@
 <!-- 
   Navbar component following Trimble Modus design system
-  Uses external navbar.css for styling with PrimeVue's @theme approach
 -->
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
