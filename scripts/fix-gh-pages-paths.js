@@ -50,16 +50,7 @@ try {
       const redirectPath = localStorage.getItem('redirectPath');
       if (redirectPath) {
         console.log('Found redirect path:', redirectPath);
-        
-        // Log this for debugging
-        console.log('Current URL:', window.location.href);
         console.log('Will navigate to:', redirectPath);
-        
-        // Add a class to the body to indicate we're redirecting
-        // This allows for a loading state to be shown
-        document.addEventListener('DOMContentLoaded', function() {
-          document.body.classList.add('is-redirecting');
-        });
       }
     })();
   </script>
