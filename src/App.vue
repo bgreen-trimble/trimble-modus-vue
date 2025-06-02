@@ -14,19 +14,25 @@ const routes = router.getRoutes()
 const foundationsMenu = computed((): MenuItem[] =>
     routes
         .filter((route) => route.meta?.category === 'foundations')
-        .map((route) => ({
-            label: getMenuName(route.path),
-            url: route.path
-        }))
+        .map((route) => {
+            const resolved = router.resolve(route.path)
+            return {
+                label: getMenuName(route.path),
+                url: resolved.href
+            }
+        })
 )
 
 const componentsMenu = computed((): MenuItem[] =>
     routes
         .filter((route) => route.meta?.category === 'components')
-        .map((route) => ({
-            label: getMenuName(route.path),
-            url: route.path
-        }))
+        .map((route) => {
+            const resolved = router.resolve(route.path)
+            return {
+                label: getMenuName(route.path),
+                url: resolved.href
+            }
+        })
 )
 
 const { isDark, setDarkMode } = useDarkMode()
@@ -80,7 +86,7 @@ const getMenuName = (path: string) => path.substring(1).split('-')
                         aria-controls="main-nav">
                     </Button>
                     <button type="button"
-                        class="flex items-center gap-2 text-tm-trimble-gray border-0 bg-transparent cursor-pointer dark:text-tm-gray-light focus:outline-none focus:ring-2 focus:ring-tm-blue-300"
+                        class="flex items-center gap-2 text-tm-trimble-gray border-0 bg-transparent cursor-pointer dark:text-tm-gray-light focus:outline-none"
                         @click.prevent="router.push('/')"
                         aria-label="Go to home page">
                         <i class="modus-icons" aria-hidden="true">trimble_logo</i>

@@ -128,7 +128,8 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const navigateTo = (path: string) => {
-  router.push(path);
+  const resolved = router.resolve(path);
+  router.push(resolved.href);
 };
 
 const componentList = [
