@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted, getCurrentInstance } from 'vue'
 import { RouterLink, RouterView, useRouter, type RouteRecordRaw } from 'vue-router'
 import { useDarkMode } from '@/composables/useDarkMode'
 import { Navbar, Button, Menu } from '@/components'
 import type { MenuItem } from '@/components/menu/menuitem'
+
+// Add a loading state to prevent flash of home page during redirects
+const isLoading = ref(false)
 
 // Get all route names for navigation
 const router = useRouter()
@@ -11,9 +14,50 @@ const routes = router.getRoutes()
     .filter(route => route.path !== '/') // Exclude root path
     .sort((a, b) => a.path.localeCompare(b.path))
 
+// Get access to the event bus
+const instance = getCurrentInstance();
+const eventBus = instance?.appContext.config.globalProperties.$eventBus;
+
+// Listen for loading events from main.ts
+if (eventBus) {
+  eventBus.on('startLoading', () => {
+    console.log('App received startLoading event');
+    isLoading.value = true;
+  });
+  
+  eventBus.on('stopLoading', () => {
+    console.log('App received stopLoading event');
+    isLoading.value = false;
+  });
+}
+
 // Log route changes for debugging GitHub Pages redirects
 router.beforeEach((to, from) => {
   console.log(`Route change: ${from.path} → ${to.path}`)
+  
+  // If this is a direct navigation from the 404.html page
+  // (meaning we're handling a GitHub Pages redirect),
+  // the loading state will already be set by the event bus
+  
+  // For normal navigation, we don't want to show the loading state
+  // unless it's the first navigation after a page load
+  if (from.path === '/' && to.path !== '/' && !isLoading.value) {
+    console.log('First navigation from home to another route, checking if we should show loading state');
+    
+    // Only show loading for first navigation if it seems to be from a GitHub Pages redirect
+    // (determined by checking the URL for the repo name)
+    const isGitHubPagesNavigation = window.location.pathname.includes('/trimble-modus-vue/');
+    if (isGitHubPagesNavigation) {
+      console.log('Detected GitHub Pages navigation, showing loading state');
+      isLoading.value = true;
+      
+      // Turn off loading after navigation completes
+      setTimeout(() => {
+        isLoading.value = false;
+      }, 500);
+    }
+  }
+  
   return true
 })
 
@@ -22,6 +66,7 @@ onMounted(() => {
   const redirectPath = localStorage.getItem('redirectPath')
   if (redirectPath) {
     console.log('App mounted with redirect path:', redirectPath)
+    // Loading state will be managed by the event bus
   }
 })
 
@@ -142,7 +187,17 @@ const getMenuName = (path: string) => path.substring(1).split('-')
             <!-- Main content area with transition -->
             <main class="flex-1 p-6 overflow-auto transition-all duration-300 ease-in-out focus:outline-none"
                 tabindex="-1" role="main" aria-label="Main content">
-                <RouterView />
+                <!-- Loading spinner when redirecting -->
+                <div v-if="isLoading" class="flex flex-col items-center justify-center h-full">
+                    <div class="relative w-16 h-16 mb-4">
+                        <div class="absolute top-0 left-0 w-16 h-16 border-4 border-tm-gray-2 rounded-full"></div>
+                        <div class="absolute top-0 left-0 w-16 h-16 border-4 border-t-tm-trimble-blue border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+                    </div>
+                    <h2 class="tm-h2 mb-2">Loading your content</h2>
+                    <p class="text-tm-gray-6">Navigating to the requested page...</p>
+                </div>
+                <!-- Only show router view when not loading -->
+                <RouterView v-else />
             </main>
         </div>
     </div>

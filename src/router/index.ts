@@ -73,4 +73,14 @@ const router = createRouter({
   }
 })
 
+// Add global navigation guards to help with debugging
+router.beforeEach((to, from) => {
+  console.log(`Router beforeEach: ${from.fullPath} → ${to.fullPath}`);
+  return true;
+})
+
+router.afterEach((to, from) => {
+  console.log(`Router afterEach: Navigation complete to ${to.fullPath}`);
+})
+
 export default router
