@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 // Dynamic import of all Vue files in the views directory and its subdirectories
@@ -24,16 +24,16 @@ const routes: RouteRecordRaw[] = [
 Object.entries(views).forEach(([path, component]) => {
   // Extract the component name from the path (e.g., '../views/foundations/ColorPalette.vue' -> 'ColorPalette')
   const name = path.match(/\.\.\/views\/(?:foundations|components)\/(.*)\.vue$/)?.[1] ?? ''
-  
+
   // Convert the component name to a URL-friendly path
   const routePath = '/' + name
     .replace(/([A-Z])/g, '-$1')  // Add hyphens before capital letters
     .toLowerCase()                // Convert to lowercase
     .replace(/^-/, '')           // Remove leading hyphen if present
-  
+
   // Determine the category based on the path
   const category = path.includes('/foundations/') ? 'foundations' : 'components'
-  
+
   routes.push({
     path: routePath,
     name: name.toLowerCase(),
@@ -46,7 +46,7 @@ Object.entries(views).forEach(([path, component]) => {
 
 const router = createRouter({
   // Use the right base path depending on environment
-  history: createWebHashHistory(import.meta.env.BASE_URL || '/trimble-modus-vue/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
