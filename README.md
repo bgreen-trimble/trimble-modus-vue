@@ -12,6 +12,25 @@ This project implements the Trimble Modus design system using Vue.js 3 and Tailw
 - **Component Showcases**: Interactive demonstrations of all design elements
 - **GitHub Pages Deployment**: Support for client-side routing on GitHub Pages (see [GITHUB_PAGES.md](GITHUB_PAGES.md))
 
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to GitHub Pages
+npm run github-pages
+
+# Test GitHub Pages routing locally
+npm run test:gh-pages
+```
+
 ## Technology Stack
 
 - Vue 3.5+

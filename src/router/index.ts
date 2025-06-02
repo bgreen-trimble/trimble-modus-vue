@@ -47,11 +47,16 @@ Object.entries(views).forEach(([path, component]) => {
 // Add a catch-all route to handle 404s - this is important for GitHub Pages
 routes.push({
   path: '/:pathMatch(.*)*',
-  redirect: '/'
+  name: 'not-found',
+  redirect: to => {
+    console.log('Catch-all route caught:', to.path);
+    return { path: '/' };
+  }
 })
 
 const router = createRouter({
-  history: createWebHistory('/trimble-modus-vue/'),
+  // Use the right base path depending on environment
+  history: createWebHistory(import.meta.env.BASE_URL || '/trimble-modus-vue/'),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

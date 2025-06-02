@@ -6,6 +6,8 @@ import App from './App.vue'
 // Handle redirect from GitHub Pages 404.html
 const redirectPath = localStorage.getItem('redirectPath')
 if (redirectPath) {
+  console.log('Found redirect path:', redirectPath);
+  
   // Clear the localStorage item
   localStorage.removeItem('redirectPath')
   
@@ -18,10 +20,22 @@ if (redirectPath) {
     ? '#' + redirectPath.split('#')[1]
     : ''
     
-  // Navigate to the correct route using router.push after mounting
+  // Set the URL but don't navigate yet
   window.history.replaceState(null, '', path + hash)
 }
 
-createApp(App)
-  .use(router)
-  .mount('#app')
+// Create the app instance
+const app = createApp(App).use(router)
+
+// Mount the app
+app.mount('#app')
+
+// If we had a redirect, let the router handle it after mount
+if (redirectPath) {
+  // Use a short timeout to ensure the router is ready
+  setTimeout(() => {
+    const currentPath = window.location.pathname + window.location.search + window.location.hash
+    console.log('Navigating to:', currentPath)
+    router.replace(currentPath)
+  }, 100)
+}

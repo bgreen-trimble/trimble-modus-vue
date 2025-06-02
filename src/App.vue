@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { RouterLink, RouterView, useRouter, type RouteRecordRaw } from 'vue-router'
 import { useDarkMode } from '@/composables/useDarkMode'
 import { Navbar, Button, Menu } from '@/components'
@@ -11,6 +11,21 @@ const routes = router.getRoutes()
     .filter(route => route.path !== '/') // Exclude root path
     .sort((a, b) => a.path.localeCompare(b.path))
 
+// Log route changes for debugging GitHub Pages redirects
+router.beforeEach((to, from) => {
+  console.log(`Route change: ${from.path} → ${to.path}`)
+  return true
+})
+
+// Check for GitHub Pages redirect on mount
+onMounted(() => {
+  const redirectPath = localStorage.getItem('redirectPath')
+  if (redirectPath) {
+    console.log('App mounted with redirect path:', redirectPath)
+  }
+})
+
+// Create menu items for navigation
 const foundationsMenu = computed((): MenuItem[] =>
     routes
         .filter((route) => route.meta?.category === 'foundations')

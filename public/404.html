@@ -7,36 +7,47 @@
     // Single Page Apps for GitHub Pages
     // MIT License
     // https://github.com/rafgraph/spa-github-pages
-    // This script takes the current URL and converts the path and hash
-    // to correctly redirect to the GitHub Pages hosted SPA
+    // Modified for Trimble Modus Vue
     (function() {
-      // Get the current path and hash from URL
-      const pathSegmentsToKeep = 1; // Change to 0 for user site, 1 for project site
+      // Get the current URL info
       const l = window.location;
       
-      // Save path including repo name, without the first segment which is empty
+      // For GitHub project pages, we need to keep the first segment (repo name)
+      const pathSegmentsToKeep = 1;
+      
+      // Get the repository name from the path
       const repoName = l.pathname.split('/')[1];
       
-      // Extract the path after the repository name (which will be the route in the app)
-      let path = l.pathname.split('/').slice(pathSegmentsToKeep + 1).join('/');
+      // Extract the path segments after the repository name
+      // This will be used by the router
+      const pathAfterRepo = l.pathname
+        .split('/')
+        .slice(pathSegmentsToKeep + 1)
+        .join('/');
       
-      // If there's no path, just use empty string
-      if (path === '') {
-        path = '';
-      } else {
-        // Otherwise add a leading slash
-        path = '/' + path;
-      }
+      // Construct the path to save (includes repo name for proper navigation)
+      const fullPath = '/' + repoName + 
+                       (pathAfterRepo ? '/' + pathAfterRepo : '') + 
+                       l.search + 
+                       l.hash;
       
-      // Save the route information to localStorage
-      const redirectPath = '/' + repoName + path + l.search + l.hash;
-      localStorage.setItem('redirectPath', redirectPath);
+      // Log what we're doing (for debugging)
+      console.log('404.html redirect: Saving path', fullPath);
       
-      // Redirect to the root of the site
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        '/' + repoName + '/'
-      );
+      // Save to localStorage for the main app to use
+      localStorage.setItem('redirectPath', fullPath);
+      
+      // Redirect to the root of the site (with repo name)
+      const redirectUrl = 
+        l.protocol + '//' + 
+        l.hostname + 
+        (l.port ? ':' + l.port : '') + 
+        '/' + repoName + '/';
+      
+      console.log('404.html redirect: Redirecting to', redirectUrl);
+      
+      // Perform the redirect
+      l.replace(redirectUrl);
     })();
   </script>
 </head>
