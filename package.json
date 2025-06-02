@@ -7,11 +7,7 @@
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
-    "github-pages": "vite build --base=/trimble-modus-vue/ --mode production && node scripts/fix-gh-pages-paths.js",
-    "test:gh-routing": "npm run github-pages && npx http-server ./dist -o /trimble-modus-vue/ -c-1",
-    "test:gh-pages": "./scripts/test-github-pages.sh",
-    "test:redirect": "./scripts/test-redirect.sh",
-    "test:redirect:dev": "./scripts/test-redirect-dev.sh"
+    "github-pages": "vite build --base=/trimble-modus-vue/ --mode production"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.1.6",
