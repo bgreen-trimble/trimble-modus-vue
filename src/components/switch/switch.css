@@ -1,12 +1,12 @@
 @theme {
     /* Switch Colors - Light Mode */
-    --color-tm-switch-background: #90939f; /* Trimble Gray Light */
-    --color-tm-switch-checked-background: #217cbb; /* Trimble Blue */
-    --color-tm-switch-hover-background: #217cbb; /* Trimble Blue on hover */
-    --color-tm-switch-checked-hover-background: #0063a3; /* Darker blue on hover when checked */
-    --color-tm-switch-thumb-color: white;
-    --color-tm-switch-label-color: #464b52; /* Trimble Gray Dark */
-    --color-tm-switch-focus-outline-color: #019aeb; /* Trimble Blue Focus */
+    --color-tm-switch-background: var(--color-tm-gray-4);
+    --color-tm-switch-checked-background: var(--color-tm-blue-light);
+    --color-tm-switch-hover-background: var(--color-tm-blue-light);
+    --color-tm-switch-checked-hover-background: var(--color-tm-trimble-blue);
+    --color-tm-switch-thumb-color: var(--color-tm-white);
+    --color-tm-switch-label-color: var(--color-tm-gray-8);
+    --color-tm-switch-focus-outline-color: var(--color-tm-blue-highlight);
     --color-tm-switch-focus-outline-width: 2px;
     --color-tm-switch-focus-outline-offset: 2px;
     --color-tm-switch-disabled-opacity: 0.3;
@@ -14,12 +14,12 @@
 
 .dark {
     /* Switch Colors - Dark Mode */
-    --color-tm-switch-background: #6a6e79; /* Darker gray for dark mode */
-    --color-tm-switch-checked-background: #019aeb; /* Trimble Blue Light for dark mode */
-    --color-tm-switch-hover-background: #019aeb;
-    --color-tm-switch-checked-hover-background: #0082d6;
-    --color-tm-switch-label-color: #e5e7eb; /* Light gray for dark mode */
-    --color-tm-switch-focus-outline-color: #019aeb;
+    --color-tm-switch-background: var(--color-tm-gray-6);
+    --color-tm-switch-checked-background: var(--color-tm-blue-highlight);
+    --color-tm-switch-hover-background: var(--color-tm-blue-highlight);
+    --color-tm-switch-checked-hover-background: var(--color-tm-blue-light);
+    --color-tm-switch-label-color: var(--color-tm-gray-0);
+    --color-tm-switch-focus-outline-color: var(--color-tm-blue-highlight);
 }
 
 @layer utilities {

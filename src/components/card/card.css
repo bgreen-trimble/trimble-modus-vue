@@ -1,18 +1,18 @@
 @theme {
     /* Card Default */
-    --color-tm-card-background-color: white;
-    --color-tm-card-border-color: #d1d5db; /* Gray 300 */
+    --color-tm-card-background-color: var(--color-tm-white);
+    --color-tm-card-border-color: var(--color-tm-gray-1);
     --color-tm-card-border-radius: 0.375rem; /* 6px */
-    --color-tm-card-title-color: #252a2e; /* Trimble Gray */
-    --color-tm-card-divider-color: #e5e7eb; /* Gray 200 */
+    --color-tm-card-title-color: var(--color-tm-trimble-gray);
+    --color-tm-card-divider-color: var(--color-tm-gray-0);
 }
 
 .dark {
     /* Card Default */
-    --color-tm-card-background-color: #252a2e; /* Trimble Gray */
-    --color-tm-card-border-color: #4b5563; /* Gray 600 */
-    --color-tm-card-title-color: #f3f4f6; /* Gray 100 */
-    --color-tm-card-divider-color: #4b5563; /* Gray 600 */
+    --color-tm-card-background-color: var(--color-tm-trimble-gray);
+    --color-tm-card-border-color: var(--color-tm-gray-8);
+    --color-tm-card-title-color: var(--color-tm-gray-light);
+    --color-tm-card-divider-color: var(--color-tm-gray-8);
 }
 
 @layer utilities {

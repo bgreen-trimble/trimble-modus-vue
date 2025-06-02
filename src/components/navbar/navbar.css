@@ -1,23 +1,23 @@
 @theme {
     /* Navbar Colors - Light Mode (According to Modus Design System) */
     /* Light variant - Ensuring WCAG 2.1 AA contrast ratios */
-    --color-tm-navbar-light-background: white;
-    --color-tm-navbar-light-text: #252a2e; /* Trimble Gray - 7:1 contrast ratio */
-    --color-tm-navbar-light-text-hover: #004f83; /* Darker Blue - 7.5:1 contrast ratio */
+    --color-tm-navbar-light-background: var(--color-tm-white);
+    --color-tm-navbar-light-text: var(--color-tm-trimble-gray);
+    --color-tm-navbar-light-text-hover: var(--color-tm-trimble-dark-blue);
     --color-tm-navbar-light-item-hover-background: rgba(0, 79, 131, 0.1);
     --color-tm-navbar-light-item-active-background: rgba(0, 79, 131, 0.15);
-    --color-tm-navbar-light-border-bottom: #d1d5db; /* Darker Gray - 3:1 contrast ratio */
+    --color-tm-navbar-light-border-bottom: var(--color-tm-gray-1);
     
     /* Trimble variant */
-    --color-tm-navbar-trimble-background: #004f83; /* Trimble Dark Blue */
-    --color-tm-navbar-trimble-text: white;
-    --color-tm-navbar-trimble-text-hover: white;
+    --color-tm-navbar-trimble-background: var(--color-tm-trimble-dark-blue);
+    --color-tm-navbar-trimble-text: var(--color-tm-white);
+    --color-tm-navbar-trimble-text-hover: var(--color-tm-white);
     --color-tm-navbar-trimble-item-hover-background: rgba(255, 255, 255, 0.15);
     --color-tm-navbar-trimble-item-active-background: rgba(255, 255, 255, 0.25);
     --color-tm-navbar-trimble-border-bottom: transparent;
 
     /* Focus state for accessibility */
-    --color-tm-navbar-focus-outline-color: #019aeb; /* Highlight Blue */
+    --color-tm-navbar-focus-outline-color: var(--color-tm-blue-highlight);
     --color-tm-navbar-focus-outline-width: 2px;
     --color-tm-navbar-focus-outline-offset: 2px;
 
@@ -31,23 +31,23 @@
 .dark {
     /* Navbar Colors - Dark Mode (According to Modus Design System) */
     /* Light variant - Dark Mode - Ensuring WCAG 2.1 AA contrast ratios */
-    --color-tm-navbar-light-background: #171c1e; /* Gray 10 */
-    --color-tm-navbar-light-text: #ffffff; /* Pure white - 15:1 contrast ratio */
-    --color-tm-navbar-light-text-hover: #66ceff; /* Lighter Blue - 7:1 contrast ratio */
+    --color-tm-navbar-light-background: var(--color-tm-gray-10);
+    --color-tm-navbar-light-text: var(--color-tm-white);
+    --color-tm-navbar-light-text-hover: var(--color-tm-blue-highlight);
     --color-tm-navbar-light-item-hover-background: rgba(102, 206, 255, 0.15);
     --color-tm-navbar-light-item-active-background: rgba(102, 206, 255, 0.25);
-    --color-tm-navbar-light-border-bottom: #6b7280; /* Gray 500 - Better contrast */
+    --color-tm-navbar-light-border-bottom: var(--color-tm-gray-6);
     
     /* Trimble variant - Dark Mode (stays the same) */
-    --color-tm-navbar-trimble-background: #004f83; /* Trimble Dark Blue */
-    --color-tm-navbar-trimble-text: #f3f4f6; /* Gray 100 */
-    --color-tm-navbar-trimble-text-hover: #f3f4f6; /* Gray 100 */
+    --color-tm-navbar-trimble-background: var(--color-tm-trimble-dark-blue);
+    --color-tm-navbar-trimble-text: var(--color-tm-gray-light);
+    --color-tm-navbar-trimble-text-hover: var(--color-tm-gray-light);
     --color-tm-navbar-trimble-item-hover-background: rgba(255, 255, 255, 0.1);
     --color-tm-navbar-trimble-item-active-background: rgba(255, 255, 255, 0.15);
-    --color-tm-navbar-trimble-border-bottom: #4b5563; /* Gray 600 */
+    --color-tm-navbar-trimble-border-bottom: var(--color-tm-gray-8);
 
     /* Focus state remains same color in dark mode */
-    --color-tm-navbar-focus-outline-color: #019aeb; /* Highlight Blue */
+    --color-tm-navbar-focus-outline-color: var(--color-tm-blue-highlight);
 }
 
 @layer utilities {
