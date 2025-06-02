@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 // Dynamic import of all Vue files in the views directory and its subdirectories
@@ -62,7 +62,7 @@ routes.push({
 
 const router = createRouter({
   // Use the right base path depending on environment
-  history: createWebHistory(import.meta.env.BASE_URL || '/trimble-modus-vue/'),
+  history: createWebHashHistory(import.meta.env.BASE_URL || '/trimble-modus-vue/'),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
