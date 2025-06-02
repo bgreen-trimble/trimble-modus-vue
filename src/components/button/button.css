@@ -19,12 +19,12 @@
     --color-tm-button-primary-focus-visible-box-shadow: 0 0 0 3px rgba(1, 154, 235, 0.5); /* Highlight Blue */
 
     /* Secondary */
-    --color-tm-button-secondary-background-color: var(--color-tm-trimble-gray); /* Trimble Gray */
-    --color-tm-button-secondary-border-color: var(--color-tm-trimble-gray);
+    --color-tm-button-secondary-background-color: var(--color-tm-gray-6); /* Trimble Gray */
+    --color-tm-button-secondary-border-color: var(--color-tm-gray-6);
     --color-tm-button-secondary: white;
 
-    --color-tm-button-secondary-hover-background-color: var(--color-tm-gray-6); /* Gray 6 */
-    --color-tm-button-secondary-hover-border-color: var(--color-tm-gray-6);
+    --color-tm-button-secondary-hover-background-color: #838793; /* Gray 6 */
+    --color-tm-button-secondary-hover-border-color: #838793;
     --color-tm-button-secondary-hover: white;
 
     --color-tm-button-secondary-active-background-color: var(--color-tm-gray-8); /* Gray 8 */
@@ -97,43 +97,43 @@
 
 .dark {
     /* Primary */
-    --color-tm-button-primary-background-color: #019aeb; /* Highlight Blue */
-    --color-tm-button-primary-border-color: #019aeb;
-    --color-tm-button-primary: #171c1e; /* Gray 10 */
-    --color-tm-button-primary-hover: #171c1e;
-    --color-tm-button-primary-active: #171c1e;
+    --color-tm-button-primary-background-color: var(--color-tm-blue-highlight); /* Highlight Blue */
+    --color-tm-button-primary-border-color: var(--color-tm-blue-highlight);
+    --color-tm-button-primary: var(--color-tm-gray-10); /* Gray 10 */
+    --color-tm-button-primary-hover: var(--color-tm-gray-10);
+    --color-tm-button-primary-active: var(--color-tm-gray-10);
     --color-tm-button-primary-focus-visible-box-shadow: 0 0 0 0.25rem rgba(38, 122, 177, 0.5);
 
     /* Secondary */
-    --color-tm-button-secondary-background-color: #90939f; /* Gray 4 */
-    --color-tm-button-secondary-border-color: #90939f;
-    --color-tm-button-secondary: #171c1e; /* Gray 10 */
-    --color-tm-button-secondary-hover: #171c1e;
-    --color-tm-button-secondary-active: #171c1e;
+    --color-tm-button-secondary-background-color: var(--color-tm-gray-4); /* Gray 4 */
+    --color-tm-button-secondary-border-color: var(--color-tm-gray-4);
+    --color-tm-button-secondary: var(--color-tm-gray-10); /* Gray 10 */
+    --color-tm-button-secondary-hover: var(--color-tm-gray-10);
+    --color-tm-button-secondary-active: var(--color-tm-gray-10);
     --color-tm-button-secondary-focus-visible-box-shadow: 0 0 0 0.25rem rgba(144, 147, 159, 0.5);
 
     /* Success */
-    --color-tm-button-success-background-color: #4ea646; /* Green Light */
-    --color-tm-button-success-border-color: #4ea646;
-    --color-tm-button-success: #171c1e; /* Gray 10 */
-    --color-tm-button-success-hover: #171c1e;
-    --color-tm-button-success-active: #171c1e;
+    --color-tm-button-success-background-color: var(--color-tm-green-light); /* Green Light */
+    --color-tm-button-success-border-color: var(--color-tm-green-light);
+    --color-tm-button-success: var(--color-tm-gray-10); /* Gray 10 */
+    --color-tm-button-success-hover: var(--color-tm-gray-10);
+    --color-tm-button-success-active: var(--color-tm-gray-10);
     --color-tm-button-success-focus-visible-box-shadow: 0 0 0 0.25rem rgba(78, 166, 70, 0.5);
 
     /* Warning */
-    --color-tm-button-warning-background-color: #fec157; /* Yellow Light */
-    --color-tm-button-warning-border-color: #fec157;
-    --color-tm-button-warning: #171c1e; /* Gray 10 */
-    --color-tm-button-warning-hover: #171c1e;
-    --color-tm-button-warning-active: #171c1e;
+    --color-tm-button-warning-background-color: var(--color-tm-yellow-light); /* Yellow Light */
+    --color-tm-button-warning-border-color: var(--color-tm-yellow-light);
+    --color-tm-button-warning: var(--color-tm-gray-10); /* Gray 10 */
+    --color-tm-button-warning-hover: var(--color-tm-gray-10);
+    --color-tm-button-warning-active: var(--color-tm-gray-10);
     --color-tm-button-warning-focus-visible-box-shadow: 0 0 0 0.25rem rgba(254, 193, 87, 0.5);
 
     /* Danger */
-    --color-tm-button-danger-background-color: #e86363; /* Red Light */
-    --color-tm-button-danger-border-color: #e86363;
-    --color-tm-button-danger: #171c1e; /* Gray 10 */
-    --color-tm-button-danger-hover: #171c1e;
-    --color-tm-button-danger-active: #171c1e;
+    --color-tm-button-danger-background-color: var(--color-tm-red-light); /* Red Light */
+    --color-tm-button-danger-border-color: var(--color-tm-red-light);
+    --color-tm-button-danger: var(--color-tm-gray-10); /* Gray 10 */
+    --color-tm-button-danger-hover: var(--color-tm-gray-10);
+    --color-tm-button-danger-active: var(--color-tm-gray-10);
     --color-tm-button-danger-focus-visible-box-shadow: 0 0 0 0.25rem rgba(232, 99, 99, 0.5);
 }
 
