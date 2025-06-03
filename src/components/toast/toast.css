@@ -57,17 +57,66 @@
 }
 
 @layer utilities {
+  /* Toast container positioning */
   .modus-toaster {
     position: fixed;
-    bottom: 1rem;
-    left: 0;
-    right: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 0.5rem;
     z-index: 9999;
     pointer-events: none;
+    padding: 1rem;
+    max-height: 100vh;
+    overflow-y: auto;
+    width: auto;
+    min-width: 320px;
+    max-width: 32rem;
+  }
+  
+  /* Position classes for the toaster container */
+  .modus-toaster.top-left {
+    top: 0;
+    left: 0;
+    align-items: flex-start;
+  }
+  
+  .modus-toaster.top-center {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+  }
+  
+  .modus-toaster.top-right {
+    top: 0;
+    right: 0;
+    align-items: flex-end;
+  }
+  
+  .modus-toaster.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+  }
+  
+  .modus-toaster.bottom-left {
+    bottom: 0;
+    left: 0;
+    align-items: flex-start;
+  }
+  
+  .modus-toaster.bottom-center {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+  }
+  
+  .modus-toaster.bottom-right {
+    bottom: 0;
+    right: 0;
+    align-items: flex-end;
   }
   
   .modus-toast {
@@ -80,14 +129,47 @@
     flex-direction: column;
     background-color: var(--color-tm-toast-background-color);
     pointer-events: auto;
-    animation: toast-fade-in 0.3s ease-in-out;
     position: relative;
     overflow: hidden;
+    margin-bottom: 0.5rem;
   }
   
+  /* Toast animations based on position */
+  /* Default animation */
+  .modus-toast {
+    animation: toast-fade-in 0.3s ease-in-out;
+  }
+  
+  /* Position-specific animations */
+  .modus-toast.top-left,
+  .modus-toast.top-center,
+  .modus-toast.top-right {
+    animation: toast-fade-in-top 0.3s ease-in-out;
+  }
+  
+  .modus-toast.bottom-left,
+  .modus-toast.bottom-center,
+  .modus-toast.bottom-right {
+    animation: toast-fade-in-bottom 0.3s ease-in-out;
+  }
+  
+  /* Fade out animations */
   .modus-toast.fade-out {
-  animation: toast-fade-out 0.3s ease-in-out forwards;
-}
+    animation: toast-fade-out 0.3s ease-in-out forwards;
+  }
+  
+  /* Position-specific fade out animations */
+  .modus-toast.top-left.fade-out,
+  .modus-toast.top-center.fade-out,
+  .modus-toast.top-right.fade-out {
+    animation: toast-fade-out-top 0.3s ease-in-out forwards;
+  }
+  
+  .modus-toast.bottom-left.fade-out,
+  .modus-toast.bottom-center.fade-out,
+  .modus-toast.bottom-right.fade-out {
+    animation: toast-fade-out-bottom 0.3s ease-in-out forwards;
+  }
 
 .modus-toast-header {
   display: flex;
@@ -160,6 +242,52 @@
 @keyframes toast-fade-in {
   from {
     opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes toast-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Top positions */
+@keyframes toast-fade-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-fade-out-top {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
+
+/* Bottom positions */
+@keyframes toast-fade-in-bottom {
+  from {
+    opacity: 0;
     transform: translateY(1rem);
   }
   to {
@@ -168,7 +296,7 @@
   }
 }
 
-@keyframes toast-fade-out {
+@keyframes toast-fade-out-bottom {
   from {
     opacity: 1;
     transform: translateY(0);
@@ -177,6 +305,130 @@
     opacity: 0;
     transform: translateY(1rem);
   }
+}
+
+/* Direction-specific animations */
+@keyframes toast-fade-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-fade-out-top {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
+
+@keyframes toast-fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toast-fade-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+}
+
+@keyframes toast-fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toast-fade-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+}
+
+/* Position-specific animations */
+.modus-toaster.top-left .modus-toast {
+  animation: toast-fade-in-left 0.3s ease-in-out;
+}
+
+.modus-toaster.top-left .modus-toast.fade-out {
+  animation: toast-fade-out-left 0.3s ease-in-out forwards;
+}
+
+.modus-toaster.top-center .modus-toast {
+  animation: toast-fade-in-top 0.3s ease-in-out;
+}
+
+.modus-toaster.top-center .modus-toast.fade-out {
+  animation: toast-fade-out-top 0.3s ease-in-out forwards;
+}
+
+.modus-toaster.top-right .modus-toast {
+  animation: toast-fade-in-right 0.3s ease-in-out;
+}
+
+.modus-toaster.top-right .modus-toast.fade-out {
+  animation: toast-fade-out-right 0.3s ease-in-out forwards;
+}
+
+.modus-toaster.center .modus-toast {
+  animation: toast-fade-in 0.3s ease-in-out;
+}
+
+.modus-toaster.center .modus-toast.fade-out {
+  animation: toast-fade-out 0.3s ease-in-out forwards;
+}
+
+.modus-toaster.bottom-left .modus-toast {
+  animation: toast-fade-in-left 0.3s ease-in-out;
+}
+
+.modus-toaster.bottom-left .modus-toast.fade-out {
+  animation: toast-fade-out-left 0.3s ease-in-out forwards;
+}
+
+.modus-toaster.bottom-center .modus-toast {
+  animation: toast-fade-in 0.3s ease-in-out;
+}
+
+.modus-toaster.bottom-center .modus-toast.fade-out {
+  animation: toast-fade-out 0.3s ease-in-out forwards;
+}
+
+.modus-toaster.bottom-right .modus-toast {
+  animation: toast-fade-in-right 0.3s ease-in-out;
+}
+
+.modus-toaster.bottom-right .modus-toast.fade-out {
+  animation: toast-fade-out-right 0.3s ease-in-out forwards;
 }
 
 /* Dark mode */

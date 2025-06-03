@@ -1,6 +1,7 @@
 import { ref, readonly } from 'vue'
 
 export type ToastSeverity = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+export type ToastPosition = 'center' | 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right'
 
 export interface Toast {
   id: string
@@ -8,6 +9,7 @@ export interface Toast {
   message: string
   severity: ToastSeverity
   icon?: string
+  position?: ToastPosition
   duration?: number
   dismissible?: boolean
 }
@@ -27,6 +29,7 @@ export function useToast() {
     severity: ToastSeverity = 'primary', 
     options: {
       icon?: string,
+      position?: ToastPosition,
       duration?: number,
       dismissible?: boolean
     } = {}
@@ -38,11 +41,13 @@ export function useToast() {
       message,
       severity,
       icon: options.icon,
+      position: options.position || 'top-right',
       duration: options.duration !== undefined ? options.duration : DEFAULT_DURATION,
       dismissible: options.dismissible !== undefined ? options.dismissible : true
     }
     
-    toasts.value.push(toast)
+    console.log('Adding toast:', toast) // Debug log
+    toasts.value = [...toasts.value, toast]
     
     // Auto-dismiss after duration (if not 0)
     if (toast.duration !== 0) {
@@ -58,9 +63,13 @@ export function useToast() {
    * Remove a toast by id
    */
   const removeToast = (id: string) => {
+    console.log('Removing toast:', id) // Debug log
     const index = toasts.value.findIndex(toast => toast.id === id)
     if (index !== -1) {
-      toasts.value.splice(index, 1)
+      toasts.value = [
+        ...toasts.value.slice(0, index),
+        ...toasts.value.slice(index + 1)
+      ]
     }
   }
 

@@ -1,6 +1,16 @@
 <!-- filepath: /Users/bgreen/projects/trimble/trimble-modus-vue/src/components/toast/Toast.vue -->
 <template>
-  <div class="modus-toast" :class="[severity, { 'fade-out': isFadingOut, 'has-icon': !!icon }]">
+  <div 
+    class="modus-toast" 
+    :class="[
+      severity, 
+      position || 'top-right', 
+      { 
+        'fade-out': isFadingOut, 
+        'has-icon': !!icon 
+      }
+    ]"
+  >
     <div class="modus-toast-header">
       <div class="modus-toast-title-wrapper">
         <i v-if="icon" class="modus-icons modus-toast-icon">{{ icon }}</i>
@@ -19,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref, defineProps, defineEmits } from 'vue'
-import type { ToastSeverity } from '../../composables/useToast'
+import type { ToastSeverity, ToastPosition } from '../../composables/useToast'
 
 export interface ToastProps {
   id: string
@@ -27,6 +37,7 @@ export interface ToastProps {
   message: string
   severity: ToastSeverity
   icon?: string
+  position?: ToastPosition
   dismissible?: boolean
 }
 

@@ -22,6 +22,25 @@
     </section>
 
     <section>
+      <h2>Positioning</h2>
+      <p>
+        Toasts can be positioned in different areas of the screen. Use the <code>position</code> option to control where toasts appear.
+      </p>
+      <div class="position-container">
+        <div class="grid-3x3">
+          <Button @click="showToastPosition('top-left')" size="small">Top Left</Button>
+          <Button @click="showToastPosition('top-center')" size="small">Top Center</Button>
+          <Button @click="showToastPosition('top-right')" size="small">Top Right</Button>
+          <Button @click="showToastPosition('center')" size="small">Center</Button>
+          <div></div>
+          <Button @click="showToastPosition('bottom-right')" size="small">Bottom Right</Button>
+          <Button @click="showToastPosition('bottom-left')" size="small">Bottom Left</Button>
+          <Button @click="showToastPosition('bottom-center')" size="small">Bottom Center</Button>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>Implementation</h2>
       <p>
         Include the <code>Toaster</code> component in your app's main layout
@@ -64,6 +83,11 @@ function showToast() {
   primary('Custom Icon', 'This toast uses a custom icon', {
     icon: 'info'
   })
+  
+  // With position
+  warning('Position Example', 'This toast appears in the top-left corner', {
+    position: 'top-left'
+  })
 }
 &lt;/script&gt;</code></pre>
     </section>
@@ -76,6 +100,7 @@ function showToast() {
 <script setup lang="ts">
 import { Button, Toaster } from '../../components'
 import { useToast } from '../../composables/useToast'
+import type { ToastPosition } from '../../composables/useToast'
 
 const { primary, secondary, success, warning, danger } = useToast()
 
@@ -100,6 +125,13 @@ const showWarningToast = () => {
 const showDangerToast = () => {
   danger('Error', 'Something went wrong. Please try again.')
 }
+
+const showToastPosition = (position: ToastPosition) => {
+  success(`${position} Toast`, `This toast appears in the ${position} position.`, {
+    position,
+    icon: 'place'
+  })
+}
 </script>
 
 <style scoped>
@@ -118,6 +150,59 @@ section {
   gap: 1rem;
   flex-wrap: wrap;
   margin: 1rem 0;
+}
+
+.position-container {
+  margin: 1.5rem 0;
+}
+
+.grid-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  height: 300px;
+  border: 1px dashed var(--color-tm-gray-5);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.grid-3x3 > button:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.grid-3x3 > button:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.grid-3x3 > button:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.grid-3x3 > button:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.grid-3x3 > button:nth-child(6) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.grid-3x3 > button:nth-child(7) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.grid-3x3 > button:nth-child(8) {
+  grid-column: 2;
+  grid-row: 3;
 }
 
 h1 {
@@ -149,5 +234,9 @@ code {
 .dark pre {
   background-color: #333;
   color: #f5f5f5;
+}
+
+.dark .grid-3x3 {
+  border-color: var(--color-tm-gray-7);
 }
 </style>
