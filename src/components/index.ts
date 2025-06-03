@@ -11,3 +11,7 @@ export { default as Navbar } from './navbar/Navbar.vue'
 export type { NavbarProps } from './navbar/Navbar.vue'
 
 export { default as Menu } from './menu/Menu.vue'
+
+export { default as Toast } from './toast/Toast.vue'
+export type { ToastProps } from './toast/Toast.vue'
+export { default as ToastContainer } from './toast/ToastContainer.vue'
