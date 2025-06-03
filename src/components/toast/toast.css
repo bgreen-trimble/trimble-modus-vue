@@ -16,8 +16,8 @@
   --color-tm-toast-secondary-border-color: var(--color-tm-gray-6);
   
   /* Success Toast */
-  --color-tm-toast-success-background-color: #e6f4ea; /* Light green background */
-  --color-tm-toast-success-border-color: #34a853; /* Green border */
+  --color-tm-toast-success-background-color: var(--color-tm-green-pale);
+  --color-tm-toast-success-border-color: var(--color-tm-green); 
   
   /* Warning Toast */
   --color-tm-toast-warning-background-color: var(--color-tm-yellow-pale);
@@ -44,15 +44,15 @@
   --color-tm-toast-secondary-border-color: var(--color-tm-gray-0);
   
   /* Success Toast */
-  --color-tm-toast-success-background-color: #0f3520; /* Dark green background */
-  --color-tm-toast-success-border-color: #34a853; /* Green border */
+  --color-tm-toast-success-background-color:  var(--color-tm-green-dark); 
+  --color-tm-toast-success-border-color: var(--color-tm-green-light);
   
   /* Warning Toast */
-  --color-tm-toast-warning-background-color: #3d2e08; /* Dark yellow/amber background */
-  --color-tm-toast-warning-border-color: var(--color-tm-yellow);
+  --color-tm-toast-warning-background-color: var(--color-tm-yellow-dark); 
+  --color-tm-toast-warning-border-color: var(--color-tm-yellow-light);
   
   /* Danger Toast */
-  --color-tm-toast-danger-background-color: #450a0d; /* Dark red background */
+  --color-tm-toast-danger-background-color: var(--color-tm-red-dark);
   --color-tm-toast-danger-border-color: var(--color-tm-red-light);
 }
 
