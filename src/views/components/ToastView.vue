@@ -13,17 +13,18 @@
         <code>useToast</code> composable.
       </p>
       <div class="button-group">
-        <Button @click="showNeutralToast">Show Neutral Toast</Button>
-        <Button @click="showInformalToast" variant="outline">Show Informal Toast</Button>
-        <Button @click="showSuccessToast" variant="primary">Show Success Toast</Button>
-        <Button @click="showErrorToast" variant="danger">Show Error Toast</Button>
+        <Button @click="showPrimaryToast" severity="primary">Show Primary Toast</Button>
+        <Button @click="showSecondaryToast" severity="secondary">Show Secondary Toast</Button>
+        <Button @click="showSuccessToast" severity="success">Show Success Toast</Button>
+        <Button @click="showWarningToast" severity="warning">Show Warning Toast</Button>
+        <Button @click="showDangerToast" severity="danger">Show Danger Toast</Button>
       </div>
     </section>
 
     <section>
       <h2>Implementation</h2>
       <p>
-        Include the <code>ToastContainer</code> component in your app's main layout
+        Include the <code>Toaster</code> component in your app's main layout
         and use the <code>useToast</code> composable to manage toasts.
       </p>
       <h3>Installation</h3>
@@ -31,62 +32,73 @@
 &lt;template&gt;
   &lt;div&gt;
     &lt;!-- Your app content --&gt;
-    &lt;ToastContainer /&gt;
+    &lt;Toaster /&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script setup&gt;
-import { ToastContainer } from 'trimble-modus-vue'
+import { Toaster } from 'trimble-modus-vue'
 &lt;/script&gt;</code></pre>
 
       <h3>Usage Example</h3>
       <pre><code>&lt;script setup&gt;
 import { useToast } from 'trimble-modus-vue'
 
-const { addToast, success, error, neutral, informal } = useToast()
+const { addToast, primary, secondary, success, warning, danger } = useToast()
 
 function showToast() {
   // Basic usage
-  addToast('Title', 'This is a toast message', 'neutral')
+  addToast('Title', 'This is a toast message', 'primary')
   
   // With helper methods
   success('Success', 'Operation completed successfully')
-  error('Error', 'Something went wrong')
+  danger('Error', 'Something went wrong')
   
   // With custom options
-  neutral('Custom Duration', 'This toast will stay for 5 seconds', { 
+  secondary('Custom Duration', 'This toast will stay for 5 seconds', { 
     duration: 5000,
     dismissible: true 
+  })
+  
+  // With custom icon
+  primary('Custom Icon', 'This toast uses a custom icon', {
+    icon: 'info'
   })
 }
 &lt;/script&gt;</code></pre>
     </section>
 
-    <!-- Make sure the ToastContainer is included -->
-    <ToastContainer />
+    <!-- Make sure the Toaster is included -->
+    <Toaster />
   </div>
 </template>
 
 <script setup lang="ts">
-import { Button, ToastContainer } from '../../components'
+import { Button, Toaster } from '../../components'
 import { useToast } from '../../composables/useToast'
 
-const { neutral, informal, success, error } = useToast()
+const { primary, secondary, success, warning, danger } = useToast()
 
-const showNeutralToast = () => {
-  neutral('Neutral Toast', 'This is a neutral toast message.')
+const showPrimaryToast = () => {
+  primary('Primary Toast', 'This is a primary toast message with important information.', {
+    icon: 'info'
+  })
 }
 
-const showInformalToast = () => {
-  informal('Informal Toast', 'This is an informal toast message with some additional information.')
+const showSecondaryToast = () => {
+  secondary('Secondary Toast', 'This is a secondary toast message with additional context.')
 }
 
 const showSuccessToast = () => {
   success('Success!', 'Your action has been completed successfully.')
 }
 
-const showErrorToast = () => {
-  error('Error', 'Something went wrong. Please try again.')
+const showWarningToast = () => {
+  warning('Warning', 'Please review your information before continuing.')
+}
+
+const showDangerToast = () => {
+  danger('Error', 'Something went wrong. Please try again.')
 }
 </script>
 

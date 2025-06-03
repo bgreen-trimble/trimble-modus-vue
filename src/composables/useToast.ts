@@ -1,12 +1,13 @@
 import { ref, readonly } from 'vue'
 
-export type ToastType = 'neutral' | 'informal' | 'success' | 'error'
+export type ToastSeverity = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 
 export interface Toast {
   id: string
   title: string
   message: string
-  type: ToastType
+  severity: ToastSeverity
+  icon?: string
   duration?: number
   dismissible?: boolean
 }
@@ -23,8 +24,9 @@ export function useToast() {
   const addToast = (
     title: string, 
     message: string, 
-    type: ToastType = 'neutral', 
+    severity: ToastSeverity = 'primary', 
     options: {
+      icon?: string,
       duration?: number,
       dismissible?: boolean
     } = {}
@@ -34,7 +36,8 @@ export function useToast() {
       id,
       title,
       message,
-      type,
+      severity,
+      icon: options.icon,
       duration: options.duration !== undefined ? options.duration : DEFAULT_DURATION,
       dismissible: options.dismissible !== undefined ? options.dismissible : true
     }
@@ -62,31 +65,41 @@ export function useToast() {
   }
 
   /**
-   * Convenience method to add a neutral toast
+   * Convenience method to add a primary toast
    */
-  const neutral = (title: string, message: string, options = {}) => {
-    return addToast(title, message, 'neutral', options)
+  const primary = (title: string, message: string, options = {}) => {
+    return addToast(title, message, 'primary', options)
   }
 
   /**
-   * Convenience method to add an informal toast
+   * Convenience method to add a secondary toast
    */
-  const informal = (title: string, message: string, options = {}) => {
-    return addToast(title, message, 'informal', options)
+  const secondary = (title: string, message: string, options = {}) => {
+    return addToast(title, message, 'secondary', options)
   }
 
   /**
    * Convenience method to add a success toast
    */
   const success = (title: string, message: string, options = {}) => {
-    return addToast(title, message, 'success', options)
+    const defaultOptions = { icon: 'check_circle' };
+    return addToast(title, message, 'success', { ...defaultOptions, ...options })
   }
 
   /**
-   * Convenience method to add an error toast
+   * Convenience method to add a warning toast
    */
-  const error = (title: string, message: string, options = {}) => {
-    return addToast(title, message, 'error', options)
+  const warning = (title: string, message: string, options = {}) => {
+    const defaultOptions = { icon: 'warning' };
+    return addToast(title, message, 'warning', { ...defaultOptions, ...options })
+  }
+
+  /**
+   * Convenience method to add a danger toast
+   */
+  const danger = (title: string, message: string, options = {}) => {
+    const defaultOptions = { icon: 'error' };
+    return addToast(title, message, 'danger', { ...defaultOptions, ...options })
   }
 
   /**
@@ -101,10 +114,11 @@ export function useToast() {
     toasts: readonly(toasts),
     addToast,
     removeToast,
-    neutral,
-    informal,
+    primary,
+    secondary,
     success,
-    error,
+    warning,
+    danger,
     clearAll
   }
 }

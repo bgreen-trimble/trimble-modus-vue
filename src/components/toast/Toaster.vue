@@ -1,14 +1,15 @@
-<!-- filepath: /Users/bgreen/projects/trimble/trimble-modus-vue/src/components/toast/ToastContainer.vue -->
+<!-- filepath: /Users/bgreen/projects/trimble/trimble-modus-vue/src/components/toast/Toaster.vue -->
 <template>
   <Teleport to="body">
-    <div class="modus-toast-container" v-if="toasts.length">
+    <div class="modus-toaster" v-if="toasts.length">
       <Toast
         v-for="toast in toasts"
         :key="toast.id"
         :id="toast.id"
         :title="toast.title"
         :message="toast.message"
-        :type="toast.type"
+        :severity="toast.severity"
+        :icon="toast.icon"
         :dismissible="toast.dismissible"
         @dismiss="removeToast"
       />

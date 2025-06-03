@@ -2,7 +2,7 @@
 import { computed, ref, onMounted } from 'vue'
 import { RouterLink, RouterView, useRouter, type RouteRecordRaw } from 'vue-router'
 import { useDarkMode } from '@/composables/useDarkMode'
-import { Navbar, Button, Menu, ToastContainer } from '@/components'
+import { Navbar, Button, Menu, Toaster } from '@/components'
 import type { MenuItem } from '@/components/menu/menuitem'
 
 // Get all route names for navigation
@@ -147,7 +147,7 @@ const getMenuName = (path: string) => path.substring(1).split('-')
         </div>
         
         <!-- Toast container - positioned at the bottom of the screen -->
-        <ToastContainer />
+        <Toaster />
     </div>
 </template>
 

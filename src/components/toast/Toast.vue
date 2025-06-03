@@ -1,8 +1,11 @@
 <!-- filepath: /Users/bgreen/projects/trimble/trimble-modus-vue/src/components/toast/Toast.vue -->
 <template>
-  <div class="modus-toast" :class="[type, { 'fade-out': isFadingOut }]">
+  <div class="modus-toast" :class="[severity, { 'fade-out': isFadingOut, 'has-icon': !!icon }]">
     <div class="modus-toast-header">
-      <div class="modus-toast-title">{{ title }}</div>
+      <div class="modus-toast-title-wrapper">
+        <i v-if="icon" class="modus-icons modus-toast-icon">{{ icon }}</i>
+        <div class="modus-toast-title">{{ title }}</div>
+      </div>
       <button v-if="dismissible" class="modus-toast-close" @click="dismiss" aria-label="Close">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -16,13 +19,14 @@
 
 <script setup lang="ts">
 import { ref, defineProps, defineEmits } from 'vue'
-import type { ToastType } from '../../composables/useToast'
+import type { ToastSeverity } from '../../composables/useToast'
 
 export interface ToastProps {
   id: string
   title: string
   message: string
-  type: ToastType
+  severity: ToastSeverity
+  icon?: string
   dismissible?: boolean
 }
 
