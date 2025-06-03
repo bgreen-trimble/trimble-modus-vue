@@ -39,6 +39,19 @@
         </div>
       </div>
     </section>
+    
+    <section>
+      <h2>Persistent Toasts</h2>
+      <p>
+        Create persistent toasts that don't automatically timeout by setting <code>duration: 0</code>.
+        These toasts will remain visible until the user manually dismisses them.
+      </p>
+      <div class="button-group">
+        <Button @click="showPersistentToast" severity="primary">Show Persistent Toast</Button>
+        <Button @click="showPersistentWarning" severity="warning">Show Persistent Warning</Button>
+        <Button @click="showPersistentError" severity="danger">Show Persistent Error</Button>
+      </div>
+    </section>
 
     <section>
       <h2>Implementation</h2>
@@ -88,6 +101,12 @@ function showToast() {
   warning('Position Example', 'This toast appears in the top-left corner', {
     position: 'top-left'
   })
+  
+  // Persistent toast that won't auto-dismiss
+  primary('Persistent Toast', 'This toast will remain until manually dismissed', {
+    duration: 0,
+    icon: 'pin'
+  })
 }
 &lt;/script&gt;</code></pre>
     </section>
@@ -130,6 +149,31 @@ const showToastPosition = (position: ToastPosition) => {
   success(`${position} Toast`, `This toast appears in the ${position} position.`, {
     position,
     icon: 'place'
+  })
+}
+
+// Persistent toast examples
+const showPersistentToast = () => {
+  primary('Persistent Notification', 'This toast will remain on screen until you manually close it.', {
+    duration: 0,
+    icon: 'pin',
+    position: 'top-right'
+  })
+}
+
+const showPersistentWarning = () => {
+  warning('Ongoing Process', 'A background process is running. This notification will stay until complete.', {
+    duration: 0,
+    icon: 'timelapse',
+    position: 'bottom-right'
+  })
+}
+
+const showPersistentError = () => {
+  danger('Connection Lost', 'Unable to connect to the server. Please check your internet connection.', {
+    duration: 0,
+    icon: 'wifi_off',
+    position: 'top-center'
   })
 }
 </script>
