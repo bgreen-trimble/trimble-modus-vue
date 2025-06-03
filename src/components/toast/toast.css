@@ -197,14 +197,19 @@
   color: var(--color-tm-toast-text-color);
 }
 
-.modus-toast-close {
-  border: none;
-  background: transparent;
-  cursor: pointer;
+.modus-toast-close-btn {
+  margin: -0.5rem;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  padding: 4px !important;
+}
+
+.modus-toast-close-btn :deep(.button-tm-secondary-text) {
   color: var(--color-tm-toast-close-color);
-  padding: 0.25rem;
-  margin: -0.25rem;
-  line-height: 1;
+}
+
+.modus-toast-close-btn :deep(.modus-icons) {
+  font-size: 16px;
 }
 
 .modus-toast-message {

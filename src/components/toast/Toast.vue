@@ -16,12 +16,16 @@
         <i v-if="icon" class="modus-icons modus-toast-icon">{{ icon }}</i>
         <div class="modus-toast-title">{{ title }}</div>
       </div>
-      <button v-if="dismissible" class="modus-toast-close" @click="dismiss" aria-label="Close">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+      <Button 
+        v-if="dismissible" 
+        class="modus-toast-close-btn" 
+        icon="close" 
+        variant="text" 
+        severity="secondary" 
+        size="small" 
+        @click="dismiss" 
+        aria-label="Close"
+      />
     </div>
     <div class="modus-toast-message">{{ message }}</div>
   </div>
@@ -30,6 +34,7 @@
 <script setup lang="ts">
 import { ref, defineProps, defineEmits } from 'vue'
 import type { ToastSeverity, ToastPosition } from '../../composables/useToast'
+import Button from '../button/Button.vue'
 
 export interface ToastProps {
   id: string
