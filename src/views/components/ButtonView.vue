@@ -6,7 +6,7 @@ import { Button } from '@/components'
   <main class="space-y-8">
     <div class="flex justify-between items-start">
       <div>
-        <h1 class="tm-h1 mb-2">Button Component Showcase</h1>
+        <h1 class="tm-h1 mb-2">Button</h1>
         <p class="">
           Demonstrating the Trimble Modus Button component with various styles, severities, and dark mode support.
         </p>

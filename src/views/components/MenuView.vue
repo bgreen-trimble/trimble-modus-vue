@@ -239,7 +239,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="space-y-8">
     <div>
-      <h1 class="tm-h1 mb-4">Menu Component Showcase</h1>
+      <h1 class="tm-h1 mb-4">Menu</h1>
       <p class="tm-body mb-8">
         The Menu component provides a flexible way to display a list of commands or navigation options.
         It supports icons, separators, disabled items, and nested menu structures.

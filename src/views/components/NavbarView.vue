@@ -26,7 +26,7 @@ const setActive = (navbar: NavbarVariant, item: string): void => {
   <div class="space-y-8">
     <div class="flex justify-between items-start">
       <div>
-        <h1 class="tm-h1 mb-2">Navbar Component Showcase</h1>
+        <h1 class="tm-h1 mb-2">Navbar</h1>
         <p class="text-gray-600 dark:text-gray-400">
           Demonstrating the Trimble Modus Navbar component with light and Trimble variants.
         </p>

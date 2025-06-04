@@ -34,7 +34,7 @@ const largeDisabled = ref(false)
   <main class="space-y-8">
     <div class="flex justify-between items-start">
       <div>
-        <h1 class="tm-h1 mb-2">Switch Component Showcase</h1>
+        <h1 class="tm-h1 mb-2">Switch</h1>
         <p class="text-gray-600 dark:text-gray-400">
           Demonstrating the Trimble Modus Switch component with various states, sizes, and dark mode support.
         </p>

@@ -1,7 +1,7 @@
 <!-- filepath: /Users/bgreen/projects/trimble/trimble-modus-vue/src/views/components/ToastView.vue -->
 <template>
   <div class="component-view">
-    <h1 class="tm-h1 mb-2">Toast Showcase</h1>
+    <h1 class="tm-h1 mb-2">Toast</h1>
     <p>
       Toasts provide non-intrusive, short-lasting contextual feedback to the user.
     </p>
