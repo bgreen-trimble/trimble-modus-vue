@@ -7,12 +7,20 @@
 - CSS comments should be placed after the CSS style or variable, not before
   ```css
   /* Correct */
-  --tm-color-primary: #0063a3; /* Trimble Blue */
+  --color-tm-yellow: #fbad26;               /* Trimble Yellow */
 
   /* Incorrect */
-  /* Trimble Blue */
-  --tm-color-primary: #0063a3;
+  /* Trimble Yellow */
+  --color-tm-yellow: #fbad26; 
   ```
+- use "tm" style variable whenever possible
+```css
+  --color-tm-button-primary-background-color: var(--color-tm-blue-highlight); /* Highlight Blue */
+```
+```html
+  <div class="h-24 bg-tm-yellow"></div>
+  <h1 class="tm-h1 mb-4 text-tm-trimble-blue dark:text-tm-gray-light">Trimble Modus Color Palette</h1>
+```
 
 ## Tailwind Configuration
 - Do not use tailwind.config.js or tailwind.config.ts

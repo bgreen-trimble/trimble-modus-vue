@@ -1,0 +1,20 @@
+{
+  "github.copilot.enable": {
+    "*": true
+  },
+  "github.copilot.additionalFiles": [
+    ".preferences",
+    ".preferences.json"
+  ],
+  // Vue specific settings
+  "volar.completion.preferredTagNameCase": "kebab",
+  "volar.completion.autoImportComponent": true,
+  // Editor settings
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  }
+}
