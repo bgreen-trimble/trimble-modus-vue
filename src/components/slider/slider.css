@@ -1,6 +1,6 @@
 @theme {
   /* Slider Default */
-  --color-tm-slider-track-color: var(--color-tm-gray-2);
+  --color-tm-slider-track-color: var(--color-tm-blue-pale);
   --color-tm-slider-fill-color: var(--color-tm-blue);
   --color-tm-slider-thumb-color: var(--color-tm-white);
   --color-tm-slider-thumb-border-color: var(--color-tm-blue);

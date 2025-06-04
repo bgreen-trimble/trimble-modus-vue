@@ -192,7 +192,7 @@ const onChangeEvent = (event: Event) => {
   top: 50%;
   height: 8px;
   transform: translateY(-50%);
-  background-color: var(--color-tm-slider-track-color);
+  background-color: var(--color-tm-blue-pale);
   border-radius: 4px;
   pointer-events: none;
 }

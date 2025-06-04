@@ -412,7 +412,43 @@ const customTicks = [
   border-color: var(--color-tm-green);
 }
 
-/* Similar CSS for red and purple sliders */
+.tm-slider-green :deep(.tm-slider-input::-moz-range-thumb) {
+  border-color: var(--color-tm-green);
+}
+
+.tm-slider-green :deep(.tm-slider-input:active::-webkit-slider-thumb) {
+  background-color: var(--color-tm-green-pale);
+}
+
+.tm-slider-green :deep(.tm-slider-input:active::-moz-range-thumb) {
+  background-color: var(--color-tm-green-pale);
+}
+
+.tm-slider-red :deep(.tm-slider-track) {
+  background-color: var(--color-tm-red-pale); /* Light red groove */
+}
+
+.tm-slider-red :deep(.tm-slider-track-fill) {
+  background-color: var(--color-tm-red);
+}
+
+.tm-slider-red :deep(.tm-slider-input::-webkit-slider-thumb) {
+  border-color: var(--color-tm-red);
+}
+
+.tm-slider-red :deep(.tm-slider-input::-moz-range-thumb) {
+  border-color: var(--color-tm-red);
+}
+
+.tm-slider-red :deep(.tm-slider-input:active::-webkit-slider-thumb) {
+  background-color: var(--color-tm-red-pale);
+}
+
+.tm-slider-red :deep(.tm-slider-input:active::-moz-range-thumb) {
+  background-color: var(--color-tm-red-pale);
+}
+
+/* Similar CSS for purple slider if needed */
 &lt;/style&gt;</code></pre>
           </div>
         </section>
@@ -752,9 +788,9 @@ pre {
   color: #f5f5f5;
 }
 
-/* Custom colored sliders */
+/* Custom colored sliders - Only for the color examples section */
 .tm-slider-green :deep(.tm-slider-track) {
-  background-color: var(--color-tm-green); /* Light green for the groove/track */
+  background-color: var(--color-tm-green-pale);
 }
 
 .tm-slider-green :deep(.tm-slider-track-fill) {
@@ -777,12 +813,8 @@ pre {
   background-color: var(--color-tm-green-pale);
 }
 
-.tm-slider-green :deep(.tm-slider-tick-active) {
-  background-color: var(--color-tm-green);
-}
-
 .tm-slider-red :deep(.tm-slider-track) {
-  background-color: var(--color-tm-red-pale); /* Light red for the groove/track */
+  background-color: var(--color-tm-red-pale);
 }
 
 .tm-slider-red :deep(.tm-slider-track-fill) {
@@ -805,36 +837,5 @@ pre {
   background-color: var(--color-tm-red-pale);
 }
 
-.tm-slider-red :deep(.tm-slider-tick-active) {
-  background-color: var(--color-tm-red);
-}
-
-/* Purple slider styling */
-.tm-slider-purple :deep(.tm-slider-track-fill) {
-  background-color: #9333ea; /* Purple 600 */
-}
-
-.tm-slider-purple :deep(.tm-slider-track) {
-  background-color: #7910e9; /* Purple 100 - light groove color */
-}
-
-.tm-slider-purple :deep(.tm-slider-input::-webkit-slider-thumb) {
-  border-color: #9333ea; /* Purple 600 */
-}
-
-.tm-slider-purple :deep(.tm-slider-input::-moz-range-thumb) {
-  border-color: #9333ea; /* Purple 600 */
-}
-
-.tm-slider-purple :deep(.tm-slider-input:active::-webkit-slider-thumb) {
-  background-color: #f3e8ff; /* Purple 100 */
-}
-
-.tm-slider-purple :deep(.tm-slider-input:active::-moz-range-thumb) {
-  background-color: #f3e8ff; /* Purple 100 */
-}
-
-.tm-slider-purple :deep(.tm-slider-tick-active) {
-  background-color: #9333ea; /* Purple 600 */
-}
+/* Note: Purple slider will use default blue theme - no custom styles needed */
 </style>
