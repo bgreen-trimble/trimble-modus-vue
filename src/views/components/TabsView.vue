@@ -2,6 +2,10 @@
 import { ref } from 'vue'
 import { Tabs, Tab, Button } from '@/components'
 
+// Example tooltip positions and themes
+const tooltipPositions = ['top', 'right', 'bottom', 'left']
+const tooltipThemes = ['light', 'dark']
+
 // Tab state
 const activeTab = ref('features')
 
@@ -316,6 +320,72 @@ const resetExamples = () => {
           </div>
         </section>
 
+        <!-- Tooltip Integration -->
+        <section class="showcase-section">
+          <h3 class="tm-h3 mb-2">Tabs with Tooltips</h3>
+          <p class="tm-body mb-4">
+            Tabs can be enhanced with tooltips to provide additional context.
+          </p>
+          <div class="example-container">
+            <div class="mb-6">
+              <h4 class="tm-h4 mb-2">Basic Tooltip Example</h4>
+              <div class="flex gap-4">
+                <Button v-tooltip="'This is a simple tooltip'" variant="filled">Hover Me</Button>
+                <Button v-tooltip="{ content: 'Right tooltip', position: 'right' }" variant="outlined">Right Tooltip</Button>
+                <Button v-tooltip="{ content: 'Bottom tooltip', position: 'bottom' }" variant="text">Bottom Tooltip</Button>
+                <Button v-tooltip="{ content: 'Left tooltip', position: 'left' }" variant="outlined" severity="secondary">Left Tooltip</Button>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="tm-h4 mb-2">Theme Variants</h4>
+              <div class="flex gap-4">
+                <Button v-tooltip="{ content: 'Light theme (default)', theme: 'light' }" variant="filled">Light Theme</Button>
+                <Button v-tooltip="{ content: 'Dark theme tooltip', theme: 'dark' }" variant="outlined" severity="secondary">Dark Theme</Button>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="tm-h4 mb-2">Tooltip with Tabs</h4>
+              <Tabs :active="customTab" @update:active="customTab = $event">
+                <Tab 
+                  id="custom1" 
+                  label="Basic Tab" 
+                  v-tooltip="{ content: 'Basic tab information', position: 'top' }">
+                  <p class="tm-body">
+                    Hover over each tab to see tooltip information. This can be useful for providing 
+                    additional context or instructions to users.
+                  </p>
+                  <div class="mt-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <code class="block whitespace-pre-wrap">
+&lt;Tab 
+  id="custom1" 
+  label="Basic Tab" 
+  v-tooltip="{ content: 'Basic tab information', position: 'top' }"&gt;
+  &lt;!-- Tab content --&gt;
+&lt;/Tab&gt;</code>
+                  </div>
+                </Tab>
+                <Tab 
+                  id="custom2" 
+                  label="Configuration" 
+                  v-tooltip="{ content: 'Configuration options', position: 'top', theme: 'dark' }">
+                  <h4 class="tm-h4 mb-2">Tooltip Configuration</h4>
+                  <p class="tm-body">
+                    The tooltip directive accepts either a simple string or a configuration object with the following properties:
+                  </p>
+                  <ul class="tm-body list-disc pl-6 mt-2 space-y-2">
+                    <li><code>content</code>: The tooltip text (required)</li>
+                    <li><code>position</code>: 'top', 'right', 'bottom', or 'left' (default: 'top')</li>
+                    <li><code>theme</code>: 'light' or 'dark' (default: 'light')</li>
+                    <li><code>delay</code>: Delay in milliseconds before showing the tooltip (default: 0)</li>
+                  </ul>
+                </Tab>
+              </Tabs>
+            </div>
+          </div>
+        </section>
+
         <!-- Accessibility -->
         <section class="showcase-section">
           <h3 class="tm-h3 mb-2">Accessibility</h3>
@@ -500,6 +570,81 @@ const resetExamples = () => {
         disabled: boolean
         }</code></pre>
         </div>
+
+        <!-- Tooltip Directive -->
+        <h3 class="tm-h3 mt-8 mb-4">Tooltip Directive</h3>
+        <p class="tm-body mb-4">
+          The tooltip directive provides a simple way to add tooltips to any element.
+        </p>
+        
+        <h4 class="tm-h4 mb-2">Usage</h4>
+        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">
+          <code class="block whitespace-pre-wrap">
+// Simple string tooltip
+&lt;button v-tooltip="'Tooltip text'"&gt;Hover me&lt;/button&gt;
+
+// Object configuration
+&lt;button v-tooltip="{ 
+  content: 'Tooltip text',
+  position: 'top',
+  theme: 'light',
+  delay: 200 
+}"&gt;Hover me&lt;/button&gt;</code>
+        </div>
+
+        <h4 class="tm-h4 mb-2">Options</h4>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-100 dark:bg-gray-800">
+                <th class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 text-left">Name</th>
+                <th class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 text-left">Type</th>
+                <th class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 text-left">Default</th>
+                <th class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 text-left">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">content</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">string</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">-</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Text content of the tooltip</td>
+              </tr>
+              <tr>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">position</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">'top' | 'right' | 'bottom' | 'left'</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">'top'</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Position of the tooltip relative to the element</td>
+              </tr>
+              <tr>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">theme</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">'light' | 'dark'</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">'light'</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Visual theme of the tooltip</td>
+              </tr>
+              <tr>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">delay</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">number</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3 font-mono text-sm">0</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Delay in milliseconds before showing the tooltip</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="tm-h4 mt-6 mb-2">Accessibility</h4>
+        <p class="tm-body mb-4">
+          The tooltip directive uses proper ARIA attributes to ensure accessibility. For icon-only buttons or elements without text content, it's recommended to add an <code>aria-label</code> for screen readers.
+        </p>
+        
+        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <code class="block whitespace-pre-wrap">
+&lt;button 
+  aria-label="Settings" 
+  v-tooltip="'Settings'"&gt;
+  &lt;i class="modus-icons"&gt;settings&lt;/i&gt;
+&lt;/button&gt;</code>
+        </div>
       </div>
 
       <!-- Theme Tab -->
@@ -573,6 +718,51 @@ const resetExamples = () => {
         .custom-tabs :deep(.tm-tabs-active-indicator) {
         background-color: #9c27b0;
         }</code></pre>
+        </div>
+
+        <!-- Tooltip Theme Variables -->
+        <h3 class="tm-h3 mt-8 mb-4">Tooltip Theme Variables</h3>
+        <p class="tm-body mb-6">
+          The tooltip directive uses CSS variables for theming. These variables can be customized to match your
+          application's design system.
+        </p>
+
+        <h4 class="tm-h4 mb-2">Light Theme Variables</h4>
+        <div class="example-code bg-gray-100 dark:bg-gray-800 p-4 rounded-md mb-6">
+          <pre><code>:root {
+  /* Light theme (default) */
+  --tm-tooltip-light-bg: #ffffff;
+  --tm-tooltip-light-color: #2c3e50;
+  --tm-tooltip-light-border: #e2e8f0;
+  --tm-tooltip-light-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+</code></pre>
+        </div>
+
+        <h4 class="tm-h4 mb-2">Dark Theme Variables</h4>
+        <div class="example-code bg-gray-100 dark:bg-gray-800 p-4 rounded-md mb-6">
+          <pre><code>:root {
+  /* Dark theme */
+  --tm-tooltip-dark-bg: var(--color-tm-gray-900, #171c1e);
+  --tm-tooltip-dark-color: #ffffff;
+  --tm-tooltip-dark-border: #4a5568;
+  --tm-tooltip-dark-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+</code></pre>
+        </div>
+
+        <h4 class="tm-h4 mb-2">Customization Example</h4>
+        <p class="tm-body mb-4">
+          You can customize the tooltip appearance by overriding these variables in your CSS:
+        </p>
+        <div class="example-code bg-gray-100 dark:bg-gray-800 p-4 rounded-md mb-6">
+          <pre><code>:root {
+  /* Custom tooltip styling */
+  --tm-tooltip-light-bg: var(--color-tm-blue-highlight, #0063a3);
+  --tm-tooltip-light-color: white;
+  --tm-tooltip-light-border: var(--color-tm-blue-highlight, #0063a3);
+}
+</code></pre>
         </div>
       </div>
     </div>

@@ -104,25 +104,6 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-      <!-- Test Links -->
-      <Card class="p-6" aria-labelledby="test-pages-heading">
-        <template #title>
-          <div class="flex items-center gap-2">
-            <span class="modus-icons text-tm-blue" aria-hidden="true">science</span>
-            <h2 id="test-pages-heading" class="tm-h2">Test Pages</h2>
-          </div>
-        </template>
-        <p class="tm-body mb-4">
-          Use these test pages to verify component behavior and fixes.
-        </p>
-        <div class="space-y-2">
-          <router-link to="/tab-test" class="text-tm-blue hover:underline block">Tab Test</router-link>
-          <router-link to="/fixed-tab-test" class="text-tm-blue hover:underline block">Fixed Tab Test</router-link>
-          <router-link to="/default-tabs-test" class="text-tm-blue hover:underline block">Default Tabs Test</router-link>
-        </div>
-      </Card>
-    </div>
   </div>
 </template>
 
@@ -185,6 +166,12 @@ const componentList = [
     path: 'toast-view',
     icon: 'notification_important',
     description: 'Display temporary notifications or messages'
+  },
+  {
+    name: 'Tooltip',
+    path: 'tooltip-view',
+    icon: 'info',
+    description: 'Display informative text when hovering over elements'
   }
 ];
 </script>

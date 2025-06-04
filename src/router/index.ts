@@ -5,6 +5,7 @@ import HomeView from '../views/HomeView.vue'
 const views = {
   ...import.meta.glob('../views/foundations/*.vue'),
   ...import.meta.glob('../views/components/*.vue'),
+  ...import.meta.glob('../views/directives/*.vue'),
   ...import.meta.glob('../views/*.vue')
 }
 
@@ -24,7 +25,7 @@ const routes: RouteRecordRaw[] = [
 // Add other routes from views
 Object.entries(views).forEach(([path, component]) => {
   // Extract the component name from the path (e.g., '../views/foundations/ColorPalette.vue' -> 'ColorPalette')
-  const name = path.match(/\.\.\/views\/(?:foundations|components)\/(.*)\.vue$/)?.[1] ?? ''
+  const name = path.match(/\.\.\/views\/(?:foundations|components|directives)\/(.*)\.vue$/)?.[1] ?? ''
 
   // Convert the component name to a URL-friendly path
   const routePath = '/' + name
@@ -33,7 +34,9 @@ Object.entries(views).forEach(([path, component]) => {
     .replace(/^-/, '')           // Remove leading hyphen if present
 
   // Determine the category based on the path
-  const category = path.includes('/foundations/') ? 'foundations' : 'components'
+  let category = 'components'
+  if (path.includes('/foundations/')) category = 'foundations'
+  if (path.includes('/directives/')) category = 'directives'
 
   routes.push({
     path: routePath,
