@@ -28,7 +28,7 @@ onMounted(() => {
 // Create menu items for navigation
 const foundationsMenu = computed((): MenuItem[] =>
     routes
-        .filter((route) => route.meta?.category === 'foundations')
+        .filter((route) => route.meta?.category === 'foundations' && !route.meta?.hidden)
         .map((route) => {
             const resolved = router.resolve(route.path)
             return {
@@ -40,7 +40,7 @@ const foundationsMenu = computed((): MenuItem[] =>
 
 const componentsMenu = computed((): MenuItem[] =>
     routes
-        .filter((route) => route.meta?.category === 'components')
+        .filter((route) => route.meta?.category === 'components' && !route.meta?.hidden)
         .map((route) => {
             const resolved = router.resolve(route.path)
             return {

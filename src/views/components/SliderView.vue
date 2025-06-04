@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Slider, Button } from '@/components'
+import { RouterLink } from 'vue-router'
 
 // Basic slider
 const basicValue = ref(50)
@@ -57,8 +58,11 @@ const resetAll = () => {
     <div class="flex justify-between items-start">
       <div>
         <h1 class="tm-h1 mb-2">Slider Component Showcase</h1>
-        <p class="tm-body">
+        <p class="tm-body mb-2">
           Demonstrating the Trimble Modus Slider component with various configurations and options.
+        </p>
+        <p class="tm-body text-tm-blue hover:underline">
+          <router-link to="/slider-showcase">View comprehensive Slider showcase with tabs →</router-link>
         </p>
       </div>
       
@@ -374,6 +378,10 @@ pre {
 }
 
 /* Custom colored sliders */
+.tm-slider-green :deep(.tm-slider-track) {
+  background-color: var(--color-tm-green-pale); /* Light green for the groove/track */
+}
+
 .tm-slider-green :deep(.tm-slider-track-fill) {
   background-color: var(--color-tm-green);
 }
@@ -396,6 +404,10 @@ pre {
 
 .tm-slider-green :deep(.tm-slider-tick-active) {
   background-color: var(--color-tm-green);
+}
+
+.tm-slider-red :deep(.tm-slider-track) {
+  background-color: var(--color-tm-red-pale); /* Light red for the groove/track */
 }
 
 .tm-slider-red :deep(.tm-slider-track-fill) {

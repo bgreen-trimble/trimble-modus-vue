@@ -18,7 +18,8 @@ const sizesValue = {
 const disabledValue = ref(35)
 const coloredValues = {
   green: ref(60),
-  red: ref(45)
+  red: ref(45),
+  purple: ref(75)
 }
 
 // Custom ticks with labels
@@ -44,6 +45,7 @@ const resetAll = () => {
   disabledValue.value = 35
   coloredValues.green.value = 60
   coloredValues.red.value = 45
+  coloredValues.purple.value = 75
 }
 </script>
 
@@ -366,39 +368,51 @@ const customTicks = [
                   Value: {{ coloredValues.red }}
                 </p>
               </div>
+              
+              <div>
+                <h4 class="tm-h4 mb-2">Purple Slider</h4>
+                <div class="tm-slider-purple">
+                  <Slider 
+                    v-model="coloredValues.purple" 
+                    label="Purple slider" 
+                    showValue
+                  />
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Value: {{ coloredValues.purple }}
+                </p>
+              </div>
             </div>
           </div>
           <div class="example-code mt-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
             <pre><code>&lt;!-- HTML --&gt;
-&lt;div class="custom-green-slider"&gt;
+&lt;div class="tm-slider-green"&gt;
   &lt;Slider v-model="value" label="Green slider" showValue /&gt;
+&lt;/div&gt;
+
+&lt;div class="tm-slider-red"&gt;
+  &lt;Slider v-model="value" label="Red slider" showValue /&gt;
+&lt;/div&gt;
+
+&lt;div class="tm-slider-purple"&gt;
+  &lt;Slider v-model="value" label="Purple slider" showValue /&gt;
 &lt;/div&gt;
 
 &lt;!-- CSS --&gt;
 &lt;style scoped&gt;
-.custom-green-slider :deep(.tm-slider-track-fill) {
+.tm-slider-green :deep(.tm-slider-track) {
+  background-color: var(--color-tm-green-pale); /* Light green groove */
+}
+
+.tm-slider-green :deep(.tm-slider-track-fill) {
   background-color: var(--color-tm-green);
 }
 
-.custom-green-slider :deep(.tm-slider-input::-webkit-slider-thumb) {
+.tm-slider-green :deep(.tm-slider-input::-webkit-slider-thumb) {
   border-color: var(--color-tm-green);
 }
 
-.custom-green-slider :deep(.tm-slider-input::-moz-range-thumb) {
-  border-color: var(--color-tm-green);
-}
-
-.custom-green-slider :deep(.tm-slider-input:active::-webkit-slider-thumb) {
-  background-color: var(--color-tm-green-pale);
-}
-
-.custom-green-slider :deep(.tm-slider-input:active::-moz-range-thumb) {
-  background-color: var(--color-tm-green-pale);
-}
-
-.custom-green-slider :deep(.tm-slider-tick-active) {
-  background-color: var(--color-tm-green);
-}
+/* Similar CSS for red and purple sliders */
 &lt;/style&gt;</code></pre>
           </div>
         </section>
@@ -739,6 +753,10 @@ pre {
 }
 
 /* Custom colored sliders */
+.tm-slider-green :deep(.tm-slider-track) {
+  background-color: var(--color-tm-green-pale); /* Light green for the groove/track */
+}
+
 .tm-slider-green :deep(.tm-slider-track-fill) {
   background-color: var(--color-tm-green);
 }
@@ -763,6 +781,10 @@ pre {
   background-color: var(--color-tm-green);
 }
 
+.tm-slider-red :deep(.tm-slider-track) {
+  background-color: var(--color-tm-red-pale); /* Light red for the groove/track */
+}
+
 .tm-slider-red :deep(.tm-slider-track-fill) {
   background-color: var(--color-tm-red);
 }
@@ -785,5 +807,34 @@ pre {
 
 .tm-slider-red :deep(.tm-slider-tick-active) {
   background-color: var(--color-tm-red);
+}
+
+/* Purple slider styling */
+.tm-slider-purple :deep(.tm-slider-track-fill) {
+  background-color: #9333ea; /* Purple 600 */
+}
+
+.tm-slider-purple :deep(.tm-slider-track) {
+  background-color: #f3e8ff; /* Purple 100 - light groove color */
+}
+
+.tm-slider-purple :deep(.tm-slider-input::-webkit-slider-thumb) {
+  border-color: #9333ea; /* Purple 600 */
+}
+
+.tm-slider-purple :deep(.tm-slider-input::-moz-range-thumb) {
+  border-color: #9333ea; /* Purple 600 */
+}
+
+.tm-slider-purple :deep(.tm-slider-input:active::-webkit-slider-thumb) {
+  background-color: #f3e8ff; /* Purple 100 */
+}
+
+.tm-slider-purple :deep(.tm-slider-input:active::-moz-range-thumb) {
+  background-color: #f3e8ff; /* Purple 100 */
+}
+
+.tm-slider-purple :deep(.tm-slider-tick-active) {
+  background-color: #9333ea; /* Purple 600 */
 }
 </style>

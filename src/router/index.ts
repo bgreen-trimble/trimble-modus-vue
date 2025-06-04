@@ -24,7 +24,8 @@ const routes: RouteRecordRaw[] = [
     name: 'sliderShowcase',
     component: () => import('../views/components/SliderShowcaseView.vue'),
     meta: {
-      category: 'components'
+      category: 'components',
+      hidden: true // Hide from navigation menu
     }
   }
 ]
