@@ -13,16 +13,16 @@ const routes = router.getRoutes()
 
 // Log route changes for debugging GitHub Pages redirects
 router.beforeEach((to, from) => {
-  console.log(`Route change: ${from.path} → ${to.path}`)
-  return true
+    console.log(`Route change: ${from.path} → ${to.path}`)
+    return true
 })
 
 // Check for GitHub Pages redirect on mount
 onMounted(() => {
-  const redirectPath = localStorage.getItem('redirectPath')
-  if (redirectPath) {
-    console.log('App mounted with redirect path:', redirectPath)
-  }
+    const redirectPath = localStorage.getItem('redirectPath')
+    if (redirectPath) {
+        console.log('App mounted with redirect path:', redirectPath)
+    }
 })
 
 // Create menu items for navigation
@@ -40,7 +40,7 @@ const foundationsMenu = computed((): MenuItem[] =>
 
 const componentsMenu = computed((): MenuItem[] =>
     routes
-        .filter((route) => route.meta?.category === 'components' && !route.meta?.hidden)
+        .filter((route) => (route.meta?.category === 'components' || route.meta?.category === 'directives') && !route.meta?.hidden)
         .map((route) => {
             const resolved = router.resolve(route.path)
             return {
@@ -145,7 +145,7 @@ const getMenuName = (path: string) => path.substring(1).split('-')
                 <RouterView />
             </main>
         </div>
-        
+
     </div>
 </template>
 

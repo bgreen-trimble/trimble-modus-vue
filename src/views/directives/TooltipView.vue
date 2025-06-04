@@ -287,12 +287,14 @@ const exampleCode = computed(() => {
       
       <div class="example-container p-6">
         <div class="flex justify-center">
-          <button 
-            aria-label="Settings" 
+            <Button
+            aria-label="Settings"
             v-tooltip="'Settings'"
-            class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors">
+            class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
+            variant="text"
+            >
             <i class="modus-icons" aria-hidden="true">settings</i>
-          </button>
+            </Button>
         </div>
       </div>
       
