@@ -754,7 +754,7 @@ pre {
 
 /* Custom colored sliders */
 .tm-slider-green :deep(.tm-slider-track) {
-  background-color: var(--color-tm-green-pale); /* Light green for the groove/track */
+  background-color: var(--color-tm-green); /* Light green for the groove/track */
 }
 
 .tm-slider-green :deep(.tm-slider-track-fill) {
@@ -815,7 +815,7 @@ pre {
 }
 
 .tm-slider-purple :deep(.tm-slider-track) {
-  background-color: #f3e8ff; /* Purple 100 - light groove color */
+  background-color: #7910e9; /* Purple 100 - light groove color */
 }
 
 .tm-slider-purple :deep(.tm-slider-input::-webkit-slider-thumb) {
