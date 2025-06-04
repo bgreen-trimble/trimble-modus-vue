@@ -10,17 +10,12 @@ const basicValue = ref(50)
 const temperatureValue = ref(22)
 const stepValue = ref(25)
 const ticksValue = ref(40)
-const sizesValue = {
-  small: ref(30),
-  medium: ref(50),
-  large: ref(70)
-}
+const sizesValue = ref({
+  small: 30,
+  medium: 50,
+  large: 70
+})
 const disabledValue = ref(35)
-const coloredValues = {
-  green: ref(60),
-  red: ref(45),
-  purple: ref(75)
-}
 
 // Custom ticks with labels
 const customTicksValue = ref(3)
@@ -39,13 +34,12 @@ const resetAll = () => {
   stepValue.value = 25
   ticksValue.value = 40
   customTicksValue.value = 3
-  sizesValue.small.value = 30
-  sizesValue.medium.value = 50
-  sizesValue.large.value = 70
+  sizesValue.value = {
+    small: 30,
+    medium: 50,
+    large: 70
+  }
   disabledValue.value = 35
-  coloredValues.green.value = 60
-  coloredValues.red.value = 45
-  coloredValues.purple.value = 75
 }
 </script>
 
@@ -258,40 +252,40 @@ const customTicks = [
           <div class="example-card p-4 border border-tm-gray-2 dark:border-tm-gray-8 rounded-lg">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               <!-- Small -->
-              <div class="space-y-2">
-                <h4 class="tm-h4">Small Size</h4>
+              <div class="space-y-4">
                 <Slider 
                   v-model="sizesValue.small" 
                   size="small"
-                  label="Small slider" 
+                  label="Small Size" 
+                  showValue
                 />
-                <p class="text-xs text-gray-500 dark:text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Value: {{ sizesValue.small }}
                 </p>
               </div>
 
               <!-- Medium (default) -->
-              <div class="space-y-2">
-                <h4 class="tm-h4">Medium Size (Default)</h4>
+              <div class="space-y-4">
                 <Slider 
                   v-model="sizesValue.medium" 
                   size="medium"
-                  label="Medium slider" 
+                  label="Medium Size (Default)" 
+                  showValue
                 />
-                <p class="text-xs text-gray-500 dark:text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Value: {{ sizesValue.medium }}
                 </p>
               </div>
 
               <!-- Large -->
-              <div class="space-y-2">
-                <h4 class="tm-h4">Large Size</h4>
+              <div class="space-y-4">
                 <Slider 
                   v-model="sizesValue.large" 
                   size="large"
-                  label="Large slider" 
+                  label="Large Size" 
+                  showValue
                 />
-                <p class="text-xs text-gray-500 dark:text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Value: {{ sizesValue.large }}
                 </p>
               </div>
@@ -330,126 +324,6 @@ const customTicks = [
   label="Disabled slider" 
   showValue
 /&gt;</code></pre>
-          </div>
-        </section>
-
-        <!-- Custom Colors -->
-        <section class="showcase-section">
-          <h3 class="tm-h3 mb-2">Custom Colors</h3>
-          <p class="tm-body mb-4">
-            Sliders with different colors using CSS variables.
-          </p>
-          <div class="example-card p-4 border border-tm-gray-2 dark:border-tm-gray-8 rounded-lg">
-            <div class="max-w-lg mx-auto space-y-6">
-              <div>
-                <h4 class="tm-h4 mb-2">Green Slider</h4>
-                <div class="tm-slider-green">
-                  <Slider 
-                    v-model="coloredValues.green" 
-                    label="Green slider" 
-                    showValue
-                  />
-                </div>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Value: {{ coloredValues.green }}
-                </p>
-              </div>
-              
-              <div>
-                <h4 class="tm-h4 mb-2">Red Slider</h4>
-                <div class="tm-slider-red">
-                  <Slider 
-                    v-model="coloredValues.red" 
-                    label="Red slider" 
-                    showValue
-                  />
-                </div>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Value: {{ coloredValues.red }}
-                </p>
-              </div>
-              
-              <div>
-                <h4 class="tm-h4 mb-2">Purple Slider</h4>
-                <div class="tm-slider-purple">
-                  <Slider 
-                    v-model="coloredValues.purple" 
-                    label="Purple slider" 
-                    showValue
-                  />
-                </div>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Value: {{ coloredValues.purple }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="example-code mt-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
-            <pre><code>&lt;!-- HTML --&gt;
-&lt;div class="tm-slider-green"&gt;
-  &lt;Slider v-model="value" label="Green slider" showValue /&gt;
-&lt;/div&gt;
-
-&lt;div class="tm-slider-red"&gt;
-  &lt;Slider v-model="value" label="Red slider" showValue /&gt;
-&lt;/div&gt;
-
-&lt;div class="tm-slider-purple"&gt;
-  &lt;Slider v-model="value" label="Purple slider" showValue /&gt;
-&lt;/div&gt;
-
-&lt;!-- CSS --&gt;
-&lt;style scoped&gt;
-.tm-slider-green :deep(.tm-slider-track) {
-  background-color: var(--color-tm-green-pale); /* Light green groove */
-}
-
-.tm-slider-green :deep(.tm-slider-track-fill) {
-  background-color: var(--color-tm-green);
-}
-
-.tm-slider-green :deep(.tm-slider-input::-webkit-slider-thumb) {
-  border-color: var(--color-tm-green);
-}
-
-.tm-slider-green :deep(.tm-slider-input::-moz-range-thumb) {
-  border-color: var(--color-tm-green);
-}
-
-.tm-slider-green :deep(.tm-slider-input:active::-webkit-slider-thumb) {
-  background-color: var(--color-tm-green-pale);
-}
-
-.tm-slider-green :deep(.tm-slider-input:active::-moz-range-thumb) {
-  background-color: var(--color-tm-green-pale);
-}
-
-.tm-slider-red :deep(.tm-slider-track) {
-  background-color: var(--color-tm-red-pale); /* Light red groove */
-}
-
-.tm-slider-red :deep(.tm-slider-track-fill) {
-  background-color: var(--color-tm-red);
-}
-
-.tm-slider-red :deep(.tm-slider-input::-webkit-slider-thumb) {
-  border-color: var(--color-tm-red);
-}
-
-.tm-slider-red :deep(.tm-slider-input::-moz-range-thumb) {
-  border-color: var(--color-tm-red);
-}
-
-.tm-slider-red :deep(.tm-slider-input:active::-webkit-slider-thumb) {
-  background-color: var(--color-tm-red-pale);
-}
-
-.tm-slider-red :deep(.tm-slider-input:active::-moz-range-thumb) {
-  background-color: var(--color-tm-red-pale);
-}
-
-/* Similar CSS for purple slider if needed */
-&lt;/style&gt;</code></pre>
           </div>
         </section>
 
@@ -788,54 +662,5 @@ pre {
   color: #f5f5f5;
 }
 
-/* Custom colored sliders - Only for the color examples section */
-.tm-slider-green :deep(.tm-slider-track) {
-  background-color: var(--color-tm-green-pale);
-}
 
-.tm-slider-green :deep(.tm-slider-track-fill) {
-  background-color: var(--color-tm-green);
-}
-
-.tm-slider-green :deep(.tm-slider-input::-webkit-slider-thumb) {
-  border-color: var(--color-tm-green);
-}
-
-.tm-slider-green :deep(.tm-slider-input::-moz-range-thumb) {
-  border-color: var(--color-tm-green);
-}
-
-.tm-slider-green :deep(.tm-slider-input:active::-webkit-slider-thumb) {
-  background-color: var(--color-tm-green-pale);
-}
-
-.tm-slider-green :deep(.tm-slider-input:active::-moz-range-thumb) {
-  background-color: var(--color-tm-green-pale);
-}
-
-.tm-slider-red :deep(.tm-slider-track) {
-  background-color: var(--color-tm-red-pale);
-}
-
-.tm-slider-red :deep(.tm-slider-track-fill) {
-  background-color: var(--color-tm-red);
-}
-
-.tm-slider-red :deep(.tm-slider-input::-webkit-slider-thumb) {
-  border-color: var(--color-tm-red);
-}
-
-.tm-slider-red :deep(.tm-slider-input::-moz-range-thumb) {
-  border-color: var(--color-tm-red);
-}
-
-.tm-slider-red :deep(.tm-slider-input:active::-webkit-slider-thumb) {
-  background-color: var(--color-tm-red-pale);
-}
-
-.tm-slider-red :deep(.tm-slider-input:active::-moz-range-thumb) {
-  background-color: var(--color-tm-red-pale);
-}
-
-/* Note: Purple slider will use default blue theme - no custom styles needed */
 </style>
