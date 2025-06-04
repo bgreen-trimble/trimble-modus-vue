@@ -32,6 +32,10 @@ const largeValue = ref(70)
 // Disabled slider
 const disabledValue = ref(35)
 
+// Colored sliders
+const greenSliderValue = ref(60)
+const redSliderValue = ref(45)
+
 // Reset all sliders to their default values
 const resetAll = () => {
   basicValue.value = 50
@@ -43,6 +47,8 @@ const resetAll = () => {
   mediumValue.value = 50
   largeValue.value = 70
   disabledValue.value = 35
+  greenSliderValue.value = 60
+  redSliderValue.value = 45
 }
 </script>
 
@@ -222,6 +228,43 @@ const resetAll = () => {
         </div>
       </section>
 
+      <!-- Colored Sliders -->
+      <section class="space-y-4">
+        <h2 class="tm-h2">Colored Sliders</h2>
+        <p class="tm-body">
+          Sliders with different colors using CSS variables.
+        </p>
+        <div class="max-w-lg space-y-6">
+          <div>
+            <h3 class="tm-h3">Green Slider</h3>
+            <div class="tm-slider-green">
+              <Slider 
+                v-model="greenSliderValue" 
+                label="Green slider" 
+                showValue
+              />
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              Value: {{ greenSliderValue }}
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="tm-h3">Red Slider</h3>
+            <div class="tm-slider-red">
+              <Slider 
+                v-model="redSliderValue" 
+                label="Red slider" 
+                showValue
+              />
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              Value: {{ redSliderValue }}
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- Accessibility Information -->
       <section class="space-y-4 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
         <h2 class="tm-h2">Accessibility Features</h2>
@@ -277,6 +320,9 @@ const value = ref(50)
 
 // With custom configuration
 const temperature = ref(22)
+
+// Colored slider
+const greenValue = ref(60)
 &lt;/script&gt;
 
 &lt;template&gt;
@@ -291,7 +337,27 @@ const temperature = ref(22)
     label="Temperature (°C)"
     showValue
   /&gt;
-&lt;/template&gt;</code></pre>
+
+  &lt;!-- Custom colored slider using CSS variables --&gt;
+  &lt;div class="custom-green-slider"&gt;
+    &lt;Slider v-model="greenValue" label="Green slider" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+/* Custom colored slider */
+.custom-green-slider :deep(.tm-slider-track-fill) {
+  background-color: var(--color-tm-green);
+}
+
+.custom-green-slider :deep(.tm-slider-input::-webkit-slider-thumb) {
+  border-color: var(--color-tm-green);
+}
+
+.custom-green-slider :deep(.tm-slider-input::-moz-range-thumb) {
+  border-color: var(--color-tm-green);
+}
+&lt;/style&gt;</code></pre>
       </section>
     </div>
   </main>
@@ -305,5 +371,54 @@ pre {
 .dark pre {
   background-color: #333;
   color: #f5f5f5;
+}
+
+/* Custom colored sliders */
+.tm-slider-green :deep(.tm-slider-track-fill) {
+  background-color: var(--color-tm-green);
+}
+
+.tm-slider-green :deep(.tm-slider-input::-webkit-slider-thumb) {
+  border-color: var(--color-tm-green);
+}
+
+.tm-slider-green :deep(.tm-slider-input::-moz-range-thumb) {
+  border-color: var(--color-tm-green);
+}
+
+.tm-slider-green :deep(.tm-slider-input:active::-webkit-slider-thumb) {
+  background-color: var(--color-tm-green-pale);
+}
+
+.tm-slider-green :deep(.tm-slider-input:active::-moz-range-thumb) {
+  background-color: var(--color-tm-green-pale);
+}
+
+.tm-slider-green :deep(.tm-slider-tick-active) {
+  background-color: var(--color-tm-green);
+}
+
+.tm-slider-red :deep(.tm-slider-track-fill) {
+  background-color: var(--color-tm-red);
+}
+
+.tm-slider-red :deep(.tm-slider-input::-webkit-slider-thumb) {
+  border-color: var(--color-tm-red);
+}
+
+.tm-slider-red :deep(.tm-slider-input::-moz-range-thumb) {
+  border-color: var(--color-tm-red);
+}
+
+.tm-slider-red :deep(.tm-slider-input:active::-webkit-slider-thumb) {
+  background-color: var(--color-tm-red-pale);
+}
+
+.tm-slider-red :deep(.tm-slider-input:active::-moz-range-thumb) {
+  background-color: var(--color-tm-red-pale);
+}
+
+.tm-slider-red :deep(.tm-slider-tick-active) {
+  background-color: var(--color-tm-red);
 }
 </style>
