@@ -206,6 +206,3 @@ const handleKeyNavigation = (event: KeyboardEvent) => {
   </div>
 </template>
 
-<style scoped>
-@import './tabs.css';
-</style>

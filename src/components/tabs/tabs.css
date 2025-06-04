@@ -1,5 +1,3 @@
-@import '../../styles/base/imports.css';
-
 @theme {
   /* Tab Colors - Light Mode */
   --color-tm-tab-text: var(--color-tm-gray-6);
