@@ -15,3 +15,6 @@ export { default as Menu } from './menu/Menu.vue'
 export { default as Toast } from './toast/Toast.vue'
 export type { ToastProps } from './toast/Toast.vue'
 export { default as Toaster } from './toast/Toaster.vue'
+
+export { default as Slider } from './slider/Slider.vue'
+export type { SliderProps } from './slider/Slider.vue'

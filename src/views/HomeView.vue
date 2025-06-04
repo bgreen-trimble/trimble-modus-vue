@@ -147,6 +147,12 @@ const componentList = [
     path: 'switch-view',
     icon: 'toggle_on',
     description: 'Toggle control for binary options'
+  },
+  {
+    name: 'Slider',
+    path: 'slider-view',
+    icon: 'tune',
+    description: 'Range input for selecting numeric values'
   }
 ];
 </script>
