@@ -17,6 +17,15 @@ const routes: RouteRecordRaw[] = [
     meta: {
       title: 'Home'
     }
+  },
+  // Explicitly define the showcase route (not auto-generated from views)
+  {
+    path: '/slider-showcase',
+    name: 'sliderShowcase',
+    component: () => import('../views/components/SliderShowcaseView.vue'),
+    meta: {
+      category: 'components'
+    }
   }
 ]
 
