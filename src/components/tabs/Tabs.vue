@@ -41,9 +41,11 @@
           :active="activeId === tab.id"
         >
           <span v-if="tab.icon" class="tm-tab-icon">
-            <i class="modus-icons" aria-hidden="true">{{ tab.icon }}</i>
+            <i class="modus-icons" aria-hidden="tab.label ? true : false">{{ tab.icon }}</i>
           </span>
-          {{ tab.label }}
+          <span v-if="tab.label" class="tm-tab-label">{{ tab.label }}</span>
+          <!-- Add aria-label for icon-only tabs -->
+          <span v-if="!tab.label && tab.icon" class="sr-only">{{ tab.id }}</span>
         </slot>
       </button>
       <div 
@@ -301,5 +303,27 @@ const handleKeyNavigation = (event: KeyboardEvent) => {
 .tm-tab-button:focus-visible {
   outline: none;
   box-shadow: inset 0 0 0 2px var(--color-tm-tab-focus-ring);
+}
+
+.tm-tab-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.tm-tab-icon i {
+  font-size: 1.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-tab-label {
+  vertical-align: middle;
+}
+
+.tm-tabs-vertical .tm-tab-button {
+  justify-content: flex-start;
 }
 </style>

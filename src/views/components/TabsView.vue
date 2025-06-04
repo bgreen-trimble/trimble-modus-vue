@@ -216,6 +216,21 @@
                   <li>Icons improve recognition and recall for frequent users</li>
                 </ul>
               </Tab>
+              <!-- Add the icon-only tab -->
+              <Tab id="icon4" label="" icon="notifications">
+                <h4 class="tm-h4 mb-2">Icon-Only Tab</h4>
+                <p class="tm-body">This tab demonstrates an icon-only approach, which can be useful for space-constrained interfaces or very familiar actions.</p>
+                <div class="mt-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                  <code class="block whitespace-pre-wrap">
+&lt;Tab id="icon4" label="" icon="notifications"&gt;
+  &lt;!-- Tab content --&gt;
+&lt;/Tab&gt;</code>
+                </div>
+                <div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-500">
+                  <p class="tm-body font-medium">Accessibility Note</p>
+                  <p class="tm-body mt-1">For icon-only tabs, ensure the icon is intuitive and consider adding an aria-label for screen readers.</p>
+                </div>
+              </Tab>
             </Tabs>
           </div>
         </section>
