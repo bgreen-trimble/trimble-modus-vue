@@ -23,22 +23,22 @@
         :key="tab.id"
         class="tm-tab-button"
         :class="{
-          'tm-tab-active': modelValue === tab.id,
+          'tm-tab-active': activeId === tab.id,
           'tm-tab-disabled': tab.disabled
         }"
         role="tab"
         :id="`tab-${tab.id}`"
-        :aria-selected="modelValue === tab.id"
+        :aria-selected="activeId === tab.id"
         :aria-controls="`tab-${tab.id}`"
         :disabled="tab.disabled"
-        :tabindex="modelValue === tab.id ? 0 : -1"
-        @click="!tab.disabled && $emit('update:modelValue', tab.id)"
+        :tabindex="activeId === tab.id ? 0 : -1"
+        @click="!tab.disabled && $emit('update:activeId', tab.id)"
         @keydown="handleKeyNavigation"
       >
         <slot
           name="tab"
           :tab="tab"
-          :active="modelValue === tab.id"
+          :active="activeId === tab.id"
         >
           {{ tab.label }}
         </slot>
@@ -60,7 +60,7 @@ import { computed, provide, ref, onMounted, watch, nextTick } from 'vue'
 import type { TabItem } from './types'
 
 export interface TabsProps {
-  modelValue: string
+  activeId: string  // Changed from modelValue
   size?: 'small' | 'medium' | 'large'
   variant?: 'default' | 'bordered' | 'borderless'
   vertical?: boolean
@@ -73,7 +73,7 @@ const props = withDefaults(defineProps<TabsProps>(), {
 })
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string]
+  'update:activeId': [value: string]  // Changed from update:modelValue
 }>()
 
 const tabs = ref<TabItem[]>([])
@@ -121,7 +121,7 @@ const indicatorStyle = computed(() => {
 
 // Update active tab element reference when modelValue changes
 const updateActiveTabElement = () => {
-  activeTabElement.value = document.getElementById(`tab-${props.modelValue}`) as HTMLElement
+  activeTabElement.value = document.getElementById(`tab-${props.activeId}`) as HTMLElement
 }
 
 onMounted(() => {
@@ -129,14 +129,14 @@ onMounted(() => {
 })
 
 // Watch for changes in modelValue to update indicator position
-watch(() => props.modelValue, () => {
+watch(() => props.activeId, () => {
   nextTick(() => {
     updateActiveTabElement()
   })
 })
 
 const handleKeyNavigation = (event: KeyboardEvent) => {
-  const currentIndex = tabs.value.findIndex(tab => tab.id === props.modelValue)
+  const currentIndex = tabs.value.findIndex(tab => tab.id === props.activeId)
   let nextIndex = currentIndex
 
   switch (event.key) {
@@ -174,7 +174,7 @@ const handleKeyNavigation = (event: KeyboardEvent) => {
   }
 
   if (nextIndex !== currentIndex && !tabs.value[nextIndex].disabled) {
-    emit('update:modelValue', tabs.value[nextIndex].id)
+    emit('update:activeId', tabs.value[nextIndex].id)
     document.getElementById(`tab-${tabs.value[nextIndex].id}`)?.focus()
   }
 }

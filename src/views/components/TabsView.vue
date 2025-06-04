@@ -9,7 +9,7 @@
     </div>
 
     <!-- Navigation Tabs -->
-    <div class="mb-6">            <Tabs variant="borderless" :modelValue="activeTab" @update:modelValue="activeTab = $event">
+    <div class="mb-6">            <Tabs variant="borderless" :activeId="activeTab" @update:activeId="activeTab = $event">
         <Tab id="features" label="Features">
         </Tab>
         <Tab id="api" label="API">
@@ -35,7 +35,7 @@
             Basic tab navigation with disabled state support.
           </p>
           <div class="example-container">
-            <Tabs :modelValue="activeDefaultTab" @update:modelValue="activeDefaultTab = $event">
+            <Tabs :activeId="activeDefaultTab" @update:activeId="activeDefaultTab = $event">
               <Tab id="tab1" label="Overview">
                 <h4 class="tm-h4 mb-2">Default Tabs Example</h4>
                 <p class="tm-body">This is the default tab style with standard navigation. Notice how the active tab is highlighted and the indicator smoothly transitions between tabs.</p>
@@ -62,7 +62,7 @@
             Tabs with a bordered style variant.
           </p>
           <div class="example-container">
-            <Tabs variant="bordered" :modelValue="borderedTab" @update:modelValue="borderedTab = $event">
+            <Tabs variant="bordered" :activeId="borderedTab" @update:activeId="borderedTab = $event">
               <Tab id="bordered1" label="Design">
                 <h4 class="tm-h4 mb-2">Bordered Style</h4>
                 <p class="tm-body">The bordered variant adds a distinct border around the active tab, creating a more traditional tabbed interface look.</p>
@@ -92,7 +92,7 @@
             Tabs arranged in a vertical layout.
           </p>
           <div class="example-container">
-            <Tabs vertical :modelValue="verticalTab" @update:modelValue="verticalTab = $event">
+            <Tabs vertical :activeId="verticalTab" @update:activeId="verticalTab = $event">
               <Tab id="vertical1" label="About">
                 <h4 class="tm-h4 mb-2">Vertical Tabs</h4>
                 <p class="tm-body">Vertical tabs stack the navigation items vertically instead of horizontally. This arrangement is useful for:</p>
@@ -130,7 +130,7 @@
             Tabs available in three sizes: small, medium (default), and large.
           </p>
           <div class="example-container">
-            <Tabs size="small" :modelValue="smallTab" @update:modelValue="smallTab = $event">
+            <Tabs size="small" :activeId="smallTab" @update:activeId="smallTab = $event">
               <Tab id="small1" label="Small Size">
                 <p class="tm-body">Small tabs are compact and ideal for dense interfaces or secondary navigation.</p>
                 <div class="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
@@ -146,7 +146,7 @@
               </Tab>
             </Tabs>
 
-            <Tabs size="medium" :modelValue="mediumTab">
+            <Tabs size="medium" :activeId="mediumTab">
               <Tab id="medium1" label="Medium Size">
                 <p class="tm-body">Medium is the default size, providing a balanced appearance for most use cases.</p>
                 <div class="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
@@ -162,7 +162,7 @@
               </Tab>
             </Tabs>
 
-            <Tabs size="large" :modelValue="largeTab" @update:modelValue="largeTab = $event">
+            <Tabs size="large" :activeId="largeTab" @update:activeId="largeTab = $event">
               <Tab id="large1" label="Large Size">
                 <p class="tm-body">Large tabs provide enhanced visibility and are easier to interact with on touch devices.</p>
                 <div class="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
@@ -187,7 +187,7 @@
             Tabs with customized content using slots.
           </p>
           <div class="example-container">
-            <Tabs :modelValue="customTab" @update:modelValue="customTab = $event">
+            <Tabs :activeId="customTab" @update:activeId="customTab = $event">
               <template #tab="{ tab, active }">
                 <div class="custom-tab">
                   <i class="modus-icons" aria-hidden="true">
@@ -349,7 +349,7 @@
             </thead>
             <tbody>
               <tr>
-                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">update:modelValue</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">update:activeId</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">string</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Emitted when active tab changes</td>
               </tr>
@@ -386,7 +386,7 @@
         <h3 class="tm-h3 mb-4">Type Definitions</h3>
         <div class="example-code bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
           <pre><code>export interface TabsProps {
-  modelValue: string
+  activeId: string
   size?: 'small' | 'medium' | 'large'
   variant?: 'default' | 'bordered' | 'borderless'
   vertical?: boolean
