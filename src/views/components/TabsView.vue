@@ -187,8 +187,8 @@
             Tabs with customized content using slots.
           </p>
           <div class="example-container">
-            <Tabs :activeId="custom1" @update:activeId="customTab = $event">
-              <template #tab="{ tab, activeId }">
+            <Tabs :activeId="customTab" @update:activeId="customTab = $event">
+              <template #tab="{ tab }">
                 <div class="custom-tab">
                   <i class="modus-icons" aria-hidden="true">
                     {{ customTab === tab.id ? 'check_circle' : 'radio_button_unchecked' }}
@@ -201,12 +201,12 @@
                 <p class="tm-body mb-4">This example demonstrates custom tab styling using the tab slot. Notice the custom icons that change based on the active state.</p>
                 <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                   <code class="block whitespace-pre-wrap">
-&lt;template #tab="{ tab, activeId }"&gt;
+&lt;template #tab="{ tab }"&gt;
   &lt;div class="custom-tab"&gt;
-    &lt;i class="modus-icons"&gt;
-      {{ activeId ? 'check_circle' : 'radio_button_unchecked' }}
+    &lt;i class="modus-icons" aria-hidden="true"&gt;
+      {{ customTab === 'custom1' ? 'check_circle' : 'radio_button_unchecked' }}
     &lt;/i&gt;
-    {{ tab?.label }}
+    {{ 'Custom Style' }}
   &lt;/div&gt;
 &lt;/template&gt;</code>
                 </div>
@@ -372,7 +372,7 @@
             <tbody>
               <tr>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">tab</td>
-                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">{ tab: TabItem, active: boolean }</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">{ tab: TabItem, activeId: string }</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Custom content for tab button</td>
               </tr>
               <tr>
