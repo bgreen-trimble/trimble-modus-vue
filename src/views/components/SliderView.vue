@@ -174,69 +174,6 @@ const resetAll = () => {
           </div>
         </section>
 
-        <!-- Custom Colors -->
-        <section class="showcase-section">
-          <h3 class="tm-h3 mb-2">Custom Colors</h3>
-          <p class="tm-body mb-4">
-            Sliders can be customized with different colors using CSS variables.
-          </p>
-          <div class="example-card p-4 border border-tm-gray-2 dark:border-tm-gray-8 rounded-lg">
-            <div class="max-w-lg mx-auto space-y-6">
-              <div>
-                <Slider 
-                  v-model="purpleSliderValue" 
-                  label="Purple Theme" 
-                  showValue
-                  class="custom-purple"
-                />
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Value: {{ purpleSliderValue }}
-                </p>
-              </div>
-              <div>
-                <Slider 
-                  v-model="greenSliderValue" 
-                  label="Green Theme" 
-                  showValue
-                  class="custom-green"
-                />
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Value: {{ greenSliderValue }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="example-code mt-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
-            <pre><code>&lt;style&gt;
-.custom-purple {
-  --color-tm-slider-fill-color: #9c27b0;
-  --color-tm-slider-thumb-border-color: #9c27b0;
-  --color-tm-slider-thumb-active-color: #e1bee7;
-}
-
-.custom-green {
-  --color-tm-slider-fill-color: #4caf50;
-  --color-tm-slider-thumb-border-color: #4caf50;
-  --color-tm-slider-thumb-active-color: #c8e6c9;
-}
-&lt;/style&gt;
-
-&lt;Slider 
-  v-model="value" 
-  label="Purple Theme" 
-  showValue
-  class="custom-purple"
-/&gt;
-
-&lt;Slider 
-  v-model="value" 
-  label="Green Theme" 
-  showValue
-  class="custom-green"
-/&gt;</code></pre>
-          </div>
-        </section>
-
         <!-- Slider with Ticks -->
         <section class="showcase-section">
           <h3 class="tm-h3 mb-2">Ticks</h3>
@@ -390,6 +327,103 @@ const customTicks = [
   disabled
   label="Disabled slider" 
   showValue
+/&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- Custom Colors -->
+        <section class="showcase-section">
+          <h3 class="tm-h3 mb-2">Custom Colors</h3>
+          <p class="tm-body mb-4">
+            Sliders can be customized with different colors using CSS variables.
+          </p>
+          <div class="example-card p-4 border border-tm-gray-2 dark:border-tm-gray-8 rounded-lg">
+            <div class="max-w-lg mx-auto space-y-6">
+              <div>
+                <Slider 
+                  v-model="purpleSliderValue" 
+                  label="Purple Theme" 
+                  showValue
+                  class="custom-purple"
+                />
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Value: {{ purpleSliderValue }}
+                </p>
+              </div>
+              <div>
+                <Slider 
+                  v-model="greenSliderValue" 
+                  label="Green Theme" 
+                  showValue
+                  class="custom-green"
+                />
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Value: {{ greenSliderValue }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="example-code mt-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
+            <pre><code>&lt;style&gt;
+.custom-purple :deep(.tm-slider-track) {
+  background-color: #f3e5f5;  /* Track color (unfilled portion) */
+}
+
+.custom-purple :deep(.tm-slider-track-fill) {
+  background-color: #9c27b0;  /* Filled portion */
+}
+
+.custom-purple :deep(.tm-slider-input) {
+  &::-webkit-slider-thumb {
+    border-color: #9c27b0;
+    &:active {
+      background-color: #e1bee7;
+    }
+  }
+  &::-moz-range-thumb {
+    border-color: #9c27b0;
+    &:active {
+      background-color: #e1bee7;
+    }
+  }
+}
+
+.custom-green :deep(.tm-slider-track) {
+  background-color: #e8f5e9;  /* Track color (unfilled portion) */
+}
+
+.custom-green :deep(.tm-slider-track-fill) {
+  background-color: #4caf50;  /* Filled portion */
+}
+
+.custom-green :deep(.tm-slider-input) {
+  &::-webkit-slider-thumb {
+    border-color: #4caf50;
+    &:active {
+      background-color: #c8e6c9;
+    }
+  }
+  &::-moz-range-thumb {
+    border-color: #4caf50;
+    &:active {
+      background-color: #c8e6c9;
+    }
+  }
+}
+&lt;/style&gt;
+
+&lt;Slider 
+  v-model="value" 
+  label="Purple Theme" 
+  showValue
+  class="custom-purple"
+/&gt;
+
+&lt;Slider 
+  v-model="value" 
+  label="Green Theme" 
+  showValue
+  class="custom-green"
 /&gt;</code></pre>
           </div>
         </section>
@@ -718,16 +752,50 @@ const customTicks = [
   margin-bottom: 3rem;
 }
 
-.custom-purple {
-  --color-tm-slider-fill-color: #9c27b0;
-  --color-tm-slider-thumb-border-color: #9c27b0;
-  --color-tm-slider-thumb-active-color: #e1bee7;
+.custom-purple :deep(.tm-slider-track) {
+  background-color: #f3e5f5;
 }
 
-.custom-green {
-  --color-tm-slider-fill-color: #4caf50;
-  --color-tm-slider-thumb-border-color: #4caf50;
-  --color-tm-slider-thumb-active-color: #c8e6c9;
+.custom-purple :deep(.tm-slider-track-fill) {
+  background-color: #9c27b0;
+}
+
+.custom-purple :deep(.tm-slider-input) {
+  &::-webkit-slider-thumb {
+    border-color: #9c27b0;
+    &:active {
+      background-color: #e1bee7;
+    }
+  }
+  &::-moz-range-thumb {
+    border-color: #9c27b0;
+    &:active {
+      background-color: #e1bee7;
+    }
+  }
+}
+
+.custom-green :deep(.tm-slider-track) {
+  background-color: #e8f5e9;
+}
+
+.custom-green :deep(.tm-slider-track-fill) {
+  background-color: #4caf50;
+}
+
+.custom-green :deep(.tm-slider-input) {
+  &::-webkit-slider-thumb {
+    border-color: #4caf50;
+    &:active {
+      background-color: #c8e6c9;
+    }
+  }
+  &::-moz-range-thumb {
+    border-color: #4caf50;
+    &:active {
+      background-color: #c8e6c9;
+    }
+  }
 }
 
 pre {
