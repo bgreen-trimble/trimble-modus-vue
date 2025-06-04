@@ -4,12 +4,14 @@
     <div class="showcase-header mb-6">
       <h1 class="tm-h1 mb-2">Tabs</h1>
       <p class="tm-body mb-6">
-        Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+        Tabs organize and allow navigation between groups of content that are related and at the same level of
+        hierarchy.
       </p>
     </div>
 
     <!-- Navigation Tabs -->
-    <div class="mb-6">            <Tabs variant="borderless" :activeId="activeTab" @update:activeId="activeTab = $event">
+    <div class="mb-6">
+      <Tabs :activeId="activeTab" @update:activeId="activeTab = $event">
         <Tab id="features" label="Features">
         </Tab>
         <Tab id="api" label="API">
@@ -38,7 +40,8 @@
             <Tabs :activeId="activeDefaultTab" @update:activeId="activeDefaultTab = $event">
               <Tab id="tab1" label="Overview">
                 <h4 class="tm-h4 mb-2">Default Tabs Example</h4>
-                <p class="tm-body">This is the default tab style with standard navigation. Notice how the active tab is highlighted and the indicator smoothly transitions between tabs.</p>
+                <p class="tm-body">This is the default tab style with standard navigation. Notice how the active tab is
+                  highlighted and the indicator smoothly transitions between tabs.</p>
               </Tab>
               <Tab id="tab2" label="Features">
                 <h4 class="tm-h4 mb-2">Key Features</h4>
@@ -65,7 +68,8 @@
             <Tabs variant="bordered" :activeId="borderedTab" @update:activeId="borderedTab = $event">
               <Tab id="bordered1" label="Design">
                 <h4 class="tm-h4 mb-2">Bordered Style</h4>
-                <p class="tm-body">The bordered variant adds a distinct border around the active tab, creating a more traditional tabbed interface look.</p>
+                <p class="tm-body">The bordered variant adds a distinct border around the active tab, creating a more
+                  traditional tabbed interface look.</p>
               </Tab>
               <Tab id="bordered2" label="Usage">
                 <h4 class="tm-h4 mb-2">When to Use Bordered Tabs</h4>
@@ -95,7 +99,8 @@
             <Tabs vertical :activeId="verticalTab" @update:activeId="verticalTab = $event">
               <Tab id="vertical1" label="About">
                 <h4 class="tm-h4 mb-2">Vertical Tabs</h4>
-                <p class="tm-body">Vertical tabs stack the navigation items vertically instead of horizontally. This arrangement is useful for:</p>
+                <p class="tm-body">Vertical tabs stack the navigation items vertically instead of horizontally. This
+                  arrangement is useful for:</p>
                 <ul class="tm-body list-disc pl-6 mt-2 space-y-2">
                   <li>Sidebar navigation</li>
                   <li>Forms with multiple sections</li>
@@ -146,7 +151,7 @@
               </Tab>
             </Tabs>
 
-            <Tabs size="medium" :activeId="mediumTab">
+            <Tabs size="medium" :activeId="mediumTab" @update:activeId="mediumTab = $event">
               <Tab id="medium1" label="Medium Size">
                 <p class="tm-body">Medium is the default size, providing a balanced appearance for most use cases.</p>
                 <div class="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
@@ -164,7 +169,8 @@
 
             <Tabs size="large" :activeId="largeTab" @update:activeId="largeTab = $event">
               <Tab id="large1" label="Large Size">
-                <p class="tm-body">Large tabs provide enhanced visibility and are easier to interact with on touch devices.</p>
+                <p class="tm-body">Large tabs provide enhanced visibility and are easier to interact with on touch
+                  devices.</p>
                 <div class="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
                   <code>size="large"</code>
                 </div>
@@ -198,17 +204,19 @@
               </template>
               <Tab id="custom1" label="Custom Style">
                 <h4 class="tm-h4 mb-2">Custom Tab Example</h4>
-                <p class="tm-body mb-4">This example demonstrates custom tab styling using the tab slot. Notice the custom icons that change based on the active state.</p>
+                <p class="tm-body mb-4">This example demonstrates custom tab styling using the tab slot. Notice the
+                  custom icons that
+                  change based on the active state.</p>
                 <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                   <code class="block whitespace-pre-wrap">
-&lt;template #tab="{ tab }"&gt;
-  &lt;div class="custom-tab"&gt;
-    &lt;i class="modus-icons" aria-hidden="true"&gt;
+      &lt;template #tab="{ tab }"&gt;
+      &lt;div class="custom-tab"&gt;
+      &lt;i class="modus-icons" aria-hidden="true"&gt;
       {{ customTab === 'custom1' ? 'check_circle' : 'radio_button_unchecked' }}
-    &lt;/i&gt;
-    {{ 'Custom Style' }}
-  &lt;/div&gt;
-&lt;/template&gt;</code>
+      &lt;/i&gt;
+      {{ 'Custom Style' }}
+      &lt;/div&gt;
+      &lt;/template&gt;</code>
                 </div>
               </Tab>
               <Tab id="custom2" label="Customization">
@@ -229,7 +237,8 @@
         <section class="showcase-section">
           <h3 class="tm-h3 mb-2">Accessibility</h3>
           <p class="tm-body mb-4">
-            The Tabs component includes built-in accessibility features for keyboard navigation and screen reader support.
+            The Tabs component includes built-in accessibility features for keyboard navigation and screen reader
+            support.
           </p>
           <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
             <h4 class="tm-h4 mb-2">Keyboard Navigation</h4>
@@ -262,7 +271,7 @@
       <!-- API Tab -->
       <div v-if="activeTab === 'api'" class="space-y-8">
         <h2 class="tm-h2 mb-4">Properties</h2>
-        
+
         <h3 class="tm-h3 mb-4">Tabs Props</h3>
         <div class="overflow-x-auto">
           <table class="w-full border-collapse">
@@ -320,7 +329,8 @@
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">id</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">string</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">-</td>
-                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Unique identifier for the tab (required)</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Unique identifier for the tab (required)
+                </td>
               </tr>
               <tr>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">label</td>
@@ -387,17 +397,17 @@
         <h3 class="tm-h3 mb-4">Type Definitions</h3>
         <div class="example-code bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
           <pre><code>export interface TabsProps {
-  activeId: string
-  size?: 'small' | 'medium' | 'large'
-  variant?: 'default' | 'bordered' | 'borderless'
-  vertical?: boolean
-}
+        activeId: string
+        size?: 'small' | 'medium' | 'large'
+        variant?: 'default' | 'bordered' | 'borderless'
+        vertical?: boolean
+        }
 
-export interface TabItem {
-  id: string
-  label: string
-  disabled: boolean
-}</code></pre>
+        export interface TabItem {
+        id: string
+        label: string
+        disabled: boolean
+        }</code></pre>
         </div>
       </div>
 
@@ -405,71 +415,73 @@ export interface TabItem {
       <div v-if="activeTab === 'theme'" class="space-y-8">
         <h2 class="tm-h2 mb-4">CSS Variables</h2>
         <p class="tm-body mb-6">
-          The Tabs component uses CSS variables for theming. These variables can be customized to match your application's design system.
+          The Tabs component uses CSS variables for theming. These variables can be customized to match your
+          application's
+          design system.
         </p>
 
         <h3 class="tm-h3 mb-4">Light Theme Variables</h3>
         <div class="example-code bg-gray-100 dark:bg-gray-800 p-4 rounded-md mb-6">
           <pre><code>:root {
-  /* Tab Colors */
-  --color-tm-tab-text: var(--color-tm-gray-7);
-  --color-tm-tab-text-hover: var(--color-tm-gray-9);
-  --color-tm-tab-text-active: var(--color-tm-blue);
-  --color-tm-tab-text-disabled: var(--color-tm-gray-5);
-  
-  /* Tab Background */
-  --color-tm-tab-hover-bg: var(--color-tm-gray-1);
-  
-  /* Tab Borders */
-  --color-tm-tab-border: var(--color-tm-gray-3);
-  --color-tm-tab-active-border: var(--color-tm-blue);
-  --color-tm-tab-focus-ring: var(--color-tm-blue-pale);
-  
-  /* Tab Sizes */
-  --tm-tab-height-small: 2rem;
-  --tm-tab-height-medium: 2.5rem;
-  --tm-tab-height-large: 3rem;
-  --tm-tab-padding-x: 1rem;
-  --tm-tab-padding-y: 0.5rem;
-}</code></pre>
+        /* Tab Colors */
+        --color-tm-tab-text: var(--color-tm-gray-7);
+        --color-tm-tab-text-hover: var(--color-tm-gray-9);
+        --color-tm-tab-text-active: var(--color-tm-blue);
+        --color-tm-tab-text-disabled: var(--color-tm-gray-5);
+
+        /* Tab Background */
+        --color-tm-tab-hover-bg: var(--color-tm-gray-1);
+
+        /* Tab Borders */
+        --color-tm-tab-border: var(--color-tm-gray-3);
+        --color-tm-tab-active-border: var(--color-tm-blue);
+        --color-tm-tab-focus-ring: var(--color-tm-blue-pale);
+
+        /* Tab Sizes */
+        --tm-tab-height-small: 2rem;
+        --tm-tab-height-medium: 2.5rem;
+        --tm-tab-height-large: 3rem;
+        --tm-tab-padding-x: 1rem;
+        --tm-tab-padding-y: 0.5rem;
+        }</code></pre>
         </div>
 
         <h3 class="tm-h3 mb-4">Dark Theme Variables</h3>
         <div class="example-code bg-gray-100 dark:bg-gray-800 p-4 rounded-md mb-6">
           <pre><code>.dark {
-  /* Tab Colors */
-  --color-tm-tab-text: var(--color-tm-gray-5);
-  --color-tm-tab-text-hover: var(--color-tm-gray-1);
-  --color-tm-tab-text-active: var(--color-tm-blue-highlight);
-  --color-tm-tab-text-disabled: var(--color-tm-gray-7);
-  
-  /* Tab Background */
-  --color-tm-tab-hover-bg: var(--color-tm-gray-9);
-  
-  /* Tab Borders */
-  --color-tm-tab-border: var(--color-tm-gray-8);
-  --color-tm-tab-active-border: var(--color-tm-blue-highlight);
-  --color-tm-tab-focus-ring: var(--color-tm-blue-dark);
-}</code></pre>
+        /* Tab Colors */
+        --color-tm-tab-text: var(--color-tm-gray-5);
+        --color-tm-tab-text-hover: var(--color-tm-gray-1);
+        --color-tm-tab-text-active: var(--color-tm-blue-highlight);
+        --color-tm-tab-text-disabled: var(--color-tm-gray-7);
+
+        /* Tab Background */
+        --color-tm-tab-hover-bg: var(--color-tm-gray-9);
+
+        /* Tab Borders */
+        --color-tm-tab-border: var(--color-tm-gray-8);
+        --color-tm-tab-active-border: var(--color-tm-blue-highlight);
+        --color-tm-tab-focus-ring: var(--color-tm-blue-dark);
+        }</code></pre>
         </div>
 
         <h3 class="tm-h3 mb-4">Customization Example</h3>
         <div class="example-code bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
           <pre><code>.custom-tabs {
-  /* Custom tab colors */
-  --color-tm-tab-text-active: #9c27b0;
-  --color-tm-tab-active-border: #9c27b0;
-  --color-tm-tab-focus-ring: #f3e5f5;
-}
+        /* Custom tab colors */
+        --color-tm-tab-text-active: #9c27b0;
+        --color-tm-tab-active-border: #9c27b0;
+        --color-tm-tab-focus-ring: #f3e5f5;
+        }
 
-/* Or use deep selectors for more specific styling */
-.custom-tabs :deep(.tm-tab-active) {
-  color: #9c27b0;
-}
+        /* Or use deep selectors for more specific styling */
+        .custom-tabs :deep(.tm-tab-active) {
+        color: #9c27b0;
+        }
 
-.custom-tabs :deep(.tm-tabs-active-indicator) {
-  background-color: #9c27b0;
-}</code></pre>
+        .custom-tabs :deep(.tm-tabs-active-indicator) {
+        background-color: #9c27b0;
+        }</code></pre>
         </div>
       </div>
     </div>

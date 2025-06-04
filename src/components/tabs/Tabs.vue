@@ -120,20 +120,23 @@ const indicatorStyle = computed(() => {
   }
 })
 
-// Update active tab element reference when modelValue changes
+// Update active tab element reference when activeId changes
 const updateActiveTabElement = () => {
-  activeTabElement.value = document.getElementById(`tab-${props.activeId}`) as HTMLElement
+  nextTick(() => {
+    activeTabElement.value = document.getElementById(`tab-${props.activeId}`) as HTMLElement
+  })
 }
 
 onMounted(() => {
-  updateActiveTabElement()
-})
-
-// Watch for changes in modelValue to update indicator position
-watch(() => props.activeId, () => {
+  // Use nextTick to ensure DOM is rendered before calculating positions
   nextTick(() => {
     updateActiveTabElement()
   })
+})
+
+// Watch for changes in activeId to update indicator position
+watch(() => props.activeId, () => {
+  updateActiveTabElement()
 })
 
 const handleKeyNavigation = (event: KeyboardEvent) => {
