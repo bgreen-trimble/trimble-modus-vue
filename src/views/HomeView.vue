@@ -153,6 +153,18 @@ const componentList = [
     path: 'slider-view',
     icon: 'tune',
     description: 'Range input for selecting numeric values'
+  },
+  {
+    name: 'Tabs',
+    path: 'tabs-view',
+    icon: 'tab',
+    description: 'Organize and navigate between related content'
+  },
+  {
+    name: 'Toast',
+    path: 'toast-view',
+    icon: 'notification_important',
+    description: 'Display temporary notifications or messages'
   }
 ];
 </script>

@@ -18,3 +18,6 @@ export { default as Toaster } from './toast/Toaster.vue'
 
 export { default as Slider } from './slider/Slider.vue'
 export type { SliderProps } from './slider/Slider.vue'
+
+export { Tabs, Tab } from './tabs'
+export type { TabsProps } from './tabs/Tabs.vue'

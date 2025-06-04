@@ -1,0 +1,32 @@
+@theme {
+  /* Tab Default */
+  --color-tm-tab-text: var(--color-tm-gray-6);
+  --color-tm-tab-text-hover: var(--color-tm-gray-9);
+  --color-tm-tab-text-active: var(--color-tm-primary);
+  --color-tm-tab-text-disabled: var(--color-tm-gray-5);
+  --color-tm-tab-border: var(--color-tm-gray-2);
+  --color-tm-tab-hover-bg: var(--color-tm-gray-0);
+  --color-tm-tab-active-border: var(--color-tm-primary);
+  --color-tm-tab-focus-ring: var(--color-tm-blue-pale);
+  
+  /* Tab Sizes */
+  --tm-tab-height-small: 2rem;     /* 32px */
+  --tm-tab-height-medium: 2.5rem;  /* 40px */
+  --tm-tab-height-large: 3rem;     /* 48px */
+  
+  /* Tab Padding */
+  --tm-tab-padding-x: 1rem;       /* 16px */
+  --tm-tab-padding-y: 0.5rem;     /* 8px */
+}
+
+.dark {
+  /* Dark mode overrides */
+  --color-tm-tab-text: var(--color-tm-gray-4);
+  --color-tm-tab-text-hover: var(--color-tm-gray-1);
+  --color-tm-tab-text-active: var(--color-tm-blue-highlight);
+  --color-tm-tab-text-disabled: var(--color-tm-gray-6);
+  --color-tm-tab-border: var(--color-tm-gray-8);
+  --color-tm-tab-hover-bg: var(--color-tm-gray-8);
+  --color-tm-tab-active-border: var(--color-tm-blue-highlight);
+  --color-tm-tab-focus-ring: var(--color-tm-blue-dark);
+}
