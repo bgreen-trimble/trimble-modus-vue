@@ -1,65 +1,3 @@
-<template>
-  <div 
-    :class="[
-      'tm-tabs',
-      `tm-tabs-${size}`,
-      {
-        'tm-tabs-vertical': vertical,
-        'tm-tabs-bordered': variant === 'bordered',
-        'tm-tabs-no-border': variant === 'borderless'
-      }
-    ]"
-    role="tablist"
-    :aria-orientation="vertical ? 'vertical' : 'horizontal'"
-  >
-    <div 
-      :class="[
-        'tm-tabs-nav',
-        { 'tm-tabs-nav-vertical': vertical }
-      ]"
-    >
-      <button
-        v-for="tab in tabs"
-        :key="tab.id"
-        class="tm-tab-button"
-        :class="{
-          'tm-tab-active': activeId === tab.id,
-          'tm-tab-disabled': tab.disabled
-        }"
-        role="tab"
-        :id="`tab-${tab.id}`"
-        :aria-selected="activeId === tab.id"
-        :aria-controls="`tab-${tab.id}`"
-        :disabled="tab.disabled"
-        :tabindex="activeId === tab.id ? 0 : -1"
-        @click="!tab.disabled && $emit('update:activeId', tab.id)"
-        @keydown="handleKeyNavigation"
-      >
-        <slot
-          name="tab"
-          :tab="tab"
-          :active="activeId === tab.id"
-        >
-          <span v-if="tab.icon" class="tm-tab-icon">
-            <i class="modus-icons" aria-hidden="tab.label ? true : false">{{ tab.icon }}</i>
-          </span>
-          <span v-if="tab.label" class="tm-tab-label">{{ tab.label }}</span>
-          <!-- Add aria-label for icon-only tabs -->
-          <span v-if="!tab.label && tab.icon" class="sr-only">{{ tab.id }}</span>
-        </slot>
-      </button>
-      <div 
-        v-if="variant !== 'borderless'"
-        class="tm-tabs-active-indicator"
-        :style="indicatorStyle"
-      ></div>
-    </div>
-    <div class="tm-tabs-content">
-      <slot></slot>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, provide, ref, onMounted, watch, nextTick } from 'vue'
 import type { TabItem } from './types'
@@ -100,7 +38,23 @@ const unregisterTab = (tabId: string) => {
 // Provide methods to child components
 provide('registerTab', registerTab)
 provide('unregisterTab', unregisterTab)
-provide('activeId', props.activeId)  // Add this line to provide activeId
+
+// Create a ref for activeId that can be updated
+const activeIdRef = ref<string>(props.activeId)
+provide('activeId', activeIdRef)
+
+// Update activeIdRef when props.activeId changes
+watch(() => props.activeId, (newValue) => {
+  if (newValue !== activeIdRef.value) {
+    activeIdRef.value = newValue
+  }
+}, { immediate: true })
+
+// When a tab is clicked, update activeIdRef and emit the event
+const handleTabClick = (tabId: string) => {
+  activeIdRef.value = tabId
+  emit('update:activeId', tabId)
+}
 
 // Calculate indicator position
 const indicatorStyle = computed(() => {
@@ -145,7 +99,7 @@ watch(() => props.activeId, () => {
 })
 
 const handleKeyNavigation = (event: KeyboardEvent) => {
-  const currentIndex = tabs.value.findIndex(tab => tab.id === props.activeId)
+  const currentIndex = tabs.value.findIndex(tab => tab.id === activeIdRef.value)
   let nextIndex = currentIndex
 
   switch (event.key) {
@@ -183,11 +137,74 @@ const handleKeyNavigation = (event: KeyboardEvent) => {
   }
 
   if (nextIndex !== currentIndex && !tabs.value[nextIndex].disabled) {
+    activeIdRef.value = tabs.value[nextIndex].id
     emit('update:activeId', tabs.value[nextIndex].id)
     document.getElementById(`tab-${tabs.value[nextIndex].id}`)?.focus()
   }
 }
 </script>
+
+<template>
+  <div 
+    :class="[
+      'tm-tabs',
+      `tm-tabs-${size}`,
+      {
+        'tm-tabs-vertical': vertical,
+        'tm-tabs-bordered': variant === 'bordered',
+        'tm-tabs-no-border': variant === 'borderless'
+      }
+    ]"
+    role="tablist"
+    :aria-orientation="vertical ? 'vertical' : 'horizontal'"
+  >
+    <div 
+      :class="[
+        'tm-tabs-nav',
+        { 'tm-tabs-nav-vertical': vertical }
+      ]"
+    >
+      <button
+        v-for="tab in tabs"
+        :key="tab.id"
+        class="tm-tab-button"
+        :class="{
+          'tm-tab-active': props.activeId === tab.id,
+          'tm-tab-disabled': tab.disabled
+        }"
+        role="tab"
+        :id="`tab-${tab.id}`"
+        :aria-selected="props.activeId === tab.id"
+        :aria-controls="`tab-${tab.id}`"
+        :disabled="tab.disabled"
+        :tabindex="props.activeId === tab.id ? 0 : -1"
+        @click="!tab.disabled && handleTabClick(tab.id)"
+        @keydown="handleKeyNavigation"
+      >
+        <slot
+          name="tab"
+          :tab="tab"
+          :active="props.activeId === tab.id"
+        >
+          <span v-if="tab.icon" class="tm-tab-icon">
+            <i class="modus-icons" :aria-hidden="tab.label ? 'true' : 'false'">{{ tab.icon }}</i>
+          </span>
+          <span v-if="tab.label" class="tm-tab-label">{{ tab.label }}</span>
+          <!-- Add aria-label for icon-only tabs -->
+          <span v-if="!tab.label && tab.icon" class="sr-only">{{ tab.id }}</span>
+        </slot>
+      </button>
+      <div 
+        v-if="variant !== 'borderless'"
+        class="tm-tabs-active-indicator"
+        :style="indicatorStyle"
+      ></div>
+    </div>
+    <div class="tm-tabs-content">
+      <slot></slot>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 @import './tabs.css';

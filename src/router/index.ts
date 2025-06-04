@@ -4,7 +4,8 @@ import HomeView from '../views/HomeView.vue'
 // Dynamic import of all Vue files in the views directory and its subdirectories
 const views = {
   ...import.meta.glob('../views/foundations/*.vue'),
-  ...import.meta.glob('../views/components/*.vue')
+  ...import.meta.glob('../views/components/*.vue'),
+  ...import.meta.glob('../views/*.vue')
 }
 
 // Convert component file paths to route configurations
@@ -16,6 +17,24 @@ const routes: RouteRecordRaw[] = [
     component: HomeView,
     meta: {
       title: 'Home'
+    }
+  },
+  // Explicitly define the fixed tab test route
+  {
+    path: '/fixed-tab-test',
+    name: 'fixedTabTest',
+    component: () => import('../views/FixedTabTest.vue'),
+    meta: {
+      title: 'Fixed Tab Test'
+    }
+  },
+  // Explicitly define the default tabs test route
+  {
+    path: '/default-tabs-test',
+    name: 'defaultTabsTest',
+    component: () => import('../views/DefaultTabsTest.vue'),
+    meta: {
+      title: 'Default Tabs Test'
     }
   },
 ]

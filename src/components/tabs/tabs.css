@@ -1,4 +1,4 @@
-@theme {
+:root {
   /* Tab Default */
   --color-tm-tab-text: var(--color-tm-gray-6);
   --color-tm-tab-text-hover: var(--color-tm-gray-9);
@@ -29,4 +29,42 @@
   --color-tm-tab-hover-bg: var(--color-tm-gray-8);
   --color-tm-tab-active-border: var(--color-tm-blue-highlight);
   --color-tm-tab-focus-ring: var(--color-tm-blue-dark);
+}
+
+/* Tab panel visibility classes */
+.tm-tab-visible {
+  display: block;
+}
+
+.tm-tab-hidden {
+  display: none;
+}
+
+/* Fix for tab panels that use the hidden attribute */
+div[role="tabpanel"]:not([hidden]) {
+  display: block;
+}
+
+/* Only hide when hidden attribute is explicitly set */
+div[role="tabpanel"][hidden] {
+  display: none !important;
+}
+
+/* Ensure tab content container is always visible */
+.tm-tabs-content {
+  display: block;
+}
+
+/* Fix for tab panel visibility */
+div[role="tabpanel"] {
+  display: block !important;
+}
+
+.tm-tabs-content {
+  display: block !important;
+}
+
+/* Only hide when hidden attribute is explicitly set */
+div[role="tabpanel"][hidden] {
+  display: none !important;
 }

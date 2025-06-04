@@ -1,3 +1,33 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { Tabs, Tab, Button } from '@/components'
+
+// Tab state
+const activeTab = ref('features')
+
+// Example states
+const activeDefaultTab = ref('tab1')
+const borderedTab = ref('bordered1')
+const verticalTab = ref('vertical1')
+const smallTab = ref('small1')
+const mediumTab = ref('medium1')
+const largeTab = ref('large1')
+const customTab = ref('custom1')
+const iconTab = ref('icon1') // Add this line for the icon tabs example
+
+// Reset all examples to initial state
+const resetExamples = () => {
+  activeDefaultTab.value = 'tab1'
+  borderedTab.value = 'bordered1'
+  verticalTab.value = 'vertical1'
+  smallTab.value = 'small1'
+  mediumTab.value = 'medium1'
+  largeTab.value = 'large1'
+  customTab.value = 'custom1'
+  iconTab.value = 'icon1' // Add this line to reset icon tabs
+}
+</script>
+
 <template>
   <div class="tm-container">
     <!-- Header Section -->
@@ -10,7 +40,7 @@
     </div>
 
     <!-- Navigation Tabs -->
-    <div class="mb-6">
+    <div class="">
       <Tabs :activeId="activeTab" @update:activeId="activeTab = $event">
         <Tab id="features" label="Features">
         </Tab>
@@ -543,36 +573,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { Tabs, Tab, Button } from '@/components'
-
-// Tab state
-const activeTab = ref('features')
-
-// Example states
-const activeDefaultTab = ref('tab1')
-const borderedTab = ref('bordered1')
-const verticalTab = ref('vertical1')
-const smallTab = ref('small1')
-const mediumTab = ref('medium1')
-const largeTab = ref('large1')
-const customTab = ref('custom1')
-const iconTab = ref('icon1') // Add this line for the icon tabs example
-
-// Reset all examples to initial state
-const resetExamples = () => {
-  activeDefaultTab.value = 'tab1'
-  borderedTab.value = 'bordered1'
-  verticalTab.value = 'vertical1'
-  smallTab.value = 'small1'
-  mediumTab.value = 'medium1'
-  largeTab.value = 'large1'
-  customTab.value = 'custom1'
-  iconTab.value = 'icon1' // Add this line to reset icon tabs
-}
-</script>
 
 <style scoped>
 .showcase-section {

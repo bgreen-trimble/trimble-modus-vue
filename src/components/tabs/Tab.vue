@@ -4,6 +4,7 @@
     role="tabpanel"
     :aria-labelledby="`tab-${id}`"
     :hidden="!isActive"
+    :class="{ 'tm-tab-visible': isActive, 'tm-tab-hidden': !isActive }"
     tabindex="0"
   >
     <slot></slot>
@@ -11,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onBeforeUnmount, onMounted, computed } from 'vue'
+import { inject, onBeforeUnmount, onMounted, computed, ref, watch } from 'vue'
 import type { TabItem } from './types'
 
 const props = defineProps<{
@@ -21,10 +22,11 @@ const props = defineProps<{
   disabled?: boolean
 }>()
 
+const activeId = inject('activeId', ref(''))
+
 const isActive = computed(() => {
-  // Get active ID from parent Tabs component via inject
-  const activeId = inject('activeId', '')
-  return activeId === props.id
+  // Handle both ref and direct string value
+  return typeof activeId === 'object' ? activeId.value === props.id : activeId === props.id
 })
 
 const registerTab = inject<(tab: TabItem) => void>('registerTab')
