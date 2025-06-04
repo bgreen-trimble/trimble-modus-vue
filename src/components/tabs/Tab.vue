@@ -22,11 +22,11 @@ const props = defineProps<{
   disabled?: boolean
 }>()
 
-const activeId = inject('activeId', ref(''))
+const active = inject('active', ref(''))
 
 const isActive = computed(() => {
   // Handle both ref and direct string value
-  return typeof activeId === 'object' ? activeId.value === props.id : activeId === props.id
+  return typeof active === 'object' ? active.value === props.id : active === props.id
 })
 
 const registerTab = inject<(tab: TabItem) => void>('registerTab')

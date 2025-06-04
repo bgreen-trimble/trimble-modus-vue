@@ -41,7 +41,7 @@ const resetExamples = () => {
 
     <!-- Navigation Tabs -->
     <div class="">
-      <Tabs :activeId="activeTab" @update:activeId="activeTab = $event">
+      <Tabs :active="activeTab" @update:active="activeTab = $event">
         <Tab id="features" label="Features">
         </Tab>
         <Tab id="api" label="API">
@@ -67,7 +67,7 @@ const resetExamples = () => {
             Basic tab navigation with disabled state support.
           </p>
           <div class="example-container">
-            <Tabs :activeId="activeDefaultTab" @update:activeId="activeDefaultTab = $event">
+            <Tabs :active="activeDefaultTab" @update:active="activeDefaultTab = $event">
               <Tab id="tab1" label="Overview">
                 <h4 class="tm-h4 mb-2">Default Tabs Example</h4>
                 <p class="tm-body">This is the default tab style with standard navigation. Notice how the active tab is
@@ -95,7 +95,7 @@ const resetExamples = () => {
             Tabs with a bordered style variant.
           </p>
           <div class="example-container">
-            <Tabs variant="bordered" :activeId="borderedTab" @update:activeId="borderedTab = $event">
+            <Tabs variant="bordered" :active="borderedTab" @update:active="borderedTab = $event">
               <Tab id="bordered1" label="Design">
                 <h4 class="tm-h4 mb-2">Bordered Style</h4>
                 <p class="tm-body">The bordered variant adds a distinct border around the active tab, creating a more
@@ -126,7 +126,7 @@ const resetExamples = () => {
             Tabs arranged in a vertical layout.
           </p>
           <div class="example-container">
-            <Tabs vertical :activeId="verticalTab" @update:activeId="verticalTab = $event">
+            <Tabs vertical :active="verticalTab" @update:active="verticalTab = $event">
               <Tab id="vertical1" label="About">
                 <h4 class="tm-h4 mb-2">Vertical Tabs</h4>
                 <p class="tm-body">Vertical tabs stack the navigation items vertically instead of horizontally. This
@@ -165,7 +165,7 @@ const resetExamples = () => {
             Tabs available in three sizes: small, medium (default), and large.
           </p>
           <div class="example-container">
-            <Tabs size="small" :activeId="smallTab" @update:activeId="smallTab = $event">
+            <Tabs size="small" :active="smallTab" @update:active="smallTab = $event">
               <Tab id="small1" label="Small Size">
                 <p class="tm-body">Small tabs are compact and ideal for dense interfaces or secondary navigation.</p>
                 <div class="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
@@ -181,7 +181,7 @@ const resetExamples = () => {
               </Tab>
             </Tabs>
 
-            <Tabs size="medium" :activeId="mediumTab" @update:activeId="mediumTab = $event">
+            <Tabs size="medium" :active="mediumTab" @update:active="mediumTab = $event">
               <Tab id="medium1" label="Medium Size">
                 <p class="tm-body">Medium is the default size, providing a balanced appearance for most use cases.</p>
                 <div class="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
@@ -197,7 +197,7 @@ const resetExamples = () => {
               </Tab>
             </Tabs>
 
-            <Tabs size="large" :activeId="largeTab" @update:activeId="largeTab = $event">
+            <Tabs size="large" :active="largeTab" @update:active="largeTab = $event">
               <Tab id="large1" label="Large Size">
                 <p class="tm-body">Large tabs provide enhanced visibility and are easier to interact with on touch
                   devices.</p>
@@ -223,10 +223,11 @@ const resetExamples = () => {
             Tabs with Modus icons to enhance visual recognition.
           </p>
           <div class="example-container">
-            <Tabs :activeId="iconTab" @update:activeId="iconTab = $event">
+            <Tabs :active="iconTab" @update:active="iconTab = $event">
               <Tab id="icon1" label="Dashboard" icon="dashboard">
                 <h4 class="tm-h4 mb-2">Dashboard Tab</h4>
-                <p class="tm-body">Icons help users quickly identify tab content. Each tab has an icon specified using the <code>icon</code> property which references a Modus icon name.</p>
+                <p class="tm-body">Icons help users quickly identify tab content. Each tab has an icon specified using
+                  the <code>icon</code> property which references a Modus icon name.</p>
               </Tab>
               <Tab id="icon2" label="Settings" icon="settings">
                 <h4 class="tm-h4 mb-2">Settings Tab</h4>
@@ -249,16 +250,19 @@ const resetExamples = () => {
               <!-- Add the icon-only tab -->
               <Tab id="icon4" label="" icon="notifications">
                 <h4 class="tm-h4 mb-2">Icon-Only Tab</h4>
-                <p class="tm-body">This tab demonstrates an icon-only approach, which can be useful for space-constrained interfaces or very familiar actions.</p>
+                <p class="tm-body">This tab demonstrates an icon-only approach, which can be useful for
+                  space-constrained interfaces or very familiar actions.</p>
                 <div class="mt-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                   <code class="block whitespace-pre-wrap">
 &lt;Tab id="icon4" label="" icon="notifications"&gt;
   &lt;!-- Tab content --&gt;
 &lt;/Tab&gt;</code>
                 </div>
-                <div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-500">
+                <div
+                  class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-500">
                   <p class="tm-body font-medium">Accessibility Note</p>
-                  <p class="tm-body mt-1">For icon-only tabs, ensure the icon is intuitive and consider adding an aria-label for screen readers.</p>
+                  <p class="tm-body mt-1">For icon-only tabs, ensure the icon is intuitive and consider adding an
+                    aria-label for screen readers.</p>
                 </div>
               </Tab>
             </Tabs>
@@ -272,7 +276,7 @@ const resetExamples = () => {
             Tabs with customized content using slots.
           </p>
           <div class="example-container">
-            <Tabs :activeId="customTab" @update:activeId="customTab = $event">
+            <Tabs :active="customTab" @update:active="customTab = $event">
               <template #tab="{ tab }">
                 <div class="custom-tab">
                   <i class="modus-icons" aria-hidden="true">
@@ -421,7 +425,8 @@ const resetExamples = () => {
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">icon</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">string</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">-</td>
-                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Modus icon name to display before the label</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Modus icon name to display before the
+                  label</td>
               </tr>
               <tr>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">disabled</td>
@@ -445,7 +450,7 @@ const resetExamples = () => {
             </thead>
             <tbody>
               <tr>
-                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">update:activeId</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">update:active</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">string</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Emitted when active tab changes</td>
               </tr>
