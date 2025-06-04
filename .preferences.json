@@ -1,0 +1,54 @@
+{
+  "componentGuidelines": {
+    "styling": {
+      "cssVariables": {
+        "preferred": true,
+        "description": "Use CSS variables for themeable properties to maintain consistency and enable easy customization"
+      },
+      "deepSelector": {
+        "preferred": true,
+        "description": "Use :deep() selector in Vue 3 for targeting child component elements in scoped styles",
+        "example": ":deep(.component-class) { /* styles */ }"
+      },
+      "crossBrowser": {
+        "preferred": true,
+        "description": "Always include vendor prefixes for custom input styling",
+        "examples": [
+          "::-webkit-slider-thumb",
+          "::-moz-range-thumb"
+        ]
+      }
+    },
+    "accessibility": {
+      "nativeElements": {
+        "preferred": true,
+        "description": "Prefer native HTML elements when available for built-in accessibility features",
+        "example": "input[type='range'] for sliders"
+      },
+      "ariaAttributes": {
+        "preferred": true,
+        "description": "Use ARIA attributes to enhance accessibility when native elements don't provide sufficient context"
+      },
+      "keyboardNav": {
+        "preferred": true,
+        "description": "Ensure full keyboard navigation support with standard key mappings"
+      }
+    },
+    "documentation": {
+      "organization": {
+        "preferred": true,
+        "description": "Organize examples from basic to advanced usage",
+        "order": [
+          "Basic usage",
+          "Common variations",
+          "Advanced features",
+          "Customization"
+        ]
+      },
+      "codeExamples": {
+        "preferred": true,
+        "description": "Provide clear, commented code examples for each usage scenario"
+      }
+    }
+  }
+}

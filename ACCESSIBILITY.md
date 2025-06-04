@@ -33,6 +33,27 @@ This document outlines the accessibility features and best practices implemented
 - Use `aria-invalid` for invalid form fields
 - Implement `aria-required` for required fields
 
+### Slider
+
+- Utilize native `input[type="range"]` for built-in accessibility features
+- Include proper ARIA attributes:
+  - `role="slider"` (native to range input)
+  - `aria-valuemin` and `aria-valuemax` for range boundaries
+  - `aria-valuenow` for current value
+  - `aria-valuetext` for descriptive value announcements
+- Support full keyboard navigation:
+  - Arrow keys for incremental changes
+  - Home/End for min/max values
+  - Page Up/Down for larger steps
+- Ensure high contrast between:
+  - Track and background
+  - Fill and track
+  - Thumb and track
+  - Active/focus states and default states
+- Provide visible focus indicators
+- Support labels via both `label` element and `aria-label`
+- Consider mobile and touch interfaces with appropriate hit areas
+
 ### Cards
 
 - Use semantic headings (`h2`, `h3`) for card titles
