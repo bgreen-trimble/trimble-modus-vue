@@ -95,6 +95,7 @@ const unregisterTab = (tabId: string) => {
 // Provide methods to child components
 provide('registerTab', registerTab)
 provide('unregisterTab', unregisterTab)
+provide('activeId', props.activeId)  // Add this line to provide activeId
 
 // Calculate indicator position
 const indicatorStyle = computed(() => {

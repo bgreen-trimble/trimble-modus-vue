@@ -106,7 +106,7 @@
                 <h4 class="tm-h4 mb-2">How to Use</h4>
                 <p class="tm-body mb-2">Add the <code>vertical</code> prop to enable vertical layout:</p>
                 <pre class="bg-gray-50 dark:bg-gray-800 p-2 rounded mt-2">
-&lt;Tabs vertical v-model="activeTab"&gt;
+&lt;Tabs vertical :activeId="activeTab"&gt;
   &lt;Tab id="tab1" label="Tab 1"&gt;...&lt;/Tab&gt;
 &lt;/Tabs&gt;</pre>
               </Tab>
@@ -187,11 +187,11 @@
             Tabs with customized content using slots.
           </p>
           <div class="example-container">
-            <Tabs :activeId="customTab" @update:activeId="customTab = $event">
-              <template #tab="{ tab, active }">
+            <Tabs :activeId="custom1" @update:activeId="customTab = $event">
+              <template #tab="{ tab, activeId }">
                 <div class="custom-tab">
                   <i class="modus-icons" aria-hidden="true">
-                    {{ active ? 'check_circle' : 'radio_button_unchecked' }}
+                    {{ customTab === tab.id ? 'check_circle' : 'radio_button_unchecked' }}
                   </i>
                   {{ tab.label }}
                 </div>
@@ -201,10 +201,10 @@
                 <p class="tm-body mb-4">This example demonstrates custom tab styling using the tab slot. Notice the custom icons that change based on the active state.</p>
                 <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                   <code class="block whitespace-pre-wrap">
-&lt;template #tab="{ tab, active }"&gt;
+&lt;template #tab="{ tab, activeId }"&gt;
   &lt;div class="custom-tab"&gt;
     &lt;i class="modus-icons"&gt;
-      {{ active ? 'check_circle' : 'radio_button_unchecked' }}
+      {{ activeId ? 'check_circle' : 'radio_button_unchecked' }}
     &lt;/i&gt;
     {{ tab?.label }}
   &lt;/div&gt;
@@ -276,7 +276,8 @@
             </thead>
             <tbody>
               <tr>
-                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">modelValue</td>
+                <!-- Change this row from modelValue to activeId -->
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">activeId</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">string</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">-</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">The ID of the active tab (required)</td>

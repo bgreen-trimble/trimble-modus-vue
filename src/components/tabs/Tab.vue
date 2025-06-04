@@ -18,10 +18,13 @@ const props = defineProps<{
   id: string
   label: string
   disabled?: boolean
-  activeId: string  // Changed from modelValue
 }>()
 
-const isActive = computed(() => props.activeId === props.id)
+const isActive = computed(() => {
+  // Get active ID from parent Tabs component via inject
+  const activeId = inject('activeId', '')
+  return activeId === props.id
+})
 
 const registerTab = inject<(tab: TabItem) => void>('registerTab')
 const unregisterTab = inject<(id: string) => void>('unregisterTab')
