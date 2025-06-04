@@ -1,7 +1,7 @@
 <!-- filepath: /Users/bgreen/projects/trimble/trimble-modus-vue/src/views/components/ToastView.vue -->
 <template>
   <div class="component-view">
-    <h1>Toast</h1>
+    <h1 class="tm-h1 mb-2">Toast Showcase</h1>
     <p>
       Toasts provide non-intrusive, short-lasting contextual feedback to the user.
     </p>
@@ -24,7 +24,8 @@
     <section>
       <h2>Positioning</h2>
       <p>
-        Toasts can be positioned in different areas of the screen. Use the <code>position</code> option to control where toasts appear.
+        Toasts can be positioned in different areas of the screen. Use the <code>position</code> option to control where
+        toasts appear.
       </p>
       <div class="position-container">
         <div class="grid-3x3">
@@ -39,7 +40,7 @@
         </div>
       </div>
     </section>
-    
+
     <section>
       <h2>Persistent Toasts</h2>
       <p>
@@ -180,7 +181,6 @@ const showPersistentError = () => {
 
 <style scoped>
 .component-view {
-  max-width: 800px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -214,37 +214,37 @@ section {
   border-radius: 0.5rem;
 }
 
-.grid-3x3 > button:nth-child(1) {
+.grid-3x3>button:nth-child(1) {
   grid-column: 1;
   grid-row: 1;
 }
 
-.grid-3x3 > button:nth-child(2) {
+.grid-3x3>button:nth-child(2) {
   grid-column: 2;
   grid-row: 1;
 }
 
-.grid-3x3 > button:nth-child(3) {
+.grid-3x3>button:nth-child(3) {
   grid-column: 3;
   grid-row: 1;
 }
 
-.grid-3x3 > button:nth-child(4) {
+.grid-3x3>button:nth-child(4) {
   grid-column: 2;
   grid-row: 2;
 }
 
-.grid-3x3 > button:nth-child(6) {
+.grid-3x3>button:nth-child(6) {
   grid-column: 3;
   grid-row: 3;
 }
 
-.grid-3x3 > button:nth-child(7) {
+.grid-3x3>button:nth-child(7) {
   grid-column: 1;
   grid-row: 3;
 }
 
-.grid-3x3 > button:nth-child(8) {
+.grid-3x3>button:nth-child(8) {
   grid-column: 2;
   grid-row: 3;
 }

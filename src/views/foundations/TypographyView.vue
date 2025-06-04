@@ -1,6 +1,7 @@
 <template>
     <div class="p-8 space-y-12">
-        <!-- Display Typography -->
+     <h1 class="tm-h1 mb-4 text-tm-trimble-blue dark:text-tm-gray-light">Trimble Modus Typography</h1>
+       <!-- Display Typography -->
         <section>
             <h1 class="tm-h1 mb-6">Display Text</h1>
             <div class="space-y-12">
