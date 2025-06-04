@@ -3,7 +3,7 @@ import './styles/index.css'
 
 import App from './App.vue'
 import router from './router'
-import directives from './directive'
+import directives from './directives'
 
 const app = createApp(App)
 

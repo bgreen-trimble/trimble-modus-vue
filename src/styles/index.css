@@ -15,3 +15,5 @@
 @import '../components/slider/slider.css';
 @import '../components/tabs/tabs.css';
 
+/* Directive styles */
+@import '../directives/tooltip/tooltip.css';
