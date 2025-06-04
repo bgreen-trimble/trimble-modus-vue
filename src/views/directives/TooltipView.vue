@@ -4,7 +4,6 @@ import { Button } from '@/components';
 
 // Available tooltip positions for the example
 const positions = ['top', 'right', 'bottom', 'left'];
-const themes = ['light', 'dark'];
 
 // Example configuration values
 const position = ref('top');
@@ -137,44 +136,6 @@ const exampleCode = computed(() => {
       </div>
     </section>
 
-    <!-- Themes -->
-    <section class="showcase-section mb-8">
-      <h2 class="tm-h2 mb-4">Tooltip Themes</h2>
-      <p class="tm-body mb-4">
-        Tooltips support light and dark themes to match your application's design.
-      </p>
-      
-      <div class="example-container p-6">
-        <div class="flex flex-wrap justify-center gap-4 mb-6">
-          <Button 
-            v-for="t in themes" 
-            :key="t" 
-            v-tooltip="{ content: `${t.charAt(0).toUpperCase() + t.slice(1)} theme`, theme: t }" 
-            variant="outlined" 
-            :severity="theme === t ? 'primary' : 'secondary'"
-            @click="theme = t">
-            {{ t.charAt(0).toUpperCase() + t.slice(1) }}
-          </Button>
-        </div>
-        
-        <div class="flex justify-center">
-          <Button 
-            v-tooltip="{ content: 'Theme example', theme }" 
-            variant="filled">
-            Hover for {{ theme }} theme
-          </Button>
-        </div>
-      </div>
-      
-      <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mt-4">
-        <code class="block whitespace-pre-wrap">
-&lt;Button v-tooltip="{ content: 'Theme example', theme: '{{ theme }}' }" variant="filled"&gt;
-  Hover for {{ theme }} theme
-&lt;/Button&gt;
-        </code>
-      </div>
-    </section>
-
     <!-- Delay -->
     <section class="showcase-section mb-8">
       <h2 class="tm-h2 mb-4">Tooltip Delay</h2>
@@ -239,18 +200,7 @@ const exampleCode = computed(() => {
               </option>
             </select>
           </div>
-          
-          <div>
-            <label class="tm-body block mb-2">Theme:</label>
-            <select 
-              v-model="theme"
-              class="w-full p-2 border border-tm-gray-2 dark:border-tm-gray-8 rounded">
-              <option v-for="t in themes" :key="t" :value="t">
-                {{ t.charAt(0).toUpperCase() + t.slice(1) }}
-              </option>
-            </select>
-          </div>
-          
+         
           <div>
             <label class="tm-body block mb-2">Delay: {{ delay }}ms</label>
             <input 

@@ -9,6 +9,7 @@ declare global {
             showTooltip: () => void;
             hideTooltip: () => void;
         };
+        _tooltipTimeout?: number; // Added to track tooltip delay timeouts
     }
 }
 
@@ -123,13 +124,29 @@ const tooltip = {
             // Position tooltip
             positionTooltip(el, tooltipEl, options.position);
 
+            // Clear any existing timeout first
+            if (el._tooltipTimeout) {
+                clearTimeout(el._tooltipTimeout);
+                el._tooltipTimeout = undefined;
+            }
+
             // Show tooltip (with delay if specified)
-            setTimeout(() => {
-                tooltipEl.classList.add(CLASS_NAMES.VISIBLE);
+            el._tooltipTimeout = window.setTimeout(() => {
+                // Check if element and tooltip still exist
+                if (tooltipEl.parentNode) {
+                    tooltipEl.classList.add(CLASS_NAMES.VISIBLE);
+                }
+                el._tooltipTimeout = undefined;
             }, options.delay || 0);
         };
 
         const hideTooltip = () => {
+            // Clear any pending show timeout
+            if (el._tooltipTimeout) {
+                clearTimeout(el._tooltipTimeout);
+                el._tooltipTimeout = undefined;
+            }
+
             tooltipEl.classList.remove(CLASS_NAMES.VISIBLE);
 
             // Remove after transition ends
@@ -155,25 +172,99 @@ const tooltip = {
     updated(el: HTMLElement, binding: DirectiveBinding) {
         // Update tooltip content/options if changed
         const options = getOptions(binding);
+        const oldOptions = el._tooltipOptions || { position: 'top', theme: 'light' };
 
+        // Clear any active timeout first
+        if (el._tooltipTimeout) {
+            clearTimeout(el._tooltipTimeout);
+            el._tooltipTimeout = undefined;
+        }
+
+        // If tooltip exists, we need to recreate it with the new options
         if (el._tooltip) {
-            // Update content
-            el._tooltip.textContent = options.content;
+            // First, remove the old tooltip from DOM if it's currently shown
+            if (el._tooltip.parentNode) {
+                document.body.removeChild(el._tooltip);
+            }
 
-            // Update position class
-            el._tooltip.classList.remove(CLASS_NAMES.TOP, CLASS_NAMES.RIGHT, CLASS_NAMES.BOTTOM, CLASS_NAMES.LEFT);
-            el._tooltip.classList.add(CLASS_NAMES[options.position?.toUpperCase() as keyof typeof CLASS_NAMES] || CLASS_NAMES.TOP);
+            // Create a new tooltip with updated options
+            const newTooltip = createTooltip(options);
 
-            // Update theme class
-            el._tooltip.classList.remove(CLASS_NAMES.DARK, CLASS_NAMES.LIGHT);
-            el._tooltip.classList.add(CLASS_NAMES[options.theme?.toUpperCase() as keyof typeof CLASS_NAMES] || CLASS_NAMES.LIGHT);
-
-            // Update stored options
+            // Replace the reference
+            el._tooltip = newTooltip;
             el._tooltipOptions = options;
+
+            // Update the event handlers to use the new tooltip
+            if (el._tooltipHandlers) {
+                // Remove old event listeners
+                el.removeEventListener('mouseenter', el._tooltipHandlers.showTooltip);
+                el.removeEventListener('mouseleave', el._tooltipHandlers.hideTooltip);
+                el.removeEventListener('focus', el._tooltipHandlers.showTooltip);
+                el.removeEventListener('blur', el._tooltipHandlers.hideTooltip);
+
+                // Create new event handlers with the updated tooltip
+                const showTooltip = () => {
+                    // Add tooltip to document body
+                    document.body.appendChild(newTooltip);
+
+                    // Position tooltip
+                    positionTooltip(el, newTooltip, options.position);
+
+                    // Clear any existing timeout first
+                    if (el._tooltipTimeout) {
+                        clearTimeout(el._tooltipTimeout);
+                        el._tooltipTimeout = undefined;
+                    }
+
+                    // Show tooltip (with delay if specified)
+                    el._tooltipTimeout = window.setTimeout(() => {
+                        // Check if element and tooltip still exist
+                        if (newTooltip.parentNode) {
+                            newTooltip.classList.add(CLASS_NAMES.VISIBLE);
+                        }
+                        el._tooltipTimeout = undefined;
+                    }, options.delay || 0);
+                };
+
+                const hideTooltip = () => {
+                    // Clear any pending show timeout
+                    if (el._tooltipTimeout) {
+                        clearTimeout(el._tooltipTimeout);
+                        el._tooltipTimeout = undefined;
+                    }
+
+                    newTooltip.classList.remove(CLASS_NAMES.VISIBLE);
+
+                    // Remove after transition ends
+                    const onTransitionEnd = () => {
+                        if (newTooltip.parentNode) {
+                            document.body.removeChild(newTooltip);
+                        }
+                        newTooltip.removeEventListener('transitionend', onTransitionEnd);
+                    };
+
+                    newTooltip.addEventListener('transitionend', onTransitionEnd);
+                };
+
+                // Add the new event listeners
+                el.addEventListener('mouseenter', showTooltip);
+                el.addEventListener('mouseleave', hideTooltip);
+                el.addEventListener('focus', showTooltip);
+                el.addEventListener('blur', hideTooltip);
+
+                // Update the handlers reference
+                el._tooltipHandlers = { showTooltip, hideTooltip };
+            }
         }
     },
 
     beforeUnmount(el: HTMLElement) {
+        // Clean up any active timeout
+        if (el._tooltipTimeout) {
+            clearTimeout(el._tooltipTimeout);
+            el._tooltipTimeout = undefined;
+        }
+
         // Clean up event listeners and remove tooltip element
         if (el._tooltipHandlers) {
             el.removeEventListener('mouseenter', el._tooltipHandlers.showTooltip);
@@ -191,6 +282,7 @@ const tooltip = {
         delete el._tooltip;
         delete el._tooltipOptions;
         delete el._tooltipHandlers;
+        delete el._tooltipTimeout;
     }
 };
 
