@@ -40,6 +40,9 @@
           :tab="tab"
           :active="activeId === tab.id"
         >
+          <span v-if="tab.icon" class="tm-tab-icon">
+            <i class="modus-icons" aria-hidden="true">{{ tab.icon }}</i>
+          </span>
           {{ tab.label }}
         </slot>
       </button>

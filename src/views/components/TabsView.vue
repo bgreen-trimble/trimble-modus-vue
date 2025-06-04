@@ -186,6 +186,40 @@
           </div>
         </section>
 
+        <!-- Tabs with Icons -->
+        <section class="showcase-section">
+          <h3 class="tm-h3 mb-2">Tabs with Icons</h3>
+          <p class="tm-body mb-4">
+            Tabs with Modus icons to enhance visual recognition.
+          </p>
+          <div class="example-container">
+            <Tabs :activeId="iconTab" @update:activeId="iconTab = $event">
+              <Tab id="icon1" label="Dashboard" icon="dashboard">
+                <h4 class="tm-h4 mb-2">Dashboard Tab</h4>
+                <p class="tm-body">Icons help users quickly identify tab content. Each tab has an icon specified using the <code>icon</code> property which references a Modus icon name.</p>
+              </Tab>
+              <Tab id="icon2" label="Settings" icon="settings">
+                <h4 class="tm-h4 mb-2">Settings Tab</h4>
+                <p class="tm-body">The settings page demonstrates another tab with an icon.</p>
+                <div class="mt-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                  <code class="block whitespace-pre-wrap">
+&lt;Tab id="icon2" label="Settings" icon="settings"&gt;
+  &lt;!-- Tab content --&gt;
+&lt;/Tab&gt;</code>
+                </div>
+              </Tab>
+              <Tab id="icon3" label="Analytics" icon="bar_chart">
+                <h4 class="tm-h4 mb-2">Analytics Tab</h4>
+                <ul class="tm-body list-disc pl-6 space-y-2">
+                  <li>Icons should be relevant to the tab content</li>
+                  <li>Use consistent icon style throughout your interface</li>
+                  <li>Icons improve recognition and recall for frequent users</li>
+                </ul>
+              </Tab>
+            </Tabs>
+          </div>
+        </section>
+
         <!-- Custom Tab Content -->
         <section class="showcase-section">
           <h3 class="tm-h3 mb-2">Custom Tab Content</h3>
@@ -339,6 +373,12 @@
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Label text for the tab (required)</td>
               </tr>
               <tr>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">icon</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">string</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">-</td>
+                <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">Modus icon name to display before the label</td>
+              </tr>
+              <tr>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">disabled</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">boolean</td>
                 <td class="border border-tm-gray-2 dark:border-tm-gray-8 p-3">false</td>
@@ -406,6 +446,7 @@
         export interface TabItem {
         id: string
         label: string
+        icon?: string
         disabled: boolean
         }</code></pre>
         </div>
@@ -503,6 +544,7 @@ const smallTab = ref('small1')
 const mediumTab = ref('medium1')
 const largeTab = ref('large1')
 const customTab = ref('custom1')
+const iconTab = ref('icon1') // Add this line for the icon tabs example
 
 // Reset all examples to initial state
 const resetExamples = () => {
@@ -513,6 +555,7 @@ const resetExamples = () => {
   mediumTab.value = 'medium1'
   largeTab.value = 'large1'
   customTab.value = 'custom1'
+  iconTab.value = 'icon1' // Add this line to reset icon tabs
 }
 </script>
 

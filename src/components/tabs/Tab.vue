@@ -17,6 +17,7 @@ import type { TabItem } from './types'
 const props = defineProps<{
   id: string
   label: string
+  icon?: string
   disabled?: boolean
 }>()
 
@@ -34,6 +35,7 @@ onMounted(() => {
     registerTab({
       id: props.id,
       label: props.label,
+      icon: props.icon,
       disabled: props.disabled || false
     })
   }
@@ -53,5 +55,16 @@ div[role="tabpanel"] {
 
 div[role="tabpanel"]:focus-visible {
   box-shadow: inset 0 0 0 2px var(--color-tm-tab-focus-ring);
+}
+
+.tm-tab-icon {
+  display: inline-flex;
+  margin-right: 0.5rem;
+  align-items: center;
+}
+
+.tm-tabs-vertical .tm-tab-button .tm-tab-icon {
+  margin-right: 0.5rem;
+  margin-bottom: 0;
 }
 </style>
