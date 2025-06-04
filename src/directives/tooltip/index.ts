@@ -1,23 +1,35 @@
-import type { App, DirectiveBinding } from 'vue'
+import type { App, DirectiveBinding } from 'vue';
+import {
+    computePosition,
+    flip,
+    shift,
+    arrow,
+    offset,
+    autoUpdate,
+    type Placement
+} from '@floating-ui/dom';
 
 // Extend HTMLElement to include custom properties used by the tooltip directive
 declare global {
     interface HTMLElement {
         _tooltip?: HTMLElement;
+        _tooltipArrow?: HTMLElement;
         _tooltipOptions?: TooltipOptions;
         _tooltipHandlers?: {
             showTooltip: () => void;
             hideTooltip: () => void;
         };
-        _tooltipTimeout?: number; // Added to track tooltip delay timeouts
+        _tooltipTimeout?: number;
+        _tooltipCleanup?: () => void; // For auto-update cleanup
     }
 }
 
 interface TooltipOptions {
     content: string;
-    position?: 'top' | 'right' | 'bottom' | 'left';
+    position?: Placement;
     theme?: 'light' | 'dark';
     delay?: number;
+    offset?: number;
 }
 
 // CSS class names
@@ -25,13 +37,9 @@ const CLASS_NAMES = {
     TOOLTIP: 'tm-tooltip',
     ARROW: 'tm-tooltip-arrow',
     VISIBLE: 'tm-tooltip-visible',
-    TOP: 'tm-tooltip-top',
-    RIGHT: 'tm-tooltip-right',
-    BOTTOM: 'tm-tooltip-bottom',
-    LEFT: 'tm-tooltip-left',
     DARK: 'tm-tooltip-dark',
     LIGHT: 'tm-tooltip-light'
-}
+};
 
 // Get tooltip options from directive binding
 const getOptions = (binding: DirectiveBinding): TooltipOptions => {
@@ -44,65 +52,91 @@ const getOptions = (binding: DirectiveBinding): TooltipOptions => {
         content: binding.value?.content || '',
         position: binding.value?.position || 'top',
         theme: binding.value?.theme || 'light',
-        delay: binding.value?.delay || 0
+        delay: binding.value?.delay || 0,
+        offset: binding.value?.offset || 10
     };
-}
+};
 
 // Create tooltip element
-const createTooltip = (options: TooltipOptions): HTMLElement => {
+const createTooltip = (options: TooltipOptions): { tooltip: HTMLElement, arrowEl: HTMLElement } => {
     const tooltip = document.createElement('div');
-    const arrow = document.createElement('div');
+    const arrowEl = document.createElement('div');
+
+    // Add ARIA attributes for accessibility
+    tooltip.setAttribute('role', 'tooltip');
+    tooltip.id = `tooltip-${Math.random().toString(36).substr(2, 9)}`;
 
     // Add classes
     tooltip.className = CLASS_NAMES.TOOLTIP;
-    arrow.className = CLASS_NAMES.ARROW;
-    tooltip.classList.add(CLASS_NAMES[options.position?.toUpperCase() as keyof typeof CLASS_NAMES] || CLASS_NAMES.TOP);
+    arrowEl.className = CLASS_NAMES.ARROW;
+
+    // Add theme class
     tooltip.classList.add(CLASS_NAMES[options.theme?.toUpperCase() as keyof typeof CLASS_NAMES] || CLASS_NAMES.LIGHT);
 
     // Set content
     tooltip.textContent = options.content;
 
     // Append arrow to tooltip
-    tooltip.appendChild(arrow);
+    tooltip.appendChild(arrowEl);
 
-    return tooltip;
-}
+    return { tooltip, arrowEl };
+};
 
-// Position tooltip relative to element
-const positionTooltip = (el: HTMLElement, tooltip: HTMLElement, position: string = 'top'): void => {
-    const elRect = el.getBoundingClientRect();
-    const tooltipRect = tooltip.getBoundingClientRect();
+// Update tooltip position using floating-ui
+const updatePosition = (el: HTMLElement, tooltip: HTMLElement, arrowEl: HTMLElement, options: TooltipOptions) => {
+    if (!tooltip.isConnected) return; // Skip if tooltip is not in DOM
 
-    let top = 0;
-    let left = 0;
+    const placement = options.position || 'top';
+    const offsetDistance = options.offset || 10;
 
-    switch (position) {
-        case 'top':
-            top = elRect.top - tooltipRect.height - 10;
-            left = elRect.left + (elRect.width / 2) - (tooltipRect.width / 2);
-            break;
-        case 'right':
-            top = elRect.top + (elRect.height / 2) - (tooltipRect.height / 2);
-            left = elRect.right + 10;
-            break;
-        case 'bottom':
-            top = elRect.bottom + 10;
-            left = elRect.left + (elRect.width / 2) - (tooltipRect.width / 2);
-            break;
-        case 'left':
-            top = elRect.top + (elRect.height / 2) - (tooltipRect.height / 2);
-            left = elRect.left - tooltipRect.width - 10;
-            break;
-    }
+    computePosition(el, tooltip, {
+        placement,
+        middleware: [
+            offset(offsetDistance),
+            flip({
+                fallbackPlacements: ['top', 'right', 'bottom', 'left'].filter(p => p !== placement),
+            }),
+            shift({ padding: 5 }), // Keep 5px from viewport edges
+            arrow({ element: arrowEl })
+        ],
+    }).then(({ x, y, placement, middlewareData }) => {
+        // Position the tooltip
+        Object.assign(tooltip.style, {
+            left: `${x}px`,
+            top: `${y}px`
+        });            // Position the arrow based on placement
+        if (middlewareData.arrow) {
+            const { x: arrowX, y: arrowY } = middlewareData.arrow;
 
-    // Adjust for scroll position
-    top += window.scrollY;
-    left += window.scrollX;
+            // Reset any previous transforms
+            arrowEl.style.transform = '';
 
-    // Set position
-    tooltip.style.top = `${top}px`;
-    tooltip.style.left = `${left}px`;
-}
+            const staticSide = {
+                top: 'bottom',
+                right: 'left',
+                bottom: 'top',
+                left: 'right',
+            }[placement.split('-')[0]];
+
+            if (staticSide) {
+                // Set data attribute for the side (for CSS styling)
+                arrowEl.setAttribute('data-side', placement.split('-')[0]);
+
+                // Set data-side attribute for CSS to handle arrow styling
+                arrowEl.setAttribute('data-side', placement.split('-')[0]);
+
+                // Position the arrow
+                Object.assign(arrowEl.style, {
+                    left: arrowX != null ? `${arrowX}px` : '',
+                    top: arrowY != null ? `${arrowY}px` : '',
+                    right: '',
+                    bottom: '',
+                    [staticSide]: 'var(--tm-tooltip-arrow-offset)', // Use CSS variable for offset
+                });
+            }
+        }
+    });
+};
 
 // Directive definition
 const tooltip = {
@@ -110,29 +144,43 @@ const tooltip = {
         const options = getOptions(binding);
 
         // Create tooltip element but don't add to DOM yet
-        const tooltipEl = createTooltip(options);
+        const { tooltip: tooltipEl, arrowEl } = createTooltip(options);
 
-        // Store tooltip element reference on the element
+        // Store tooltip and arrow elements on the host element
         el._tooltip = tooltipEl;
+        el._tooltipArrow = arrowEl;
         el._tooltipOptions = options;
+
+        // Set aria-describedby for accessibility
+        el.setAttribute('aria-describedby', tooltipEl.id);
 
         // Add event listeners
         const showTooltip = () => {
             // Add tooltip to document body
             document.body.appendChild(tooltipEl);
 
-            // Position tooltip
-            positionTooltip(el, tooltipEl, options.position);
-
-            // Clear any existing timeout first
+            // Clear any existing timeout and cleanup
             if (el._tooltipTimeout) {
                 clearTimeout(el._tooltipTimeout);
                 el._tooltipTimeout = undefined;
             }
 
+            if (el._tooltipCleanup) {
+                el._tooltipCleanup();
+            }
+
+            // Setup autoUpdate to keep tooltip positioned correctly
+            el._tooltipCleanup = autoUpdate(
+                el,
+                tooltipEl,
+                () => updatePosition(el, tooltipEl, arrowEl, options)
+            );
+
+            // Initial positioning
+            updatePosition(el, tooltipEl, arrowEl, options);
+
             // Show tooltip (with delay if specified)
             el._tooltipTimeout = window.setTimeout(() => {
-                // Check if element and tooltip still exist
                 if (tooltipEl.parentNode) {
                     tooltipEl.classList.add(CLASS_NAMES.VISIBLE);
                 }
@@ -145,6 +193,12 @@ const tooltip = {
             if (el._tooltipTimeout) {
                 clearTimeout(el._tooltipTimeout);
                 el._tooltipTimeout = undefined;
+            }
+
+            // Stop auto-updating position
+            if (el._tooltipCleanup) {
+                el._tooltipCleanup();
+                el._tooltipCleanup = undefined;
             }
 
             tooltipEl.classList.remove(CLASS_NAMES.VISIBLE);
@@ -170,14 +224,18 @@ const tooltip = {
     },
 
     updated(el: HTMLElement, binding: DirectiveBinding) {
-        // Update tooltip content/options if changed
         const options = getOptions(binding);
-        const oldOptions = el._tooltipOptions || { position: 'top', theme: 'light' };
 
         // Clear any active timeout first
         if (el._tooltipTimeout) {
             clearTimeout(el._tooltipTimeout);
             el._tooltipTimeout = undefined;
+        }
+
+        // Stop auto-updating position
+        if (el._tooltipCleanup) {
+            el._tooltipCleanup();
+            el._tooltipCleanup = undefined;
         }
 
         // If tooltip exists, we need to recreate it with the new options
@@ -188,10 +246,14 @@ const tooltip = {
             }
 
             // Create a new tooltip with updated options
-            const newTooltip = createTooltip(options);
+            const { tooltip: newTooltip, arrowEl: newArrow } = createTooltip(options);
 
-            // Replace the reference
+            // Update aria-describedby for accessibility
+            el.setAttribute('aria-describedby', newTooltip.id);
+
+            // Replace the references
             el._tooltip = newTooltip;
+            el._tooltipArrow = newArrow;
             el._tooltipOptions = options;
 
             // Update the event handlers to use the new tooltip
@@ -207,18 +269,28 @@ const tooltip = {
                     // Add tooltip to document body
                     document.body.appendChild(newTooltip);
 
-                    // Position tooltip
-                    positionTooltip(el, newTooltip, options.position);
-
-                    // Clear any existing timeout first
+                    // Clear any existing timeout and cleanup
                     if (el._tooltipTimeout) {
                         clearTimeout(el._tooltipTimeout);
                         el._tooltipTimeout = undefined;
                     }
 
+                    if (el._tooltipCleanup) {
+                        el._tooltipCleanup();
+                    }
+
+                    // Setup autoUpdate to keep tooltip positioned correctly
+                    el._tooltipCleanup = autoUpdate(
+                        el,
+                        newTooltip,
+                        () => updatePosition(el, newTooltip, newArrow, options)
+                    );
+
+                    // Initial positioning
+                    updatePosition(el, newTooltip, newArrow, options);
+
                     // Show tooltip (with delay if specified)
                     el._tooltipTimeout = window.setTimeout(() => {
-                        // Check if element and tooltip still exist
                         if (newTooltip.parentNode) {
                             newTooltip.classList.add(CLASS_NAMES.VISIBLE);
                         }
@@ -231,6 +303,12 @@ const tooltip = {
                     if (el._tooltipTimeout) {
                         clearTimeout(el._tooltipTimeout);
                         el._tooltipTimeout = undefined;
+                    }
+
+                    // Stop auto-updating position
+                    if (el._tooltipCleanup) {
+                        el._tooltipCleanup();
+                        el._tooltipCleanup = undefined;
                     }
 
                     newTooltip.classList.remove(CLASS_NAMES.VISIBLE);
@@ -265,7 +343,13 @@ const tooltip = {
             el._tooltipTimeout = undefined;
         }
 
-        // Clean up event listeners and remove tooltip element
+        // Stop auto-updating position
+        if (el._tooltipCleanup) {
+            el._tooltipCleanup();
+            el._tooltipCleanup = undefined;
+        }
+
+        // Clean up event listeners
         if (el._tooltipHandlers) {
             el.removeEventListener('mouseenter', el._tooltipHandlers.showTooltip);
             el.removeEventListener('mouseleave', el._tooltipHandlers.hideTooltip);
@@ -278,11 +362,16 @@ const tooltip = {
             document.body.removeChild(el._tooltip);
         }
 
+        // Remove ARIA attributes
+        el.removeAttribute('aria-describedby');
+
         // Clean up references
         delete el._tooltip;
+        delete el._tooltipArrow;
         delete el._tooltipOptions;
         delete el._tooltipHandlers;
         delete el._tooltipTimeout;
+        delete el._tooltipCleanup;
     }
 };
 
