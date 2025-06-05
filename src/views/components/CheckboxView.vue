@@ -139,29 +139,6 @@ const updateOption = (index: number, value: boolean) => {
                             </div>
                         </section>
 
-                        <!-- Error State -->
-                        <section class="showcase-section mb-8">
-                            <h2 class="tm-h2 mb-4">Error State</h2>
-                            <p class="tm-body mb-4">
-                                Error states indicate validation issues with the checkbox selection.
-                            </p>
-
-                            <div class="example-container p-6">
-                                <Checkbox error errorMessage="You must accept the terms to continue"
-                                    label="I accept the terms and conditions" />
-                            </div>
-
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
-            &lt;Checkbox
-            error
-            errorMessage="You must accept the terms to continue"
-            label="I accept the terms and conditions"
-            /&gt;
-        </code>
-                            </div>
-                        </section>
-
                         <!-- Indeterminate Checkbox -->
                         <section class="showcase-section mb-8">
                             <h2 class="tm-h2 mb-4">Indeterminate Checkbox</h2>
@@ -378,18 +355,6 @@ const updateOption = (index: number, value: boolean) => {
                                         <td class="p-2">Size of the checkbox</td>
                                     </tr>
                                     <tr class="border-b border-tm-gray-2">
-                                        <td class="p-2 font-mono">error</td>
-                                        <td class="p-2 font-mono">boolean</td>
-                                        <td class="p-2 font-mono">false</td>
-                                        <td class="p-2">Whether to display the checkbox in an error state</td>
-                                    </tr>
-                                    <tr class="border-b border-tm-gray-2">
-                                        <td class="p-2 font-mono">errorMessage</td>
-                                        <td class="p-2 font-mono">string</td>
-                                        <td class="p-2 font-mono">undefined</td>
-                                        <td class="p-2">Error message to display when error is true</td>
-                                    </tr>
-                                    <tr class="border-b border-tm-gray-2">
                                         <td class="p-2 font-mono">ariaLabel</td>
                                         <td class="p-2 font-mono">string</td>
                                         <td class="p-2 font-mono">undefined</td>
@@ -495,14 +460,7 @@ const updateOption = (index: number, value: boolean) => {
                                     used
                                 </li>
                                 <li class="tm-body">
-                                    <code>aria-describedby</code> to associate the checkbox with a description or error
-                                    message
-                                </li>
-                                <li class="tm-body">
-                                    <code>aria-invalid</code> to indicate that the checkbox is in an error state
-                                </li>
-                                <li class="tm-body">
-                                    <code>role="alert"</code> for error messages to announce changes to screen readers
+                                    <code>aria-describedby</code> to associate the checkbox with a description
                                 </li>
                             </ul>
 
@@ -523,10 +481,6 @@ const updateOption = (index: number, value: boolean) => {
                                 <li class="tm-body">
                                     Make sure the clickable area is large enough (minimum 24px × 24px)
                                 </li>
-                                <li class="tm-body">
-                                    Display error messages clearly and associate them with the checkbox using
-                                    <code>aria-describedby</code>
-                                </li>
                             </ul>
                         </section>
                     </div>
@@ -545,13 +499,13 @@ const updateOption = (index: number, value: boolean) => {
 }
 
 .example-container {
-    background-color:  var(--color-tm-gray-0);
+    background-color: var(--color-tm-gray-0);
     border: 1px solid var(--color-tm-gray-2);
     border-radius: 0.5rem;
 }
 
 .dark .example-container {
-    background-color:  var(--color-tm-gray-0);
+    background-color: var(--color-tm-gray-0);
     background-color: var(--color-tm-gray-9);
     border: 1px solid var(--color-tm-gray-2);
 }
@@ -565,6 +519,4 @@ const updateOption = (index: number, value: boolean) => {
     background-color: var(--color-tm-gray-9);
     border: 1px solid var(--color-tm-gray-2);
 }
-
 </style>
-

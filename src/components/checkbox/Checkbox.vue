@@ -20,8 +20,6 @@ import './checkbox.css'
  * @property {boolean} [disabled] - Whether the checkbox is disabled.
  * @property {boolean} [required] - Whether the checkbox is required.
  * @property {string} [size] - The size of the checkbox ('default' or 'compact').
- * @property {boolean} [error] - Whether to display the checkbox in an error state.
- * @property {string} [errorMessage] - Error message to display when error is true.
  * @property {string} [ariaLabel] - Accessible label for the checkbox.
  * @property {string} [ariaDescribedby] - ID of an element that describes the checkbox.
  * @property {boolean} [autoId] - Whether to automatically generate an ID if none is provided.
@@ -37,8 +35,6 @@ export interface CheckboxProps {
     disabled?: boolean
     required?: boolean
     size?: 'default' | 'compact'
-    error?: boolean
-    errorMessage?: string
     ariaLabel?: string
     ariaDescribedby?: string
     autoId?: boolean
@@ -55,8 +51,6 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
     disabled: false,
     required: false,
     size: 'default',
-    error: false,
-    errorMessage: undefined,
     ariaLabel: undefined,
     ariaDescribedby: undefined,
     autoId: true
@@ -114,20 +108,15 @@ watch(() => props.indeterminate, (newValue) => {
         'tm-checkbox-container',
         `tm-checkbox-${size}`,
         {
-            'tm-checkbox-disabled': disabled,
-            'tm-checkbox-error': error
+            'tm-checkbox-disabled': disabled
         }
     ]">
         <input ref="checkboxRef" type="checkbox" :class="'tm-checkbox-input'" :id="checkboxId" :name="name"
             :value="value" :checked="internalChecked" :disabled="disabled" :required="required" :aria-label="ariaLabel"
-            :aria-describedby="ariaDescribedby || (error && errorMessage ? `${checkboxId}-error` : undefined)"
-            :aria-invalid="error" @change="handleChange" />
+            :aria-describedby="ariaDescribedby" @change="handleChange" />
         <label v-if="label || $slots.default" :for="checkboxId"
             :class="['tm-checkbox-label', { 'tm-checkbox-required': required }]">
             <slot>{{ label }}</slot>
         </label>
-    </div>
-    <div v-if="error && errorMessage" :id="`${checkboxId}-error`" class="tm-checkbox-error-message" role="alert">
-        {{ errorMessage }}
     </div>
 </template>
