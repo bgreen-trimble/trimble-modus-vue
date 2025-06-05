@@ -65,6 +65,3 @@ provide('isExpanded', isExpanded)
     </div>
 </template>
 
-<style>
-@import './accordion.css';
-</style>

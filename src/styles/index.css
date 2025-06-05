@@ -7,6 +7,7 @@
 @import './base/typography.css';
 
 /* Component styles */
+@import '../components/accordion/accordion.css';
 @import '../components/button/button.css';
 @import '../components/card/card.css';
 @import '../components/switch/switch.css';

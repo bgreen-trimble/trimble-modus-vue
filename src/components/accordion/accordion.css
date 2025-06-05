@@ -5,10 +5,11 @@
     --color-tm-accordion-text-disabled: var(--color-tm-gray-5);
     --color-tm-accordion-bg: var(--color-tm-white);
     --color-tm-accordion-bg-hover: var(--color-tm-gray-0);
-    --color-tm-accordion-bg-active: var(--color-tm-gray-0);
+    --color-tm-accordion-bg-active: var(--color-tm-blue-pale);
     --color-tm-accordion-border: var(--color-tm-gray-1);
     --color-tm-accordion-icon: var(--color-tm-gray-9);
     --color-tm-accordion-focus-ring: var(--color-tm-blue-pale);
+    --color-tm-accordion-active-border: var(--color-tm-primary);
 }
 
 .dark {
@@ -18,10 +19,11 @@
     --color-tm-accordion-text-disabled: var(--color-tm-gray-6);
     --color-tm-accordion-bg: var(--color-tm-gray-10);
     --color-tm-accordion-bg-hover: var(--color-tm-gray-8);
-    --color-tm-accordion-bg-active: var(--color-tm-gray-8);
+    --color-tm-accordion-bg-active: var(--color-tm-blue-dark);
     --color-tm-accordion-border: var(--color-tm-gray-6);
     --color-tm-accordion-icon: var(--color-tm-white);
     --color-tm-accordion-focus-ring: var(--color-tm-blue-dark);
+    --color-tm-accordion-active-border: var(--color-tm-blue-highlight);
 }
 
 @layer utilities {
@@ -59,10 +61,22 @@
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid var(--color-tm-accordion-border);
+        position: relative;
     }
 
     .tm-accordion-item:last-child {
         border-bottom: none;
+    }
+
+    /* Active border styling */
+    .tm-accordion-item-with-active-border.tm-accordion-item-active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background-color: var(--color-tm-accordion-active-border);
     }
 
     /* Accordion Header */
@@ -70,6 +84,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: 100%;
         color: var(--color-tm-accordion-text);
         background-color: var(--color-tm-accordion-bg);
         cursor: pointer;
@@ -96,9 +111,17 @@
         align-items: center;
         gap: 0.5rem;
         font-weight: 500;
+        flex: 1;
     }
 
     /* Accordion Icon */
+    .tm-accordion-item-icon {
+        color: var(--color-tm-accordion-icon);
+        transition: transform 0.3s ease;
+        margin-left: auto;
+        /* Ensures the icon stays on the right */
+    }
+
     .tm-accordion-item-icon {
         color: var(--color-tm-accordion-icon);
         transition: transform 0.3s ease;

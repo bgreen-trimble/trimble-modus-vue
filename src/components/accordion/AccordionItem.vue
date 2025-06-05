@@ -14,6 +14,7 @@ import { computed, inject, ref, onMounted } from 'vue'
  * @property {string} [icon] - Optional icon to display before the title.
  * @property {boolean} [disabled] - Whether the accordion item is disabled.
  * @property {boolean} [defaultExpanded] - Whether the accordion item should be expanded by default.
+ * @property {boolean} [showActiveBorder] - Whether to show a vertical blue bar on the left when expanded.
  */
 export interface AccordionItemProps {
     id: string
@@ -21,11 +22,13 @@ export interface AccordionItemProps {
     icon?: string
     disabled?: boolean
     defaultExpanded?: boolean
+    showActiveBorder?: boolean
 }
 
 const props = withDefaults(defineProps<AccordionItemProps>(), {
     disabled: false,
-    defaultExpanded: false
+    defaultExpanded: false,
+    showActiveBorder: false
 })
 
 const isExpanded = inject<(id: string) => boolean>('isExpanded', () => false)
@@ -61,7 +64,8 @@ onMounted(() => {
         'tm-accordion-item',
         {
             'tm-accordion-item-active': isExpanded(id),
-            'tm-accordion-item-disabled': disabled
+            'tm-accordion-item-disabled': disabled,
+            'tm-accordion-item-with-active-border': showActiveBorder
         }
     ]">
         <h3>

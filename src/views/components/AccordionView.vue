@@ -364,6 +364,66 @@ const expandSomeItems = () => {
         </code>
                             </div>
                         </section>
+
+                        <!-- Active Border Indicator -->
+                        <section class="showcase-section mb-8">
+                            <h2 class="tm-h2 mb-4">Accordion with Active Border Indicator</h2>
+                            <p class="tm-body mb-4">
+                                Use the showActiveBorder prop to display a vertical blue indicator on the left side when
+                                an item is expanded.
+                                This provides a stronger visual cue about which items are currently active.
+                            </p>
+
+                            <div class="example-container p-6">
+                                <Accordion>
+                                    <AccordionItem id="border1" title="Item with Active Border" showActiveBorder
+                                        defaultExpanded>
+                                        <p class="tm-body">
+                                            This accordion item has a vertical blue border on the left side when
+                                            expanded.
+                                            This provides a clear visual indication of the active item.
+                                        </p>
+                                    </AccordionItem>
+                                    <AccordionItem id="border2" title="Another Item with Active Border"
+                                        showActiveBorder>
+                                        <p class="tm-body">
+                                            All items with showActiveBorder prop will display the vertical indicator
+                                            when
+                                            expanded.
+                                            Try clicking on different headers to see how it works.
+                                        </p>
+                                    </AccordionItem>
+                                    <AccordionItem id="border3" title="Regular Item">
+                                        <p class="tm-body">
+                                            This is a regular accordion item without the active border indicator for
+                                            comparison.
+                                        </p>
+                                    </AccordionItem>
+                                </Accordion>
+                            </div>
+
+                            <div class="code-block p-4 rounded-lg mt-4">
+                                <code class="block whitespace-pre-wrap">
+            &lt;Accordion&gt;
+            &lt;AccordionItem id="border1" title="Item with Active Border" showActiveBorder defaultExpanded&gt;
+            &lt;p class="tm-body"&gt;
+            This accordion item has a vertical blue border on the left side when expanded.
+            &lt;/p&gt;
+            &lt;/AccordionItem&gt;
+            &lt;AccordionItem id="border2" title="Another Item with Active Border" showActiveBorder&gt;
+            &lt;p class="tm-body"&gt;
+            All items with showActiveBorder prop will display the vertical indicator when expanded.
+            &lt;/p&gt;
+            &lt;/AccordionItem&gt;
+            &lt;AccordionItem id="border3" title="Regular Item"&gt;
+            &lt;p class="tm-body"&gt;
+            This is a regular accordion item without the active border indicator for comparison.
+            &lt;/p&gt;
+            &lt;/AccordionItem&gt;
+            &lt;/Accordion&gt;
+        </code>
+                            </div>
+                        </section>
                     </div>
                 </Tab>
 
@@ -471,6 +531,13 @@ const expandSomeItems = () => {
                                         <td class="p-2 font-mono">boolean</td>
                                         <td class="p-2 font-mono">false</td>
                                         <td class="p-2">Whether the accordion item should be expanded by default</td>
+                                    </tr>
+                                    <tr class="border-b border-tm-gray-2">
+                                        <td class="p-2 font-mono">showActiveBorder</td>
+                                        <td class="p-2 font-mono">boolean</td>
+                                        <td class="p-2 font-mono">false</td>
+                                        <td class="p-2">Whether to show a vertical blue bar on the left side when
+                                            expanded</td>
                                     </tr>
                                 </tbody>
                             </table>
