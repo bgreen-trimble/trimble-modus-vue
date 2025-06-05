@@ -1,35 +1,42 @@
+/* filepath: /Users/bgreen/projects/trimble/trimble-modus-vue/src/components/checkbox/checkbox.css */
 @theme {
     /* Checkbox Colors - Light Mode */
-    --color-tm-checkbox-border: var(--color-tm-gray-4);
+    --color-tm-checkbox-border: var(--color-tm-gray-5);
     --color-tm-checkbox-border-hover: var(--color-tm-gray-6);
     --color-tm-checkbox-bg: var(--color-tm-white);
-    --color-tm-checkbox-bg-checked: var(--color-tm-blue-light);
-    --color-tm-checkbox-text: var(--color-tm-gray-8);
+    --color-tm-checkbox-bg-checked: var(--color-tm-primary);
+    --color-tm-checkbox-text: var(--color-tm-gray-9);
     --color-tm-checkbox-focus-ring: var(--color-tm-blue-pale);
-    --color-tm-checkbox-disabled-bg: var(--color-tm-gray-0);
-    --color-tm-checkbox-disabled-border: var(--color-tm-gray-6);
-    --color-tm-checkbox-disabled-text: var(--color-tm-gray-8);
+    --color-tm-checkbox-disabled-bg: var(--color-tm-gray-1);
+    --color-tm-checkbox-disabled-border: var(--color-tm-gray-3);
+    --color-tm-checkbox-disabled-text: var(--color-tm-gray-5);
     --color-tm-checkbox-disabled-checked-bg: var(--color-tm-gray-3);
     --color-tm-checkbox-error-border: var(--color-tm-red-6);
     --color-tm-checkbox-checkmark: var(--color-tm-white);
     --color-tm-checkbox-indeterminate-bg: var(--color-tm-primary);
+
+    /* Custom icon URL - can be overridden */
+    --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
 }
 
 .dark {
     /* Checkbox Colors - Dark Mode */
-    --color-tm-checkbox-border: var(--color-tm-blue-highlight);
+    --color-tm-checkbox-border: var(--color-tm-gray-6);
     --color-tm-checkbox-border-hover: var(--color-tm-gray-5);
     --color-tm-checkbox-bg: var(--color-tm-gray-10);
     --color-tm-checkbox-bg-checked: var(--color-tm-blue-highlight);
-    --color-tm-checkbox-text: var(--color-tm-gray-2);
+    --color-tm-checkbox-text: var(--color-tm-white);
     --color-tm-checkbox-focus-ring: var(--color-tm-blue-dark);
     --color-tm-checkbox-disabled-bg: var(--color-tm-gray-9);
     --color-tm-checkbox-disabled-border: var(--color-tm-gray-7);
-    --color-tm-checkbox-disabled-text: var(--color-tm-gray-2);
+    --color-tm-checkbox-disabled-text: var(--color-tm-gray-6);
     --color-tm-checkbox-disabled-checked-bg: var(--color-tm-gray-7);
     --color-tm-checkbox-error-border: var(--color-tm-red-4);
     --color-tm-checkbox-checkmark: var(--color-tm-gray-10);
     --color-tm-checkbox-indeterminate-bg: var(--color-tm-blue-highlight);
+
+    /* Custom icon URL for dark mode */
+    --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23111'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
 }
 
 @layer utilities {
@@ -102,19 +109,11 @@
     .tm-checkbox-input:checked {
         background-color: var(--color-tm-checkbox-bg-checked);
         border-color: var(--color-tm-checkbox-bg-checked);
-    }
-
-    .tm-checkbox-input:checked::after {
-        content: "";
-        position: absolute;
-        display: block;
-        left: 50%;
-        top: 45%;
-        width: 25%;
-        height: 50%;
-        border: solid var(--color-tm-checkbox-checkmark);
-        border-width: 0 2px 2px 0;
-        transform: translate(-50%, -50%) rotate(45deg);
+        /* Use the custom icon variable */
+        background-image: var(--tm-checkbox-icon-url);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 80%;
     }
 
     .tm-checkbox-input:indeterminate {
