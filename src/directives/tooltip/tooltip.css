@@ -15,19 +15,13 @@
     --tm-tooltip-arrow-color: var(--tm-tooltip-bg);
 }
 
-.dark {
-    /* Dark theme variables */
-    --tm-tooltip-bg: white;
-    --tm-tooltip-color: var(--color-tm-gray-7, #4c505b);
-    --tm-tooltip-border: var(--tm-tooltip-bg);
-    --tm-tooltip-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
+/* Base colors controlled by dark mode are handled through CSS variables */
 
 @layer components {
 
     /* Tooltip base styles */
     .tm-tooltip {
-        position: fixed;
+        position: absolute;
         z-index: 9999;
         padding: 0.5rem 0.75rem;
         border-radius: 0.25rem;
@@ -80,20 +74,5 @@
     .tm-tooltip-arrow[data-side="left"] {
         border-width: var(--tm-tooltip-arrow-size) 0 var(--tm-tooltip-arrow-size) var(--tm-tooltip-arrow-size);
         border-left-color: var(--tm-tooltip-arrow-color);
-    }
-
-    /* Legacy theme classes for backward compatibility */
-    .tm-tooltip-light {
-        background-color: var(--tm-tooltip-bg);
-        color: var(--tm-tooltip-color);
-        border: 1px solid var(--tm-tooltip-border);
-        box-shadow: var(--tm-tooltip-shadow);
-    }
-
-    .tm-tooltip-dark {
-        background-color: var(--color-tm-gray-900, #171c1e);
-        color: #ffffff;
-        border: 1px solid #4a5568;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 }

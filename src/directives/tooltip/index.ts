@@ -27,7 +27,6 @@ declare global {
 interface TooltipOptions {
     content: string;
     position?: Placement;
-    theme?: 'light' | 'dark';
     delay?: number;
     offset?: number;
 }
@@ -36,9 +35,7 @@ interface TooltipOptions {
 const CLASS_NAMES = {
     TOOLTIP: 'tm-tooltip',
     ARROW: 'tm-tooltip-arrow',
-    VISIBLE: 'tm-tooltip-visible',
-    DARK: 'tm-tooltip-dark',
-    LIGHT: 'tm-tooltip-light'
+    VISIBLE: 'tm-tooltip-visible'
 };
 
 // Get tooltip options from directive binding
@@ -51,7 +48,6 @@ const getOptions = (binding: DirectiveBinding): TooltipOptions => {
     return {
         content: binding.value?.content || '',
         position: binding.value?.position || 'top',
-        theme: binding.value?.theme || 'light',
         delay: binding.value?.delay || 0,
         offset: binding.value?.offset || 10
     };
@@ -69,9 +65,6 @@ const createTooltip = (options: TooltipOptions): { tooltip: HTMLElement, arrowEl
     // Add classes
     tooltip.className = CLASS_NAMES.TOOLTIP;
     arrowEl.className = CLASS_NAMES.ARROW;
-
-    // Add theme class
-    tooltip.classList.add(CLASS_NAMES[options.theme?.toUpperCase() as keyof typeof CLASS_NAMES] || CLASS_NAMES.LIGHT);
 
     // Set content
     tooltip.textContent = options.content;
@@ -94,7 +87,7 @@ const updatePosition = (el: HTMLElement, tooltip: HTMLElement, arrowEl: HTMLElem
         middleware: [
             offset(offsetDistance),
             flip({
-                fallbackPlacements: ['top', 'right', 'bottom', 'left'].filter(p => p !== placement),
+                fallbackPlacements: (['top', 'right', 'bottom', 'left'].filter(p => p !== placement) as Placement[]),
             }),
             shift({ padding: 5 }), // Keep 5px from viewport edges
             arrow({ element: arrowEl })
@@ -102,8 +95,8 @@ const updatePosition = (el: HTMLElement, tooltip: HTMLElement, arrowEl: HTMLElem
     }).then(({ x, y, placement, middlewareData }) => {
         // Position the tooltip
         Object.assign(tooltip.style, {
-            left: `${x}px`,
-            top: `${y}px`
+            left: `${Math.round(x)}px`,
+            top: `${Math.round(y)}px`
         });            // Position the arrow based on placement
         if (middlewareData.arrow) {
             const { x: arrowX, y: arrowY } = middlewareData.arrow;
