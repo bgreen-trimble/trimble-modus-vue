@@ -69,18 +69,12 @@ const exampleCode = computed(() => {
                     </p>
 
                     <div class="example-container p-6 flex flex-wrap gap-4">
-                        <Button v-tooltip="{
-                            content: 'Configured tooltip',
-                            position: 'right'
-                        }" variant="outlined">
+                        <Button v-tooltip="{content: 'Configured tooltip', position: 'right'}" variant="outlined">
                             Configured Tooltip
                         </Button>
                     </div>
                     <CodeFormatter language="vue">
-                        {{`<Button v-tooltip="{
-                            content: 'Configured tooltip',
-                            position: 'right'
-                        }" variant="outlined">
+                        {{`<Button v-tooltip="{content: 'Configured tooltip', position: 'right'}" variant="outlined">
                             Configured Tooltip
                         </Button>
                         `}}
@@ -121,9 +115,7 @@ const exampleCode = computed(() => {
 
             <CodeFormatter language="vue">
                 {{ `// Switch example
-                <Switch v-model="switchValue" v-tooltip="{
-    content: switchValue ? 'Click to disable' : 'Click to enable',
-    position: 'right'
+                <Switch v-model="switchValue" v-tooltip="{content: switchValue ? 'Click to disable' : 'Click to enable',position: 'right'
 }" />
 
                 `}}
@@ -156,7 +148,7 @@ const exampleCode = computed(() => {
 
             <CodeFormatter language="vue">
                 {{ `<Button v-tooltip="{ content: 'Position example', position: 'top' }" variant="filled">
-                    Hover for top tooltip
+                            Hover for top tooltip
                 </Button>
                 `}} </CodeFormatter>
         </section>

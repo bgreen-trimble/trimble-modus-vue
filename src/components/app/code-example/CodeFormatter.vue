@@ -35,16 +35,15 @@ onMounted(async () => {
         try {
             const formatted = await prettier.format(stringContent, {
                 parser: 'babel-ts',
-                semi: false,
                 plugins: [pluginEstree, parserHTML, parserTypescript, parserBabel, prettierPluginVue]
             })
-            .then((result) => {
-                return prettier.format(result, {
-                    parser: 'vue',
-                    semi: false,
-                    plugins: [parserHTML, parserTypescript, parserBabel, prettierPluginVue]
-                });
-            });
+            // .then((result) => {
+            //     return prettier.format(result, {
+            //         parser: 'vue',
+            //         semi: false,
+            //         plugins: [parserHTML, parserTypescript, parserBabel, prettierPluginVue]
+            //     });
+            // });
             console.log('Formatted content:', formatted);
             formattedCode.value = formatted;
         } catch (error) {
