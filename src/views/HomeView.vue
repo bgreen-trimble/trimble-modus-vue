@@ -108,7 +108,7 @@
 </template>
 
 <script setup lang="ts">
-import {  Card } from '@/components';
+import { Card } from '@/components';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -156,10 +156,16 @@ const componentList = [
     description: 'Range input for selecting numeric values'
   },
   {
-    name: 'Tabs',
-    path: 'tabs-view',
-    icon: 'tab',
-    description: 'Organize and navigate between related content'
+    name: 'Accordion',
+    path: 'accordion-view',
+    icon: 'expand_more',
+    description: 'Expandable content sections for organizing information'
+  },
+  {
+    name: 'Checkbox',
+    path: 'checkbox-view',
+    icon: 'check_box',
+    description: 'Selection control for multiple options or toggle states'
   },
   {
     name: 'Toast',

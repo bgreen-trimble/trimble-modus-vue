@@ -25,3 +25,6 @@ export type { TabsProps } from './tabs/Tabs.vue'
 export { Accordion, AccordionItem } from './accordion'
 export type { AccordionProps } from './accordion/Accordion.vue'
 export type { AccordionItemProps } from './accordion/AccordionItem.vue'
+
+export { Checkbox } from './checkbox'
+export type { CheckboxProps } from './checkbox/Checkbox.vue'
