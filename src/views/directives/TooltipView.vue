@@ -1,30 +1,24 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { Button, Switch, Slider } from '@/components';
-import { CodeExample, CodeFormatter } from '@/components/app/code-example';
+import { CodeFormatter } from '@/components/app/code-example';
 
-// Available tooltip positions for the example
 const positions = ['top', 'right', 'bottom', 'left'];
-
-// Example configuration values
 const position = ref('top');
 const delay = ref(0);
 const content = ref('This is a tooltip');
-
-// Interactive component states
 const switchValue = ref(false);
 const sliderValue = ref(50);
 
-// Example of the code for the selected configuration
 const exampleCode = computed(() => {
     if (position.value === 'top' && delay.value === 0) {
         return `<Button v-tooltip="${content.value}">Hover Me</Button>`;
     }
 
     return `<Button v-tooltip="{
-  content: '${content.value}',
-  position: '${position.value}'${delay.value > 0 ? `,
-  delay: ${delay.value}` : ''}
+    content: '${content.value}',
+    position: '${position.value}'${delay.value > 0 ? `,
+    delay: ${delay.value}` : ''}
 }">Hover Me</Button>`;
 });
 </script>
@@ -44,41 +38,56 @@ const exampleCode = computed(() => {
         <section class="showcase-section mb-8">
             <h2 class="tm-h2 mb-4">Basic Usage</h2>
 
-            <div class="grid md:grid-cols-1 gap-8">
-                <div>
-                    <h3 class="tm-h3 mb-2">Simple String Tooltip</h3>
-                    <p class="tm-body mb-4">
-                        For basic usage, simply pass a string to the v-tooltip directive.
-                    </p>
+            <div class="grid grid-cols-1 gap-8">
+                <!-- Simple String Example -->
+                <div class="grid grid-cols-1 gap-4">
+                    <div>
+                        <h3 class="tm-h3 mb-2">Simple String Tooltip</h3>
+                        <p class="tm-body mb-4">
+                            For basic usage, simply pass a string to the v-tooltip directive.
+                        </p>
 
-                    <div class="example-container p-6 flex flex-wrap gap-4">
-                        <Button v-tooltip="'This is a simple tooltip'" variant="filled">
-                            Hover Me
-                        </Button>
+                        <div class="example-container p-6 mb-4">
+                            <Button v-tooltip="'This is a simple tooltip'" variant="filled">
+                                Hover Me
+                            </Button>
+                        </div>
                     </div>
 
-                    <CodeFormatter language="vue">
-                        {{ `<Button v-tooltip="'This is a simple tooltip'" variant="filled">Hover Me</Button>`}}
-                    </CodeFormatter>
+                    <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                        <CodeFormatter language="vue">
+                            {{ `<Button v-tooltip="'This is a simple tooltip'" variant="filled">
+                                Hover Me
+                            </Button>`}}
+                        </CodeFormatter>
+                    </div>
                 </div>
 
-                <div>
-                    <h3 class="tm-h3 mb-2">Object Configuration</h3>
-                    <p class="tm-body mb-4">
-                        For more control, pass an object with configuration options.
-                    </p>
+                <!-- Object Configuration Example -->
+                <div class="grid grid-cols-1 gap-4">
+                    <div>
+                        <h3 class="tm-h3 mb-2">Object Configuration</h3>
+                        <p class="tm-body mb-4">
+                            For more control, pass an object with configuration options.
+                        </p>
 
-                    <div class="example-container p-6 flex flex-wrap gap-4">
-                        <Button v-tooltip="{content: 'Configured tooltip', position: 'right'}" variant="outlined">
-                            Configured Tooltip
-                        </Button>
+                        <div class="example-container p-6 mb-4">
+                            <Button v-tooltip="{ content: 'Configured tooltip', position: 'right' }" variant="outlined">
+                                Configured Tooltip
+                            </Button>
+                        </div>
                     </div>
-                    <CodeFormatter language="vue">
-                        {{`<Button v-tooltip="{content: 'Configured tooltip', position: 'right'}" variant="outlined">
-                            Configured Tooltip
-                        </Button>
-                        `}}
-                    </CodeFormatter>
+
+                    <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                        <CodeFormatter language="vue">
+                            {{`<Button v-tooltip="{
+    content: 'Configured tooltip',
+    position: 'right'
+}" variant="outlined">
+                                Configured Tooltip
+                            </Button>`}}
+                        </CodeFormatter>
+                    </div>
                 </div>
             </div>
         </section>
@@ -90,36 +99,57 @@ const exampleCode = computed(() => {
                 Tooltips can be used with interactive components to provide additional context.
             </p>
 
-            <div class="example-container p-6">
-                <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 gap-8">
+                <!-- Switch Example -->
+                <div class="grid grid-cols-1 gap-4">
                     <div>
-                        <h3 class="tm-h3 mb-4">Switch with Tooltip</h3>
-                        <div class="flex items-center gap-4">
-                            <Switch v-model="switchValue" v-tooltip="{
-                                content: switchValue ? 'Click to disable' : 'Click to enable',
-                                position: 'right'
-                            }" />
-                            <span class="tm-body">Status: {{ switchValue ? 'Enabled' : 'Disabled' }}</span>
+                        <h3 class="tm-h3 mb-2">Switch with Tooltip</h3>
+                        <div class="example-container p-6 mb-4">
+                            <div class="flex items-center gap-4">
+                                <Switch v-model="switchValue" v-tooltip="{
+                                    content: switchValue ? 'Click to disable' : 'Click to enable',
+                                    position: 'right'
+                                }" />
+                                <span class="tm-body">Status: {{ switchValue ? 'Enabled' : 'Disabled' }}</span>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                        <CodeFormatter language="vue">
+                            {{`
+                            <Switch v-model="switchValue" v-tooltip="{
+    content: switchValue ? 'Click to disable' : 'Click to enable',
+    position: 'right'
+}" />
+    <span>Status: \{\{ switchValue ? 'Enabled' : 'Disabled' \}\}</span>`}}
+                        </CodeFormatter>
+                    </div>
+                </div>
+
+                <!-- Slider Example -->
+                <div class="grid grid-cols-1 gap-4">
                     <div>
-                        <h3 class="tm-h3 mb-4">Slider with Tooltip</h3>
-                        <Slider v-model="sliderValue" :min="0" :max="100" v-tooltip="{
-                            content: `Current value: ${sliderValue}%`,
-                            position: 'top'
-                        }" />
+                        <h3 class="tm-h3 mb-2">Slider with Tooltip</h3>
+                        <div class="example-container p-6 mb-4">
+                            <Slider v-model="sliderValue" :min="0" :max="100" v-tooltip="{
+                                content: `Current value: ${sliderValue}%`,
+                                position: 'top'
+                            }" />
+                        </div>
+                    </div>
+
+                    <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                        <CodeFormatter language="vue">
+                            {{`
+                            <Slider v-model="sliderValue" :min="0" :max="100" v-tooltip="{
+    content: \`Current value: \${sliderValue}%\`,
+    position: 'top'
+}" />`}}
+                        </CodeFormatter>
                     </div>
                 </div>
             </div>
-
-            <CodeFormatter language="vue">
-                {{ `// Switch example
-                <Switch v-model="switchValue" v-tooltip="{content: switchValue ? 'Click to disable' : 'Click to enable',position: 'right'
-}" />
-
-                `}}
-            </CodeFormatter>
         </section>
 
         <!-- Positions -->
@@ -129,28 +159,26 @@ const exampleCode = computed(() => {
                 Tooltips can be positioned around the element. Available positions are: top, right, bottom, and left.
             </p>
 
-            <div class="example-container p-6">
-                <div class="flex flex-wrap justify-center gap-4 mb-6">
-                    <Button v-for="pos in positions" :key="pos"
-                        v-tooltip="{ content: `${pos.charAt(0).toUpperCase() + pos.slice(1)} tooltip`, position: pos }"
-                        variant="outlined" :severity="position === pos ? 'primary' : 'secondary'"
-                        @click="position = pos">
-                        {{ pos.charAt(0).toUpperCase() + pos.slice(1) }}
-                    </Button>
-                </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <div class="example-container p-6 mb-4">
+                        <div class="flex flex-wrap justify-center gap-4 mb-6">
+                            <Button v-for="pos in positions" :key="pos"
+                                v-tooltip="{ content: `${pos.charAt(0).toUpperCase() + pos.slice(1)} tooltip`, position: pos }"
+                                variant="outlined" :severity="position === pos ? 'primary' : 'secondary'"
+                                @click="position = pos">
+                                {{ pos.charAt(0).toUpperCase() + pos.slice(1) }}
+                            </Button>
+                        </div>
 
-                <div class="flex justify-center">
-                    <Button v-tooltip="{ content: 'Position example', position }" variant="filled">
-                        Hover for {{ position }} tooltip
-                    </Button>
+                        <div class="flex justify-center">
+                            <Button v-tooltip="{ content: 'Position example', position }" variant="filled">
+                                Hover for {{ position }} tooltip
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <CodeFormatter language="vue">
-                {{ `<Button v-tooltip="{ content: 'Position example', position: 'top' }" variant="filled">
-                            Hover for top tooltip
-                </Button>
-                `}} </CodeFormatter>
         </section>
 
         <!-- Delay -->
@@ -161,24 +189,30 @@ const exampleCode = computed(() => {
                 triggering.
             </p>
 
-            <div class="example-container p-6">
-                <div class="flex flex-wrap items-center gap-4 mb-6">
-                    <span class="tm-body">Delay: {{ delay }}ms</span>
-                    <input type="range" min="0" max="1000" step="100" v-model.number="delay" class="w-64">
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <div class="example-container p-6 mb-4">
+                        <div class="flex flex-wrap items-center gap-4 mb-6">
+                            <span class="tm-body">Delay: {{ delay }}ms</span>
+                            <input type="range" min="0" max="1000" step="100" v-model.number="delay" class="w-64">
+                        </div>
+
+                        <div class="flex justify-center">
+                            <Button v-tooltip="{ content: 'Delayed tooltip', delay }" variant="filled">
+                                Hover for delayed tooltip
+                            </Button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="flex justify-center">
-                    <Button v-tooltip="{ content: 'Delayed tooltip', delay }" variant="filled">
-                        Hover for delayed tooltip
-                    </Button>
+                <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                    <CodeFormatter language="vue">
+                        {{`<Button v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" variant="filled">
+                            Hover for delayed tooltip
+                        </Button>`}}
+                    </CodeFormatter>
                 </div>
             </div>
-
-            <CodeFormatter language="vue">
-                {{ `<Button v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" variant="filled">
-                    Hover for delayed tooltip
-                </Button>
-                `}} </CodeFormatter>
         </section>
 
         <!-- Custom Configuration -->
@@ -188,37 +222,43 @@ const exampleCode = computed(() => {
                 Try different combinations of options to see how they work together.
             </p>
 
-            <div class="example-container p-6">
-                <div class="grid md:grid-cols-3 gap-4 mb-6">
-                    <div>
-                        <label class="tm-body block mb-2">Content:</label>
-                        <input type="text" v-model="content"
-                            class="w-full p-2 border border-tm-gray-2 dark:border-tm-gray-8 rounded">
-                    </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <div class="example-container p-6 mb-4">
+                        <div class="grid md:grid-cols-3 gap-4 mb-6">
+                            <div>
+                                <label class="tm-body block mb-2">Content:</label>
+                                <input type="text" v-model="content"
+                                    class="w-full p-2 border border-tm-gray-2 dark:border-tm-gray-8 rounded">
+                            </div>
 
-                    <div>
-                        <label class="tm-body block mb-2">Position:</label>
-                        <select v-model="position"
-                            class="w-full p-2 border border-tm-gray-2 dark:border-tm-gray-8 rounded">
-                            <option v-for="pos in positions" :key="pos" :value="pos">
-                                {{ pos.charAt(0).toUpperCase() + pos.slice(1) }}
-                            </option>
-                        </select>
-                    </div>
+                            <div>
+                                <label class="tm-body block mb-2">Position:</label>
+                                <select v-model="position"
+                                    class="w-full p-2 border border-tm-gray-2 dark:border-tm-gray-8 rounded">
+                                    <option v-for="pos in positions" :key="pos" :value="pos">
+                                        {{ pos.charAt(0).toUpperCase() + pos.slice(1) }}
+                                    </option>
+                                </select>
+                            </div>
 
-                    <div>
-                        <label class="tm-body block mb-2">Delay: {{ delay }}ms</label>
-                        <input type="range" min="0" max="1000" step="100" v-model.number="delay" class="w-full">
+                            <div>
+                                <label class="tm-body block mb-2">Delay: {{ delay }}ms</label>
+                                <input type="range" min="0" max="1000" step="100" v-model.number="delay" class="w-full">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <Button v-tooltip="{ content, position, delay }" variant="filled">
+                                Try your custom tooltip
+                            </Button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center mb-4">
-                    <Button v-tooltip="{ content, position, delay }" variant="filled">
-                        Try your custom tooltip
-                    </Button>
+                <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                    <CodeFormatter language="vue">{{ exampleCode }}</CodeFormatter>
                 </div>
-
-                <CodeFormatter language="vue">{{ exampleCode }}</CodeFormatter>
             </div>
         </section>
 
@@ -230,23 +270,29 @@ const exampleCode = computed(() => {
                 <code>aria-label</code> for screen readers.
             </p>
 
-            <div class="example-container p-6">
-                <div class="flex justify-center">
-                    <Button aria-label="Settings" v-tooltip="'Settings'"
-                        class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
-                        variant="text">
-                        <i class="modus-icons" aria-hidden="true">settings</i>
-                    </Button>
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <div class="example-container p-6 mb-4">
+                        <div class="flex justify-center">
+                            <Button aria-label="Settings" v-tooltip="'Settings'"
+                                class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
+                                variant="text">
+                                <i class="modus-icons" aria-hidden="true">settings</i>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                    <CodeFormatter language="vue">
+                        {{`<Button aria-label="Settings" v-tooltip="'Settings'"
+                            class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
+                            variant="text">
+                            <i class="modus-icons" aria-hidden="true">settings</i>
+                        </Button>`}}
+                    </CodeFormatter>
                 </div>
             </div>
-
-            <CodeFormatter language="vue">
-                {{ ` <Button aria-label="Settings" v-tooltip="'Settings'"
-                        class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
-                        variant="text">
-                        <i class="modus-icons" aria-hidden="true">settings</i>
-                    </Button>
-                `}} </CodeFormatter>
         </section>
     </div>
 </template>
@@ -276,7 +322,6 @@ const exampleCode = computed(() => {
     }
 }
 
-/* Add theme-specific dark mode support */
 :root.dark .showcase-section {
     border-color: var(--color-tm-gray-8, #4c505b);
 }

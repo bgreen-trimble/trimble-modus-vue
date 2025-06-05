@@ -33,18 +33,13 @@ onMounted(async () => {
         console.log('String content:', stringContent);
 
         try {
+            // Format the code
             const formatted = await prettier.format(stringContent, {
                 parser: 'babel-ts',
                 plugins: [pluginEstree, parserHTML, parserTypescript, parserBabel, prettierPluginVue]
-            })
-            // .then((result) => {
-            //     return prettier.format(result, {
-            //         parser: 'vue',
-            //         semi: false,
-            //         plugins: [parserHTML, parserTypescript, parserBabel, prettierPluginVue]
-            //     });
-            // });
-            console.log('Formatted content:', formatted);
+            });
+
+            // Restore directives
             formattedCode.value = formatted;
         } catch (error) {
             console.error('Error formatting code:', error);
@@ -56,5 +51,24 @@ onMounted(async () => {
 </script>
 
 <template>
-    <pre><code>{{ formattedCode }}</code></pre>
+    <div class="code-formatter">
+        <pre><code>{{ formattedCode }}</code></pre>
+    </div>
 </template>
+
+<style>
+.code-formatter {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.code-formatter pre {
+    margin: 0;
+    white-space: pre;
+}
+
+.code-formatter code {
+    display: inline-block;
+    min-width: 100%;
+}
+</style>
