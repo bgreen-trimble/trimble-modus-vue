@@ -240,6 +240,44 @@ const updateOption = (index: number, value: boolean) => {
                             </div>
                         </section>
 
+                        <!-- Custom Checkmark Icon -->
+                        <section class="showcase-section mb-8">
+                            <h2 class="tm-h2 mb-4">Custom Checkmark Icon</h2>
+                            <p class="tm-body mb-4">
+                                You can customize the checkmark icon using CSS variables.
+                            </p>
+
+                            <div class="example-container p-6">
+                                <div class="flex flex-col gap-4">
+                                    <div class="checkbox-star-demo">
+                                        <Checkbox label="Checkbox with star icon" />
+                                    </div>
+                                    <div class="checkbox-heart-demo">
+                                        <Checkbox label="Checkbox with heart icon" />
+                                    </div>
+                                    <div class="checkbox-circle-demo">
+                                        <Checkbox label="Checkbox with circle icon" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="code-block p-4 rounded-lg mt-4">
+                                <code class="block whitespace-pre-wrap">
+            /* CSS */
+            .checkbox-star-demo .tm-checkbox-input:checked {
+            --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24
+            24' fill='white'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46
+            4.73L5.82 21z'/%3E%3C/svg%3E");
+            }
+
+            /* HTML */
+            &lt;div class="checkbox-star-demo"&gt;
+            &lt;Checkbox label="Checkbox with star icon" /&gt;
+            &lt;/div&gt;
+        </code>
+                            </div>
+                        </section>
+
                         <!-- Custom Label Content -->
                         <section class="showcase-section">
                             <h2 class="tm-h2 mb-4">Custom Label Content</h2>
@@ -490,6 +528,38 @@ const updateOption = (index: number, value: boolean) => {
     </div>
 </template>
 
+<style>
+/* Custom styles for the checkbox examples */
+
+/* Star checkmark icon */
+.checkbox-star-demo .tm-checkbox-input:checked {
+    --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+}
+
+/* Heart checkmark icon */
+.checkbox-heart-demo .tm-checkbox-input:checked {
+    --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+}
+
+/* Circle checkmark icon */
+.checkbox-circle-demo .tm-checkbox-input:checked {
+    --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z'/%3E%3C/svg%3E");
+}
+
+/* Dark mode versions with dark fill */
+.dark .checkbox-star-demo .tm-checkbox-input:checked {
+    --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23111'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+}
+
+.dark .checkbox-heart-demo .tm-checkbox-input:checked {
+    --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23111'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+}
+
+.dark .checkbox-circle-demo .tm-checkbox-input:checked {
+    --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23111'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z'/%3E%3C/svg%3E");
+}
+</style>
+
 <style scoped>
 .showcase-section {
     margin-bottom: 2rem;
@@ -519,4 +589,6 @@ const updateOption = (index: number, value: boolean) => {
     background-color: var(--color-tm-gray-9);
     border: 1px solid var(--color-tm-gray-2);
 }
+
 </style>
+
