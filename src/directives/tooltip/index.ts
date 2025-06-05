@@ -115,9 +115,6 @@ const updatePosition = (el: HTMLElement, tooltip: HTMLElement, arrowEl: HTMLElem
                 // Set data attribute for the side (for CSS styling)
                 arrowEl.setAttribute('data-side', placement.split('-')[0]);
 
-                // Set data-side attribute for CSS to handle arrow styling
-                arrowEl.setAttribute('data-side', placement.split('-')[0]);
-
                 // Position the arrow
                 Object.assign(arrowEl.style, {
                     left: arrowX != null ? `${arrowX}px` : '',
