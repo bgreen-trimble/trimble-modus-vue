@@ -21,3 +21,7 @@ export type { SliderProps } from './slider/Slider.vue'
 
 export { Tabs, Tab } from './tabs'
 export type { TabsProps } from './tabs/Tabs.vue'
+
+export { Accordion, AccordionItem } from './accordion'
+export type { AccordionProps } from './accordion/Accordion.vue'
+export type { AccordionItemProps } from './accordion/AccordionItem.vue'
