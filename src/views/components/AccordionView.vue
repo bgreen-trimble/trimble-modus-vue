@@ -393,10 +393,9 @@ const expandSomeItems = () => {
                                             Try clicking on different headers to see how it works.
                                         </p>
                                     </AccordionItem>
-                                    <AccordionItem id="border3" title="Regular Item">
+                                    <AccordionItem id="border3" title="One more item" showActiveBorder>
                                         <p class="tm-body">
-                                            This is a regular accordion item without the active border indicator for
-                                            comparison.
+                                            Now this should be active.
                                         </p>
                                     </AccordionItem>
                                 </Accordion>
