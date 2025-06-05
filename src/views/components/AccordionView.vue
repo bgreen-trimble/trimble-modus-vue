@@ -393,9 +393,9 @@ const expandSomeItems = () => {
                                             Try clicking on different headers to see how it works.
                                         </p>
                                     </AccordionItem>
-                                    <AccordionItem id="border3" title="One more item" showActiveBorder>
+                                    <AccordionItem id="border3" title="An Item with NO active border">
                                         <p class="tm-body">
-                                            Now this should be active.
+                                            This won't have an active border.
                                         </p>
                                     </AccordionItem>
                                 </Accordion>
@@ -423,6 +423,299 @@ const expandSomeItems = () => {
         </code>
                             </div>
                         </section>
+
+                        <!-- Active Border on Accordion -->
+                        <section class="showcase-section mb-8">
+                            <h2 class="tm-h2 mb-4">Accordion-level Active Border</h2>
+                            <p class="tm-body mb-4">
+                                Instead of setting showActiveBorder on each item, you can set it once on the Accordion
+                                component to apply it to all items. Individual items can still override this setting.
+                            </p>
+
+                            <div class="example-container p-6">
+                                <Accordion showActiveBorder>
+                                    <AccordionItem id="accordBorder1" title="First Item" defaultExpanded>
+                                        <p class="tm-body">
+                                            All items in this accordion will show the active border when expanded,
+                                            because showActiveBorder is set on the parent Accordion.
+                                        </p>
+                                    </AccordionItem>
+                                    <AccordionItem id="accordBorder2" title="Second Item">
+                                        <p class="tm-body">
+                                            No need to set showActiveBorder on each item individually.
+                                        </p>
+                                    </AccordionItem>
+                                    <AccordionItem id="accordBorder3" title="Override Example - No Active Border"
+                                        :showActiveBorder="false">
+                                        <p class="tm-body">
+                                            Individual items can override the parent setting by explicitly setting
+                                            showActiveBorder to false.
+                                        </p>
+                                    </AccordionItem>
+                                </Accordion>
+                            </div>
+
+                            <div class="code-block p-4 rounded-lg mt-4">
+                                <code class="block whitespace-pre-wrap">
+            &lt;Accordion showActiveBorder&gt;
+            &lt;AccordionItem id="accordBorder1" title="First Item" defaultExpanded&gt;
+            &lt;p class="tm-body"&gt;
+            All items in this accordion will show the active border when expanded.
+            &lt;/p&gt;
+            &lt;/AccordionItem&gt;
+            &lt;AccordionItem id="accordBorder2" title="Second Item"&gt;
+            &lt;p class="tm-body"&gt;
+            No need to set showActiveBorder on each item individually.
+            &lt;/p&gt;
+            &lt;/AccordionItem&gt;
+            &lt;AccordionItem id="accordBorder3" title="Override Example" :showActiveBorder="false"&gt;
+            &lt;p class="tm-body"&gt;
+            Individual items can override the parent setting.
+            &lt;/p&gt;
+            &lt;/AccordionItem&gt;
+            &lt;/Accordion&gt;
+        </code>
+                            </div>
+                        </section>
+
+                        <!-- API Documentation -->
+                        <Tab id="api" label="API">
+                            <div class="mt-6">
+                                <section class="showcase-section mb-8">
+                                    <h2 class="tm-h2 mb-4">Accordion Component</h2>
+                                    <p class="tm-body mb-4">
+                                        The main container for accordion items.
+                                    </p>
+
+                                    <h3 class="tm-h3 mt-6 mb-2">Props</h3>
+                                    <table class="w-full border-collapse">
+                                        <thead>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <th class="p-2 text-left">Prop</th>
+                                                <th class="p-2 text-left">Type</th>
+                                                <th class="p-2 text-left">Default</th>
+                                                <th class="p-2 text-left">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">size</td>
+                                                <td class="p-2 font-mono">'default' | 'compact'</td>
+                                                <td class="p-2 font-mono">'default'</td>
+                                                <td class="p-2">Size variant of the accordion</td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">borderless</td>
+                                                <td class="p-2 font-mono">boolean</td>
+                                                <td class="p-2 font-mono">false</td>
+                                                <td class="p-2">Whether to display the accordion without a border</td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">allowMultiple</td>
+                                                <td class="p-2 font-mono">boolean</td>
+                                                <td class="p-2 font-mono">false</td>
+                                                <td class="p-2">Whether multiple accordion items can be expanded at once
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">showActiveBorder</td>
+                                                <td class="p-2 font-mono">boolean</td>
+                                                <td class="p-2 font-mono">false</td>
+                                                <td class="p-2">Whether to show an active border on all accordion items
+                                                    when expanded</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h3 class="tm-h3 mt-6 mb-2">Slots</h3>
+                                    <table class="w-full border-collapse">
+                                        <thead>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <th class="p-2 text-left">Name</th>
+                                                <th class="p-2 text-left">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">default</td>
+                                                <td class="p-2">Content for the accordion (AccordionItem components)
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+
+                                <section class="showcase-section">
+                                    <h2 class="tm-h2 mb-4">AccordionItem Component</h2>
+                                    <p class="tm-body mb-4">
+                                        Individual expandable/collapsible sections within an Accordion.
+                                    </p>
+
+                                    <h3 class="tm-h3 mt-6 mb-2">Props</h3>
+                                    <table class="w-full border-collapse">
+                                        <thead>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <th class="p-2 text-left">Prop</th>
+                                                <th class="p-2 text-left">Type</th>
+                                                <th class="p-2 text-left">Default</th>
+                                                <th class="p-2 text-left">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">id</td>
+                                                <td class="p-2 font-mono">string</td>
+                                                <td class="p-2 font-mono">required</td>
+                                                <td class="p-2">Unique identifier for the accordion item</td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">title</td>
+                                                <td class="p-2 font-mono">string</td>
+                                                <td class="p-2 font-mono">required</td>
+                                                <td class="p-2">Text to display in the accordion header</td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">icon</td>
+                                                <td class="p-2 font-mono">string</td>
+                                                <td class="p-2 font-mono">undefined</td>
+                                                <td class="p-2">Optional icon to display before the title (uses Modus
+                                                    icons)
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">disabled</td>
+                                                <td class="p-2 font-mono">boolean</td>
+                                                <td class="p-2 font-mono">false</td>
+                                                <td class="p-2">Whether the accordion item is disabled</td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">defaultExpanded</td>
+                                                <td class="p-2 font-mono">boolean</td>
+                                                <td class="p-2 font-mono">false</td>
+                                                <td class="p-2">Whether the accordion item should be expanded by default
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">showActiveBorder</td>
+                                                <td class="p-2 font-mono">boolean</td>
+                                                <td class="p-2 font-mono">false</td>
+                                                <td class="p-2">Whether to show a vertical blue bar on the left side
+                                                    when
+                                                    expanded</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h3 class="tm-h3 mt-6 mb-2">Slots</h3>
+                                    <table class="w-full border-collapse">
+                                        <thead>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <th class="p-2 text-left">Name</th>
+                                                <th class="p-2 text-left">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">default</td>
+                                                <td class="p-2">Content inside the accordion item (displayed when
+                                                    expanded)</td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">title</td>
+                                                <td class="p-2">Custom content for the accordion header (replaces the
+                                                    title
+                                                    prop)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                            </div>
+                        </Tab>
+
+                        <Tab id="accessibility" label="Accessibility">
+                            <div class="mt-6">
+                                <section class="showcase-section">
+                                    <h2 class="tm-h2 mb-4">Accessibility Considerations</h2>
+                                    <p class="tm-body mb-4">
+                                        The accordion component follows WAI-ARIA Authoring Practices for accordions,
+                                        ensuring it's accessible to users of assistive technologies.
+                                    </p>
+
+                                    <h3 class="tm-h3 mt-6 mb-2">Keyboard Navigation</h3>
+                                    <table class="w-full border-collapse">
+                                        <thead>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <th class="p-2 text-left">Key</th>
+                                                <th class="p-2 text-left">Function</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">Enter / Space</td>
+                                                <td class="p-2">Toggle the expansion state of the focused accordion item
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">Tab</td>
+                                                <td class="p-2">Move focus to the next focusable element</td>
+                                            </tr>
+                                            <tr class="border-b border-tm-gray-2">
+                                                <td class="p-2 font-mono">Shift + Tab</td>
+                                                <td class="p-2">Move focus to the previous focusable element</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h3 class="tm-h3 mt-6 mb-2">ARIA Attributes</h3>
+                                    <p class="tm-body mb-4">
+                                        The accordion component uses appropriate ARIA attributes to ensure proper
+                                        accessibility:
+                                    </p>
+                                    <ul class="list-disc pl-6 space-y-2">
+                                        <li class="tm-body">
+                                            <code>role="heading"</code> and <code>aria-level</code> for accordion
+                                            headers
+                                        </li>
+                                        <li class="tm-body">
+                                            <code>aria-expanded</code> to indicate the expansion state
+                                        </li>
+                                        <li class="tm-body">
+                                            <code>aria-controls</code> to associate headers with their content
+                                        </li>
+                                        <li class="tm-body">
+                                            <code>aria-disabled</code> for disabled accordion items
+                                        </li>
+                                        <li class="tm-body">
+                                            <code>role="region"</code> and <code>aria-labelledby</code> for content
+                                            panels
+                                        </li>
+                                    </ul>
+
+                                    <h3 class="tm-h3 mt-6 mb-2">Best Practices</h3>
+                                    <ul class="list-disc pl-6 space-y-2">
+                                        <li class="tm-body">
+                                            Use clear, descriptive titles for accordion items so users can understand
+                                            the
+                                            content without
+                                            expanding
+                                        </li>
+                                        <li class="tm-body">
+                                            Keep titles concise (ideally 5 words or fewer) to avoid wrapping
+                                        </li>
+                                        <li class="tm-body">
+                                            Avoid nesting accordions within accordions, as this creates a confusing
+                                            interface
+                                        </li>
+                                        <li class="tm-body">
+                                            Ensure sufficient color contrast between text and background
+                                        </li>
+                                        <li class="tm-body">
+                                            Don't hide critical content in accordions that might be missed by users
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </Tab>
                     </div>
                 </Tab>
 
@@ -462,6 +755,13 @@ const expandSomeItems = () => {
                                         <td class="p-2 font-mono">boolean</td>
                                         <td class="p-2 font-mono">false</td>
                                         <td class="p-2">Whether multiple accordion items can be expanded at once</td>
+                                    </tr>
+                                    <tr class="border-b border-tm-gray-2">
+                                        <td class="p-2 font-mono">showActiveBorder</td>
+                                        <td class="p-2 font-mono">boolean</td>
+                                        <td class="p-2 font-mono">false</td>
+                                        <td class="p-2">Whether to show an active border on all accordion items when
+                                            expanded</td>
                                     </tr>
                                 </tbody>
                             </table>

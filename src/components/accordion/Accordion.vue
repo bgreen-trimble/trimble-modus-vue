@@ -17,12 +17,14 @@ export interface AccordionProps {
     size?: 'default' | 'compact'
     borderless?: boolean
     allowMultiple?: boolean
+    showActiveBorder?: boolean
 }
 
 const props = withDefaults(defineProps<AccordionProps>(), {
     size: 'default',
     borderless: false,
-    allowMultiple: false
+    allowMultiple: false,
+    showActiveBorder: false
 })
 
 const expandedItems = ref<string[]>([])
@@ -50,9 +52,10 @@ const isExpanded = (itemId: string) => {
     return expandedItems.value.includes(itemId)
 }
 
-// Provide methods to child components
+// Provide methods and props to child components
 provide('toggleItem', toggleItem)
 provide('isExpanded', isExpanded)
+provide('hasShowActiveBorder', () => props.showActiveBorder)
 </script>
 
 <template>
@@ -64,4 +67,3 @@ provide('isExpanded', isExpanded)
         <slot></slot>
     </div>
 </template>
-

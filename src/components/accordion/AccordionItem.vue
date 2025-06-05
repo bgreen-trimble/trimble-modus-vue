@@ -28,11 +28,19 @@ export interface AccordionItemProps {
 const props = withDefaults(defineProps<AccordionItemProps>(), {
     disabled: false,
     defaultExpanded: false,
-    showActiveBorder: false
+    showActiveBorder: undefined // Use parent's value if not set
 })
 
 const isExpanded = inject<(id: string) => boolean>('isExpanded', () => false)
 const toggleItem = inject<(id: string, disabled: boolean) => void>('toggleItem', () => { })
+const hasShowActiveBorder = inject<() => boolean>('hasShowActiveBorder', () => false)
+
+// Use parent's showActiveBorder if prop is not explicitly set
+const effectiveShowActiveBorder = computed(() => {
+    return props.showActiveBorder !== undefined
+        ? props.showActiveBorder
+        : hasShowActiveBorder()
+})
 
 // Generate unique IDs for ARIA attributes
 const headingId = computed(() => `accordion-heading-${props.id}`)
@@ -65,7 +73,7 @@ onMounted(() => {
         {
             'tm-accordion-item-active': isExpanded(id),
             'tm-accordion-item-disabled': disabled,
-            'tm-accordion-item-with-active-border': showActiveBorder
+            'tm-accordion-item-with-active-border': effectiveShowActiveBorder
         }
     ]">
         <h3>
