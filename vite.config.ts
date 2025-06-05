@@ -13,6 +13,9 @@ export default defineConfig({
     vue(),
     tailwindcss(),
   ],
+  optimizeDeps: {
+    include: ['prettier/standalone', 'prettier/parser-html', 'prettier/parser-postcss', 'prettier/parser-typescript'],
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

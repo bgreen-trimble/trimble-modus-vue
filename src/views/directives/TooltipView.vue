@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { Button, Switch, Slider } from '@/components';
+import { CodeExample, CodeFormatter } from '@/components/app/code-example';
 
 // Available tooltip positions for the example
 const positions = ['top', 'right', 'bottom', 'left'];
@@ -17,14 +18,14 @@ const sliderValue = ref(50);
 // Example of the code for the selected configuration
 const exampleCode = computed(() => {
     if (position.value === 'top' && delay.value === 0) {
-        return `<button v-tooltip="${content.value}">Hover Me</button>`;
+        return `<Button v-tooltip="${content.value}">Hover Me</Button>`;
     }
 
-    return `<button v-tooltip="{
+    return `<Button v-tooltip="{
   content: '${content.value}',
   position: '${position.value}'${delay.value > 0 ? `,
   delay: ${delay.value}` : ''}
-}">Hover Me</button>`;
+}">Hover Me</Button>`;
 });
 </script>
 
@@ -43,7 +44,7 @@ const exampleCode = computed(() => {
         <section class="showcase-section mb-8">
             <h2 class="tm-h2 mb-4">Basic Usage</h2>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-1 gap-8">
                 <div>
                     <h3 class="tm-h3 mb-2">Simple String Tooltip</h3>
                     <p class="tm-body mb-4">
@@ -56,13 +57,9 @@ const exampleCode = computed(() => {
                         </Button>
                     </div>
 
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mt-4">
-                        <code class="block whitespace-pre-wrap">
-&lt;Button v-tooltip="'This is a simple tooltip'" variant="filled"&gt;
-  Hover Me
-&lt;/Button&gt;
-            </code>
-                    </div>
+                    <CodeFormatter language="vue">
+                        {{ `<Button v-tooltip="'This is a simple tooltip'" variant="filled">Hover Me</Button>`}}
+                    </CodeFormatter>
                 </div>
 
                 <div>
@@ -79,19 +76,15 @@ const exampleCode = computed(() => {
                             Configured Tooltip
                         </Button>
                     </div>
-
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mt-4">
-                        <code class="block whitespace-pre-wrap">
-&lt;Button 
-  v-tooltip="{ 
-    content: 'Configured tooltip', 
-    position: 'right'
-  }" 
-  variant="outlined"&gt;
-  Configured Tooltip
-&lt;/Button&gt;
-            </code>
-                    </div>
+                    <CodeFormatter language="vue">
+                        {{`<Button v-tooltip="{
+                            content: 'Configured tooltip',
+                            position: 'right'
+                        }" variant="outlined">
+                            Configured Tooltip
+                        </Button>
+                        `}}
+                    </CodeFormatter>
                 </div>
             </div>
         </section>
@@ -126,29 +119,15 @@ const exampleCode = computed(() => {
                 </div>
             </div>
 
-            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mt-4">
-                <code class="block whitespace-pre-wrap">
-// Switch example
-&lt;Switch
-  v-model="switchValue"
-  v-tooltip="{
+            <CodeFormatter language="vue">
+                {{ `// Switch example
+                <Switch v-model="switchValue" v-tooltip="{
     content: switchValue ? 'Click to disable' : 'Click to enable',
     position: 'right'
-  }"
-/&gt;
+}" />
 
-// Slider example
-&lt;Slider
-  v-model="sliderValue"
-  :min="0"
-  :max="100"
-  v-tooltip="{
-    content: `Current value: ${sliderValue}%`,
-    position: 'top'
-  }"
-/&gt;
-        </code>
-            </div>
+                `}}
+            </CodeFormatter>
         </section>
 
         <!-- Positions -->
@@ -175,13 +154,11 @@ const exampleCode = computed(() => {
                 </div>
             </div>
 
-            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mt-4">
-                <code class="block whitespace-pre-wrap">
-&lt;Button v-tooltip="{ content: 'Position example', position: '{{ position }}' }" variant="filled"&gt;
-  Hover for {{ position }} tooltip
-&lt;/Button&gt;
-        </code>
-            </div>
+            <CodeFormatter language="vue">
+                {{ `<Button v-tooltip="{ content: 'Position example', position: 'top' }" variant="filled">
+                    Hover for top tooltip
+                </Button>
+                `}} </CodeFormatter>
         </section>
 
         <!-- Delay -->
@@ -205,13 +182,11 @@ const exampleCode = computed(() => {
                 </div>
             </div>
 
-            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mt-4">
-                <code class="block whitespace-pre-wrap">
-&lt;Button v-tooltip="{ content: 'Delayed tooltip', delay: {{ delay }} }" variant="filled"&gt;
-  Hover for delayed tooltip
-&lt;/Button&gt;
-        </code>
-            </div>
+            <CodeFormatter language="vue">
+                {{ `<Button v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" variant="filled">
+                    Hover for delayed tooltip
+                </Button>
+                `}} </CodeFormatter>
         </section>
 
         <!-- Custom Configuration -->
@@ -251,9 +226,7 @@ const exampleCode = computed(() => {
                     </Button>
                 </div>
 
-                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                    <code class="block whitespace-pre-wrap">{{ exampleCode }}</code>
-                </div>
+                <CodeFormatter language="vue">{{ exampleCode }}</CodeFormatter>
             </div>
         </section>
 
@@ -275,16 +248,13 @@ const exampleCode = computed(() => {
                 </div>
             </div>
 
-            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mt-4">
-                <code class="block whitespace-pre-wrap">
-&lt;button 
-  aria-label="Settings" 
-  v-tooltip="'Settings'"
-  class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"&gt;
-  &lt;i class="modus-icons" aria-hidden="true"&gt;settings&lt;/i&gt;
-&lt;/button&gt;
-        </code>
-            </div>
+            <CodeFormatter language="vue">
+                {{ ` <Button aria-label="Settings" v-tooltip="'Settings'"
+                        class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
+                        variant="text">
+                        <i class="modus-icons" aria-hidden="true">settings</i>
+                    </Button>
+                `}} </CodeFormatter>
         </section>
     </div>
 </template>
