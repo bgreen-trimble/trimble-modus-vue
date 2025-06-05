@@ -51,13 +51,13 @@ const updateOption = (index: number, value: boolean) => {
                                 </p>
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
+                            <div class="code-block">
+                                <pre><code class="block whitespace-pre-wrap">
 &lt;Checkbox 
   v-model="termsAccepted" 
   label="I accept the terms and conditions"
 /&gt;
-                </code>
+                </code></pre>
                             </div>
                         </section>
 
@@ -77,14 +77,14 @@ const updateOption = (index: number, value: boolean) => {
                                 </Card>
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
+                            <div class="code-block">
+                                <pre><code class="block whitespace-pre-wrap">
         &lt;Checkbox
         size="compact"
         v-model="notificationsEnabled"
         label="Enable notifications"
         /&gt;
-    </code>
+    </code></pre>
                             </div>
                         </section>
 
@@ -102,19 +102,19 @@ const updateOption = (index: number, value: boolean) => {
                                 </div>
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
-            &lt;Checkbox
-            disabled
-            label="Disabled unchecked checkbox"
-            /&gt;
+                            <div class="code-block">
+                                <pre><code class="block whitespace-pre-wrap">
+    &lt;Checkbox
+    disabled
+    label="Disabled unchecked checkbox"
+    /&gt;
 
-            &lt;Checkbox
-            disabled
-            checked
-            label="Disabled checked checkbox"
-            /&gt;
-        </code>
+    &lt;Checkbox
+    disabled
+    checked
+    label="Disabled checked checkbox"
+    /&gt;
+</code></pre>
                             </div>
                         </section>
 
@@ -129,13 +129,13 @@ const updateOption = (index: number, value: boolean) => {
                                 <Checkbox required label="I agree to the privacy policy" />
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
-            &lt;Checkbox
-            required
-            label="I agree to the privacy policy"
-            /&gt;
-        </code>
+                            <div class="code-block">
+                                <pre><code class="block whitespace-pre-wrap">
+    &lt;Checkbox
+    required
+    label="I agree to the privacy policy"
+    /&gt;
+</code></pre>
                             </div>
                         </section>
 
@@ -155,13 +155,13 @@ const updateOption = (index: number, value: boolean) => {
                                 </button>
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
-            &lt;Checkbox
-            :indeterminate="indeterminateState"
-            label="Some options selected"
-            /&gt;
-        </code>
+                            <div class="code-block">
+                                <pre><code class="block whitespace-pre-wrap">
+                &lt;Checkbox
+                :indeterminate="indeterminateState"
+                label="Some options selected"
+                /&gt;
+            </code></pre>
                             </div>
                         </section>
 
@@ -185,20 +185,20 @@ const updateOption = (index: number, value: boolean) => {
                                 </p>
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
-            &lt;div class="flex flex-col gap-2"&gt;
-            &lt;p class="tm-body font-medium mb-2"&gt;Select your preferences:&lt;/p&gt;
-            &lt;Checkbox
-            v-for="(option, index) in multipleOptions"
-            :key="option.id"
-            :id="option.id"
-            :label="option.label"
-            :checked="option.checked"
-            @change="updateOption(index, $event)"
-            /&gt;
-            &lt;/div&gt;
-        </code>
+                            <div class="code-block">
+                                <pre><code class="block whitespace-pre-wrap">
+    &lt;div class="flex flex-col gap-2"&gt;
+    &lt;p class="tm-body font-medium mb-2"&gt;Select your preferences:&lt;/p&gt;
+    &lt;Checkbox
+    v-for="(option, index) in multipleOptions"
+    :key="option.id"
+    :id="option.id"
+    :label="option.label"
+    :checked="option.checked"
+    @change="updateOption(index, $event)"
+    /&gt;
+    &lt;/div&gt;
+</code></pre>
                             </div>
                         </section>
 
@@ -221,22 +221,22 @@ const updateOption = (index: number, value: boolean) => {
                                 </form>
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
-            &lt;form&gt;
-            &lt;Checkbox
-            name="consent"
-            value="yes"
-            label="I consent to data collection"
-            /&gt;
-            &lt;Checkbox
-            name="marketing"
-            value="subscribe"
-            label="Subscribe to marketing emails"
-            /&gt;
-            &lt;button type="submit"&gt;Submit Form&lt;/button&gt;
-            &lt;/form&gt;
-        </code>
+                            <div class="code-block ">
+                                <pre><code class="block whitespace-pre-wrap">
+    &lt;form&gt;
+    &lt;Checkbox
+    name="consent"
+    value="yes"
+    label="I consent to data collection"
+    /&gt;
+    &lt;Checkbox
+    name="marketing"
+    value="subscribe"
+    label="Subscribe to marketing emails"
+    /&gt;
+    &lt;button type="submit"&gt;Submit Form&lt;/button&gt;
+    &lt;/form&gt;
+</code></pre>
                             </div>
                         </section>
 
@@ -261,20 +261,21 @@ const updateOption = (index: number, value: boolean) => {
                                 </div>
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
-            /* CSS */
-            .checkbox-star-demo .tm-checkbox-input:checked {
-            --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24
-            24' fill='white'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46
-            4.73L5.82 21z'/%3E%3C/svg%3E");
-            }
+                            <div class="code-block">
+                                <pre><code class="block whitespace-pre-wrap">
+        /* CSS */
+        .checkbox-star-demo .tm-checkbox-input:checked {
+        --tm-checkbox-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0
+        24
+        24' fill='white'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46
+        4.73L5.82 21z'/%3E%3C/svg%3E");
+        }
 
-            /* HTML */
-            &lt;div class="checkbox-star-demo"&gt;
-            &lt;Checkbox label="Checkbox with star icon" /&gt;
-            &lt;/div&gt;
-        </code>
+        /* HTML */
+        &lt;div class="checkbox-star-demo"&gt;
+        &lt;Checkbox label="Checkbox with star icon" /&gt;
+        &lt;/div&gt;
+    </code></pre>
                             </div>
                         </section>
 
@@ -296,17 +297,17 @@ const updateOption = (index: number, value: boolean) => {
                                 </Checkbox>
                             </div>
 
-                            <div class="code-block p-4 rounded-lg mt-4">
-                                <code class="block whitespace-pre-wrap">
-            &lt;Checkbox&gt;
-            &lt;div class="flex items-center gap-2"&gt;
-            &lt;span class="font-bold"&gt;Subscribe to newsletter&lt;/span&gt;
-            &lt;span class="bg-tm-primary text-white text-xs px-2 py-1 rounded-full"&gt;
-            Recommended
-            &lt;/span&gt;
-            &lt;/div&gt;
-            &lt;/Checkbox&gt;
-        </code>
+                            <div class="code-block">
+                                <pre><code class="block whitespace-pre-wrap">
+        &lt;Checkbox&gt;
+        &lt;div class="flex items-center gap-2"&gt;
+        &lt;span class="font-bold"&gt;Subscribe to newsletter&lt;/span&gt;
+        &lt;span class="bg-tm-primary text-white text-xs px-2 py-1 rounded-full"&gt;
+        Recommended
+        &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;/Checkbox&gt;
+    </code></pre>
                             </div>
                         </section>
                     </div>
@@ -494,11 +495,13 @@ const updateOption = (index: number, value: boolean) => {
                             </p>
                             <ul class="list-disc pl-6 space-y-2">
                                 <li class="tm-body">
-                                    <code>aria-label</code> for providing an accessible name when visual label is not
+                                    <pre><code>aria-label</code></pre> for providing an accessible name when visual
+                                    label is not
                                     used
                                 </li>
                                 <li class="tm-body">
-                                    <code>aria-describedby</code> to associate the checkbox with a description
+                                    <pre><code>aria-describedby</code></pre> to associate the checkbox with a
+                                    description
                                 </li>
                             </ul>
 
@@ -508,7 +511,8 @@ const updateOption = (index: number, value: boolean) => {
                                     Always provide a visible label for checkboxes when possible
                                 </li>
                                 <li class="tm-body">
-                                    Use <code>ariaLabel</code> when a visible label is not provided
+                                    Use
+                                    <pre><code>ariaLabel</code></pre> when a visible label is not provided
                                 </li>
                                 <li class="tm-body">
                                     Ensure the checkbox has sufficient color contrast against its background
@@ -581,6 +585,8 @@ const updateOption = (index: number, value: boolean) => {
 }
 
 .code-block {
+    margin-top: 1rem;
+    padding: 1rem;
     background-color: var(--color-tm-gray-0);
     border: 1px solid var(--color-tm-gray-2);
 }
@@ -589,6 +595,4 @@ const updateOption = (index: number, value: boolean) => {
     background-color: var(--color-tm-gray-9);
     border: 1px solid var(--color-tm-gray-2);
 }
-
 </style>
-
