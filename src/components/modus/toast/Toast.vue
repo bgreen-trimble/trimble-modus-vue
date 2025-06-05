@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import { ref, defineProps, defineEmits } from 'vue'
-import type { ToastSeverity, ToastPosition } from '../../composables/useToast'
+import type { ToastSeverity, ToastPosition } from '@/composables/useToast'
 import Button from '../button/Button.vue'
 
 export interface ToastProps {

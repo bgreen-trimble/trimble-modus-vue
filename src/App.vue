@@ -3,7 +3,7 @@ import { computed, ref, onMounted } from 'vue'
 import { RouterLink, RouterView, useRouter, type RouteRecordRaw } from 'vue-router'
 import { useDarkMode } from '@/composables/useDarkMode'
 import { Navbar, Button, Menu } from '@/components'
-import type { MenuItem } from '@/components/menu/menuitem'
+import type { MenuItem } from '@/components/modus/menu/menuitem'
 
 // Get all route names for navigation
 const router = useRouter()

@@ -2,10 +2,7 @@
 import { ref, onMounted, onBeforeUnmount, computed, nextTick, watch } from 'vue'
 import type { MenuItem } from './menuitem'
 import MenuItemComponent from './MenuItem.vue'
-import './menu.css'
-import { Teleport } from 'vue'
 import { useFloating, offset, flip, shift, arrow, autoUpdate } from '@floating-ui/vue'
-
 
 interface MenuProps {
   model: MenuItem[]

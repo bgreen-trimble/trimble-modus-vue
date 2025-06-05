@@ -7,15 +7,16 @@
 @import './base/typography.css';
 
 /* Component styles */
-@import '../components/accordion/accordion.css';
-@import '../components/button/button.css';
-@import '../components/card/card.css';
-@import '../components/checkbox/checkbox.css';
-@import '../components/switch/switch.css';
-@import '../components/navbar/navbar.css';
-@import '../components/toast/toast.css';
-@import '../components/slider/slider.css';
-@import '../components/tabs/tabs.css';
+@import '../components/modus/accordion/accordion.css';
+@import '../components/modus/button/button.css';
+@import '../components/modus/card/card.css';
+@import '../components/modus/checkbox/checkbox.css';
+@import '../components/modus/switch/switch.css';
+@import '../components/modus/menu/menu.css';
+@import '../components/modus/navbar/navbar.css';
+@import '../components/modus/toast/toast.css';
+@import '../components/modus/slider/slider.css';
+@import '../components/modus/tabs/tabs.css';
 
 /* Directive styles */
 @import '../directives/tooltip/tooltip.css';

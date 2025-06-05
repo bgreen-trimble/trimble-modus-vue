@@ -25,10 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import { useToast } from '../../composables/useToast'
+import { useToast } from '@/composables/useToast'
 import Toast from './Toast.vue'
 import { computed } from 'vue'
-import type { ToastPosition } from '../../composables/useToast'
+import type { ToastPosition } from '@/composables/useToast'
 
 const { toasts, removeToast } = useToast()
 

@@ -1,5 +1,3 @@
-@import '../../styles/base/imports.css';
-
 @theme {
   /* Menu Colors - Light Mode */
   --color-tm-menu-text: var(--color-tm-trimble-gray);       
