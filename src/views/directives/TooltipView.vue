@@ -54,11 +54,11 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                        <CodeFormatter language="vue">
-                            {{ `<Button v-tooltip="'This is a simple tooltip'" variant="filled">
-                                Hover Me
-                            </Button>`}}
-                        </CodeFormatter>
+                    <CodeFormatter language="vue">
+                        {{ `<Button v-tooltip="'This is a simple tooltip'" variant="filled">
+                            Hover Me
+                        </Button>`}}
+                    </CodeFormatter>
                 </div>
 
                 <!-- Object Configuration Example -->
@@ -76,13 +76,12 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                        <CodeFormatter language="vue">
-                            {{`<Button v-tooltip="{
+                    <CodeFormatter language="vue">
+                        {{ `<Button v-tooltip="{
     content: 'Configured tooltip',
     position: 'right'
-}" 
-variant="outlined">Configured Tooltip</Button>`}}
-                        </CodeFormatter>
+}" variant="outlined">Configured Tooltip</Button>`}}
+                    </CodeFormatter>
                 </div>
             </div>
         </section>
@@ -110,10 +109,13 @@ variant="outlined">Configured Tooltip</Button>`}}
                         </div>
                     </div>
 
-                    <div>
-                        <CodeFormatter language="vue">
-                        </CodeFormatter>
-                    </div>
+                    <CodeFormatter language="vue">
+                        {{ `
+                        <Switch v-model="switchValue" v-tooltip="{
+                                    content: switchValue ? 'Click to disable' : 'Click to enable',
+                                    position: 'right'
+                                }" />`}}
+                    </CodeFormatter>
                 </div>
 
                 <!-- Slider Example -->
@@ -128,8 +130,8 @@ variant="outlined">Configured Tooltip</Button>`}}
                         </div>
                     </div>
 
-                        <CodeFormatter language="vue">
-                        </CodeFormatter>
+                    <CodeFormatter language="vue">
+                    </CodeFormatter>
                 </div>
             </div>
         </section>
@@ -187,13 +189,11 @@ variant="outlined">Configured Tooltip</Button>`}}
                     </div>
                 </div>
 
-                    <CodeFormatter language="vue">
-                        {{`<Button 
-                        v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" 
-                        variant="filled">
-                            Hover for delayed tooltip
-                        </Button>`}}
-                    </CodeFormatter>
+                <CodeFormatter language="vue">
+                    {{ `<Button v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" variant="filled">
+                        Hover for delayed tooltip
+                    </Button>`}}
+                </CodeFormatter>
             </div>
         </section>
 
@@ -238,7 +238,7 @@ variant="outlined">Configured Tooltip</Button>`}}
                     </div>
                 </div>
 
-                    <CodeFormatter language="vue">{{ exampleCode }}</CodeFormatter>
+                <CodeFormatter language="vue">{{ exampleCode }}</CodeFormatter>
             </div>
         </section>
 
@@ -263,14 +263,14 @@ variant="outlined">Configured Tooltip</Button>`}}
                     </div>
                 </div>
 
-                    <CodeFormatter language="vue">
-                        {{`<Button aria-label="Settings" v-tooltip="'Settings'"
-                            class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
-                            variant="text">
-                            <i class="modus-icons" aria-hidden="true">settings</i>
-                        </Button>`
-                        }}
-                    </CodeFormatter>
+                <CodeFormatter language="vue">
+                    {{ `<Button aria-label="Settings" v-tooltip="'Settings'"
+                        class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
+                        variant="text">
+                        <i class="modus-icons" aria-hidden="true">settings</i>
+                    </Button>`
+                    }}
+                </CodeFormatter>
             </div>
         </section>
     </div>

@@ -13,27 +13,30 @@ import 'prismjs/components/prism-markup';
 const slots = useSlots();
 const formattedCode = ref('');
 const isExpanded = ref(false);
-const lineCount = ref(0);
 const prettyCode = ref('');
 const copySuccess = ref(false);
+const lineCount = ref(0);
 
 const props = defineProps<{
     language: string,
     code?: string
 }>();
 
-const displayedCode = computed(() => {
-    if (isExpanded.value || lineCount.value <= 5) {
-        return formattedCode.value;
+const codeHeight = computed(() => {
+    if (isExpanded.value) {
+        return '100%';
     }
-
-    // Split by line, take first 5 lines, and join back
-    const lines = formattedCode.value.split('\n');
-    return lines.slice(0, 5).join('\n');
+    // For 5 or fewer lines, show all content
+    if (lineCount.value <= 5) {
+        return 'auto';
+    }
+    // Default collapsed height
+    return '128px';
 });
 
 const toggleExpand = () => {
     isExpanded.value = !isExpanded.value;
+    console.log('Toggle expand:', isExpanded.value, 'Height:', codeHeight.value, 'Lines:', lineCount.value);
 };
 
 const copyToClipboard = () => {
@@ -70,7 +73,11 @@ onMounted(async () => {
         try {
             const formatted = await prettier.format(stringContent, {
                 parser: 'babel-ts',
+                semi: false,
                 plugins: [pluginEstree, parserHTML, parserTypescript, parserBabel]
+            }).then(result => {
+                const trimmed = result.trim();
+                return result.trim().startsWith(';') ? trimmed.slice(1).trimStart() : trimmed;
             });
 
             console.log('Formatted code:', formatted);
@@ -87,6 +94,7 @@ onMounted(async () => {
             prettyCode.value = formattedCode.value; // Store original code for copying
             // Count lines in the formatted code
             lineCount.value = formatted.split('\n').length;
+            console.log('Line count:', lineCount.value);
         } catch (error) {
             console.error('Error formatting code:', error);
             formattedCode.value = stringContent;
@@ -117,7 +125,8 @@ onMounted(async () => {
                 <span class="sr-only">Copy code</span>
             </button>
         </div>
-        <pre><code v-html="displayedCode" class="language-markup"></code></pre>
+        <pre :style="{ maxHeight: codeHeight }" class="p-2"><code v-html="formattedCode" class="language-markup"></code></pre>
+        <div v-if="lineCount > 5 && !isExpanded" class="code-gradient"></div>
     </div>
 </template>
 
@@ -130,8 +139,11 @@ onMounted(async () => {
 
 .code-formatter pre {
     overflow-x: auto;
+    overflow-y: auto;
     margin: 0;
     white-space: pre;
+    transition: max-height 0.3s ease;
+    min-height: 24px; /* Ensure at least some content is visible */
 }
 
 /* Expand/collapse controls */
@@ -189,6 +201,18 @@ onMounted(async () => {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+}
+
+.code-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0), rgba(30, 30, 30, 1));
+    pointer-events: none;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 /* Custom scrollbar styles */
