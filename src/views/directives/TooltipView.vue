@@ -54,13 +54,11 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
                         <CodeFormatter language="vue">
                             {{ `<Button v-tooltip="'This is a simple tooltip'" variant="filled">
                                 Hover Me
                             </Button>`}}
                         </CodeFormatter>
-                    </div>
                 </div>
 
                 <!-- Object Configuration Example -->
@@ -78,7 +76,7 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                    <div>
                         <CodeFormatter language="vue">
                             {{`<Button v-tooltip="{
     content: 'Configured tooltip',
@@ -115,14 +113,8 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                    <div>
                         <CodeFormatter language="vue">
-                            {{`
-                            <Switch v-model="switchValue" v-tooltip="{
-    content: switchValue ? 'Click to disable' : 'Click to enable',
-    position: 'right'
-}" />
-    <span>Status: \{\{ switchValue ? 'Enabled' : 'Disabled' \}\}</span>`}}
                         </CodeFormatter>
                     </div>
                 </div>
@@ -139,13 +131,8 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                    <div>
                         <CodeFormatter language="vue">
-                            {{`
-                            <Slider v-model="sliderValue" :min="0" :max="100" v-tooltip="{
-    content: \`Current value: \${sliderValue}%\`,
-    position: 'top'
-}" />`}}
                         </CodeFormatter>
                     </div>
                 </div>
@@ -205,7 +192,7 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                <div>
                     <CodeFormatter language="vue">
                         {{`<Button v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" variant="filled">
                             Hover for delayed tooltip
@@ -256,7 +243,7 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                <div>
                     <CodeFormatter language="vue">{{ exampleCode }}</CodeFormatter>
                 </div>
             </div>
@@ -283,7 +270,7 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <div class="bg-tm-gray-0 dark:bg-tm-gray-10 rounded-md">
+                <div>
                     <CodeFormatter language="vue">
                         {{`<Button aria-label="Settings" v-tooltip="'Settings'"
                             class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"

@@ -6,6 +6,8 @@ import * as parserTypescript from 'prettier/parser-typescript';
 import * as parserBabel from 'prettier/parser-babel';
 import pluginEstree from "prettier/plugins/estree";
 import prettierPluginVue from 'prettier-plugin-vue';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css';
 
 const slots = useSlots();
 const formattedCode = ref('');
@@ -30,21 +32,20 @@ onMounted(async () => {
     if (content) {
         // Ensure content is a string
         const stringContent = String(content).trim();
-        console.log('String content:', stringContent);
 
         try {
-            // Format the code
             const formatted = await prettier.format(stringContent, {
                 parser: 'babel-ts',
                 plugins: [pluginEstree, parserHTML, parserTypescript, parserBabel, prettierPluginVue]
             });
 
-            // Restore directives
-            formattedCode.value = formatted;
+            const language = 'markup'
+            const grammar = window.Prism.languages[language]
+            formattedCode.value = Prism.highlight(formatted, grammar, language);
+            console.log('Formatted code: ', formattedCode.value);
         } catch (error) {
             console.error('Error formatting code:', error);
-            console.log('Original content:', content);
-            formattedCode.value = stringContent; // Fallback to original content if formatting fails
+            formattedCode.value = stringContent;
         }
     }
 });
@@ -52,23 +53,47 @@ onMounted(async () => {
 
 <template>
     <div class="code-formatter">
-        <pre><code>{{ formattedCode }}</code></pre>
+        <pre><code v-html="formattedCode" class="language-markdown"></code></pre>
     </div>
 </template>
 
 <style>
 .code-formatter {
-    overflow-x: auto;
-    max-width: 100%;
+    border-radius: 0.5rem;
+    background: #1e1e1e !important;
 }
 
-.code-formatter pre {
-    margin: 0;
-    white-space: pre;
+code[class*="language-"],
+pre[class*="language-"] {
+    text-shadow: none !important;
 }
 
-.code-formatter code {
-    display: inline-block;
-    min-width: 100%;
+code[class*="language-"],
+pre[class*="language-"] {
+    font-family: "Fira Code", "Courier New", monospace;
 }
+
+code[class*="language-"],
+pre[class*="language-"] {
+    font-family: "Fira Code", "Courier New", monospace;
+}
+
+pre[class*="language-"] {
+    background: #1e1e1e !important;
+    color: white;
+}
+
+pre[class*="language-"] {
+    background: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+.token.tag {
+  color: #4a90e2 !important; 
+}
+
+.token.attr-name {
+  color: white; 
+}
+
 </style>
