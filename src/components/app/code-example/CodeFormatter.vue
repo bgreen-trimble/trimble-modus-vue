@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, useSlots } from 'vue';
+import { ref, onMounted, useSlots, computed } from 'vue';
 import * as prettier from 'prettier/standalone';
 import * as parserHTML from 'prettier/parser-html';
 import * as parserTypescript from 'prettier/parser-typescript';
@@ -12,11 +12,27 @@ import 'prismjs/components/prism-markup';
 
 const slots = useSlots();
 const formattedCode = ref('');
+const isExpanded = ref(false);
+const lineCount = ref(0);
 
 const props = defineProps<{
     language: string,
     code?: string
 }>();
+
+const displayedCode = computed(() => {
+    if (isExpanded.value || lineCount.value <= 5) {
+        return formattedCode.value;
+    }
+    
+    // Split by line, take first 5 lines, and join back
+    const lines = formattedCode.value.split('\n');
+    return lines.slice(0, 5).join('\n');
+});
+
+const toggleExpand = () => {
+    isExpanded.value = !isExpanded.value;
+};
 
 onMounted(async () => {
     let content = '';
@@ -48,9 +64,13 @@ onMounted(async () => {
             } else {
                 formattedCode.value = Prism.highlight(formatted, grammar, language);
             }
+            
+            // Count lines in the formatted code
+            lineCount.value = formatted.split('\n').length;
         } catch (error) {
             console.error('Error formatting code:', error);
             formattedCode.value = stringContent;
+            lineCount.value = stringContent.split('\n').length;
         }
     }
 });
@@ -58,7 +78,12 @@ onMounted(async () => {
 
 <template>
     <div class="code-formatter px-2">
-        <pre><code v-html="formattedCode" class="language-markup"></code></pre>
+        <pre><code v-html="displayedCode" class="language-markup"></code></pre>
+        <div v-if="lineCount > 5" class="expand-control" @click="toggleExpand">
+            <button class="expand-button">
+                {{ isExpanded ? 'Show Less' : 'Show More' }}
+            </button>
+        </div>
     </div>
 </template>
 
@@ -66,12 +91,34 @@ onMounted(async () => {
 .code-formatter {
     border-radius: 0.5rem;
     background: #1e1e1e !important;
+    position: relative;
 }
 
 .code-formatter pre {
     overflow-x: auto;
     margin: 0;
     white-space: pre;
+}
+
+/* Expand/collapse controls */
+.expand-control {
+    text-align: center;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expand-button {
+    background: transparent;
+    color: #60a5fa;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.expand-button:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Custom scrollbar styles */
