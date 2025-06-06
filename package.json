@@ -15,7 +15,6 @@
     "@trimble-oss/modus-icons": "^1.16.0",
     "@types/prismjs": "^1.26.5",
     "prettier": "^3.5.3",
-    "prettier-plugin-vue": "^1.1.6",
     "prismjs": "^1.30.0",
     "tailwindcss": "^4.1.8",
     "vue": "^3.5.13",

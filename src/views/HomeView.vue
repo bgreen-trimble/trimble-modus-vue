@@ -168,6 +168,12 @@ const componentList = [
     description: 'Selection control for multiple options or toggle states'
   },
   {
+    name: 'Radio',
+    path: 'radio-view',
+    icon: 'radio_button_checked',
+    description: 'Selection control for single choice options'
+  },
+  {
     name: 'Toast',
     path: 'toast-view',
     icon: 'notification_important',

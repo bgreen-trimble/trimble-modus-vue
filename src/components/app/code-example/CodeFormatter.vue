@@ -5,7 +5,6 @@ import * as parserHTML from 'prettier/parser-html';
 import * as parserTypescript from 'prettier/parser-typescript';
 import * as parserBabel from 'prettier/parser-babel';
 import pluginEstree from "prettier/plugins/estree";
-import prettierPluginVue from 'prettier-plugin-vue';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';

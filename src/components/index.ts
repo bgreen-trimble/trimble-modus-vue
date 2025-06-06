@@ -28,3 +28,7 @@ export type { AccordionItemProps } from './modus/accordion/AccordionItem.vue'
 
 export { Checkbox } from './modus/checkbox'
 export type { CheckboxProps } from './modus/checkbox/Checkbox.vue'
+
+export { Radio, RadioGroup } from './modus/radio'
+export type { RadioProps } from './modus/radio/Radio.vue'
+export type { RadioGroupProps } from './modus/radio/RadioGroup.vue'
