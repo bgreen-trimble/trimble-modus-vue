@@ -8,6 +8,7 @@ import pluginEstree from "prettier/plugins/estree";
 import prettierPluginVue from 'prettier-plugin-vue';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/components/prism-markup';
 
 const slots = useSlots();
 const formattedCode = ref('');
@@ -39,10 +40,14 @@ onMounted(async () => {
                 plugins: [pluginEstree, parserHTML, parserTypescript, parserBabel, prettierPluginVue]
             });
 
-            const language = 'markup'
-            const grammar = window.Prism.languages[language]
-            formattedCode.value = Prism.highlight(formatted, grammar, language);
-            console.log('Formatted code: ', formattedCode.value);
+            const language = 'markup';
+            const grammar = Prism.languages[language];
+            if (!grammar) {
+                console.error('Grammar not found for language:', language);
+                formattedCode.value = formatted;
+            } else {
+                formattedCode.value = Prism.highlight(formatted, grammar, language);
+            }
         } catch (error) {
             console.error('Error formatting code:', error);
             formattedCode.value = stringContent;
@@ -53,7 +58,7 @@ onMounted(async () => {
 
 <template>
     <div class="code-formatter">
-        <pre><code v-html="formattedCode" class="language-markdown"></code></pre>
+        <pre><code v-html="formattedCode" class="language-markup"></code></pre>
     </div>
 </template>
 
