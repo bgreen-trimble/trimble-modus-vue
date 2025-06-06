@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, inject } from 'vue'
 
 /**
  * Radio component allows users to select a single option from a list.
@@ -60,8 +60,47 @@ const emit = defineEmits<{
 const uniqueId = `radio-${Math.random().toString(36).substring(2, 9)}`
 const radioId = computed(() => props.id || (props.autoId ? uniqueId : undefined))
 
+// Define the type for radio group context
+interface RadioGroupContext {
+    name: { value: string }
+    modelValue: { value: any }
+    size: { value: 'default' | 'compact' }
+    disabled: { value: boolean }
+    updateValue: (value: any) => void
+}
+
+// Get radio group context if available
+const radioGroup = inject<RadioGroupContext | null>('radioGroupContext', null)
+
+// Determine the name from group context or props
+const radioName = computed(() => {
+    if (radioGroup && radioGroup.name) {
+        return radioGroup.name.value
+    }
+    return props.name
+})
+
+// Determine size from group context or props
+const radioSize = computed(() => {
+    if (radioGroup && radioGroup.size) {
+        return radioGroup.size.value
+    }
+    return props.size
+})
+
+// Determine disabled state from group context or props
+const isDisabled = computed(() => {
+    if (radioGroup && radioGroup.disabled) {
+        return radioGroup.disabled.value
+    }
+    return props.disabled
+})
+
 // Handle the internal checked state
 const isChecked = computed(() => {
+    if (radioGroup && radioGroup.modelValue) {
+        return radioGroup.modelValue.value === props.value
+    }
     if (props.modelValue !== undefined) {
         return props.modelValue === props.value
     }
@@ -73,22 +112,27 @@ const handleChange = (event: Event) => {
     const target = event.target as HTMLInputElement
     const newValue = props.value !== undefined ? props.value : target.value
 
-    // Emit both events for flexibility
-    emit('update:modelValue', newValue)
-    emit('change', newValue)
+    // If in a radio group, use its update method
+    if (radioGroup && radioGroup.updateValue) {
+        radioGroup.updateValue(newValue)
+    } else {
+        // Otherwise emit directly
+        emit('update:modelValue', newValue)
+        emit('change', newValue)
+    }
 }
 </script>
 
 <template>
     <div :class="[
         'tm-radio-container',
-        `tm-radio-${size}`,
+        `tm-radio-${radioSize}`,
         {
-            'tm-radio-disabled': disabled
+            'tm-radio-disabled': isDisabled
         }
     ]">
-        <input type="radio" :class="'tm-radio-input'" :id="radioId" :name="name"
-            :value="value" :checked="isChecked" :disabled="disabled" :required="required" :aria-label="ariaLabel"
+        <input type="radio" :class="'tm-radio-input'" :id="radioId" :name="radioName"
+            :value="value" :checked="isChecked" :disabled="isDisabled" :required="required" :aria-label="ariaLabel"
             :aria-describedby="ariaDescribedby" @change="handleChange" />
         <label v-if="label || $slots.default" :for="radioId"
             :class="['tm-radio-label', { 'tm-radio-required': required }]">

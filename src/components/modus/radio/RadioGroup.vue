@@ -67,11 +67,6 @@ provide('radioGroupContext', {
     }
 })
 
-// Handle radio group changes
-const handleChange = (value: any) => {
-    emit('update:modelValue', value)
-    emit('change', value)
-}
 </script>
 
 <template>
@@ -85,12 +80,6 @@ const handleChange = (value: any) => {
         <label v-if="label" :class="['tm-radio-group-label', { 'tm-radio-required': required }]">
             {{ label }}
         </label>
-        <slot 
-            :name="groupName" 
-            :model-value="modelValue" 
-            :size="size" 
-            :disabled="disabled" 
-            :on-change="handleChange">
-        </slot>
+        <slot></slot>
     </div>
 </template>
