@@ -175,8 +175,7 @@ const selectedColor = ref('blue')
             </div>
 
             <CodeExample language="vue" class="mt-4">
-                {{`<Card>
-  <template #title>Language Settings</template>
+                {{`
   <div>
   <RadioGroup 
     label="Select language" 
@@ -189,7 +188,7 @@ const selectedColor = ref('blue')
     <Radio value="fr" label="French" />
     <Radio value="de" label="German" />
   </RadioGroup></div>
-</Card>`}}
+`}}
             </CodeExample>
         </section>
 
@@ -260,30 +259,6 @@ const selectedColor = ref('blue')
                 </p>
             </div>
 
-            <CodeExample language="vue" class="mt-4">
-                {{`// In the script
-const colorOptions = [
-  { value: 'red', label: 'Red' },
-  { value: 'blue', label: 'Blue' },
-  { value: 'green', label: 'Green' }
-]
-const selectedColor = ref('blue')
-
-// In the template
-<div>
-<RadioGroup 
-  label="Select color" 
-  name="color" 
-  v-model="selectedColor"
->
-  <Radio 
-    v-for="option in colorOptions" 
-    :key="option.value"
-    :value="option.value" 
-    :label="option.label" 
-  />
-</RadioGroup></div>`}}
-            </CodeExample>
         </section>
     </div>
 </template>
