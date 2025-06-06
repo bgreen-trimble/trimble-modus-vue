@@ -13,7 +13,7 @@ import 'prismjs/components/prism-markup';
 const slots = useSlots();
 const formattedCode = ref('');
 const isExpanded = ref(false);
-const prettyCode = ref('');
+const copyCode = ref('');
 const copySuccess = ref(false);
 const lineCount = ref(0);
 
@@ -40,8 +40,8 @@ const toggleExpand = () => {
 };
 
 const copyToClipboard = () => {
-    if (prettyCode.value) {
-        navigator.clipboard.writeText(prettyCode.value)
+    if (copyCode.value) {
+        navigator.clipboard.writeText(copyCode.value)
             .then(() => {
                 copySuccess.value = true;
                 setTimeout(() => {
@@ -80,6 +80,7 @@ onMounted(async () => {
                 return result.trim().startsWith(';') ? trimmed.slice(1).trimStart() : trimmed;
             });
 
+            copyCode.value = formatted; // Store code for copying
             console.log('Formatted code:', formatted);
 
             const language = 'markup';
@@ -91,7 +92,6 @@ onMounted(async () => {
                 formattedCode.value = Prism.highlight(formatted, grammar, language);
             }
 
-            prettyCode.value = formattedCode.value; // Store original code for copying
             // Count lines in the formatted code
             lineCount.value = formatted.split('\n').length;
             console.log('Line count:', lineCount.value);
