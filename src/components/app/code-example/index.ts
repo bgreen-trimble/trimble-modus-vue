@@ -1,3 +1,3 @@
-import CodeFormatter from './CodeFormatter.vue'
+import CodeExample from './CodeExample.vue'
 
-export { CodeFormatter }
+export { CodeExample }

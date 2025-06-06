@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { Button, Switch, Slider } from '@/components';
-import { CodeFormatter } from '@/components/app/code-example';
+import { CodeExample } from '@/components/app/code-example';
 
 const positions = ['top', 'right', 'bottom', 'left'];
 const position = ref('top');
@@ -54,11 +54,11 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <CodeFormatter language="vue">
+                    <CodeExample language="vue">
                         {{ `<Button v-tooltip="'This is a simple tooltip'" variant="filled">
                             Hover Me
                         </Button>`}}
-                    </CodeFormatter>
+                    </CodeExample>
                 </div>
 
                 <!-- Object Configuration Example -->
@@ -76,12 +76,12 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <CodeFormatter language="vue">
+                    <CodeExample language="vue">
                         {{ `<Button v-tooltip="{
     content: 'Configured tooltip',
     position: 'right'
 }" variant="outlined">Configured Tooltip</Button>`}}
-                    </CodeFormatter>
+                    </CodeExample>
                 </div>
             </div>
         </section>
@@ -109,12 +109,12 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <CodeFormatter language="vue">
+                    <CodeExample language="vue">
                         {{ `
                         <Switch v-model="switchValue"
                             v-tooltip="{content: switchValue ? 'Click to disable' : 'Click to enable', position: 'right'}" />
                         `}}
-                    </CodeFormatter>
+                    </CodeExample>
                 </div>
 
                 <!-- Slider Example -->
@@ -129,11 +129,11 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <CodeFormatter language="vue">
+                    <CodeExample language="vue">
                         {{`
                         <Slider v-model="sliderValue"
                             v-tooltip="{ position: 'top' content: \`Current value: \${sliderValue}%\` }" />`}}
-                    </CodeFormatter>
+                    </CodeExample>
                 </div>
             </div>
         </section>
@@ -191,11 +191,11 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <CodeFormatter language="vue">
+                <CodeExample language="vue">
                     {{ `<Button v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" variant="filled">
                         Hover for delayed tooltip
                     </Button>`}}
-                </CodeFormatter>
+                </CodeExample>
             </div>
         </section>
 
@@ -240,7 +240,7 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <CodeFormatter language="vue">{{ exampleCode }}</CodeFormatter>
+                <CodeExample language="vue">{{ exampleCode }}</CodeExample>
             </div>
         </section>
 
@@ -265,14 +265,14 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <CodeFormatter language="vue">
+                <CodeExample language="vue">
                     {{ `<Button aria-label="Settings" v-tooltip="'Settings'"
                         class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
                         variant="text">
                         <i class="modus-icons" aria-hidden="true">settings</i>
                     </Button>`
                     }}
-                </CodeFormatter>
+                </CodeExample>
             </div>
         </section>
     </div>
