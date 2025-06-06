@@ -76,7 +76,6 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <div>
                         <CodeFormatter language="vue">
                             {{`<Button v-tooltip="{
     content: 'Configured tooltip',
@@ -85,7 +84,6 @@ const exampleCode = computed(() => {
                                 Configured Tooltip
                             </Button>`}}
                         </CodeFormatter>
-                    </div>
                 </div>
             </div>
         </section>
@@ -131,10 +129,8 @@ const exampleCode = computed(() => {
                         </div>
                     </div>
 
-                    <div>
                         <CodeFormatter language="vue">
                         </CodeFormatter>
-                    </div>
                 </div>
             </div>
         </section>
@@ -192,13 +188,11 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <div>
                     <CodeFormatter language="vue">
                         {{`<Button v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" variant="filled">
                             Hover for delayed tooltip
                         </Button>`}}
                     </CodeFormatter>
-                </div>
             </div>
         </section>
 
@@ -243,9 +237,7 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <div>
                     <CodeFormatter language="vue">{{ exampleCode }}</CodeFormatter>
-                </div>
             </div>
         </section>
 
@@ -270,7 +262,6 @@ const exampleCode = computed(() => {
                     </div>
                 </div>
 
-                <div>
                     <CodeFormatter language="vue">
                         {{`<Button aria-label="Settings" v-tooltip="'Settings'"
                             class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
@@ -278,7 +269,6 @@ const exampleCode = computed(() => {
                             <i class="modus-icons" aria-hidden="true">settings</i>
                         </Button>`}}
                     </CodeFormatter>
-                </div>
             </div>
         </section>
     </div>

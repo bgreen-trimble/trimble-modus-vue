@@ -57,7 +57,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="code-formatter">
+    <div class="code-formatter px-2">
         <pre><code v-html="formattedCode" class="language-markup"></code></pre>
     </div>
 </template>
@@ -66,6 +66,28 @@ onMounted(async () => {
 .code-formatter {
     border-radius: 0.5rem;
     background: #1e1e1e !important;
+}
+
+.code-formatter pre {
+    overflow-x: auto;
+    margin: 0;
+    white-space: pre;
+}
+
+/* Custom scrollbar styles */
+.code-formatter pre::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.code-formatter pre::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+.code-formatter pre::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a;
+    border-radius: 6px;
+    border: 3px solid #1e1e1e;
 }
 
 code[class*="language-"],
