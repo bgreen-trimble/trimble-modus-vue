@@ -31,7 +31,7 @@ const codeHeight = computed(() => {
         return 'auto';
     }
     // Default collapsed height
-    return '128px';
+    return '192px';
 });
 
 const toggleExpand = () => {

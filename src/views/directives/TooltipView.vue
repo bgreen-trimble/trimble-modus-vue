@@ -111,10 +111,9 @@ const exampleCode = computed(() => {
 
                     <CodeFormatter language="vue">
                         {{ `
-                        <Switch v-model="switchValue" v-tooltip="{
-                                    content: switchValue ? 'Click to disable' : 'Click to enable',
-                                    position: 'right'
-                                }" />`}}
+                        <Switch v-model="switchValue"
+                            v-tooltip="{content: switchValue ? 'Click to disable' : 'Click to enable', position: 'right'}" />
+                        `}}
                     </CodeFormatter>
                 </div>
 
@@ -123,7 +122,7 @@ const exampleCode = computed(() => {
                     <div>
                         <h3 class="tm-h3 mb-2">Slider with Tooltip</h3>
                         <div class="example-container p-6 mb-4">
-                            <Slider v-model="sliderValue" :min="0" :max="100" v-tooltip="{
+                            <Slider v-model="sliderValue" v-tooltip="{
                                 content: `Current value: ${sliderValue}%`,
                                 position: 'top'
                             }" />
@@ -131,6 +130,9 @@ const exampleCode = computed(() => {
                     </div>
 
                     <CodeFormatter language="vue">
+                        {{`
+                        <Slider v-model="sliderValue"
+                            v-tooltip="{ position: 'top' content: \`Current value: \${sliderValue}%\` }" />`}}
                     </CodeFormatter>
                 </div>
             </div>
