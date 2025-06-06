@@ -1,6 +1,6 @@
 # Trimble Modus Vue
 
-This project implements the Trimble Modus design system using Vue.js 3 and Tailwind CSS 4. It provides a comprehensive implementation of Trimble Modus design elements including typography, colors, spacing, borders, shadows, and responsive design.
+This project implements the Trimble Modus design system using Vue.js 3 and Tailwind CSS 4. It provides a partial implementation of Trimble Modus design elements including typography, colors, spacing, borders, shadows, and responsive design.
 
 ## Features
 
@@ -142,6 +142,15 @@ Elevation system with multiple levels:
 
 - **Button**: Versatile button component with variants, sizes, and states
 - **Card**: Flexible card component with different styles and interactive states
+- **Checkbox**: Checkboxes for selecting multiple options with support for indeterminate state
+- **Radio**: Radio buttons for selecting a single option from a list with RadioGroup support
+- **Switch**: Toggle component for binary on/off states
+- **Slider**: Input slider for selecting values from a range
+- **Menu**: Navigation or action menu with icon support and customizable styling
+- **Navbar**: Top navigation bar with branding and responsive behavior
+- **Accordion**: Collapsible content sections for organizing information
+- **Tabs**: Tab-based interface for organizing and switching between views
+- **Toast**: Notification system for displaying brief messages
 - **DarkModeToggle**: Toggle between light and dark themes
 
 ### Showcase Components
