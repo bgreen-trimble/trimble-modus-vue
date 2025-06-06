@@ -80,9 +80,8 @@ const exampleCode = computed(() => {
                             {{`<Button v-tooltip="{
     content: 'Configured tooltip',
     position: 'right'
-}" variant="outlined">
-                                Configured Tooltip
-                            </Button>`}}
+}" 
+variant="outlined">Configured Tooltip</Button>`}}
                         </CodeFormatter>
                 </div>
             </div>
@@ -189,7 +188,9 @@ const exampleCode = computed(() => {
                 </div>
 
                     <CodeFormatter language="vue">
-                        {{`<Button v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" variant="filled">
+                        {{`<Button 
+                        v-tooltip="{ content: 'Delayed tooltip', delay: 500 }" 
+                        variant="filled">
                             Hover for delayed tooltip
                         </Button>`}}
                     </CodeFormatter>
@@ -267,7 +268,8 @@ const exampleCode = computed(() => {
                             class="p-2 rounded-full hover:bg-tm-gray-1 dark:hover:bg-tm-gray-9 transition-colors"
                             variant="text">
                             <i class="modus-icons" aria-hidden="true">settings</i>
-                        </Button>`}}
+                        </Button>`
+                        }}
                     </CodeFormatter>
             </div>
         </section>
